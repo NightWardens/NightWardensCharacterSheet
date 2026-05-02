@@ -1,31 +1,25 @@
-# Night Wardens — Installable Web App Bundle
+# Night Wardens Auto-GM Web v1
 
-This folder contains an installable Progressive Web App (PWA) version of the Night Wardens character tool.
+This is a standalone web page prototype for a tarot-driven Auto-GM.
 
 ## Files
-- `index.html` — the single-page character sheet app
-- `manifest.webmanifest` — Android/Chrome install metadata
-- `service-worker.js` — offline cache support
-- `assets/icon-192.png` and `assets/icon-512.png` — app icons
+- `index.html` — main webpage
+- `auto_gm_data.json` — editable story/card/oracle data
+- `README.md`
 
-## Important Android note
-Android will not reliably install a PWA from a local `file://` folder. To get the app into the Android app drawer/library like a real app, host this folder over HTTPS. Good free options are GitHub Pages, Netlify, Cloudflare Pages, or your own website.
+## How to use on GitHub Pages
+Upload `index.html` and `auto_gm_data.json` to your repo root or a folder such as `/auto-gm/`.
 
-## Install on Android after hosting
-1. Upload the unzipped folder to an HTTPS web host.
-2. Open the hosted `index.html` page in Chrome on Android.
-3. Tap the three-dot menu.
-4. Tap **Install app** or **Add to Home screen**.
-5. Launch **Night Wardens** from the home screen/app drawer.
+Example:
+`https://scottas369-collab.github.io/NightWardensCharacterSheet/auto-gm/`
 
-## Saving character data
-The app supports:
-- browser/device autosave using localStorage
-- manual Save to Browser
-- Download Character JSON
-- Load Character JSON from the device
+## Features
+- Generates a tarot-based case.
+- Tracks phase, pressure clock, visible symptom, possible entities, hidden truth, anchor, and kill condition.
+- Supports typed commands like `look`, `investigate altar`, `talk to witness`, `prep salt line`, `cast veil snap`, `attack entity`.
+- Supports split-party simultaneous actions.
+- Saves to browser storage.
+- Exports/imports case JSON.
 
-For reliable long-term backups, use Download Character JSON after sessions.
-
-## Offline support
-Once opened from an HTTPS host, the service worker caches the app for offline use. Character data remains on the device unless exported.
+## Notes
+This is v1. The next upgrade can connect it to the Digital Field Office's Firebase campaigns/chats so each player sees private branch narration while the campaign log stores shared outcomes.
