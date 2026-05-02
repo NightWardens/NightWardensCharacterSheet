@@ -1,38 +1,34 @@
-Night Wardens Digital Field Office v6 - Firebase Sync Beta
+Night Wardens Digital Field Office v7
 
-Upload/replace these files in your GitHub Pages repo root:
-- index.html
-- app.js
-- night_wardens_data.json
-- manifest.webmanifest
-- service-worker.js
-- firebase-config.js
-- README.txt
+Upload/replace all files in your GitHub Pages repository root.
 
-Optional Firebase files included for setup/reference:
-- firestore.rules
-- firebase.json
+Main site:
+  index.html
+  app.js
+  night_wardens_data.json
+  manifest.webmanifest
+  service-worker.js
+  firebase-config.js
 
-Firebase setup:
-1. Create a Firebase project.
-2. Add a Web App in Firebase project settings.
-3. Copy the Firebase Web App config into firebase-config.js.
-4. Authentication -> Sign-in method -> enable Google.
-5. Authentication -> Settings -> Authorized domains -> add:
-   scottas369-collab.github.io
-6. Firestore Database -> Create database.
-7. Firestore Rules -> paste firestore.rules and publish.
-8. Upload this package to GitHub Pages.
-9. Open with ?v=6.0 after deploy to force the new service worker.
+Auto-GM separate page:
+  auto-gm.html
+  auto_gm_data.json
 
-What v6 adds:
-- Google sign-in when Firebase is configured.
-- Local login still works as an offline fallback.
-- Cloud sync button.
-- Characters sync under users/{uid}/characters.
-- Shared campaigns sync under campaigns/{campaignId} with memberIds.
-- Join codes use joinCodes/{CODE}.
-- Campaign chats currently sync as part of the campaign object.
+What changed:
+- Restored the original main index page instead of replacing it with Auto-GM.
+- Auto-GM is now a separate page.
+- Auto-GM visible title now reads:
+    Night Wardens
+    Digital Field Guide
+- Campaign creation/manager now has a checkbox:
+    Use Auto-GM for this campaign
+- If a campaign has Auto-GM enabled, opening it from the campaign list launches auto-gm.html with campaign parameters.
+- Service worker cache bumped to v7.
 
-Prototype warning:
-The included Firestore rules are a beta starting point for playtesting, not final production security. Before public launch, campaign invites and chat permissions should be tightened further, and large chats should move into subcollections.
+After upload, open:
+  https://scottas369-collab.github.io/NightWardensCharacterSheet/?v=7
+
+Auto-GM direct:
+  https://scottas369-collab.github.io/NightWardensCharacterSheet/auto-gm.html?v=7
+
+If the old page appears, refresh twice. On installed Android PWA, uninstall/reinstall or clear app cache if needed.

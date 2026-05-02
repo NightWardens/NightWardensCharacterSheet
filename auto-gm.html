@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Night Wardens Auto-GM</title>
+  <title>Night Wardens Digital Field Guide</title>
   <style>
     :root{--ink:#211b17;--paper:#efe8dc;--panel:#f8f1e6;--line:#8b8174;--blood:#4b0d12;--muted:#6b625a;--shadow:rgba(20,12,8,.18);--green:#28533a;--black:#161311}
     *{box-sizing:border-box} body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(circle at 20% 10%,rgba(80,70,60,.13) 0 5%,transparent 5.2%),radial-gradient(circle at 70% 22%,rgba(140,70,60,.09) 0 7%,transparent 7.3%),linear-gradient(90deg,transparent 3%,rgba(50,40,30,.18) 3.2%,transparent 3.4%,transparent 96.6%,rgba(50,40,30,.18) 96.8%,transparent 97%),linear-gradient(0deg,transparent 3%,rgba(50,40,30,.18) 3.2%,transparent 3.4%,transparent 96.6%,rgba(50,40,30,.18) 96.8%,transparent 97%),var(--paper)}
@@ -17,9 +17,9 @@
 </head>
 <body>
   <header>
-    <div class="eyebrow">Night Wardens Digital Field Office</div>
-    <h1 class="title">Auto-GM</h1>
-    <div class="subtitle">Shared campaign oracle • private branch narration • solo interactive fiction mode</div>
+    <div class="eyebrow">Night Wardens</div>
+    <h1 class="title">Digital Field Guide</h1>
+    <div class="subtitle">Auto-GM oracle • shared campaign cases • private branch narration • solo interactive fiction mode</div>
   </header>
 
   <main>
@@ -142,10 +142,18 @@
   let DATA = fallbackData;
   const $ = sel => document.querySelector(sel);
   const consoleEl = $('#console'); const commandEl = $('#command');
-  const STORAGE_KEY = 'nightWardensAutoGMSharedPrivateV3';
+  const STORAGE_KEY = 'nightWardensAutoGMSharedPrivateV7';
   const ranks = ['Ace','2','3','4','5','6','7','8','9','10','Page','Knight','Queen','King'];
   const suitNames = ['Blades','Blood','Relics','Sigils'];
   let state = loadState() || defaultState();
+  const URL_PARAMS = new URLSearchParams(location.search);
+  if (URL_PARAMS.get('campaignId')) {
+    state.cloud = state.cloud || {campaignId:'',caseId:'',lastSync:0};
+    state.cloud.campaignId = URL_PARAMS.get('campaignId') || state.cloud.campaignId;
+    state.cloud.campaignCode = URL_PARAMS.get('campaignCode') || state.cloud.campaignCode || '';
+    state.cloud.caseId = URL_PARAMS.get('caseId') || state.cloud.caseId || 'main';
+    state.mode = 'shared';
+  }
 
   function defaultState(){ return { mode:'solo', phase:'seed', season:null, caseSeed:null, location:'unassigned', symptom:'none yet', possibleEntities:[], trueEntity:'unknown', anchor:'unknown', killCondition:'unknown', prepNeeded:[], prepDone:[], clues:[], falseLeads:[], pressure:0, pressureMax:4, party:[{name:'Lead Warden', location:'safehouse', branch:'main', notes:[]}], branches:{main:{location:'safehouse',log:[]}}, transcript:[], privateTranscript:[], cloud:{campaignId:'',caseId:'',lastSync:0} }; }
   function mergeState(base, incoming){ return { ...base, ...incoming, cloud:{...base.cloud,...(incoming.cloud||{})}, party:incoming.party||base.party, branches:incoming.branches||base.branches, transcript:incoming.transcript||base.transcript, privateTranscript:incoming.privateTranscript||base.privateTranscript }; }
@@ -196,7 +204,7 @@
   function processSimultaneous(input, privacy='shared'){ const parts=input.split(';').map(x=>x.trim()).filter(Boolean); say('sys', `Resolving ${parts.length} simultaneous branch action${parts.length===1?'':'s'}...`, privacy); for(const part of parts){ const m=part.match(/^([^:]+):\s*(.+)$/); if(m){ const actor=m[1].trim(); const action=m[2].trim(); if(!state.party.some(p=>p.name.toLowerCase()===actor.toLowerCase())) state.party.push({name:actor,location:state.location,branch:'main',notes:[]}); routeAction(action, actor, privacy); const p=state.party.find(x=>x.name.toLowerCase()===actor.toLowerCase()); if(p) p.notes.push(action); } else routeAction(part,'Lead Warden',privacy); } saveState(); render(); }
   function routeAction(action, actor, privacy='shared'){ const a=action.toLowerCase(); if(a.startsWith('investigate')||a.startsWith('search')||a.startsWith('inspect')) return investigate(action,actor,privacy); if(a.startsWith('research')) return research(action,actor,privacy); if(a.startsWith('talk')||a.startsWith('interview')||a.startsWith('question')) return talk(action,actor,privacy); if(a.startsWith('prep')||a.startsWith('prepare')||a.startsWith('set trap')) return prep(action,actor,privacy); if(a.startsWith('cast')||a.startsWith('ward')||a.startsWith('use rite')) return cast(action,actor,privacy); if(a.startsWith('confront')||a.startsWith('attack')||a.startsWith('banish')||a.startsWith('exorcise')) return confront(action,actor,privacy); if(a.startsWith('resolve')) return resolveCase(privacy); if(a.startsWith('move')){ const p=state.party.find(x=>x.name.toLowerCase()===actor.toLowerCase()); if(p){p.location=action.replace(/^move\s*/i,'').trim(); say('sys', `${actor} moves to ${p.location}.`, privacy); } return; } say('warn', `${actor}'s action is unclear: ${action}. Try investigate, talk, research, prep, cast, or confront.`, privacy); }
 
-  async function init(){ try{ const res=await fetch('auto_gm_data.json?v=3'); if(res.ok) DATA=await res.json(); }catch(e){} redrawConsole(); if(!state.transcript?.length && !state.privateTranscript?.length){ say('sys','Night Wardens Auto-GM online. Type help or new case.'); } render(); }
+  async function init(){ try{ const res=await fetch('auto_gm_data.json?v=7'); if(res.ok) DATA=await res.json(); }catch(e){} redrawConsole(); if(!state.transcript?.length && !state.privateTranscript?.length){ say('sys','Night Wardens Digital Field Guide online. Type help or new case.'); } render(); }
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{ state.mode=b.dataset.mode; if(state.mode==='shared' && firebaseApi.ready && firebaseApi.user) firebaseApi.listen(); else firebaseApi.stopListen(); saveState(false); redrawConsole(); render(); }));
   $('#sendBtn').addEventListener('click',()=>{ const v=commandEl.value; commandEl.value=''; processCommand(v); }); commandEl.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); $('#sendBtn').click(); }});
   document.querySelectorAll('[data-cmd]').forEach(b=>b.addEventListener('click',()=>processCommand(b.dataset.cmd)));
