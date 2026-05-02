@@ -1,21 +1,25 @@
-Night Wardens Digital Field Office v4
+Night Wardens Digital Field Office v4.4 Cache Fix
 
-Upload/replace these files in the GitHub Pages repo root:
+This version keeps the previous layout and uses the visible landing title:
+Night Wardens Digital Field Office
+
+IMPORTANT UPDATE STEP:
+Upload/replace ALL files in the repo root, especially service-worker.js.
+The old installed app/browser may keep showing an older cached header until the service worker updates.
+
+Files to upload:
 - index.html
 - night_wardens_data.json
 - manifest.webmanifest
 - service-worker.js
-- icons/ folder, if present
+- app.js
+- icons/ if present
 
-What changed in v4:
-- Separate landing/login screen.
-- Remember Me auto-login using browser cache.
-- Dashboard after login with Load Character, New Character, Join Campaign.
-- Saved character list with open/export/delete.
-- Saved campaign list with open/export/delete.
-- Guided character creation remains included.
-- Campaign manager supports local campaigns, players, assigned characters, and local chats.
-- Local-only account/campaign/chat storage with vault export/import.
+After committing to GitHub Pages:
+1. Open the site in Chrome.
+2. Add ?v=4.4 to the URL once, like:
+   https://scottas369-collab.github.io/NightWardensCharacterSheet/?v=4.4
+3. Refresh twice.
+4. On Android, if installed as an app and it still shows old text, open App Info > Storage > Clear cache, or uninstall/reinstall the PWA.
 
-Important:
-This is still a static GitHub Pages app. True Google login, cloud sync, player-only chats, and cross-device campaigns require a backend such as Firebase Auth + Firestore or Supabase Auth + Row Level Security.
+This is still local-only unless connected to Firebase/Supabase later.
