@@ -1,24 +1,21 @@
-Night Wardens Beyond Lite v3
+Night Wardens Beyond Lite v4
 
-Upload these files to the root of your GitHub Pages repository:
-
+Upload/replace these files in the GitHub Pages repo root:
 - index.html
 - night_wardens_data.json
+- manifest.webmanifest
+- service-worker.js
+- icons/ folder, if present
 
-This version adds:
-- Landing page with local login/create account
-- Dashboard: load character, new character, join campaign
-- Guided character creation wizard
-- Character image upload saved into exported JSON
-- Corrected role attribute recalculation: base 9 + role bonuses
-- Guided leveling with role-tier gates before shared skills
-- Campaign manager with local campaigns, players, join codes, and chats
-- Device autosave through localStorage
-- Export/import full vault JSON
-- Export/import individual character JSON
+What changed in v4:
+- Separate landing/login screen.
+- Remember Me auto-login using browser cache.
+- Dashboard after login with Load Character, New Character, Join Campaign.
+- Saved character list with open/export/delete.
+- Saved campaign list with open/export/delete.
+- Guided character creation remains included.
+- Campaign manager supports local campaigns, players, assigned characters, and local chats.
+- Local-only account/campaign/chat storage with vault export/import.
 
-Current limitation:
-This is a static GitHub Pages/localStorage app. Google sign-in and true private multiplayer campaign chat require a backend such as Firebase Auth + Firestore or Supabase Auth + database policies.
-
-Next suggested package:
-Firebase-enabled version with Google login, synced characters, synced campaigns, and per-campaign chat permissions.
+Important:
+This is still a static GitHub Pages app. True Google login, cloud sync, player-only chats, and cross-device campaigns require a backend such as Firebase Auth + Firestore or Supabase Auth + Row Level Security.
