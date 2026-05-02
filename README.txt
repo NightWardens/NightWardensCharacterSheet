@@ -1,4 +1,4 @@
-Night Wardens Digital Field Office v4.1
+Night Wardens v4
 
 Upload/replace these files in the GitHub Pages repo root:
 - index.html

@@ -1,6 +1,6 @@
 {
-  "name": "Night Wardens Digital Field Office",
-  "short_name": "NW Field Office",
+  "name": "Night Wardens",
+  "short_name": "Night Wardens",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
