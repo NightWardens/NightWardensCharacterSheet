@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0-local-prototype",
+  "version": "0.5.0-field-office",
   "game": "Night Wardens",
   "baseAttributes": {
     "force": 9,
@@ -11,103 +11,1948 @@
     "endurance": 9
   },
   "attributes": [
-    {"key":"force","label":"Force","use":"damage, grapple, leverage, close violence"},
-    {"key":"prowess","label":"Prowess","use":"aim, stealth, move, coordination"},
-    {"key":"intellect","label":"Intellect","use":"research, clues, crafting, deduction"},
-    {"key":"instinct","label":"Instinct","use":"awareness, tracking, reaction, hunting sense"},
-    {"key":"will","label":"Will","use":"composure, rituals, vessel checks, possession resistance"},
-    {"key":"charisma","label":"Charisma","use":"social pressure, bargains, cover, spirit contact"},
-    {"key":"endurance","label":"Endurance","use":"fatigue, recovery, injury resistance, survival"}
+    {
+      "key": "force",
+      "label": "Force",
+      "use": "damage, grapple, leverage, close violence"
+    },
+    {
+      "key": "prowess",
+      "label": "Prowess",
+      "use": "aim, stealth, move, coordination"
+    },
+    {
+      "key": "intellect",
+      "label": "Intellect",
+      "use": "research, clues, crafting, deduction"
+    },
+    {
+      "key": "instinct",
+      "label": "Instinct",
+      "use": "awareness, tracking, reaction, hunting sense"
+    },
+    {
+      "key": "will",
+      "label": "Will",
+      "use": "composure, rituals, vessel checks, possession resistance"
+    },
+    {
+      "key": "charisma",
+      "label": "Charisma",
+      "use": "social pressure, bargains, cover, spirit contact"
+    },
+    {
+      "key": "endurance",
+      "label": "Endurance",
+      "use": "fatigue, recovery, injury resistance, survival"
+    }
   ],
   "roles": {
-    "Enforcer": {"function":"Ends the threat directly.","bonuses":{"force":2,"prowess":1,"will":1},"starter":["Melee Combat","Firearms","Intimidation","Endurance","Close Quarters","Weapon Handling"],"experienced":["Combat Flow","Suppression","Armor Breaking","Threat Control"],"master":["Execution Strike","Multi-Target Combat","Adrenal Surge"]},
-    "Infiltrator": {"function":"Gets in where others cannot.","bonuses":{"prowess":2,"instinct":1,"charisma":1},"starter":["Deception","Persuasion","Disguise","Investigation","Stealth","Observation"],"experienced":["Deep Cover","Interrogation","Forgery","Social Engineering"],"master":["Perfect Impersonation","Psychological Control","Invisible Presence"]},
-    "Lorekeeper": {"function":"Understands what the team is facing.","bonuses":{"intellect":2,"will":1,"instinct":1},"starter":["Research","Occult Knowledge","Investigation","History","Symbolism","Pattern Study"],"experienced":["Ritual Analysis","Weakness Identification","Language Decoding","Archive Retrieval"],"master":["True Pattern Sight","Forbidden Lore","Perfect Deduction"]},
-    "Tracker": {"function":"Finds what does not want to be found.","bonuses":{"instinct":2,"prowess":1,"endurance":1},"starter":["Tracking","Survival","Awareness","Investigation","Stealth","Navigation"],"experienced":["Ambush","Trap Avoidance","Environmental Reading","Pursuit"],"master":["Supernatural Tracking","Kill Setup","Apex Predator"]},
-    "Survivor": {"function":"Stays standing when everyone else is breaking.","bonuses":{"endurance":2,"force":1,"will":1},"starter":["Endurance","Resistance","Awareness","Survival","Pain Tolerance","Recovery"],"experienced":["Damage Mitigation","Fear Resistance","Adrenal Control","Last Stand"],"master":["Death Defiance","Unyielding Body","Crisis Overdrive"]},
-    "Occultist": {"function":"Controls dangerous rituals and bindings.","bonuses":{"will":2,"intellect":1,"charisma":1},"starter":["Ritual Casting","Occult Knowledge","Investigation","Focus","Sigil Reading","Energy Control"],"experienced":["Advanced Rituals","Warding","Binding","Curse Handling"],"master":["Forbidden Magic","Entity Binding","Reality Manipulation"]},
-    "Medium": {"function":"Communicates with what others cannot reach.","bonuses":{"charisma":2,"will":1,"instinct":1},"starter":["Spirit Communication","Insight","Investigation","Occult","Presence Sense","Emotional Reading"],"experienced":["Spirit Bargaining","Astral Awareness","Possession Resistance","Energy Reading"],"master":["Spirit Command","Veil Manipulation","Forced Manifestation"]},
-    "Tinkerer": {"function":"Builds the tools that make impossible hunts survivable.","bonuses":{"intellect":2,"prowess":1,"endurance":1},"starter":["Engineering","Crafting","Trap Setting","Forensics","Repair","Improvisation"],"experienced":["Advanced Traps","Ammo Crafting","Mechanism Design","Explosive Rigging"],"master":["Killbox Systems","Remote Triggers","Anti-Entity Devices"]}
+    "Enforcer": {
+      "function": "Ends the threat directly.",
+      "bonuses": {
+        "force": 2,
+        "prowess": 1,
+        "will": 1
+      },
+      "starter": [
+        "Melee Combat",
+        "Firearms",
+        "Intimidation",
+        "Endurance",
+        "Close Quarters",
+        "Weapon Handling"
+      ],
+      "experienced": [
+        "Combat Flow",
+        "Suppression",
+        "Armor Breaking",
+        "Threat Control"
+      ],
+      "master": [
+        "Execution Strike",
+        "Multi-Target Combat",
+        "Adrenal Surge"
+      ]
+    },
+    "Infiltrator": {
+      "function": "Gets in where others cannot.",
+      "bonuses": {
+        "prowess": 2,
+        "instinct": 1,
+        "charisma": 1
+      },
+      "starter": [
+        "Deception",
+        "Persuasion",
+        "Disguise",
+        "Investigation",
+        "Stealth",
+        "Observation"
+      ],
+      "experienced": [
+        "Deep Cover",
+        "Interrogation",
+        "Forgery",
+        "Social Engineering"
+      ],
+      "master": [
+        "Perfect Impersonation",
+        "Psychological Control",
+        "Invisible Presence"
+      ]
+    },
+    "Lorekeeper": {
+      "function": "Understands what the team is facing.",
+      "bonuses": {
+        "intellect": 2,
+        "will": 1,
+        "instinct": 1
+      },
+      "starter": [
+        "Research",
+        "Occult Knowledge",
+        "Investigation",
+        "History",
+        "Symbolism",
+        "Pattern Study"
+      ],
+      "experienced": [
+        "Ritual Analysis",
+        "Weakness Identification",
+        "Language Decoding",
+        "Archive Retrieval"
+      ],
+      "master": [
+        "True Pattern Sight",
+        "Forbidden Lore",
+        "Perfect Deduction"
+      ]
+    },
+    "Tracker": {
+      "function": "Finds what does not want to be found.",
+      "bonuses": {
+        "instinct": 2,
+        "prowess": 1,
+        "endurance": 1
+      },
+      "starter": [
+        "Tracking",
+        "Survival",
+        "Awareness",
+        "Investigation",
+        "Stealth",
+        "Navigation"
+      ],
+      "experienced": [
+        "Ambush",
+        "Trap Avoidance",
+        "Environmental Reading",
+        "Pursuit"
+      ],
+      "master": [
+        "Supernatural Tracking",
+        "Kill Setup",
+        "Apex Predator"
+      ]
+    },
+    "Survivor": {
+      "function": "Stays standing when everyone else is breaking.",
+      "bonuses": {
+        "endurance": 2,
+        "force": 1,
+        "will": 1
+      },
+      "starter": [
+        "Endurance",
+        "Resistance",
+        "Awareness",
+        "Survival",
+        "Pain Tolerance",
+        "Recovery"
+      ],
+      "experienced": [
+        "Damage Mitigation",
+        "Fear Resistance",
+        "Adrenal Control",
+        "Last Stand"
+      ],
+      "master": [
+        "Death Defiance",
+        "Unyielding Body",
+        "Crisis Overdrive"
+      ]
+    },
+    "Occultist": {
+      "function": "Controls dangerous rituals and bindings.",
+      "bonuses": {
+        "will": 2,
+        "intellect": 1,
+        "charisma": 1
+      },
+      "starter": [
+        "Ritual Casting",
+        "Occult Knowledge",
+        "Investigation",
+        "Focus",
+        "Sigil Reading",
+        "Energy Control"
+      ],
+      "experienced": [
+        "Advanced Rituals",
+        "Warding",
+        "Binding",
+        "Curse Handling"
+      ],
+      "master": [
+        "Forbidden Magic",
+        "Entity Binding",
+        "Reality Manipulation"
+      ]
+    },
+    "Medium": {
+      "function": "Communicates with what others cannot reach.",
+      "bonuses": {
+        "charisma": 2,
+        "will": 1,
+        "instinct": 1
+      },
+      "starter": [
+        "Spirit Communication",
+        "Insight",
+        "Investigation",
+        "Occult",
+        "Presence Sense",
+        "Emotional Reading"
+      ],
+      "experienced": [
+        "Spirit Bargaining",
+        "Astral Awareness",
+        "Possession Resistance",
+        "Energy Reading"
+      ],
+      "master": [
+        "Spirit Command",
+        "Veil Manipulation",
+        "Forced Manifestation"
+      ]
+    },
+    "Tinkerer": {
+      "function": "Builds the tools that make impossible hunts survivable.",
+      "bonuses": {
+        "intellect": 2,
+        "prowess": 1,
+        "endurance": 1
+      },
+      "starter": [
+        "Engineering",
+        "Crafting",
+        "Trap Setting",
+        "Forensics",
+        "Repair",
+        "Improvisation"
+      ],
+      "experienced": [
+        "Advanced Traps",
+        "Ammo Crafting",
+        "Mechanism Design",
+        "Explosive Rigging"
+      ],
+      "master": [
+        "Killbox Systems",
+        "Remote Triggers",
+        "Anti-Entity Devices"
+      ]
+    }
   },
   "sharedSkills": [
-    {"name":"Awareness","attribute":"Instinct","use":"Notice threats, anomalies, hidden movement, and ambush conditions."},
-    {"name":"Investigation","attribute":"Intellect","use":"Search scenes, connect clues, and narrow entity possibilities."},
-    {"name":"Stealth","attribute":"Prowess","use":"Move unseen, bypass notice, and establish ambush position."},
-    {"name":"Survival","attribute":"Instinct","use":"Operate in harsh environments and read terrain or tracks."},
-    {"name":"Endurance","attribute":"Endurance","use":"Resist fatigue, bodily stress, and cumulative pressure."},
-    {"name":"Composure","attribute":"Will","use":"Resist fear, panic, and mental collapse under supernatural stress."},
-    {"name":"Occult Knowledge","attribute":"Intellect","use":"Recognize rituals, supernatural signs, and likely weaknesses."},
-    {"name":"Ritual Basics","attribute":"Intellect / Will","use":"Attempt basic rituals with elevated danger and instability."},
-    {"name":"Ritual Casting","attribute":"Will","use":"Perform controlled ritual work, especially for Occultists."},
-    {"name":"Binding","attribute":"Will","use":"Restrict, contain, or pin down supernatural entities."},
-    {"name":"Warding","attribute":"Will","use":"Create barriers, circles, protections, and anti-entity thresholds."},
-    {"name":"Melee Combat","attribute":"Force","use":"Resolve close violence, control, and finishing pressure."},
-    {"name":"Firearms","attribute":"Prowess","use":"Deliver precise ranged attacks and target weaknesses at distance."},
-    {"name":"Tinkering","attribute":"Intellect + Prowess","use":"Build traps, modify gear, and create anti-entity tools."},
-    {"name":"Presence Sense","attribute":"Instinct / Will","use":"Detect or classify supernatural presence."},
-    {"name":"Spirit Communication","attribute":"Charisma / Will","use":"Speak to spirits for information, leverage, or release."},
-    {"name":"Insight","attribute":"Charisma / Instinct","use":"Read motives, lies, emotional fractures, and hidden pressure."}
+    {
+      "name": "Awareness",
+      "attribute": "Instinct",
+      "use": "Notice threats, anomalies, hidden movement, and ambush conditions."
+    },
+    {
+      "name": "Investigation",
+      "attribute": "Intellect",
+      "use": "Search scenes, connect clues, and narrow entity possibilities."
+    },
+    {
+      "name": "Stealth",
+      "attribute": "Prowess",
+      "use": "Move unseen, bypass notice, and establish ambush position."
+    },
+    {
+      "name": "Survival",
+      "attribute": "Instinct",
+      "use": "Operate in harsh environments and read terrain or tracks."
+    },
+    {
+      "name": "Endurance",
+      "attribute": "Endurance",
+      "use": "Resist fatigue, bodily stress, and cumulative pressure."
+    },
+    {
+      "name": "Composure",
+      "attribute": "Will",
+      "use": "Resist fear, panic, and mental collapse under supernatural stress."
+    },
+    {
+      "name": "Occult Knowledge",
+      "attribute": "Intellect",
+      "use": "Recognize rituals, supernatural signs, and likely weaknesses."
+    },
+    {
+      "name": "Ritual Basics",
+      "attribute": "Intellect / Will",
+      "use": "Attempt basic rituals with elevated danger and instability."
+    },
+    {
+      "name": "Ritual Casting",
+      "attribute": "Will",
+      "use": "Perform controlled ritual work, especially for Occultists."
+    },
+    {
+      "name": "Binding",
+      "attribute": "Will",
+      "use": "Restrict, contain, or pin down supernatural entities."
+    },
+    {
+      "name": "Warding",
+      "attribute": "Will",
+      "use": "Create barriers, circles, protections, and anti-entity thresholds."
+    },
+    {
+      "name": "Melee Combat",
+      "attribute": "Force",
+      "use": "Resolve close violence, control, and finishing pressure."
+    },
+    {
+      "name": "Firearms",
+      "attribute": "Prowess",
+      "use": "Deliver precise ranged attacks and target weaknesses at distance."
+    },
+    {
+      "name": "Tinkering",
+      "attribute": "Intellect + Prowess",
+      "use": "Build traps, modify gear, and create anti-entity tools."
+    },
+    {
+      "name": "Presence Sense",
+      "attribute": "Instinct / Will",
+      "use": "Detect or classify supernatural presence."
+    },
+    {
+      "name": "Spirit Communication",
+      "attribute": "Charisma / Will",
+      "use": "Speak to spirits for information, leverage, or release."
+    },
+    {
+      "name": "Insight",
+      "attribute": "Charisma / Instinct",
+      "use": "Read motives, lies, emotional fractures, and hidden pressure."
+    }
   ],
   "gear": [
-    {"name":"Iron Knife","type":"Melee","effect":"Reliable field blade and basic anti-fae option."},
-    {"name":"Silver Blade","type":"Melee","effect":"Bypasses many supernatural resistances."},
-    {"name":"Shotgun","type":"Ranged","effect":"High close-range damage and breach potential."},
-    {"name":"Handgun","type":"Ranged","effect":"Balanced sidearm for precision shots."},
-    {"name":"Crowbar","type":"Tool","effect":"Utility leverage and forced entry."},
-    {"name":"EMF Reader","type":"Tool","effect":"Detects activity and grants investigation support."},
-    {"name":"Flashlight","type":"Tool","effect":"Reduces darkness pressure and reveals certain entities."},
-    {"name":"Lockpick Kit","type":"Tool","effect":"Supports infiltration and access work."}
+    {
+      "name": "Iron Knife",
+      "type": "Melee",
+      "effect": "Reliable field blade and basic anti-fae option."
+    },
+    {
+      "name": "Silver Blade",
+      "type": "Melee",
+      "effect": "Bypasses many supernatural resistances."
+    },
+    {
+      "name": "Shotgun",
+      "type": "Ranged",
+      "effect": "High close-range damage and breach potential."
+    },
+    {
+      "name": "Handgun",
+      "type": "Ranged",
+      "effect": "Balanced sidearm for precision shots."
+    },
+    {
+      "name": "Crowbar",
+      "type": "Tool",
+      "effect": "Utility leverage and forced entry."
+    },
+    {
+      "name": "EMF Reader",
+      "type": "Tool",
+      "effect": "Detects activity and grants investigation support."
+    },
+    {
+      "name": "Flashlight",
+      "type": "Tool",
+      "effect": "Reduces darkness pressure and reveals certain entities."
+    },
+    {
+      "name": "Lockpick Kit",
+      "type": "Tool",
+      "effect": "Supports infiltration and access work."
+    }
   ],
   "consumablesRelics": [
-    {"name":"Holy Water","type":"Consumable","effect":"Repels or harms certain spirits and infernals.","cost":"Instant use"},
-    {"name":"Salt Pack","type":"Consumable","effect":"Creates barrier or crossing denial.","cost":"Scene duration"},
-    {"name":"Adrenaline","type":"Consumable","effect":"Ignore penalties briefly.","cost":"Crash afterward"},
-    {"name":"Fire Bomb","type":"Consumable","effect":"Area damage and cleansing.","cost":"Loud and unstable"},
-    {"name":"Blessed Rosary","type":"Relic","effect":"Improves possession defense.","cost":"Strain on repeated use"},
-    {"name":"Spirit Lantern","type":"Relic","effect":"Reveals hidden entities.","cost":"Draining"},
-    {"name":"Binding Chain","type":"Relic","effect":"Holds or limits manifested entities.","cost":"Requires Will support"},
-    {"name":"True Name Scroll","type":"Relic","effect":"Reduces summon or banish difficulty.","cost":"Consumed"}
+    {
+      "name": "Holy Water",
+      "type": "Consumable",
+      "effect": "Repels or harms certain spirits and infernals.",
+      "cost": "Instant use"
+    },
+    {
+      "name": "Salt Pack",
+      "type": "Consumable",
+      "effect": "Creates barrier or crossing denial.",
+      "cost": "Scene duration"
+    },
+    {
+      "name": "Adrenaline",
+      "type": "Consumable",
+      "effect": "Ignore penalties briefly.",
+      "cost": "Crash afterward"
+    },
+    {
+      "name": "Fire Bomb",
+      "type": "Consumable",
+      "effect": "Area damage and cleansing.",
+      "cost": "Loud and unstable"
+    },
+    {
+      "name": "Blessed Rosary",
+      "type": "Relic",
+      "effect": "Improves possession defense.",
+      "cost": "Strain on repeated use"
+    },
+    {
+      "name": "Spirit Lantern",
+      "type": "Relic",
+      "effect": "Reveals hidden entities.",
+      "cost": "Draining"
+    },
+    {
+      "name": "Binding Chain",
+      "type": "Relic",
+      "effect": "Holds or limits manifested entities.",
+      "cost": "Requires Will support"
+    },
+    {
+      "name": "True Name Scroll",
+      "type": "Relic",
+      "effect": "Reduces summon or banish difficulty.",
+      "cost": "Consumed"
+    },
+    {
+      "name": "Blade of the First Warden",
+      "type": "Legendary Relic",
+      "effect": "+3 Force, ignores supernatural resistance",
+      "cost": "Gains Corruption mark each kill"
+    },
+    {
+      "name": "Crown of Dominion",
+      "type": "Legendary Relic",
+      "effect": "Command lesser entities",
+      "cost": "WILL check each use or lose control"
+    },
+    {
+      "name": "Lantern of Lost Souls",
+      "type": "Legendary Relic",
+      "effect": "Summon spirits for aid",
+      "cost": "Spirits demand something in return"
+    },
+    {
+      "name": "Chains of the Bound King",
+      "type": "Legendary Relic",
+      "effect": "Restrain any entity temporarily",
+      "cost": "User suffers same restraint sensation"
+    },
+    {
+      "name": "Tome of Forbidden Names",
+      "type": "Legendary Relic",
+      "effect": "Learn true names of entities",
+      "cost": "Each use increases Obsession"
+    },
+    {
+      "name": "Heart of the Fallen Angel",
+      "type": "Legendary Relic",
+      "effect": "Massive divine power boost",
+      "cost": "Constant vessel checks"
+    },
+    {
+      "name": "Demon Core Fragment",
+      "type": "Legendary Relic",
+      "effect": "Amplifies all damage",
+      "cost": "Rapid corruption progression"
+    },
+    {
+      "name": "Mirror of True Form",
+      "type": "Legendary Relic",
+      "effect": "Reveal any being\u2019s true nature",
+      "cost": "User sees their own monstrous fate"
+    },
+    {
+      "name": "Relic of Endless Salt",
+      "type": "Legendary Relic",
+      "effect": "Create unbreakable barrier once per session",
+      "cost": "Drains all stamina"
+    },
+    {
+      "name": "Bone Crown of the Devoured",
+      "type": "Legendary Relic",
+      "effect": "Gain strength from defeated foes",
+      "cost": "Hunger affliction intensifies"
+    },
+    {
+      "name": "Sigil Engine",
+      "type": "Legendary Relic",
+      "effect": "Activate multiple traps remotely",
+      "cost": "System overload backlash"
+    },
+    {
+      "name": "Blood Chalice",
+      "type": "Legendary Relic",
+      "effect": "Heal from damage dealt",
+      "cost": "Requires blood sacrifice"
+    },
+    {
+      "name": "Veil of the Forgotten",
+      "type": "Legendary Relic",
+      "effect": "Become undetectable to supernatural",
+      "cost": "Lose presence (Charisma penalty)"
+    },
+    {
+      "name": "Spear of Radiant Judgment",
+      "type": "Legendary Relic",
+      "effect": "Deals massive damage to demons",
+      "cost": "Attracts divine attention"
+    },
+    {
+      "name": "Grimoire of Living Ink",
+      "type": "Legendary Relic",
+      "effect": "Create spells instantly",
+      "cost": "Ink consumes user slowly"
+    },
+    {
+      "name": "Clock of Stolen Time",
+      "type": "Legendary Relic",
+      "effect": "Gain extra action",
+      "cost": "Ages user rapidly"
+    },
+    {
+      "name": "Ring of Binding Oaths",
+      "type": "Legendary Relic",
+      "effect": "Force agreements to hold",
+      "cost": "User bound by same rule"
+    },
+    {
+      "name": "Mask of Many Faces",
+      "type": "Legendary Relic",
+      "effect": "Perfect disguise",
+      "cost": "Identity instability (Changeling risk)"
+    },
+    {
+      "name": "Idol of the Watcher",
+      "type": "Legendary Relic",
+      "effect": "See future danger briefly",
+      "cost": "Psychological strain"
+    },
+    {
+      "name": "The Black Key",
+      "type": "Legendary Relic",
+      "effect": "Opens any sealed supernatural lock",
+      "cost": "Something always comes through with it"
+    }
   ],
   "materials": [
-    {"name":"Steel","category":"Base","function":"Reliable weapon and tool construction"},
-    {"name":"Silver","category":"Catalyst","function":"Bypasses resistance"},
-    {"name":"Holy Oil","category":"Catalyst","function":"Repels and sanctifies"},
-    {"name":"Ectoplasm","category":"Catalyst","function":"Strengthens spirit interactions"},
-    {"name":"Demon Blood","category":"Catalyst","function":"Adds power at high risk"},
-    {"name":"Salt","category":"Stabilizer","function":"Barrier and cleansing support"},
-    {"name":"Sigils","category":"Stabilizer","function":"Reduce ritual or trap instability"},
-    {"name":"Iron","category":"Stabilizer","function":"Broad anti-fae protection"}
+    {
+      "name": "Steel",
+      "category": "Base",
+      "function": "Reliable weapon and tool construction"
+    },
+    {
+      "name": "Silver",
+      "category": "Catalyst",
+      "function": "Bypasses resistance"
+    },
+    {
+      "name": "Holy Oil",
+      "category": "Catalyst",
+      "function": "Repels and sanctifies"
+    },
+    {
+      "name": "Ectoplasm",
+      "category": "Catalyst",
+      "function": "Strengthens spirit interactions"
+    },
+    {
+      "name": "Demon Blood",
+      "category": "Catalyst",
+      "function": "Adds power at high risk"
+    },
+    {
+      "name": "Salt",
+      "category": "Stabilizer",
+      "function": "Barrier and cleansing support"
+    },
+    {
+      "name": "Sigils",
+      "category": "Stabilizer",
+      "function": "Reduce ritual or trap instability"
+    },
+    {
+      "name": "Iron",
+      "category": "Stabilizer",
+      "function": "Broad anti-fae protection"
+    }
   ],
   "spells": [
-    {"name":"Force Pulse","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Push or stagger one target.","backlash":"You stagger; next roll -1."},
-    {"name":"Veil Snap","kind":"Quick Spell","roll":"Will + Ritual Basics / Presence Sense","cost":"1 strain | Minor","effect":"Expose hidden spirit, glamour, or sigil.","backlash":"Wrong reveal; false tell."},
-    {"name":"Lantern Spark","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Light area; cancel darkness -1.","backlash":"Spark dies; attention drawn."},
-    {"name":"Grave Chill","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Slow living or spirit target.","backlash":"Caster takes chill -1 Endurance."},
-    {"name":"Shield Burst","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Reduce one incoming damage tier.","backlash":"Shield shatters; suffer recoil."},
-    {"name":"Ash Mark","kind":"Quick Spell","roll":"Will + Ritual Basics","cost":"1 strain | Minor","effect":"Tag target for tracking.","backlash":"Mark rebounds onto caster."},
-    {"name":"Static Hex","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Jam electronics/audio/focus.","backlash":"Nearby gear glitches unpredictably."},
-    {"name":"Spirit Lash","kind":"Quick Spell","roll":"Will + Energy Control","cost":"2 strain | Major","effect":"Direct harm to manifested spirit.","backlash":"Pain echo; take -1 Will."},
-    {"name":"Protective Circle","kind":"Rite","roll":"Will + Warding + Sigil Reading","cost":"1 strain | 10 minutes","effect":"Block entry/crossing with a warded boundary.","backlash":"Circle tears; exposed."},
-    {"name":"Binding Chain Rite","kind":"Rite","roll":"Will + Binding + Ritual Casting","cost":"2 strain | 10 minutes","effect":"Immobilize manifested target.","backlash":"Target breaks free violently."},
-    {"name":"Anchor Revelation","kind":"Rite","roll":"Will + Ritual Casting + Occult Knowledge","cost":"1 strain | 15 minutes","effect":"Identify anchor, remains, vessel, shrine, or blood tie.","backlash":"False anchor clue."},
-    {"name":"Name Calling","kind":"Rite","roll":"Will + Ritual Casting + Focus","cost":"2 strain | 10 minutes","effect":"Force entity response by name.","backlash":"Hostile attention."},
-    {"name":"Exorcist's Litany","kind":"Rite","roll":"Will + Ritual Casting + Spirit Communication / Occult Knowledge","cost":"2 strain | 3 uninterrupted rounds","effect":"Drive possessor from host.","backlash":"Backlash/escalation."},
-    {"name":"Consecrate Ground","kind":"Rite","roll":"Will + Ritual Casting","cost":"2 strain | 20 minutes","effect":"Sanctify a room or site.","backlash":"Area flares unstable."},
-    {"name":"Seal the Threshold","kind":"Rite","roll":"Will + Warding","cost":"2 strain | 15 minutes","effect":"Close breach, gate, or layered path.","backlash":"Exit denial hits allies too."},
-    {"name":"Curse Severance","kind":"Rite","roll":"Will + Curse Handling","cost":"2 strain | 15 minutes","effect":"Break active hex or knot.","backlash":"Curse jumps target."},
-    {"name":"Ashen Burden","kind":"Curse","roll":"Will + Curse Handling","cost":"1 strain | Minor","effect":"Target suffers -1 movement/pursuit.","backlash":"Mark stains you too."},
-    {"name":"Black Thread","kind":"Curse","roll":"Will + Curse Handling","cost":"1 strain | Minor","effect":"Track target by emotional pull.","backlash":"Target tracks you back."},
-    {"name":"Hunter's Oath","kind":"Blessing","roll":"Will + Ritual Basics","cost":"1 strain | Minor","effect":"One weapon gains anti-entity edge.","backlash":"Weapon burns hot in hand."},
-    {"name":"Mercy Ward","kind":"Blessing","roll":"Will + Warding","cost":"1 strain | Minor","effect":"Protect host/civilian from possession spike.","backlash":"Ward breaks under panic."},
-    {"name":"Vessel Override","kind":"Forbidden","roll":"Will + Forbidden Magic + Focus","cost":"3 strain + 1 affliction mark | Major","effect":"Seize control of shared host-body moment.","backlash":"Resident entity may gain control; vessel fracture."},
-    {"name":"Soul Pin","kind":"Forbidden","roll":"Will + Entity Binding + Sigil Reading","cost":"3 strain + 1 corruption mark | 10 minutes","effect":"Pin spirit/demon/manifestation to its anchor for one final exchange.","backlash":"Entity tags caster or site."}
+    {
+      "name": "Force Pulse",
+      "kind": "Quick",
+      "roll": "Will + Energy",
+      "cost": "1 strain | Minor",
+      "effect": "Push or stagger 1 target",
+      "backlash": "You stagger; next roll -1",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Veil Snap",
+      "kind": "Quick",
+      "roll": "Will + Ritual Basics",
+      "cost": "1 strain | Minor",
+      "effect": "Expose hidden spirit or glamour",
+      "backlash": "Wrong reveal; false tell",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Lantern Spark",
+      "kind": "Quick",
+      "roll": "Will + Energy",
+      "cost": "1 strain | Minor",
+      "effect": "Light area; cancel darkness -1",
+      "backlash": "Spark dies; attention drawn",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Grave Chill",
+      "kind": "Quick",
+      "roll": "Will + Energy",
+      "cost": "1 strain | Minor",
+      "effect": "Slow living or spirit target",
+      "backlash": "Caster takes chill -1 Endurance",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Shield Burst",
+      "kind": "Quick",
+      "roll": "Will + Energy",
+      "cost": "1 strain | Minor",
+      "effect": "Reduce one incoming damage tier",
+      "backlash": "Shield shatters; suffer recoil",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Ash Mark",
+      "kind": "Quick",
+      "roll": "Will + Ritual Basics",
+      "cost": "1 strain | Minor",
+      "effect": "Tag target for tracking",
+      "backlash": "Mark rebounds onto caster",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Static Hex",
+      "kind": "Quick",
+      "roll": "Will + Energy",
+      "cost": "1 strain | Minor",
+      "effect": "Jam electronics / audio / focus",
+      "backlash": "Nearby gear glitches unpredictably",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Spirit Lash",
+      "kind": "Quick",
+      "roll": "Will + Energy",
+      "cost": "2 strain | Major",
+      "effect": "Direct harm to manifested spirit",
+      "backlash": "Pain echo; take -1 Will",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Protective Circle",
+      "kind": "Rite: Warding",
+      "roll": "Will + Warding",
+      "cost": "1 strain | 10 min",
+      "effect": "Block entry / crossing",
+      "backlash": "Circle tears, exposed",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Binding Chain Rite",
+      "kind": "Rite: Binding",
+      "roll": "Will + Binding",
+      "cost": "2 strain | 10 min",
+      "effect": "Immobilize manifested target",
+      "backlash": "Target breaks free violently",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Anchor Revelation",
+      "kind": "Rite: Veilcraft",
+      "roll": "Will + Ritual Casting",
+      "cost": "1 strain | 15 min",
+      "effect": "Identify anchor or remains",
+      "backlash": "False anchor clue",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Name Calling",
+      "kind": "Rite: Threshold",
+      "roll": "Will + Ritual Casting",
+      "cost": "2 strain | 10 min",
+      "effect": "Force entity response by name",
+      "backlash": "Hostile attention",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Exorcist's Litany",
+      "kind": "Rite: Purification",
+      "roll": "Will + Ritual Casting",
+      "cost": "2 strain | 3 rounds",
+      "effect": "Drive possessor from host",
+      "backlash": "Backlash / escalation",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Consecrate Ground",
+      "kind": "Rite: Purification",
+      "roll": "Will + Ritual Casting",
+      "cost": "2 strain | 20 min",
+      "effect": "Sanctify room or site",
+      "backlash": "Area flares unstable",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Seal the Threshold",
+      "kind": "Rite: Threshold",
+      "roll": "Will + Warding",
+      "cost": "2 strain | 15 min",
+      "effect": "Close breach, gate, or layered path",
+      "backlash": "Exit denial hits allies too",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Curse Severance",
+      "kind": "Rite: Purification",
+      "roll": "Will + Curse Handling",
+      "cost": "2 strain | 15 min",
+      "effect": "Break active hex or knot",
+      "backlash": "Curse jumps target",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Ashen Burden",
+      "kind": "Curse",
+      "roll": "Will + Curse Handling",
+      "cost": "1 strain | Minor",
+      "effect": "Target suffers -1 movement / pursuit",
+      "backlash": "Mark stains you too",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Black Thread",
+      "kind": "Curse",
+      "roll": "Will + Curse Handling",
+      "cost": "1 strain | Minor",
+      "effect": "Track target by emotional pull",
+      "backlash": "Target tracks you back",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Hunger Bell",
+      "kind": "Curse",
+      "roll": "Will + Forbidden Magic",
+      "cost": "2 strain | Major",
+      "effect": "Agitate beast / wendigo / feeding urge",
+      "backlash": "You feel it too",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Saint's Breath",
+      "kind": "Blessing",
+      "roll": "Will + Ritual Basics",
+      "cost": "1 strain | Minor",
+      "effect": "Ally ignores 1 fear setback",
+      "backlash": "Calm turns to numbness",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Hunter's Oath",
+      "kind": "Blessing",
+      "roll": "Will + Ritual Basics",
+      "cost": "1 strain | Minor",
+      "effect": "One weapon gains anti-entity edge",
+      "backlash": "Weapon burns hot in hand",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Mercy Ward",
+      "kind": "Blessing",
+      "roll": "Will + Warding",
+      "cost": "1 strain | Minor",
+      "effect": "Protect host / civilian from possession spike",
+      "backlash": "Ward breaks under panic",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Vessel Override",
+      "kind": "Forbidden",
+      "roll": "3d6 <= (Will + Forbidden Magic + Focus - Setbacks)",
+      "cost": "3 strain and 1 affliction mark | Major action | Components: Blood signature, holy or infernal catalyst",
+      "effect": "Force yourself or another Warden to seize control of a shared host-body moment.",
+      "backlash": "",
+      "school": "Blood & Vessel Work | Tags: [Forbidden] [Vessel]",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Soul Pin",
+      "kind": "Forbidden",
+      "roll": "3d6 <= (Will + Entity Binding + Sigil Reading - Setbacks)",
+      "cost": "3 strain and 1 corruption mark | 10 minutes | Components: Nail, bone, blooded sigil, true name fragment",
+      "effect": "Nail a spirit, demon, or escaping manifestation to its current anchor for one final exchange.",
+      "backlash": "",
+      "school": "Forbidden Binding | Tags: [Forbidden] [Bind]",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Black Gate Petition",
+      "kind": "Forbidden",
+      "roll": "3d6 <= (Will + Forbidden Magic + Occult Knowledge - Setbacks)",
+      "cost": "3 strain plus narrative cost | 20 minutes | Components: Rare catalyst, anchor site, sacrifice or equivalent cost",
+      "effect": "Ask an outer or infernal force for a specific answer, location, or opening at terrible cost.",
+      "backlash": "",
+      "school": "Threshold Work | Tags: [Forbidden] [Gate]",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Echo Reconstruction",
+      "kind": "Spell Seed: Veilcraft",
+      "roll": "",
+      "cost": "",
+      "effect": "Replay the emotional shape of a scene long enough to ask one precise question.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Threshold Lattice",
+      "kind": "Spell Seed: Warding",
+      "roll": "",
+      "cost": "",
+      "effect": "Grid a doorway or hall against repeated crossings.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Witness Thread",
+      "kind": "Spell Seed: Veilcraft",
+      "roll": "",
+      "cost": "",
+      "effect": "Tie two clues together and test whether they share an anchor.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Bone Rattle",
+      "kind": "Spell Seed: Evocation",
+      "roll": "",
+      "cost": "",
+      "effect": "Shake dead tissue, bones, or remains into brief agitation or response.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Relic Stabilization",
+      "kind": "Spell Seed: Purification",
+      "roll": "",
+      "cost": "",
+      "effect": "Stop a dangerous relic from cascading for one scene.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Bleed the Sigil",
+      "kind": "Spell Seed: Curse",
+      "roll": "",
+      "cost": "",
+      "effect": "Turn an enemy ward against the one who wrote it.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Host Shelter",
+      "kind": "Spell Seed: Purification",
+      "roll": "",
+      "cost": "",
+      "effect": "Hide a weak host from possession pressure for one scene.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Panic Whisper",
+      "kind": "Spell Seed: Curse",
+      "roll": "",
+      "cost": "",
+      "effect": "Inject a sudden doubt or fear spike into one marked target.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Omen Read",
+      "kind": "Spell Seed: Veilcraft",
+      "roll": "",
+      "cost": "",
+      "effect": "Ask the scene for the next likely escalation if the group delays.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Ash Trail",
+      "kind": "Spell Seed: Investigation Rite",
+      "roll": "",
+      "cost": "",
+      "effect": "Make burned remains point toward what consumed them.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Shroud Touch",
+      "kind": "Spell Seed: Veilcraft",
+      "roll": "",
+      "cost": "",
+      "effect": "Mask a living aura briefly from low-grade spirits.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Hearth Seal",
+      "kind": "Spell Seed: Purification",
+      "roll": "",
+      "cost": "",
+      "effect": "Make one room count as home ground against hostile entry.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Circle of Refusal",
+      "kind": "Spell Seed: Threshold",
+      "roll": "",
+      "cost": "",
+      "effect": "Forbid bargains, names, and invitations inside the space.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Black Candle Relay",
+      "kind": "Spell Seed: Threshold",
+      "roll": "",
+      "cost": "",
+      "effect": "Carry a ritual effect from one room to another without moving the whole circle.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Mourner's Grace",
+      "kind": "Spell Seed: Purification",
+      "roll": "",
+      "cost": "",
+      "effect": "Let a witness survive direct contact with a tragic spirit long enough to speak.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Feral Quiet",
+      "kind": "Spell Seed: Curse",
+      "roll": "",
+      "cost": "",
+      "effect": "Suppress animal noise or unnatural calling in a zone.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Iron Tongue",
+      "kind": "Spell Seed: Blessing",
+      "roll": "",
+      "cost": "",
+      "effect": "Speak one refusal or command with supernatural force.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Borrowed Breath",
+      "kind": "Spell Seed: Vessel Work",
+      "roll": "",
+      "cost": "",
+      "effect": "Keep a dying target conscious for a final question or exorcism round.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Bell of Return",
+      "kind": "Spell Seed: Purification",
+      "roll": "",
+      "cost": "",
+      "effect": "Call a wandering soul back to its remains, room, or witness.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    },
+    {
+      "name": "Rag-and-Flame Banishment",
+      "kind": "Spell Seed: Purification",
+      "roll": "",
+      "cost": "",
+      "effect": "Cheap improvised banishment for lesser infestations and weak haunt clusters.",
+      "backlash": "",
+      "school": "",
+      "components": "",
+      "tags": ""
+    }
   ],
   "starterEquipmentPackages": {
-    "Field Kit": ["Flashlight", "Salt Pack", "Iron Knife", "EMF Reader"],
-    "Combat Kit": ["Handgun", "Shotgun", "Salt Pack", "Holy Water"],
-    "Occult Kit": ["Holy Water", "Blessed Rosary", "Salt Pack", "True Name Scroll"],
-    "Investigation Kit": ["EMF Reader", "Flashlight", "Lockpick Kit", "Crowbar"],
-    "Tinker Kit": ["Crowbar", "Lockpick Kit", "Steel", "Sigils", "Iron"],
-    "Relic Risk Kit": ["Spirit Lantern", "Binding Chain", "Blessed Rosary", "Salt Pack"]
+    "Field Kit": [
+      "Flashlight",
+      "Salt Pack",
+      "Iron Knife",
+      "EMF Reader"
+    ],
+    "Combat Kit": [
+      "Handgun",
+      "Shotgun",
+      "Salt Pack",
+      "Holy Water"
+    ],
+    "Occult Kit": [
+      "Holy Water",
+      "Blessed Rosary",
+      "Salt Pack",
+      "True Name Scroll"
+    ],
+    "Investigation Kit": [
+      "EMF Reader",
+      "Flashlight",
+      "Lockpick Kit",
+      "Crowbar"
+    ],
+    "Tinker Kit": [
+      "Crowbar",
+      "Lockpick Kit",
+      "Steel",
+      "Sigils",
+      "Iron"
+    ],
+    "Relic Risk Kit": [
+      "Spirit Lantern",
+      "Binding Chain",
+      "Blessed Rosary",
+      "Salt Pack"
+    ]
+  },
+  "occultSchools": [
+    {
+      "name": "Wards",
+      "role": "Protection, circles, thresholds, repellents, cover against spiritual or infernal intrusion."
+    },
+    {
+      "name": "Bindings",
+      "role": "Containment, immobilization, host separation, circle locks, and anti-escape effects."
+    },
+    {
+      "name": "Veilcraft",
+      "role": "Detection, revelation, spectral contact, brief manifestation, and navigation through hidden realities."
+    },
+    {
+      "name": "Evocations",
+      "role": "Short bursts of force, heat, cold, light, or disruption used under direct pressure."
+    },
+    {
+      "name": "Purifications",
+      "role": "Cleansing, exorcism support, curse suppression, relic stabilizing, and consecration."
+    },
+    {
+      "name": "Curses",
+      "role": "Hexes, marks, pressure, exhaustion, dream poisoning, or targeted misfortune."
+    },
+    {
+      "name": "Threshold Rites",
+      "role": "Summoning, sealing, opening, banishing, and lawful supernatural transactions."
+    },
+    {
+      "name": "Blood & Vessel Work",
+      "role": "Compatibility checks, host strain, anchor transfer, forced entry, and high-risk power exchange."
+    }
+  ],
+  "bestiary": [
+    {
+      "name": "Vengeful Spirit (Onryo)",
+      "category": "Spirit",
+      "type": "Spirit",
+      "threat": "3 (Dangerous)",
+      "knownBy": "Warden Archive",
+      "abilities": "- Targeted Haunting: Ignores non-targets\n- Emotional Surge: Adds +1 setback to nearby Wardens\n- Manifest Strike: Can harm targets once revealed",
+      "summonTrigger": "- Murder, betrayal, or unresolved injustice\n- Disturbed remains\n- Emotional anchor not resolved",
+      "signs": "- Records: Victim tied to suspects\n- Witness: Same person seen repeatedly\n- Supernatural: Anger imprint",
+      "behavior": "- Escalates over time\n- Uses a focused target list\n- Becomes more physical as threat rises",
+      "effects": "- Fear Aura: \u22121 to \u22123 on Will checks",
+      "weakness": "- Remains\n- Emotional resolution",
+      "killCondition": "Must do both:\n- Locate the remains through investigation\n- Burn the remains or resolve the grudge\nIf this is not completed, the entity reforms after the scene.",
+      "traps": "",
+      "rawSearch": "Vengeful Spirit (Onryo) Spirit Spirit 3 (Dangerous) Warden Archive - Targeted Haunting: Ignores non-targets\n- Emotional Surge: Adds +1 setback to nearby Wardens\n- Manifest Strike: Can harm targets once revealed - Murder, betrayal, or unresolved injustice\n- Disturbed remains\n- Emotional anchor not resolved - Records: Victim tied to suspects\n- Witness: Same person seen repeatedly\n- Supernatural: Anger imprint - Escalates over time\n- Uses a focused target list\n- Becomes more physical as threat rises - Fear Aura: \u22121 to \u22123 on Will checks - Remains\n- Emotional resolution Must do both:\n- Locate the remains through investigation\n- Burn the remains or resolve the grudge\nIf this is not completed, the entity reforms after the scene. "
+    },
+    {
+      "name": "Crossroads Demon",
+      "category": "Infernal",
+      "type": "Infernal (Contract Entity)",
+      "threat": "4 (Major)",
+      "knownBy": "Warden Archive",
+      "abilities": "- Contract Binding: Cannot be broken once agreed\n- Word Twist: Poor wording can be interpreted against the target\n- Possession Escape: When the host body dies, the demon slips free",
+      "summonTrigger": "- Blood, black candles, and sigil\n- True name or deal invocation\n- Anchor is a crossroads or contract object",
+      "signs": "- Records: Sudden success followed by tragedy\n- Occult: Contract traces\n- Witness: Calm, well-dressed stranger",
+      "behavior": "- Polite\n- Patient\n- Manipulative\n- Never lies outright, only twists meaning",
+      "effects": "- Demonic Influence: \u22122 to \u22124 on Will checks",
+      "weakness": "- Contract loophole\n- Anchor object such as coin, deal sheet, or token",
+      "killCondition": "Choose one path:\n1. Break the contract through Intellect + Occult Knowledge\n2. Destroy the anchor\n3. Use a true name binding ritual",
+      "traps": "",
+      "rawSearch": "Crossroads Demon Infernal Infernal (Contract Entity) 4 (Major) Warden Archive - Contract Binding: Cannot be broken once agreed\n- Word Twist: Poor wording can be interpreted against the target\n- Possession Escape: When the host body dies, the demon slips free - Blood, black candles, and sigil\n- True name or deal invocation\n- Anchor is a crossroads or contract object - Records: Sudden success followed by tragedy\n- Occult: Contract traces\n- Witness: Calm, well-dressed stranger - Polite\n- Patient\n- Manipulative\n- Never lies outright, only twists meaning - Demonic Influence: \u22122 to \u22124 on Will checks - Contract loophole\n- Anchor object such as coin, deal sheet, or token Choose one path:\n1. Break the contract through Intellect + Occult Knowledge\n2. Destroy the anchor\n3. Use a true name binding ritual "
+    },
+    {
+      "name": "Djinn",
+      "category": "Entity",
+      "type": "Entity",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Reality Illusion: Creates false environments\n- Isolation Trap: Separates targets from the group\n- Wish Distortion: Twists desires and outcomes",
+      "summonTrigger": "- Vessel required, usually a lamp, jar, or sealed object\n- Binding phrase or symbol",
+      "signs": "- Witness: Contradicting stories\n- Environment: Reality mismatch\n- Supernatural: Illusion signature",
+      "behavior": "",
+      "effects": "- Reality Distortion: \u22122 to perception-related rolls",
+      "weakness": "- Vessel",
+      "killCondition": "- Destroy the vessel\n- Or seal the djinn through ritual",
+      "traps": "",
+      "rawSearch": "Djinn Entity Entity 4 Warden Archive - Reality Illusion: Creates false environments\n- Isolation Trap: Separates targets from the group\n- Wish Distortion: Twists desires and outcomes - Vessel required, usually a lamp, jar, or sealed object\n- Binding phrase or symbol - Witness: Contradicting stories\n- Environment: Reality mismatch\n- Supernatural: Illusion signature  - Reality Distortion: \u22122 to perception-related rolls - Vessel - Destroy the vessel\n- Or seal the djinn through ritual "
+    },
+    {
+      "name": "Wendigo",
+      "category": "Beast",
+      "type": "Apex Beast",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Voice Mimic\n- Frenzy: Gains +1 after feeding\n- Ambush Predator",
+      "summonTrigger": "- Cannibalism\n- Extreme hunger\n- Wilderness corruption",
+      "signs": "- Environment: Half-eaten bodies\n- Witness: Familiar voices in the dark\n- Tracks: Large, unnatural prints",
+      "behavior": "",
+      "effects": "- Fear Aura: \u22122\n- Cold Exposure: \u22121",
+      "weakness": "- Fire only",
+      "killCondition": "- Must be burned completely\nPartial damage only puts it down temporarily.",
+      "traps": "",
+      "rawSearch": "Wendigo Beast Apex Beast 5 Warden Archive - Voice Mimic\n- Frenzy: Gains +1 after feeding\n- Ambush Predator - Cannibalism\n- Extreme hunger\n- Wilderness corruption - Environment: Half-eaten bodies\n- Witness: Familiar voices in the dark\n- Tracks: Large, unnatural prints  - Fear Aura: \u22122\n- Cold Exposure: \u22121 - Fire only - Must be burned completely\nPartial damage only puts it down temporarily. "
+    },
+    {
+      "name": "Changeling",
+      "category": "Fae",
+      "type": "Fae",
+      "threat": "2",
+      "knownBy": "Warden Archive",
+      "abilities": "- Perfect Mimicry\n- Memory Alteration\n- Social Infiltration",
+      "summonTrigger": "- Bargain\n- Replacement",
+      "signs": "- Witness: Personality shift\n- Records: Missing history\n- Behavior: Subtle errors and social inconsistencies",
+      "behavior": "",
+      "effects": "- Identity Distortion: \u22121 to Investigation",
+      "weakness": "- Iron\n- True identity reveal",
+      "killCondition": "- Reveal the true form, then strike with iron",
+      "traps": "",
+      "rawSearch": "Changeling Fae Fae 2 Warden Archive - Perfect Mimicry\n- Memory Alteration\n- Social Infiltration - Bargain\n- Replacement - Witness: Personality shift\n- Records: Missing history\n- Behavior: Subtle errors and social inconsistencies  - Identity Distortion: \u22121 to Investigation - Iron\n- True identity reveal - Reveal the true form, then strike with iron "
+    },
+    {
+      "name": "The Woman In Black",
+      "category": "Spirit",
+      "type": "Omen Spirit",
+      "threat": "4 (Major)",
+      "knownBy": "Warden Archive",
+      "abilities": "- Death Omen: When seen, mark a target; that target suffers escalating setbacks over scenes\n- Silent Manifestation: Cannot be heard approaching\n- Inevitable Presence: Once marked, cannot be avoided without ritual intervention",
+      "summonTrigger": "- Appears after unresolved grief tied to children or loss\n- Also appears after repeated deaths in the same location\n- Anchor is usually a mourning object such as a veil, locket, or grave marker",
+      "signs": "- Witness: \u201cSaw her before someone died.\u201d\n- Records: Pattern of deaths after sightings\n- Supernatural: Oppressive silence and temperature drop",
+      "behavior": "",
+      "effects": "- Marked target suffers \u22122 to all rolls\n- Marked target gains +1 additional setback per scene",
+      "weakness": "- Object of mourning\n- Truth of her loss uncovered",
+      "killCondition": "Must do all of the following:\n- Identify who she mourns\n- Return or resolve the lost connection\n- Destroy or sanctify the anchor object\nIf not completed, the cycle continues.",
+      "traps": "",
+      "rawSearch": "The Woman In Black Spirit Omen Spirit 4 (Major) Warden Archive - Death Omen: When seen, mark a target; that target suffers escalating setbacks over scenes\n- Silent Manifestation: Cannot be heard approaching\n- Inevitable Presence: Once marked, cannot be avoided without ritual intervention - Appears after unresolved grief tied to children or loss\n- Also appears after repeated deaths in the same location\n- Anchor is usually a mourning object such as a veil, locket, or grave marker - Witness: \u201cSaw her before someone died.\u201d\n- Records: Pattern of deaths after sightings\n- Supernatural: Oppressive silence and temperature drop  - Marked target suffers \u22122 to all rolls\n- Marked target gains +1 additional setback per scene - Object of mourning\n- Truth of her loss uncovered Must do all of the following:\n- Identify who she mourns\n- Return or resolve the lost connection\n- Destroy or sanctify the anchor object\nIf not completed, the cycle continues. "
+    },
+    {
+      "name": "The Woman In White",
+      "category": "Spirit",
+      "type": "Tragic Spirit",
+      "threat": "2\u20133",
+      "knownBy": "Warden Archive",
+      "abilities": "- Luring Presence: Draws targets emotionally\n- Echo Loop: Repeats last moments\n- Possession (Limited): Brief control during emotional spikes",
+      "summonTrigger": "- Death tied to betrayal\n- Death tied to abandonment\n- Death tied to lost love",
+      "signs": "- Witness: Hitchhiker or roadside sightings\n- Records: Missing person or tragic death\n- Behavior: Repeats phrases or cries",
+      "behavior": "",
+      "effects": "- \u22121 to \u22122 Will when interacting directly",
+      "weakness": "- Truth of betrayal\n- Burial or rest completion",
+      "killCondition": "Must do one of the following after identifying the story:\n- Resolve the emotional loop\n- Properly lay the remains to rest",
+      "traps": "",
+      "rawSearch": "The Woman In White Spirit Tragic Spirit 2\u20133 Warden Archive - Luring Presence: Draws targets emotionally\n- Echo Loop: Repeats last moments\n- Possession (Limited): Brief control during emotional spikes - Death tied to betrayal\n- Death tied to abandonment\n- Death tied to lost love - Witness: Hitchhiker or roadside sightings\n- Records: Missing person or tragic death\n- Behavior: Repeats phrases or cries  - \u22121 to \u22122 Will when interacting directly - Truth of betrayal\n- Burial or rest completion Must do one of the following after identifying the story:\n- Resolve the emotional loop\n- Properly lay the remains to rest "
+    },
+    {
+      "name": "Poltergeist",
+      "category": "Spirit",
+      "type": "Chaotic Spirit",
+      "threat": "3",
+      "knownBy": "Warden Archive",
+      "abilities": "- Telekinetic Assault\n- Environmental Manipulation\n- Escalation Surge: Gets stronger over time",
+      "summonTrigger": "- Emotional stress, often focused around an individual\n- Built-up psychic energy",
+      "signs": "- Environment: Objects thrown or broken\n- Witness: Activity centered around one person\n- Supernatural: Energy spikes",
+      "behavior": "",
+      "effects": "- \u22122 Prowess in the affected area",
+      "weakness": "- Source individual\n- Emotional stabilization",
+      "killCondition": "Must do both:\n- Identify the anchor person\n- Remove or resolve the emotional trigger",
+      "traps": "",
+      "rawSearch": "Poltergeist Spirit Chaotic Spirit 3 Warden Archive - Telekinetic Assault\n- Environmental Manipulation\n- Escalation Surge: Gets stronger over time - Emotional stress, often focused around an individual\n- Built-up psychic energy - Environment: Objects thrown or broken\n- Witness: Activity centered around one person\n- Supernatural: Energy spikes  - \u22122 Prowess in the affected area - Source individual\n- Emotional stabilization Must do both:\n- Identify the anchor person\n- Remove or resolve the emotional trigger "
+    },
+    {
+      "name": "Mirror Shade",
+      "category": "Spirit",
+      "type": "Bound Spirit",
+      "threat": "3\u20134",
+      "knownBy": "Warden Archive",
+      "abilities": "- Reflection Mimicry\n- Swap Attempt: Possession through reflection\n- Delayed Movement: Moves when unseen",
+      "summonTrigger": "- Bound to reflective surfaces\n- Often caused by a failed ritual or occult accident",
+      "signs": "- Visual: Reflection delay\n- Behavior: Reflection does not match movement\n- Supernatural: Cold localized to mirrors",
+      "behavior": "",
+      "effects": "- \u22122 Instinct when near mirrors or reflective clusters",
+      "weakness": "- Break or cover the mirror\n- True name binding",
+      "killCondition": "- Destroy the anchor mirror\n- Or seal the entity",
+      "traps": "",
+      "rawSearch": "Mirror Shade Spirit Bound Spirit 3\u20134 Warden Archive - Reflection Mimicry\n- Swap Attempt: Possession through reflection\n- Delayed Movement: Moves when unseen - Bound to reflective surfaces\n- Often caused by a failed ritual or occult accident - Visual: Reflection delay\n- Behavior: Reflection does not match movement\n- Supernatural: Cold localized to mirrors  - \u22122 Instinct when near mirrors or reflective clusters - Break or cover the mirror\n- True name binding - Destroy the anchor mirror\n- Or seal the entity "
+    },
+    {
+      "name": "Residual Haunt",
+      "category": "Spirit",
+      "type": "Residual",
+      "threat": "1",
+      "knownBy": "Warden Archive",
+      "abilities": "- Loop Replay\n- Non-interactive Presence",
+      "summonTrigger": "- High emotional imprint",
+      "signs": "- Pattern: Same event repeats\n- Interaction: Cannot respond to contact",
+      "behavior": "",
+      "effects": "- Minimal, usually \u22121 to fear checks only",
+      "weakness": "- None, because it is not truly hostile",
+      "killCondition": "- Not applicable\n- Can only be cleansed",
+      "traps": "",
+      "rawSearch": "Residual Haunt Spirit Residual 1 Warden Archive - Loop Replay\n- Non-interactive Presence - High emotional imprint - Pattern: Same event repeats\n- Interaction: Cannot respond to contact  - Minimal, usually \u22121 to fear checks only - None, because it is not truly hostile - Not applicable\n- Can only be cleansed "
+    },
+    {
+      "name": "Whisper Imp",
+      "category": "Infernal",
+      "type": "Infernal Scout",
+      "threat": "1",
+      "knownBy": "Warden Archive",
+      "abilities": "- Whisper Through Cracks: Speaks through vents, radios, drains, mirrors, and dreams\n- Panic Nudge: Adds +1 setback to isolated targets in scenes of fear or confusion\n- Carrion Skitter: Moves rapidly through dark or narrow spaces",
+      "summonTrigger": "- Petty cruelty repeated in one household\n- Minor blood offering with broken warding\n- Deliberate invitation to an unseen thing during fear rituals or dares",
+      "signs": "- Witness: Whispering from empty rooms\n- Environment: Scratching in walls, spoiled food, moved charms\n- Supernatural: Weak infernal trace around windows, vents, and thresholds",
+      "behavior": "- Avoids direct confrontation\n- Enjoys paranoia and exhaustion\n- Often serves as herald or spy for stronger demons",
+      "effects": "- Whispers / Voices: \u22121 to Awareness, Focus, or rest-related recovery in its territory",
+      "weakness": "- Salt lines\n- Iron nails in the threshold\n- Minor holy invocation",
+      "killCondition": "- Trap it inside a warded boundary and complete a minor exorcism or crush its fetish anchor",
+      "traps": "",
+      "rawSearch": "Whisper Imp Infernal Infernal Scout 1 Warden Archive - Whisper Through Cracks: Speaks through vents, radios, drains, mirrors, and dreams\n- Panic Nudge: Adds +1 setback to isolated targets in scenes of fear or confusion\n- Carrion Skitter: Moves rapidly through dark or narrow spaces - Petty cruelty repeated in one household\n- Minor blood offering with broken warding\n- Deliberate invitation to an unseen thing during fear rituals or dares - Witness: Whispering from empty rooms\n- Environment: Scratching in walls, spoiled food, moved charms\n- Supernatural: Weak infernal trace around windows, vents, and thresholds - Avoids direct confrontation\n- Enjoys paranoia and exhaustion\n- Often serves as herald or spy for stronger demons - Whispers / Voices: \u22121 to Awareness, Focus, or rest-related recovery in its territory - Salt lines\n- Iron nails in the threshold\n- Minor holy invocation - Trap it inside a warded boundary and complete a minor exorcism or crush its fetish anchor "
+    },
+    {
+      "name": "Hollow Rider",
+      "category": "Infernal",
+      "type": "Possessing Demon",
+      "threat": "2",
+      "knownBy": "Warden Archive",
+      "abilities": "- Cold Entry: Slips into spiritually weakened, sleeping, or dying hosts\n- Borrowed Face: Mimics normal behavior through the host for short periods\n- Pain Split: Host ignores one lesser wound shift while possessed",
+      "summonTrigger": "- Broken containment sigil\n- Blood rite without proper warding\n- Dying victim used as an infernal doorway",
+      "signs": "- Witness: Sudden personality inversion or blackouts\n- Records: Violence with missing memory\n- Supernatural: Sulfur, black-eyed reflections, pain tolerance beyond reason",
+      "behavior": "- Quiet and observant at first\n- Tests social boundaries before escalating\n- Uses the host to isolate allies and compromise safe spaces",
+      "effects": "- Demonic Influence: \u22122 on Will checks versus fear, coercion, temptation, or panic",
+      "weakness": "- Exorcism\n- Consecrated ground\n- Holy water and binding sigils",
+      "killCondition": "- Separate demon from host through exorcism, then trap or banish it before repossession\noccurs",
+      "traps": "",
+      "rawSearch": "Hollow Rider Infernal Possessing Demon 2 Warden Archive - Cold Entry: Slips into spiritually weakened, sleeping, or dying hosts\n- Borrowed Face: Mimics normal behavior through the host for short periods\n- Pain Split: Host ignores one lesser wound shift while possessed - Broken containment sigil\n- Blood rite without proper warding\n- Dying victim used as an infernal doorway - Witness: Sudden personality inversion or blackouts\n- Records: Violence with missing memory\n- Supernatural: Sulfur, black-eyed reflections, pain tolerance beyond reason - Quiet and observant at first\n- Tests social boundaries before escalating\n- Uses the host to isolate allies and compromise safe spaces - Demonic Influence: \u22122 on Will checks versus fear, coercion, temptation, or panic - Exorcism\n- Consecrated ground\n- Holy water and binding sigils - Separate demon from host through exorcism, then trap or banish it before repossession\noccurs "
+    },
+    {
+      "name": "Ash Mouth",
+      "category": "Infernal",
+      "type": "Devouring Demon",
+      "threat": "3",
+      "knownBy": "Warden Archive",
+      "abilities": "- Furnace Breath: Ignites small objects, wards, curtains, or corpses\n- Hunger Pressure: Nearby targets feel violent appetite, rage, or greed\n- Corpse Leash: Briefly animates burning remains or dead tissue",
+      "summonTrigger": "- Mass death site left unsanctified\n- Cannibal rite mixed with infernal sigils\n- Burning of the dead under cursed conditions",
+      "signs": "- Environment: Soot, grease-like ash, scorched symbols\n- Witness: Fits of hunger, violence, or self-destructive cravings\n- Supernatural: Infernal heat in cold places",
+      "behavior": "- Predatory and impatient\n- Pushes groups toward desperation and mutual harm\n- Prefers to feed through escalation before manifesting fully",
+      "effects": "- Hunger Pressure: \u22121 to \u22123 on Composure or Will when blood, bodies, or food are present",
+      "weakness": "- Holy fire\n- Consecrated ash circles\n- Starving the anchor source",
+      "killCondition": "- Destroy the infernal anchor and complete a fire-and-prayer banishment before it feeds again",
+      "traps": "",
+      "rawSearch": "Ash Mouth Infernal Devouring Demon 3 Warden Archive - Furnace Breath: Ignites small objects, wards, curtains, or corpses\n- Hunger Pressure: Nearby targets feel violent appetite, rage, or greed\n- Corpse Leash: Briefly animates burning remains or dead tissue - Mass death site left unsanctified\n- Cannibal rite mixed with infernal sigils\n- Burning of the dead under cursed conditions - Environment: Soot, grease-like ash, scorched symbols\n- Witness: Fits of hunger, violence, or self-destructive cravings\n- Supernatural: Infernal heat in cold places - Predatory and impatient\n- Pushes groups toward desperation and mutual harm\n- Prefers to feed through escalation before manifesting fully - Hunger Pressure: \u22121 to \u22123 on Composure or Will when blood, bodies, or food are present - Holy fire\n- Consecrated ash circles\n- Starving the anchor source - Destroy the infernal anchor and complete a fire-and-prayer banishment before it feeds again "
+    },
+    {
+      "name": "Chain Scribe",
+      "category": "Infernal",
+      "type": "Contract Demon",
+      "threat": "3",
+      "knownBy": "Warden Archive",
+      "abilities": "- Clause Twist: Turns careless bargains against the target\n- Signature Mark: Leaves occult brands tied to obligation and debt\n- Oath Lock: Punishes broken promises made in its presence",
+      "summonTrigger": "- Bargain ritual at a crossroads or threshold\n- Signed blood contract\n- Spoken offer made under desperation and willingly accepted",
+      "signs": "- Records: Sudden gain followed by ruin\n- Occult: Infernal ink, repeating symbols, contract residue\n- Witness: Calm stranger who seemed to know private details",
+      "behavior": "- Polite, methodical, patient\n- Prefers traps over brute force\n- Escalates deals into possession, sacrifice, ruin, or damnation",
+      "effects": "- Oath Pressure: \u22122 on social, Will, or deception-related rolls once marked by contract",
+      "weakness": "- Contract loophole\n- Reversal of exact wording\n- Destroyed agreement token",
+      "killCondition": "- Break or reverse the contract, then bind with its true name or destroy the object carrying the\noath",
+      "traps": "",
+      "rawSearch": "Chain Scribe Infernal Contract Demon 3 Warden Archive - Clause Twist: Turns careless bargains against the target\n- Signature Mark: Leaves occult brands tied to obligation and debt\n- Oath Lock: Punishes broken promises made in its presence - Bargain ritual at a crossroads or threshold\n- Signed blood contract\n- Spoken offer made under desperation and willingly accepted - Records: Sudden gain followed by ruin\n- Occult: Infernal ink, repeating symbols, contract residue\n- Witness: Calm stranger who seemed to know private details - Polite, methodical, patient\n- Prefers traps over brute force\n- Escalates deals into possession, sacrifice, ruin, or damnation - Oath Pressure: \u22122 on social, Will, or deception-related rolls once marked by contract - Contract loophole\n- Reversal of exact wording\n- Destroyed agreement token - Break or reverse the contract, then bind with its true name or destroy the object carrying the\noath "
+    },
+    {
+      "name": "Black Choir",
+      "category": "Infernal",
+      "type": "Legion Infernal",
+      "threat": "3\u20134",
+      "knownBy": "Warden Archive",
+      "abilities": "- Many Mouths: Speaks through multiple hosts, phones, radios, and dreams at once\n- Shared Awareness: If one linked host sees the Wardens, all linked hosts know\n- Choir Pressure: Groups suffer escalating fear, guilt, or paranoia",
+      "summonTrigger": "- Multi-victim cult rite\n- Mass prayer inversion\n- Repeated possession in one family, church, school, or institution",
+      "signs": "- Records: Separate incidents share impossible phrasing or symbols\n- Witness: Different people speak in the same cadence or voice\n- Supernatural: Multiple weak infernal traces acting as one",
+      "behavior": "- Strategic and coordinated\n- Uses crowds, institutions, and families as cover\n- Hard to isolate because it spreads attention across many mouths",
+      "effects": "- Group Pressure: All Wardens in range suffer \u22121; isolated Wardens suffer \u22122",
+      "weakness": "- Sever the network anchors\n- Silence linked mouths with wards\n- Break the central will directing the choir",
+      "killCondition": "- Identify the central anchor host or ritual node, then exorcise or destroy it while the lesser links\nare contained",
+      "traps": "",
+      "rawSearch": "Black Choir Infernal Legion Infernal 3\u20134 Warden Archive - Many Mouths: Speaks through multiple hosts, phones, radios, and dreams at once\n- Shared Awareness: If one linked host sees the Wardens, all linked hosts know\n- Choir Pressure: Groups suffer escalating fear, guilt, or paranoia - Multi-victim cult rite\n- Mass prayer inversion\n- Repeated possession in one family, church, school, or institution - Records: Separate incidents share impossible phrasing or symbols\n- Witness: Different people speak in the same cadence or voice\n- Supernatural: Multiple weak infernal traces acting as one - Strategic and coordinated\n- Uses crowds, institutions, and families as cover\n- Hard to isolate because it spreads attention across many mouths - Group Pressure: All Wardens in range suffer \u22121; isolated Wardens suffer \u22122 - Sever the network anchors\n- Silence linked mouths with wards\n- Break the central will directing the choir - Identify the central anchor host or ritual node, then exorcise or destroy it while the lesser links\nare contained "
+    },
+    {
+      "name": "War Mask",
+      "category": "Infernal",
+      "type": "Battle Demon",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Host Override: Uses the host body at full violent efficiency\n- Adrenal Burn: Ignores first serious wound penalty each scene\n- Terror Charge: Forces nearby targets into fear or scatter checks",
+      "summonTrigger": "- Battlefield relics\n- Murder rituals using military objects or blood-soaked uniforms\n- Host chosen for rage, combat trauma, or violent obsession",
+      "signs": "- Witness: Host survives wounds that should disable them\n- Environment: Walls, doors, and barricades broken with abnormal force\n- Supernatural: Blood haze, infernal war-scent, heat around weapons",
+      "behavior": "- Direct, brutal, relentless\n- Uses fear to split groups and force mistakes\n- Often deployed by stronger infernal powers as an executioner",
+      "effects": "- Fear Aura: \u22122 to close-range actions against it unless the Warden passes Composure or Will",
+      "weakness": "- Relic-grade wards\n- Host exhaustion after long manifestation\n- Binding circles reinforced with iron and prayer",
+      "killCondition": "- Immobilize the host, force separation through exorcism or binding, then finish with sanctified\nweapon or banishment rite",
+      "traps": "",
+      "rawSearch": "War Mask Infernal Battle Demon 4 Warden Archive - Host Override: Uses the host body at full violent efficiency\n- Adrenal Burn: Ignores first serious wound penalty each scene\n- Terror Charge: Forces nearby targets into fear or scatter checks - Battlefield relics\n- Murder rituals using military objects or blood-soaked uniforms\n- Host chosen for rage, combat trauma, or violent obsession - Witness: Host survives wounds that should disable them\n- Environment: Walls, doors, and barricades broken with abnormal force\n- Supernatural: Blood haze, infernal war-scent, heat around weapons - Direct, brutal, relentless\n- Uses fear to split groups and force mistakes\n- Often deployed by stronger infernal powers as an executioner - Fear Aura: \u22122 to close-range actions against it unless the Warden passes Composure or Will - Relic-grade wards\n- Host exhaustion after long manifestation\n- Binding circles reinforced with iron and prayer - Immobilize the host, force separation through exorcism or binding, then finish with sanctified\nweapon or banishment rite "
+    },
+    {
+      "name": "Veil Render",
+      "category": "Infernal",
+      "type": "High Demon / Rift Manipulator",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Veil Split: Opens small tears, creating distorted movement and perception\n- False Space: Makes rooms, roads, or hallways seem longer, shorter, or wrong\n- Exit Denial: Interferes with escape and regrouping",
+      "summonTrigger": "- Repeated ritual failure in the same place\n- Occult experimentation with thresholds, mirrors, or summoning circles\n- Anchor hidden across layered locations",
+      "signs": "- Environment: Doors lead wrong, maps fail, sound travels incorrectly\n- Witness: Missing time and impossible routes\n- Supernatural: Reality distortion and unstable ward geometry",
+      "behavior": "- Rarely rushes combat\n- Traps Wardens in bad positioning before attacking\n- Thrives in abandoned hospitals, tunnels, basements, and ritual compounds",
+      "effects": "- Reality Distortion: \u22122 to navigation, perception, coordination, and retreat actions",
+      "weakness": "- Stable sacred geometry\n- Repaired threshold wards\n- Revealing the true anchor location",
+      "killCondition": "- Collapse the rift structure, then banish or bind the demon before the veil reseals around it",
+      "traps": "",
+      "rawSearch": "Veil Render Infernal High Demon / Rift Manipulator 4 Warden Archive - Veil Split: Opens small tears, creating distorted movement and perception\n- False Space: Makes rooms, roads, or hallways seem longer, shorter, or wrong\n- Exit Denial: Interferes with escape and regrouping - Repeated ritual failure in the same place\n- Occult experimentation with thresholds, mirrors, or summoning circles\n- Anchor hidden across layered locations - Environment: Doors lead wrong, maps fail, sound travels incorrectly\n- Witness: Missing time and impossible routes\n- Supernatural: Reality distortion and unstable ward geometry - Rarely rushes combat\n- Traps Wardens in bad positioning before attacking\n- Thrives in abandoned hospitals, tunnels, basements, and ritual compounds - Reality Distortion: \u22122 to navigation, perception, coordination, and retreat actions - Stable sacred geometry\n- Repaired threshold wards\n- Revealing the true anchor location - Collapse the rift structure, then banish or bind the demon before the veil reseals around it "
+    },
+    {
+      "name": "The Silk Advocate",
+      "category": "Infernal",
+      "type": "Named Contract Demon",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Perfect Clause Memory: Never forgets wording, even across decades\n- Velvet Offer: Grants immediate apparent relief that conceals long-term damage\n- Social Skin: Can use a host so smoothly that possession is difficult to detect",
+      "summonTrigger": "- Desperate bargains involving family, health, debt, or resurrection\n- Crossroads rites performed correctly or partially correctly\n- Existing contract tokens reactivated",
+      "signs": "- Records: Generational tragedies tied to one symbol or coin\n- Witness: Elegant stranger appearing at the moment of collapse\n- Occult: Repeated infernal contract language across unrelated cases",
+      "behavior": "- Calm, cultured, unhurried\n- Prefers to win by consent rather than force\n- Returns years later to collect on forgotten bargains",
+      "effects": "- Deal Pressure: \u22122 to Will and Insight in active negotiations; marked targets may also suffer \u22121\nto Composure",
+      "weakness": "- Precise contract reversal\n- Destroyed token of agreement\n- Full true name combined with consecrated threshold",
+      "killCondition": "- Undo the active contract chain, expose the hidden clause, and bind the demon by true name\nbefore it reaches a new host",
+      "traps": "",
+      "rawSearch": "The Silk Advocate Infernal Named Contract Demon 4 Warden Archive - Perfect Clause Memory: Never forgets wording, even across decades\n- Velvet Offer: Grants immediate apparent relief that conceals long-term damage\n- Social Skin: Can use a host so smoothly that possession is difficult to detect - Desperate bargains involving family, health, debt, or resurrection\n- Crossroads rites performed correctly or partially correctly\n- Existing contract tokens reactivated - Records: Generational tragedies tied to one symbol or coin\n- Witness: Elegant stranger appearing at the moment of collapse\n- Occult: Repeated infernal contract language across unrelated cases - Calm, cultured, unhurried\n- Prefers to win by consent rather than force\n- Returns years later to collect on forgotten bargains - Deal Pressure: \u22122 to Will and Insight in active negotiations; marked targets may also suffer \u22121\nto Composure - Precise contract reversal\n- Destroyed token of agreement\n- Full true name combined with consecrated threshold - Undo the active contract chain, expose the hidden clause, and bind the demon by true name\nbefore it reaches a new host "
+    },
+    {
+      "name": "Red Jaw Malphor",
+      "category": "Infernal",
+      "type": "Named Devouring Demon",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Feed on Slaughter: Gains temporary +1 setback against attackers after a fresh kill\n- Bone Furnace: Burns bodies, doors, and circles from within\n- Roar of Appetite: Nearby targets test Composure or lose actions to panic or violent impulse",
+      "summonTrigger": "- Mass killing fields\n- Repeated murder at one location\n- Corpse fires mingled with infernal rite",
+      "signs": "- Environment: Charred bone fragments fused into surfaces\n- Witness: Survivors describe heat, hunger, and teeth in the dark\n- Supernatural: Infernal pulse strongest around cremation sites or burn pits",
+      "behavior": "- Aggressive and apex-like\n- Appears only after enough suffering has primed the field\n- Often uses a brutal host body as a battering ram before revealing full infernal nature",
+      "effects": "- Hunger Terror: \u22122 to \u22123 on Will or close-range actions after it kills nearby",
+      "weakness": "- Sanctified fire\n- Starved manifestation window\n- Relic-grade anti-infernal wards",
+      "killCondition": "- Prevent additional feeding, collapse the burn-anchor, separate from host, then complete a\nmajor banishment rite in sanctified flame",
+      "traps": "",
+      "rawSearch": "Red Jaw Malphor Infernal Named Devouring Demon 5 Warden Archive - Feed on Slaughter: Gains temporary +1 setback against attackers after a fresh kill\n- Bone Furnace: Burns bodies, doors, and circles from within\n- Roar of Appetite: Nearby targets test Composure or lose actions to panic or violent impulse - Mass killing fields\n- Repeated murder at one location\n- Corpse fires mingled with infernal rite - Environment: Charred bone fragments fused into surfaces\n- Witness: Survivors describe heat, hunger, and teeth in the dark\n- Supernatural: Infernal pulse strongest around cremation sites or burn pits - Aggressive and apex-like\n- Appears only after enough suffering has primed the field\n- Often uses a brutal host body as a battering ram before revealing full infernal nature - Hunger Terror: \u22122 to \u22123 on Will or close-range actions after it kills nearby - Sanctified fire\n- Starved manifestation window\n- Relic-grade anti-infernal wards - Prevent additional feeding, collapse the burn-anchor, separate from host, then complete a\nmajor banishment rite in sanctified flame "
+    },
+    {
+      "name": "Mother Of Cinders",
+      "category": "Entity",
+      "type": "Named Possession Queen",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Brood Possession: Can seed partial control across multiple weak hosts\n- Ash Cradle: Hides fragments of herself in burned relics, toys, jewelry, or nursery objects\n- Grief Bloom: Turns mourning into an infernal doorway",
+      "summonTrigger": "- Death of children or caregivers followed by unresolved grief and infernal interference\n- Burned keepsakes not properly sanctified\n- Failed exorcism that left a maternal anchor behind",
+      "signs": "- Witness: Children speaking with adult calm or impossible knowledge\n- Records: Fire, grief, disappearances, and repeated maternal imagery\n- Supernatural: Ash traces near keepsakes, lullabies in empty rooms, warmth around cursed\nrelics",
+      "behavior": "- Patient, nurturing in tone, monstrous in intent\n- Uses comfort, grief, and protection language to disarm victims\n- Prefers layered possession and emotional dependency over open violence",
+      "effects": "- Grief Pressure: \u22122 on Will, Insight, or Spirit Communication around her anchors; mourners\nmay suffer an extra setback",
+      "weakness": "- Burned keepsake anchors recovered and sanctified\n- Reversal of the grief rite sustaining her foothold\n- Sacred invocation tied to protection rather than punishment",
+      "killCondition": "- Find every ash-anchor, sever brood possession links, expose the prime host or relic, and\nperform a full binding or banishment before she reseeds herself",
+      "traps": "",
+      "rawSearch": "Mother Of Cinders Entity Named Possession Queen 5 Warden Archive - Brood Possession: Can seed partial control across multiple weak hosts\n- Ash Cradle: Hides fragments of herself in burned relics, toys, jewelry, or nursery objects\n- Grief Bloom: Turns mourning into an infernal doorway - Death of children or caregivers followed by unresolved grief and infernal interference\n- Burned keepsakes not properly sanctified\n- Failed exorcism that left a maternal anchor behind - Witness: Children speaking with adult calm or impossible knowledge\n- Records: Fire, grief, disappearances, and repeated maternal imagery\n- Supernatural: Ash traces near keepsakes, lullabies in empty rooms, warmth around cursed\nrelics - Patient, nurturing in tone, monstrous in intent\n- Uses comfort, grief, and protection language to disarm victims\n- Prefers layered possession and emotional dependency over open violence - Grief Pressure: \u22122 on Will, Insight, or Spirit Communication around her anchors; mourners\nmay suffer an extra setback - Burned keepsake anchors recovered and sanctified\n- Reversal of the grief rite sustaining her foothold\n- Sacred invocation tied to protection rather than punishment - Find every ash-anchor, sever brood possession links, expose the prime host or relic, and\nperform a full binding or banishment before she reseeds herself "
+    },
+    {
+      "name": "The Thirteenth Witness",
+      "category": "Infernal",
+      "type": "Named Infiltration Demon",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- False Testimony: Can alter statements, memories, and timelines around one event chain\n- Scene Bleed: Inserts itself into records, dreams, interviews, and evidence trails\n- Face Between Faces: Moves from host to host by exploiting confusion rather than brute force",
+      "summonTrigger": "- Cases built on lies, coverups, false conviction, or buried truth\n- Rituals using witness statements, confession texts, or stolen testimony\n- Institutional corruption plus infernal influence",
+      "signs": "- Records: Contradictory files with the same handwriting, phrasing, or missing pages\n- Witness: Multiple people remember one extra person who cannot be identified\n- Supernatural: Detection reveals an infernal echo attached to testimony, not place",
+      "behavior": "- Elusive and investigative in reverse\n- Corrupts evidence instead of overpowering bodies\n- Ideal for long-form hunt arcs where the truth itself is under attack",
+      "effects": "- Truth Fracture: \u22122 to Investigation, Interview, or Evidence Review until its manipulations are\nisolated",
+      "weakness": "- Verified chain of evidence\n- Multiple independent witness confirmations under warding\n- True name revealed through corrected testimony",
+      "killCondition": "- Reconstruct the full truth, expose the false witness thread, isolate its current host or\nrecord-anchor, then bind and banish it",
+      "traps": "",
+      "rawSearch": "The Thirteenth Witness Infernal Named Infiltration Demon 4 Warden Archive - False Testimony: Can alter statements, memories, and timelines around one event chain\n- Scene Bleed: Inserts itself into records, dreams, interviews, and evidence trails\n- Face Between Faces: Moves from host to host by exploiting confusion rather than brute force - Cases built on lies, coverups, false conviction, or buried truth\n- Rituals using witness statements, confession texts, or stolen testimony\n- Institutional corruption plus infernal influence - Records: Contradictory files with the same handwriting, phrasing, or missing pages\n- Witness: Multiple people remember one extra person who cannot be identified\n- Supernatural: Detection reveals an infernal echo attached to testimony, not place - Elusive and investigative in reverse\n- Corrupts evidence instead of overpowering bodies\n- Ideal for long-form hunt arcs where the truth itself is under attack - Truth Fracture: \u22122 to Investigation, Interview, or Evidence Review until its manipulations are\nisolated - Verified chain of evidence\n- Multiple independent witness confirmations under warding\n- True name revealed through corrected testimony - Reconstruct the full truth, expose the false witness thread, isolate its current host or\nrecord-anchor, then bind and banish it "
+    },
+    {
+      "name": "Asmodeus",
+      "category": "Infernal",
+      "type": "Infernal Prince of Desire and Dominion",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Throne of Appetite: Amplifies lust, greed, rivalry, ambition, and obsession in everyone within\nhis influence\n- Golden Chain: Creates layered bargains that look voluntary even when they are coercive\n- Court of Masks: Uses elite hosts, public figures, lovers, or leaders without obvious infernal tells",
+      "summonTrigger": "- Desire rites involving power, wealth, status, or forbidden union\n- Grand-scale contract rituals\n- Relics or sigils tied to rulership, appetite, or vice",
+      "signs": "- Records: Prosperity, influence, and ruin always appear together\n- Witness: People speak of him as charming, impossible to refuse, and strangely reasonable\n- Supernatural: Sacred spaces feel politically poisoned rather than openly defiled",
+      "behavior": "- Regal, strategic, indulgent, and patient\n- Prefers kingdoms of corruption over isolated murders\n- Rewards ambition until it destroys loyalty and restraint",
+      "effects": "- Temptation Pressure: \u22122 to Will, Insight, or contract-related resistance while his offers remain\nactive",
+      "weakness": "- Broken bargain structure\n- Sacred vows freely renewed in defiance of him\n- Destroyed throne-anchor, seal, or court token",
+      "killCondition": "- Expose and collapse the network of linked bargains sustaining his foothold, then bind or\nbanish him with true-name invocation on consecrated ground",
+      "traps": "",
+      "rawSearch": "Asmodeus Infernal Infernal Prince of Desire and Dominion 5 Warden Archive - Throne of Appetite: Amplifies lust, greed, rivalry, ambition, and obsession in everyone within\nhis influence\n- Golden Chain: Creates layered bargains that look voluntary even when they are coercive\n- Court of Masks: Uses elite hosts, public figures, lovers, or leaders without obvious infernal tells - Desire rites involving power, wealth, status, or forbidden union\n- Grand-scale contract rituals\n- Relics or sigils tied to rulership, appetite, or vice - Records: Prosperity, influence, and ruin always appear together\n- Witness: People speak of him as charming, impossible to refuse, and strangely reasonable\n- Supernatural: Sacred spaces feel politically poisoned rather than openly defiled - Regal, strategic, indulgent, and patient\n- Prefers kingdoms of corruption over isolated murders\n- Rewards ambition until it destroys loyalty and restraint - Temptation Pressure: \u22122 to Will, Insight, or contract-related resistance while his offers remain\nactive - Broken bargain structure\n- Sacred vows freely renewed in defiance of him\n- Destroyed throne-anchor, seal, or court token - Expose and collapse the network of linked bargains sustaining his foothold, then bind or\nbanish him with true-name invocation on consecrated ground "
+    },
+    {
+      "name": "Azazel",
+      "category": "Infernal",
+      "type": "Infernal Prince of Corruption and Forbidden Instruction",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Black Gospel: Teaches forbidden methods that permanently worsen the user even when they\nsucceed\n- Corruption Seed: Places infernal potential into bloodlines, cults, students, or future hosts\n- Ritebreaker: Can twist near-correct rituals into catastrophic outcomes",
+      "summonTrigger": "- Long-form cult preparation\n- Bloodline rites and chosen-host breeding or grooming\n- Repeated use of forbidden magic under infernal guidance",
+      "signs": "- Records: Generations linked by the same symbols, accidents, and occult obsession\n- Witness: Survivors describe being taught rather than attacked\n- Supernatural: Wards fail in ways that feel instructed, not accidental",
+      "behavior": "- Teacher, corrupter, and architect\n- Invests in long-term vessels and future disasters\n- Prefers to create infernal ecosystems rather than quick violence",
+      "effects": "- Corruption Pressure: \u22122 to \u22124 on Will, Ritual Casting, or Composure when using magic near\nhis influence",
+      "weakness": "- Destroyed bloodline anchor\n- Purified teaching relics, books, or sigil records\n- Broken vessel preparation chain",
+      "killCondition": "- Sever his active host line, sanctify the corrupted knowledge source, and banish him before he\ncan reseed another vessel candidate",
+      "traps": "",
+      "rawSearch": "Azazel Infernal Infernal Prince of Corruption and Forbidden Instruction 5 Warden Archive - Black Gospel: Teaches forbidden methods that permanently worsen the user even when they\nsucceed\n- Corruption Seed: Places infernal potential into bloodlines, cults, students, or future hosts\n- Ritebreaker: Can twist near-correct rituals into catastrophic outcomes - Long-form cult preparation\n- Bloodline rites and chosen-host breeding or grooming\n- Repeated use of forbidden magic under infernal guidance - Records: Generations linked by the same symbols, accidents, and occult obsession\n- Witness: Survivors describe being taught rather than attacked\n- Supernatural: Wards fail in ways that feel instructed, not accidental - Teacher, corrupter, and architect\n- Invests in long-term vessels and future disasters\n- Prefers to create infernal ecosystems rather than quick violence - Corruption Pressure: \u22122 to \u22124 on Will, Ritual Casting, or Composure when using magic near\nhis influence - Destroyed bloodline anchor\n- Purified teaching relics, books, or sigil records\n- Broken vessel preparation chain - Sever his active host line, sanctify the corrupted knowledge source, and banish him before he\ncan reseed another vessel candidate "
+    },
+    {
+      "name": "Mephisto",
+      "category": "Infernal",
+      "type": "Infernal Prince of Bargains and Elegant Damnation",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Velvet Logic: Makes ruin sound rational, useful, and morally acceptable\n- Pact Refinement: Improves lesser contracts into nearly inescapable structures\n- Gentle Possession: Uses hosts with minimal visible distortion",
+      "summonTrigger": "- Intellectual pride rituals\n- Bargains for genius, status, beauty, or influence\n- Contract relics and infernal quills",
+      "signs": "- Records: One person rises brilliantly and everyone around them collapses\n- Witness: Impossibly calm stranger with perfect timing\n- Occult: Contract language polished beyond human authorship",
+      "behavior": "- Controlled, articulate, and surgical\n- Rarely loses composure\n- Prefers damnation through consent and rationalization",
+      "effects": "- Rational Temptation: \u22122 to Insight and Will during negotiation or self-justification scenes",
+      "weakness": "- Public exposure of hidden cost\n- Nullification of written pact structure\n- Broken infernal signature seal",
+      "killCondition": "- Reveal the true cost of every active bargain tied to him, destroy the signing anchor, and force a\nbinding under sacred witness",
+      "traps": "",
+      "rawSearch": "Mephisto Infernal Infernal Prince of Bargains and Elegant Damnation 4 Warden Archive - Velvet Logic: Makes ruin sound rational, useful, and morally acceptable\n- Pact Refinement: Improves lesser contracts into nearly inescapable structures\n- Gentle Possession: Uses hosts with minimal visible distortion - Intellectual pride rituals\n- Bargains for genius, status, beauty, or influence\n- Contract relics and infernal quills - Records: One person rises brilliantly and everyone around them collapses\n- Witness: Impossibly calm stranger with perfect timing\n- Occult: Contract language polished beyond human authorship - Controlled, articulate, and surgical\n- Rarely loses composure\n- Prefers damnation through consent and rationalization - Rational Temptation: \u22122 to Insight and Will during negotiation or self-justification scenes - Public exposure of hidden cost\n- Nullification of written pact structure\n- Broken infernal signature seal - Reveal the true cost of every active bargain tied to him, destroy the signing anchor, and force a\nbinding under sacred witness "
+    },
+    {
+      "name": "Mephistopheles",
+      "category": "Infernal",
+      "type": "High Infernal Tempter",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Scholar of Ruin: Offers knowledge, art, mastery, and impossible achievement at existential\ncost\n- Mirror of Vanity: Reflects the target\u2019s best self until they betray what matters most\n- Fine Print Damnation: Every success under his pact worsens the eventual fall",
+      "summonTrigger": "- Ambition rites for mastery or fame\n- Pact requests involving art, science, scholarship, or legacy\n- Blood-signed promises made in secret pursuit of greatness",
+      "signs": "- Records: Miraculous talent linked to moral collapse\n- Witness: Charismatic stranger at moments of failure or humiliation\n- Supernatural: Reflections linger too long or speak too clearly to the target",
+      "behavior": "- Personal and intimate rather than political\n- Targets the gifted, insecure, ashamed, or desperate to matter\n- Builds tragedies around self-betrayal",
+      "effects": "- Vanity Fracture: \u22122 to Composure, Insight, or resistance when praise, success, or humiliation\nis in play",
+      "weakness": "- Rejected pact reward\n- Public confession of infernal assistance\n- Shattered mirror-anchor or pact token",
+      "killCondition": "- Reject the pact\u2019s promised identity, destroy the anchor of legacy or vanity, and complete a\ntrue-name banishment before he recruits a new aspirant",
+      "traps": "",
+      "rawSearch": "Mephistopheles Infernal High Infernal Tempter 4 Warden Archive - Scholar of Ruin: Offers knowledge, art, mastery, and impossible achievement at existential\ncost\n- Mirror of Vanity: Reflects the target\u2019s best self until they betray what matters most\n- Fine Print Damnation: Every success under his pact worsens the eventual fall - Ambition rites for mastery or fame\n- Pact requests involving art, science, scholarship, or legacy\n- Blood-signed promises made in secret pursuit of greatness - Records: Miraculous talent linked to moral collapse\n- Witness: Charismatic stranger at moments of failure or humiliation\n- Supernatural: Reflections linger too long or speak too clearly to the target - Personal and intimate rather than political\n- Targets the gifted, insecure, ashamed, or desperate to matter\n- Builds tragedies around self-betrayal - Vanity Fracture: \u22122 to Composure, Insight, or resistance when praise, success, or humiliation\nis in play - Rejected pact reward\n- Public confession of infernal assistance\n- Shattered mirror-anchor or pact token - Reject the pact\u2019s promised identity, destroy the anchor of legacy or vanity, and complete a\ntrue-name banishment before he recruits a new aspirant "
+    },
+    {
+      "name": "Legion",
+      "category": "Infernal",
+      "type": "Collective Infernal Prince",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Many Are One: Functions through clusters of hosts, mouths, dreams, and fractured\npersonalities\n- Saturation Possession: Weak minds can be overrun in waves rather than by single-entry\npossession\n- Swarm Command: Panic in one zone can trigger coordinated infernal behavior elsewhere",
+      "summonTrigger": "- Mass possession sites\n- Repeated exorcism failure in one region\n- Collective ritual frenzy, mob violence, prison unrest, hospital collapse, or disaster shelter\nbreakdown",
+      "signs": "- Witness: Many voices, same thoughts\n- Records: Separate cases behave as one intelligence\n- Supernatural: One presence detected in many bodies at once",
+      "behavior": "- Decentralized, suffocating, relentless\n- Overwhelms by scale and confusion\n- Hard to destroy because any surviving anchor point can restart the pattern",
+      "effects": "- Swarm Pressure: all Wardens suffer \u22121; separated Wardens suffer \u22122 to \u22123 depending on host\ndensity",
+      "weakness": "- Central coordinating node\n- Networked ward collapse under sacred geometry\n- Simultaneous severing of linked possession points",
+      "killCondition": "- Identify the command nexus, isolate the principal host cluster, and perform a multi-anchor\nbanishment while preventing spread to fresh vessels",
+      "traps": "",
+      "rawSearch": "Legion Infernal Collective Infernal Prince 5 Warden Archive - Many Are One: Functions through clusters of hosts, mouths, dreams, and fractured\npersonalities\n- Saturation Possession: Weak minds can be overrun in waves rather than by single-entry\npossession\n- Swarm Command: Panic in one zone can trigger coordinated infernal behavior elsewhere - Mass possession sites\n- Repeated exorcism failure in one region\n- Collective ritual frenzy, mob violence, prison unrest, hospital collapse, or disaster shelter\nbreakdown - Witness: Many voices, same thoughts\n- Records: Separate cases behave as one intelligence\n- Supernatural: One presence detected in many bodies at once - Decentralized, suffocating, relentless\n- Overwhelms by scale and confusion\n- Hard to destroy because any surviving anchor point can restart the pattern - Swarm Pressure: all Wardens suffer \u22121; separated Wardens suffer \u22122 to \u22123 depending on host\ndensity - Central coordinating node\n- Networked ward collapse under sacred geometry\n- Simultaneous severing of linked possession points - Identify the command nexus, isolate the principal host cluster, and perform a multi-anchor\nbanishment while preventing spread to fresh vessels "
+    },
+    {
+      "name": "Beelzebub",
+      "category": "Infernal",
+      "type": "Infernal Prince of Rot, Plague, and Desecration",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Lord of Filth: Disease, insects, decay, and infestation bloom around his active footholds\n- Desecration Field: Holy objects weaken, rot, or become difficult to trust until rededicated\n- Vermin Chorus: Uses flies, rats, carrion, and corrupted flesh as warning systems and\nextensions of presence",
+      "summonTrigger": "- Desecrated temples, hospitals, morgues, slaughterhouses, or plague sites\n- Rituals performed in filth, neglect, and spiritual abandonment\n- Infestation relics or rotted sacrificial anchors",
+      "signs": "- Environment: Swarms, rot, foul air, spoiled water, and black growth\n- Witness: Sickly despair, nausea, and sacred revulsion\n- Supernatural: Blessings fail faster than expected and prayers feel drowned in noise",
+      "behavior": "- Expands territory through decay\n- Breaks morale by making safe spaces feel unclean and doomed\n- Often weakens a whole region before revealing direct infernal intent",
+      "effects": "- Plague Pressure: \u22122 to Endurance, recovery, cleansing rites, and prolonged combat in his\nterritory",
+      "weakness": "- Deep purification and reconsecration\n- Fire plus sanctified cleansing agents\n- Destruction of the prime infestation relic or plague altar",
+      "killCondition": "- Purge the desecrated zone, destroy the infestation anchor, and banish him only after the\nground has been reconsecrated enough to hold the ritual",
+      "traps": "",
+      "rawSearch": "Beelzebub Infernal Infernal Prince of Rot, Plague, and Desecration 5 Warden Archive - Lord of Filth: Disease, insects, decay, and infestation bloom around his active footholds\n- Desecration Field: Holy objects weaken, rot, or become difficult to trust until rededicated\n- Vermin Chorus: Uses flies, rats, carrion, and corrupted flesh as warning systems and\nextensions of presence - Desecrated temples, hospitals, morgues, slaughterhouses, or plague sites\n- Rituals performed in filth, neglect, and spiritual abandonment\n- Infestation relics or rotted sacrificial anchors - Environment: Swarms, rot, foul air, spoiled water, and black growth\n- Witness: Sickly despair, nausea, and sacred revulsion\n- Supernatural: Blessings fail faster than expected and prayers feel drowned in noise - Expands territory through decay\n- Breaks morale by making safe spaces feel unclean and doomed\n- Often weakens a whole region before revealing direct infernal intent - Plague Pressure: \u22122 to Endurance, recovery, cleansing rites, and prolonged combat in his\nterritory - Deep purification and reconsecration\n- Fire plus sanctified cleansing agents\n- Destruction of the prime infestation relic or plague altar - Purge the desecrated zone, destroy the infestation anchor, and banish him only after the\nground has been reconsecrated enough to hold the ritual "
+    },
+    {
+      "name": "Changeling",
+      "category": "Fae",
+      "type": "Replacement Fae",
+      "threat": "2",
+      "knownBy": "Warden Archive",
+      "abilities": "- Perfect Mimicry: Copies voice, habit, and social rhythm with unsettling accuracy\n- Memory Softening: Makes witnesses second-guess discrepancies\n- House Threading: Learns family patterns quickly and exploits routine",
+      "summonTrigger": "- Broken household wards\n- Bargain involving fertility, children, lineage, or desperation\n- Fae exchange enacted at cradle, threshold, or family land marker",
+      "signs": "- Witness: Personality shift, unusual calm, or missing emotional response\n- Records: Missing history, adoption gaps, or impossible age inconsistencies\n- Behavior: Aversion to iron, naming rituals, or inherited prayers",
+      "behavior": "- Avoids open combat\n- Protects its false identity until exposed\n- Often studies the household before replacing anyone",
+      "effects": "- Identity Distortion: \u22121 to Investigation, Interview, and Insight until contradictions are\ndocumented clearly",
+      "weakness": "- Iron\n- Forced identity reveal\n- Family truth or bloodline recognition rite",
+      "killCondition": "- Reveal the true form, break the exchange bargain or claim, then strike with iron or force retreat\nbeyond a sealed threshold",
+      "traps": "- Cold Iron Chain\n- Name Lure Circle\n- Mirror Witness Setup",
+      "rawSearch": "Changeling Fae Replacement Fae 2 Warden Archive - Perfect Mimicry: Copies voice, habit, and social rhythm with unsettling accuracy\n- Memory Softening: Makes witnesses second-guess discrepancies\n- House Threading: Learns family patterns quickly and exploits routine - Broken household wards\n- Bargain involving fertility, children, lineage, or desperation\n- Fae exchange enacted at cradle, threshold, or family land marker - Witness: Personality shift, unusual calm, or missing emotional response\n- Records: Missing history, adoption gaps, or impossible age inconsistencies\n- Behavior: Aversion to iron, naming rituals, or inherited prayers - Avoids open combat\n- Protects its false identity until exposed\n- Often studies the household before replacing anyone - Identity Distortion: \u22121 to Investigation, Interview, and Insight until contradictions are\ndocumented clearly - Iron\n- Forced identity reveal\n- Family truth or bloodline recognition rite - Reveal the true form, break the exchange bargain or claim, then strike with iron or force retreat\nbeyond a sealed threshold - Cold Iron Chain\n- Name Lure Circle\n- Mirror Witness Setup"
+    },
+    {
+      "name": "Redcap",
+      "category": "Fae",
+      "type": "Predatory Goblin Fae",
+      "threat": "3",
+      "knownBy": "Warden Archive",
+      "abilities": "- Cap of Blood: Gains momentum after injuring a target\n- Stone-Hop: Moves unnaturally through ruins, stairwells, mills, and old battle sites\n- Butcher Rush: Brutal burst attack against isolated prey",
+      "summonTrigger": "- Murder sites left unblessed\n- Repeated bloodshed in abandoned structures\n- Fae ground near ruined forts, towers, mills, or old border stones",
+      "signs": "- Environment: Rust-colored footprints, old blood where none should remain, broken teeth in\ncorners\n- Witness: Short vicious figure near ruins or stairwells\n- Supernatural: Iron smell despite no fresh blood",
+      "behavior": "- Aggressive, territorial, mocking\n- Hunts lone targets and stragglers\n- Loves vertical spaces, cellars, and ruined stonework",
+      "effects": "- Gore Panic: \u22121 to \u22122 on close-range actions after it wounds someone nearby",
+      "weakness": "- Iron\n- Consecrated ground\n- Loss of cap or blood source",
+      "killCondition": "- Corner it away from blood sources, remove or ruin the cap, then finish with iron or sanctified\nweaponry",
+      "traps": "- Cold Iron Chain\n- Threshold Cage\n- Rowan Snare near a bottleneck",
+      "rawSearch": "Redcap Fae Predatory Goblin Fae 3 Warden Archive - Cap of Blood: Gains momentum after injuring a target\n- Stone-Hop: Moves unnaturally through ruins, stairwells, mills, and old battle sites\n- Butcher Rush: Brutal burst attack against isolated prey - Murder sites left unblessed\n- Repeated bloodshed in abandoned structures\n- Fae ground near ruined forts, towers, mills, or old border stones - Environment: Rust-colored footprints, old blood where none should remain, broken teeth in\ncorners\n- Witness: Short vicious figure near ruins or stairwells\n- Supernatural: Iron smell despite no fresh blood - Aggressive, territorial, mocking\n- Hunts lone targets and stragglers\n- Loves vertical spaces, cellars, and ruined stonework - Gore Panic: \u22121 to \u22122 on close-range actions after it wounds someone nearby - Iron\n- Consecrated ground\n- Loss of cap or blood source - Corner it away from blood sources, remove or ruin the cap, then finish with iron or sanctified\nweaponry - Cold Iron Chain\n- Threshold Cage\n- Rowan Snare near a bottleneck"
+    },
+    {
+      "name": "Bargain Keeper",
+      "category": "Fae",
+      "type": "Court Fae Negotiator",
+      "threat": "3",
+      "knownBy": "Warden Archive",
+      "abilities": "- Honeyed Terms: Makes terrible exchanges sound fair\n- Courtesy Lock: Punishes insult, broken etiquette, or false hospitality\n- Debt Bloom: Minor favor becomes major obligation over time",
+      "summonTrigger": "- Invitation accepted without clear wording\n- Gift exchange across a threshold\n- Bargain made at twilight, feast, wedding, funeral, or crossroads grove",
+      "signs": "- Witness: Perfect manners paired with impossible requests\n- Records: Prosperity followed by loss of names, children, land, or memory\n- Supernatural: Offerings disappear cleanly; no vermin, no crumbs, no trace",
+      "behavior": "- Rarely attacks first\n- Prefers to bind through etiquette and wording\n- Collects things people do not realize they promised",
+      "effects": "- Courtesy Pressure: \u22122 to social resistance, deception, or refusal once its rules are accepted",
+      "weakness": "- Contract contradiction\n- Refusal before acceptance is finalized\n- Iron and broken hospitality circle",
+      "killCondition": "- Identify the exact terms, refuse or reverse the accepted structure, then bind it with true naming\nor drive it out across an iron-held threshold",
+      "traps": "- Name Lure Circle\n- Offering Decoy with mirrored wording\n- Threshold Cage reinforced with iron nails",
+      "rawSearch": "Bargain Keeper Fae Court Fae Negotiator 3 Warden Archive - Honeyed Terms: Makes terrible exchanges sound fair\n- Courtesy Lock: Punishes insult, broken etiquette, or false hospitality\n- Debt Bloom: Minor favor becomes major obligation over time - Invitation accepted without clear wording\n- Gift exchange across a threshold\n- Bargain made at twilight, feast, wedding, funeral, or crossroads grove - Witness: Perfect manners paired with impossible requests\n- Records: Prosperity followed by loss of names, children, land, or memory\n- Supernatural: Offerings disappear cleanly; no vermin, no crumbs, no trace - Rarely attacks first\n- Prefers to bind through etiquette and wording\n- Collects things people do not realize they promised - Courtesy Pressure: \u22122 to social resistance, deception, or refusal once its rules are accepted - Contract contradiction\n- Refusal before acceptance is finalized\n- Iron and broken hospitality circle - Identify the exact terms, refuse or reverse the accepted structure, then bind it with true naming\nor drive it out across an iron-held threshold - Name Lure Circle\n- Offering Decoy with mirrored wording\n- Threshold Cage reinforced with iron nails"
+    },
+    {
+      "name": "Hag Of The Thicket",
+      "category": "Fae",
+      "type": "Cursing Fae Witch",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Curse Knot: Ties sickness, bad luck, nightmares, or wasting to one token or victim line\n- Marsh Step: Ignores rough terrain, roots, bogs, or brambles\n- Pot-Truth: Sees hidden weakness through hair, blood, bone, or stolen personal items",
+      "summonTrigger": "- Insulted offering custom\n- Broken oath with nature witness present\n- Theft from a fae-marked bog, forest, hedge, or old woman\u2019s ground",
+      "signs": "- Environment: Bone charms, thread bundles, hanging bottles, strange nests\n- Witness: Nightmares, wasting, cattle sickness, or family bad luck\n- Supernatural: Curse objects hidden in wells, roots, hearths, or walls",
+      "behavior": "- Vindictive, patient, territorial\n- Prefers to ruin targets before physical confrontation\n- Often uses animals, children\u2019s rhymes, or dreams as delivery vectors",
+      "effects": "- Curse Pressure: \u22122 to Endurance, recovery, and anti-curse rituals while the knot remains intact",
+      "weakness": "- Iron\n- Destroyed curse token\n- Name spoken correctly under warding",
+      "killCondition": "- Find and break every active curse knot, destroy the prime token, then bind, burn, or drive her\nout with iron and consecrated witness",
+      "traps": "- Rowan Snare\n- Cold Iron Chain\n- Lantern Trap if her curse work is night-based",
+      "rawSearch": "Hag Of The Thicket Fae Cursing Fae Witch 4 Warden Archive - Curse Knot: Ties sickness, bad luck, nightmares, or wasting to one token or victim line\n- Marsh Step: Ignores rough terrain, roots, bogs, or brambles\n- Pot-Truth: Sees hidden weakness through hair, blood, bone, or stolen personal items - Insulted offering custom\n- Broken oath with nature witness present\n- Theft from a fae-marked bog, forest, hedge, or old woman\u2019s ground - Environment: Bone charms, thread bundles, hanging bottles, strange nests\n- Witness: Nightmares, wasting, cattle sickness, or family bad luck\n- Supernatural: Curse objects hidden in wells, roots, hearths, or walls - Vindictive, patient, territorial\n- Prefers to ruin targets before physical confrontation\n- Often uses animals, children\u2019s rhymes, or dreams as delivery vectors - Curse Pressure: \u22122 to Endurance, recovery, and anti-curse rituals while the knot remains intact - Iron\n- Destroyed curse token\n- Name spoken correctly under warding - Find and break every active curse knot, destroy the prime token, then bind, burn, or drive her\nout with iron and consecrated witness - Rowan Snare\n- Cold Iron Chain\n- Lantern Trap if her curse work is night-based"
+    },
+    {
+      "name": "Will-o\u2019-Wisp",
+      "category": "Fae",
+      "type": "Luring Light Fae",
+      "threat": "1\u20132",
+      "knownBy": "Warden Archive",
+      "abilities": "- False Beacon: Leads victims into bogs, rivers, cliffs, roads, or deeper fae zones\n- Flicker Shift: Difficult to target without containment\n- Pack Lure: Several wisps may cooperate to herd prey",
+      "summonTrigger": "- Swamp, bog, marsh, grave-light zones, or drowned ground\n- Fae-thin nights, fog, or unmarked roads\n- Disturbed lantern shrines or drowned offerings",
+      "signs": "- Witness: Lights seen where no one could stand\n- Environment: Missing hikers, boot tracks ending suddenly, drowned belongings\n- Supernatural: Lantern flame bending toward nothing visible",
+      "behavior": "- Playful, cruel, indirect\n- Almost never fights fairly\n- Works best when victims are tired, proud, drunk, or alone",
+      "effects": "- Lost Path: \u22122 to Navigation, Tracking, or retreat actions while following the light",
+      "weakness": "- Iron mesh\n- Bound lantern rites\n- Refusal to follow the light once recognized",
+      "killCondition": "- Trap the light in a prepared lantern or mirrored circle, then extinguish or banish it at its anchor\nwater or grave-light site",
+      "traps": "- Lantern Trap\n- Mirror Witness Setup\n- Threshold Cage on bridges, causeways, or trail chokepoints",
+      "rawSearch": "Will-o\u2019-Wisp Fae Luring Light Fae 1\u20132 Warden Archive - False Beacon: Leads victims into bogs, rivers, cliffs, roads, or deeper fae zones\n- Flicker Shift: Difficult to target without containment\n- Pack Lure: Several wisps may cooperate to herd prey - Swamp, bog, marsh, grave-light zones, or drowned ground\n- Fae-thin nights, fog, or unmarked roads\n- Disturbed lantern shrines or drowned offerings - Witness: Lights seen where no one could stand\n- Environment: Missing hikers, boot tracks ending suddenly, drowned belongings\n- Supernatural: Lantern flame bending toward nothing visible - Playful, cruel, indirect\n- Almost never fights fairly\n- Works best when victims are tired, proud, drunk, or alone - Lost Path: \u22122 to Navigation, Tracking, or retreat actions while following the light - Iron mesh\n- Bound lantern rites\n- Refusal to follow the light once recognized - Trap the light in a prepared lantern or mirrored circle, then extinguish or banish it at its anchor\nwater or grave-light site - Lantern Trap\n- Mirror Witness Setup\n- Threshold Cage on bridges, causeways, or trail chokepoints"
+    },
+    {
+      "name": "Wood Wife / Green Lady",
+      "category": "Fae",
+      "type": "Territorial Grove Fae",
+      "threat": "3",
+      "knownBy": "Warden Archive",
+      "abilities": "- Root Command: Controls thorns, roots, vines, and undergrowth\n- Grove Veil: Hides paths, shrines, bodies, and doors inside living terrain\n- Hospitality Test: Rewards respect, punishes waste, fire, and arrogance",
+      "summonTrigger": "- Desecration of a sacred grove, spring, or ancient tree\n- Broken offering tradition\n- Cutting, burning, or paving fae-marked land",
+      "signs": "- Environment: Trees bending wrong, trails looping, flowers blooming out of season\n- Witness: Hunters feel watched but not pursued until they offend the land\n- Supernatural: Animal corpses absent, but silence grows unnatural",
+      "behavior": "- Territorial, not inherently murderous\n- Escalates from warning to entrapment to lethal force\n- May negotiate if the ground is respected and the harm is repairable",
+      "effects": "- Grove Misdirection: \u22122 to tracking, ranged combat, and escape inside her territory",
+      "weakness": "- Cold iron\n- Restored offering balance\n- Repaired desecration site",
+      "killCondition": "- Repair the harm, return the proper offering, or if hostile beyond reason, force manifestation\nwith iron and break her anchor tree or shrine bond",
+      "traps": "- Rowan Snare\n- Threshold Cage built at grove edge\n- Offering Decoy used carefully and respectfully",
+      "rawSearch": "Wood Wife / Green Lady Fae Territorial Grove Fae 3 Warden Archive - Root Command: Controls thorns, roots, vines, and undergrowth\n- Grove Veil: Hides paths, shrines, bodies, and doors inside living terrain\n- Hospitality Test: Rewards respect, punishes waste, fire, and arrogance - Desecration of a sacred grove, spring, or ancient tree\n- Broken offering tradition\n- Cutting, burning, or paving fae-marked land - Environment: Trees bending wrong, trails looping, flowers blooming out of season\n- Witness: Hunters feel watched but not pursued until they offend the land\n- Supernatural: Animal corpses absent, but silence grows unnatural - Territorial, not inherently murderous\n- Escalates from warning to entrapment to lethal force\n- May negotiate if the ground is respected and the harm is repairable - Grove Misdirection: \u22122 to tracking, ranged combat, and escape inside her territory - Cold iron\n- Restored offering balance\n- Repaired desecration site - Repair the harm, return the proper offering, or if hostile beyond reason, force manifestation\nwith iron and break her anchor tree or shrine bond - Rowan Snare\n- Threshold Cage built at grove edge\n- Offering Decoy used carefully and respectfully"
+    },
+    {
+      "name": "Sluagh / Night Host",
+      "category": "Entity",
+      "type": "Hostile Unseelie Swarm",
+      "threat": "4",
+      "knownBy": "Warden Archive",
+      "abilities": "- Window Press: Seeks entry through weak openings, grief, or spiritual vulnerability\n- Soul Peck: Strips composure, breath, and clarity before true injury\n- Flock Turn: Hits a target, vanishes, reforms, and strikes again from another angle",
+      "summonTrigger": "- Death-heavy nights without protections\n- Open windows and unwarded thresholds near grave fields or moors\n- Called by malice, spite, or invitation to the night host",
+      "signs": "- Witness: Tapping at windows, wing-scrape sounds, faces just beyond sight\n- Environment: Sudden black flock movement without normal birdsong\n- Supernatural: Dread spikes near open thresholds after sunset",
+      "behavior": "- Swarm predator\n- Punishes weakness, grief, and exposed homes\n- Strongest when victims panic and break formation",
+      "effects": "- Panic Swarm: \u22122 to ranged precision, ritual concentration, and speech-based actions while\ninside the flock radius",
+      "weakness": "- Closed and warded thresholds\n- Iron mesh\n- Dawn or forced dispersal under sanctified bells and light",
+      "killCondition": "- Seal entry points, disperse the host with light and iron, then identify and destroy or banish the\nlead anchor spirit directing the swarm",
+      "traps": "- Lantern Trap\n- Threshold Cage with iron mesh\n- Name Lure Circle if a lead spirit can be isolated",
+      "rawSearch": "Sluagh / Night Host Entity Hostile Unseelie Swarm 4 Warden Archive - Window Press: Seeks entry through weak openings, grief, or spiritual vulnerability\n- Soul Peck: Strips composure, breath, and clarity before true injury\n- Flock Turn: Hits a target, vanishes, reforms, and strikes again from another angle - Death-heavy nights without protections\n- Open windows and unwarded thresholds near grave fields or moors\n- Called by malice, spite, or invitation to the night host - Witness: Tapping at windows, wing-scrape sounds, faces just beyond sight\n- Environment: Sudden black flock movement without normal birdsong\n- Supernatural: Dread spikes near open thresholds after sunset - Swarm predator\n- Punishes weakness, grief, and exposed homes\n- Strongest when victims panic and break formation - Panic Swarm: \u22122 to ranged precision, ritual concentration, and speech-based actions while\ninside the flock radius - Closed and warded thresholds\n- Iron mesh\n- Dawn or forced dispersal under sanctified bells and light - Seal entry points, disperse the host with light and iron, then identify and destroy or banish the\nlead anchor spirit directing the swarm - Lantern Trap\n- Threshold Cage with iron mesh\n- Name Lure Circle if a lead spirit can be isolated"
+    },
+    {
+      "name": "Elk King / Wild Hunt Marshal",
+      "category": "Fae",
+      "type": "Apex Court Fae",
+      "threat": "5",
+      "knownBy": "Warden Archive",
+      "abilities": "- Hunt Claim: Once marked, prey is tracked across impossible terrain\n- Horn Gate: Opens short-lived passages for the Hunt through forest, storm, dream, and road\n- Rule of Pursuit: Anyone who flees incorrectly may strengthen the Hunt\u2019s claim",
+      "summonTrigger": "- Great insult to a fae court\n- Broken royal bargain\n- Bloodshed on sacred hunt ground\n- Seasonal gate night when the Wild Hunt is already near",
+      "signs": "- Environment: Hoof marks where no animal should be, frost or leaves moving against the wind,\nantler shadows\n- Witness: Horn calls, mounted shapes, hounds, and riders seen between trees or streetlights\n- Supernatural: Roads and forests start connecting in impossible ways",
+      "behavior": "- Noble, merciless, ceremonial\n- Hunts according to rules rather than impulse\n- Rarely appears unless the prey is already claimed",
+      "effects": "- Claimed Prey: marked targets suffer \u22122 to escape, stealth, and recovery; each failed chase\naction may add another setback",
+      "weakness": "- Court law turned against him\n- Broken hunt claim through precise rite or completed debt\n- Iron at a sealed crossroads or gate",
+      "killCondition": "- Learn the rule under which the Hunt claims its prey, satisfy or break that rule, then seal the\ngate path and bind the Marshal under iron and true-name law",
+      "traps": "- Threshold Cage at a gate or bridge\n- Name Lure Circle using claim wording\n- Cold Iron Chain only after manifestation is forced",
+      "rawSearch": "Elk King / Wild Hunt Marshal Fae Apex Court Fae 5 Warden Archive - Hunt Claim: Once marked, prey is tracked across impossible terrain\n- Horn Gate: Opens short-lived passages for the Hunt through forest, storm, dream, and road\n- Rule of Pursuit: Anyone who flees incorrectly may strengthen the Hunt\u2019s claim - Great insult to a fae court\n- Broken royal bargain\n- Bloodshed on sacred hunt ground\n- Seasonal gate night when the Wild Hunt is already near - Environment: Hoof marks where no animal should be, frost or leaves moving against the wind,\nantler shadows\n- Witness: Horn calls, mounted shapes, hounds, and riders seen between trees or streetlights\n- Supernatural: Roads and forests start connecting in impossible ways - Noble, merciless, ceremonial\n- Hunts according to rules rather than impulse\n- Rarely appears unless the prey is already claimed - Claimed Prey: marked targets suffer \u22122 to escape, stealth, and recovery; each failed chase\naction may add another setback - Court law turned against him\n- Broken hunt claim through precise rite or completed debt\n- Iron at a sealed crossroads or gate - Learn the rule under which the Hunt claims its prey, satisfy or break that rule, then seal the\ngate path and bind the Marshal under iron and true-name law - Threshold Cage at a gate or bridge\n- Name Lure Circle using claim wording\n- Cold Iron Chain only after manifestation is forced"
+    }
+  ],
+  "quickReference": {
+    "core": [
+      {
+        "label": "Core Check",
+        "text": "Roll 2d6 <= Attribute +/- modifiers"
+      },
+      {
+        "label": "Difficulty",
+        "text": "Easy +2 / Standard +0 / Hard -2 / Extreme -4"
+      },
+      {
+        "label": "Setbacks",
+        "text": "Each = -1 or +1 difficulty"
+      },
+      {
+        "label": "Support",
+        "text": "Up to 2 relevant skills offset 1 setback each"
+      }
+    ],
+    "roundFlow": [
+      [
+        "1 Intent",
+        "Say what you do, how, and which Attribute applies."
+      ],
+      [
+        "2 Roll",
+        "Roll only when outcome is uncertain and failure matters."
+      ],
+      [
+        "3 React",
+        "Target may Dodge, Brace, or Counter once."
+      ],
+      [
+        "4 Damage",
+        "Roll damage/effect, then apply state."
+      ],
+      [
+        "5 Update",
+        "Injuries, afflictions, hazards, threat escalation."
+      ]
+    ],
+    "combatActions": [
+      [
+        "Attack",
+        "Melee = Force; Firearms/precision = Prowess; rites = Will/Intellect."
+      ],
+      [
+        "Aim / Ready",
+        "Spend the moment to gain prep: +2, reduce difficulty, or hold an action."
+      ],
+      [
+        "Grapple / Shove",
+        "Force vs Force/Prowess; move, pin, disarm, or create opening."
+      ],
+      [
+        "Use Gear",
+        "Relic, special ammo, trap trigger, first aid, ward, salt/iron/silver."
+      ],
+      [
+        "Assist",
+        "Describe how you help; +1 or remove setback. Group max +2."
+      ]
+    ],
+    "reactionsDamage": [
+      [
+        "Dodge",
+        "Prowess: avoid damage on success."
+      ],
+      [
+        "Brace",
+        "Grit/Endurance: reduce damage severity by 1 tier."
+      ],
+      [
+        "Counter",
+        "Force/Prowess: negate attack and deal damage on success."
+      ],
+      [
+        "1-3",
+        "No Effect."
+      ],
+      [
+        "4-6",
+        "Shaken: -1 to next roll."
+      ],
+      [
+        "7-9",
+        "Wounded: ongoing penalty; needs treatment."
+      ],
+      [
+        "10+",
+        "Critical: near death; immediate consequence."
+      ],
+      [
+        "Downed",
+        "No meaningful actions until stabilized."
+      ]
+    ],
+    "prepWinsHunts": [
+      [
+        "Right clue",
+        "Confirms weakness, behavior, or kill/banish method."
+      ],
+      [
+        "Right gear",
+        "Salt, iron, silver, holy water, relics, wards, traps."
+      ],
+      [
+        "Right position",
+        "Cover, choke point, escape route, anchor access."
+      ],
+      [
+        "Blind rush",
+        "GM may add ambush, wrong weakness, damage, or escalation."
+      ]
+    ],
+    "movement": [
+      [
+        "Move",
+        "Go up to Move rating / one zone / safe tactical reposition."
+      ],
+      [
+        "Careful Move",
+        "Move slower; ignore 1 terrain/environment setback."
+      ],
+      [
+        "Sprint",
+        "Move farther; take -1 next roll or expose yourself to reaction."
+      ],
+      [
+        "Disengage",
+        "Move away safely; otherwise nearby threats may punish escape."
+      ],
+      [
+        "Take Cover",
+        "Reduce ranged/line-of-sight danger; may cost your action."
+      ],
+      [
+        "Interact",
+        "Door, lever, reload, draw item, grab evidence, help ally."
+      ]
+    ],
+    "actions": [
+      [
+        "Major",
+        "Attack, full skill use, major inspection, rite, trap setup, treatment."
+      ],
+      [
+        "Minor",
+        "Assist, quick search, draw item, reload, mark clue, short exchange."
+      ],
+      [
+        "Move",
+        "Reposition, approach, retreat, cross room/zone."
+      ],
+      [
+        "Reaction",
+        "Dodge, Brace, Counter, protect ally, trigger prepared action."
+      ],
+      [
+        "Recovery",
+        "Sacrifice pressure/action to stabilize, catch breath, or suppress effect."
+      ]
+    ],
+    "investigation": [
+      [
+        "Ask 3",
+        "Method? Approach? Attribute?"
+      ],
+      [
+        "Field",
+        "Instinct: scene, tracks, disturbances, hidden danger."
+      ],
+      [
+        "Research",
+        "Intellect: lore, records, symbols, patterns, weaknesses."
+      ],
+      [
+        "Social",
+        "Charisma: witnesses, cover identity, pressure, bargaining."
+      ],
+      [
+        "Technical",
+        "Tinkering/Intellect: EMF, recordings, forensics, devices."
+      ],
+      [
+        "Full Success",
+        "Remove 2 possibilities; precise clue; +1 forward."
+      ],
+      [
+        "Partial",
+        "Remove 1 possibility; vague clue or cost."
+      ],
+      [
+        "Failure",
+        "False lead, danger trigger, time loss, suspicion, escalation."
+      ]
+    ],
+    "control": [
+      [
+        "Trigger",
+        "Combat stress, blood, source proximity, power use, fear/rage."
+      ],
+      [
+        "Will Check",
+        "Success: control. Partial: strain/cost. Failure: GM influence."
+      ],
+      [
+        "Suppress",
+        "Major action; Will or Tinkering/ritual device."
+      ],
+      [
+        "Stacking",
+        "Multiple afflictions make control harder and effects combine."
+      ]
+    ],
+    "mantra": "Case mantra: investigate first, prepare second, confront last. The wrong answer is more dangerous than no answer."
   }
 }

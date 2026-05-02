@@ -1,25 +1,22 @@
-Night Wardens Digital Field Office v4.4 Cache Fix
+Night Wardens Digital Field Office v5.0
 
-This version keeps the previous layout and uses the visible landing title:
-Night Wardens Digital Field Office
-
-IMPORTANT UPDATE STEP:
-Upload/replace ALL files in the repo root, especially service-worker.js.
-The old installed app/browser may keep showing an older cached header until the service worker updates.
-
-Files to upload:
+Upload/replace these files in the root of your GitHub Pages repository:
 - index.html
+- app.js
 - night_wardens_data.json
 - manifest.webmanifest
 - service-worker.js
-- app.js
-- icons/ if present
+- README.txt
 
-After committing to GitHub Pages:
-1. Open the site in Chrome.
-2. Add ?v=4.4 to the URL once, like:
-   https://scottas369-collab.github.io/NightWardensCharacterSheet/?v=4.4
-3. Refresh twice.
-4. On Android, if installed as an app and it still shows old text, open App Info > Storage > Clear cache, or uninstall/reinstall the PWA.
+This version adds:
+- Uploaded quick reference sheet content on the Quick Reference page
+- Separate Warden Grimoire page with search/filter/flip-through
+- Separate Warden Bestiary page with search/filter/flip-through
+- Expanded grimoire data from the Occult Grimoire supplement
+- Expanded bestiary archive data from the Bestiary supplement
+- Cache version bump to force GitHub Pages/PWA refresh
 
-This is still local-only unless connected to Firebase/Supabase later.
+After upload, open:
+https://scottas369-collab.github.io/NightWardensCharacterSheet/?v=5.0
+
+Refresh twice. If using the installed Android PWA and stale text remains, uninstall/reinstall the PWA or clear app cache.
