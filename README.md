@@ -1,25 +1,44 @@
-# Night Wardens Auto-GM Web v1
+# Night Wardens Auto-GM — Shared + Private v3
 
-This is a standalone web page prototype for a tarot-driven Auto-GM.
+Upload these files to the root of your GitHub Pages repo:
 
-## Files
-- `index.html` — main webpage
-- `auto_gm_data.json` — editable story/card/oracle data
-- `README.md`
+- `auto-gm.html`
+- `auto_gm_data.json`
 
-## How to use on GitHub Pages
-Upload `index.html` and `auto_gm_data.json` to your repo root or a folder such as `/auto-gm/`.
+Optional Firebase shared campaign support uses the existing `firebase-config.js` from the Digital Field Office v6 package.
 
-Example:
-`https://scottas369-collab.github.io/NightWardensCharacterSheet/auto-gm/`
+## Access
 
-## Features
-- Generates a tarot-based case.
-- Tracks phase, pressure clock, visible symptom, possible entities, hidden truth, anchor, and kill condition.
-- Supports typed commands like `look`, `investigate altar`, `talk to witness`, `prep salt line`, `cast veil snap`, `attack entity`.
-- Supports split-party simultaneous actions.
-- Saves to browser storage.
-- Exports/imports case JSON.
+`https://scottas369-collab.github.io/NightWardensCharacterSheet/auto-gm.html?v=3`
 
-## Notes
-This is v1. The next upgrade can connect it to the Digital Field Office's Firebase campaigns/chats so each player sees private branch narration while the campaign log stores shared outcomes.
+## Modes
+
+### Solo / Local Case
+Device-only interactive fiction Auto-GM. Saves in browser storage and can export/import JSON.
+
+### Shared Campaign Case
+Uses Firebase Auth + Firestore when configured. Public case state, party-visible narration, and shared transcript sync to:
+
+`campaigns/{campaignId}/autoGmCases/{caseId}`
+
+### Private Player View
+Shows the shared case plus the player's private branch narration. Private notes can be stored locally and, with Firebase sign-in, pushed to:
+
+`users/{uid}/privateAutoGmCases/{campaignId_caseId}`
+
+## Command examples
+
+- `new case`
+- `look`
+- `status`
+- `add Riley`
+- `split Riley to church basement`
+- `Riley: investigate altar; Sam: talk witness; Alex: prep salt line`
+- `private Alex: research symbol`
+- `public Riley: cast veil snap; Sam: prep iron trap`
+- `confront`
+- `resolve`
+
+## Firebase rules
+
+The included `auto_gm_firestore.rules` is a safe starting point. It allows shared Auto-GM cases only to campaign members, and private Auto-GM logs only to the signed-in owner.
