@@ -1,6 +1,6 @@
 {
-  "name": "Night Wardens Beyond Lite",
-  "short_name": "NW Beyond",
+  "name": "Night Wardens Digital Field Office",
+  "short_name": "NW Field Office",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
