@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Night Wardens — Warden Dossier App</title>
+  <style>
+    :root{
+      --paper:#f4efe5; --paper2:#e9dfd2; --ink:#1d1713; --muted:#6b6258;
+      --line:#8f877b; --dark:#231c18; --blood:#4b0d0d; --blood2:#7a1d1d;
+      --green:#174d2b; --red:#6f1515; --gold:#cfc4ae;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--ink); font-family: Georgia, 'Times New Roman', serif;
+      background: var(--paper);
+      min-height:100vh;
+    }
+    body:before{
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.65;
+      background:
+        radial-gradient(circle at 20% 8%, rgba(80,70,60,.15) 0 5%, transparent 5.3%),
+        radial-gradient(circle at 67% 20%, rgba(130,70,60,.11) 0 7%, transparent 7.3%),
+        radial-gradient(circle at 75% 88%, rgba(80,70,60,.11) 0 6%, transparent 6.3%),
+        radial-gradient(circle at 35% 75%, rgba(130,70,60,.08) 0 4%, transparent 4.2%),
+        linear-gradient(90deg, transparent 3%, rgba(55,45,35,.22) 3.15%, transparent 3.35%, transparent 96.65%, rgba(55,45,35,.22) 96.85%, transparent 97%),
+        linear-gradient(0deg, transparent 3%, rgba(55,45,35,.22) 3.15%, transparent 3.35%, transparent 96.65%, rgba(55,45,35,.22) 96.85%, transparent 97%);
+    }
+    .app{position:relative; max-width:1280px; margin:0 auto; padding:18px}
+    header{background:rgba(247,241,230,.86); border:1px solid rgba(80,70,60,.45); border-radius:18px; padding:18px; text-align:center; box-shadow:0 12px 30px rgba(0,0,0,.15); backdrop-filter:blur(3px)}
+    header .stamp{font-family:Arial,sans-serif; text-transform:uppercase; letter-spacing:.35em; color:var(--blood); font-weight:800; font-size:11px}
+    h1{margin:.15em 0 0; font-size:clamp(34px,6vw,58px); letter-spacing:.04em; text-transform:uppercase}
+    header p{margin:.35em 0 0; color:var(--muted); font-style:italic}
+    .tabs{display:grid; grid-template-columns:repeat(6,1fr); gap:8px; background:rgba(35,28,24,.94); padding:8px; border-radius:18px; margin:16px 0}
+    .tab{border:0; border-radius:12px; padding:12px 8px; color:#fff; background:transparent; cursor:pointer; font-weight:800; text-transform:uppercase; letter-spacing:.04em}
+    .tab.active,.tab:hover{background:var(--blood)}
+    .grid{display:grid; gap:14px}
+    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .four{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .main2{grid-template-columns: minmax(320px, .78fr) minmax(0,1.22fr)}
+    section.card{background:rgba(247,241,230,.9); border:1px solid rgba(80,70,60,.45); border-radius:18px; padding:14px; box-shadow:0 8px 22px rgba(0,0,0,.12); backdrop-filter:blur(2px)}
+    section.card h2{margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid rgba(80,70,60,.5); text-transform:uppercase; letter-spacing:.04em; font-size:18px; display:flex; align-items:center; justify-content:space-between; gap:10px}
+    label{display:block; font-family:Arial,sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.06em; font-size:11px; color:#554b41}
+    input,select,textarea{width:100%; margin-top:5px; padding:9px; border-radius:9px; border:1px solid rgba(80,70,60,.55); background:rgba(255,255,255,.68); color:var(--ink); font:15px Georgia,serif}
+    textarea{min-height:92px; resize:vertical}
+    .btn{border:1px solid rgba(80,70,60,.45); background:#fff8; color:var(--ink); border-radius:10px; padding:9px 12px; cursor:pointer; font-weight:800; font-family:Arial,sans-serif; text-transform:uppercase; font-size:12px}
+    .btn.primary{background:var(--blood); color:white; border-color:var(--blood)}
+    .btn.danger{background:#fff0f0; color:var(--red); border-color:var(--red)}
+    .btn:hover{filter:brightness(.95)}
+    .row{display:grid; grid-template-columns:1fr 82px 1fr; gap:8px; align-items:center; padding:8px; border:1px solid rgba(80,70,60,.35); border-radius:12px; background:rgba(255,255,255,.45); margin-bottom:7px}
+    .row .title{font-weight:900; text-transform:uppercase}.row .use{font-size:12px;color:var(--muted);font-style:italic}
+    .rank{display:flex; gap:5px; align-items:center}.box{width:20px;height:20px;border:1px solid var(--line);background:#fff9;border-radius:3px;cursor:pointer;display:inline-block}.box.on{background:var(--blood); box-shadow:inset 0 0 0 3px #fff7}.pill{display:inline-block; border:1px solid rgba(75,13,13,.45); border-radius:999px; padding:3px 8px; font:700 11px Arial; color:var(--blood); background:#fff8; white-space:nowrap}.note{border:1px solid rgba(75,13,13,.25); background:rgba(75,13,13,.08); border-radius:12px; padding:10px; margin-top:10px; font-size:14px}.skillcard{border:1px solid rgba(80,70,60,.4); border-radius:14px; padding:11px; background:rgba(255,255,255,.55); box-shadow:0 3px 9px rgba(0,0,0,.05)}.skillcard h3{margin:0; color:var(--blood); display:flex; justify-content:space-between; gap:10px}.skillcard p{font-size:13px; min-height:38px; color:#554b41}.hidden{display:none!important}.scroll{max-height:650px; overflow:auto; padding-right:6px}.formula{background:var(--dark); color:white; border-radius:14px; padding:14px; text-align:center; font-size:20px; font-weight:900}.refrow{padding:10px; background:rgba(255,255,255,.55); border-radius:10px; margin-bottom:8px; border:1px solid rgba(80,70,60,.25)}.log{border-radius:14px; padding:13px; border:1px solid; margin-bottom:10px}.success{background:rgba(37,120,64,.12); border-color:rgba(37,120,64,.45)}.failure{background:rgba(130,20,20,.12); border-color:rgba(130,20,20,.45)}.badge{float:right; padding:3px 8px; border-radius:999px; background:var(--blood); color:white; font:800 11px Arial}.controls{display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:flex-end}.footerhint{text-align:center; color:var(--blood); font-style:italic; margin:16px 0 4px; font-weight:700}.fileInput{display:none}
+    @media(max-width:900px){.tabs{grid-template-columns:repeat(2,1fr)}.two,.three,.four,.main2{grid-template-columns:1fr}.row{grid-template-columns:1fr}.controls{justify-content:flex-start}}
+    @media print{body:before,.tabs,.controls,.no-print{display:none!important}.app{max-width:none;padding:0}section.card{break-inside:avoid;box-shadow:none;background:white}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="stamp">Classified Field Dossier</div>
+    <h1>Night Wardens</h1>
+    <p>Investigate first. Prepare second. Confront last.</p>
+  </header>
+
+  <nav class="tabs no-print">
+    <button class="tab active" data-tab="sheet">Sheet</button>
+    <button class="tab" data-tab="level">Level Up</button>
+    <button class="tab" data-tab="roller">Roller</button>
+    <button class="tab" data-tab="reference">Reference</button>
+    <button class="tab" data-tab="occult">Occult</button>
+    <button class="tab" data-tab="data">Save / Load</button>
+  </nav>
+
+  <div id="sheet" class="tabpane">
+    <div class="grid two">
+      <section class="card"><h2>Identity <span class="controls"><button class="btn primary" onclick="saveNow()">Save</button></span></h2>
+        <div class="grid four">
+          <label>File No.<input id="fileNo"></label><label>Safehouse<input id="safehouse"></label><label>Case<input id="caseName"></label><label>Session<input id="session"></label>
+        </div>
+        <div class="grid two" style="margin-top:10px">
+          <label>Name<input id="name"></label><label>Lineage<input id="lineage"></label><label>Age<input id="age"></label>
+          <label>Role<select id="role"></select></label><label>Height<input id="height"></label><label>Background / Alias<input id="background"></label>
+          <label>Weight<input id="weight"></label><label>Pronouns / Notes<input id="pronouns"></label>
+        </div>
+        <div id="roleNote" class="note"></div>
+      </section>
+      <section class="card"><h2>Attributes <button class="btn primary" onclick="applyRolePackage()">Apply Role Package</button></h2><div id="attributes"></div></section>
+      <section class="card"><h2>Health, State, Afflictions</h2>
+        <div class="grid four"><label>Healthy<input id="healthHealthy" type="number" min="0" max="9"></label><label>Wounded<input id="healthWounded" type="number" min="0" max="9"></label><label>Critical<input id="healthCritical" type="number" min="0" max="9"></label><label>Downed<select id="healthDowned"><option value="false">No</option><option value="true">Yes</option></select></label></div>
+        <label style="margin-top:10px">Afflictions / Corruption / Vessel Strain<textarea id="afflictions"></textarea></label>
+      </section>
+      <section class="card"><h2>Pace, Progression, Equipment</h2><div class="grid three"><label>Move<input id="move" type="number"></label><label>Initiative<input id="initiative"></label><label>Warden Marks<input id="wardenMarks" type="number"></label></div><label style="margin-top:10px">Equipment / Relics / Case Notes<textarea id="equipment"></textarea></label></section>
+      <section class="card"><h2>Role Skills / Acquired Skills / Rites</h2><div id="roleSkills"></div></section>
+      <section class="card"><h2>Common / Shared Skills</h2><div id="sharedSkills"></div></section>
+    </div>
+  </div>
+
+  <div id="level" class="tabpane hidden"><div class="grid main2">
+    <section class="card"><h2>Advancement Spend</h2><div id="marksBox" class="formula"></div><div class="refrow"><b>Skill Rank Up:</b> 1 mark</div><div class="refrow"><b>Unlock New Role Skill:</b> 1 mark</div><div class="refrow"><b>Unlock Next Tier:</b> 3 marks</div><div class="refrow"><b>Attribute +1:</b> 4 marks, or 6 marks for stats 12+</div><div class="refrow"><b>Acquired Skill:</b> 2 marks after unlock point</div></section>
+    <section class="card"><h2>Embedded Skill Library <input id="skillSearch" placeholder="Search skills..." style="max-width:260px"></h2><div id="skillLibrary" class="scroll grid three"></div></section>
+  </div></div>
+
+  <div id="roller" class="tabpane hidden"><div class="grid main2">
+    <section class="card"><h2>Roll Builder</h2>
+      <div class="grid">
+        <label>Dice Mode<select id="diceMode"><option value="3d6">3d6 Core Rulebook</option><option value="2d6">2d6 Quick Reference Variant</option></select></label>
+        <label>Attribute<select id="rollAttribute"></select></label>
+        <label>Primary Skill<select id="primarySkill"></select></label>
+        <div class="grid two"><label>Support Skill 1<select id="support1"></select></label><label>Support Skill 2<select id="support2"></select></label></div>
+        <label>Setbacks<input id="setbacks" type="number" value="0" min="0" max="12"></label>
+        <button class="btn primary" onclick="makeRoll()" style="font-size:18px;padding:13px">Roll Check</button>
+      </div>
+    </section>
+    <section class="card"><h2>Roll Log <button class="btn" onclick="rollLog=[]; renderRollLog()">Clear</button></h2><div id="rollLog"></div></section>
+  </div></div>
+
+  <div id="reference" class="tabpane hidden"><div class="grid two">
+    <section class="card"><h2>Core Check</h2><div class="formula">Roll 3d6 ≤ Attribute + up to 2 Skills − Setbacks</div><p>Setbacks represent darkness, fear, injury, chaos, supernatural interference, bad position, or missing tools. Support skills can remove pressure when the fiction supports them.</p><div class="grid two"><div class="refrow"><b>Easy:</b> +2</div><div class="refrow"><b>Standard:</b> +0</div><div class="refrow"><b>Hard:</b> -2</div><div class="refrow"><b>Extreme:</b> -4</div></div></section>
+    <section class="card"><h2>Round Flow</h2><div class="refrow"><b>1. Intent:</b> Say what you do, how, and which attribute applies.</div><div class="refrow"><b>2. Roll:</b> Roll only when uncertain and failure matters.</div><div class="refrow"><b>3. React:</b> Target may Dodge, Brace, or Counter once.</div><div class="refrow"><b>4. Damage:</b> Roll damage/effect, then apply state.</div><div class="refrow"><b>5. Update:</b> Injuries, afflictions, hazards, escalation.</div></section>
+    <section class="card"><h2>Actions at a Glance</h2><div class="refrow"><b>Major:</b> Attack, full skill use, major inspection, rite, trap setup, treatment.</div><div class="refrow"><b>Minor:</b> Assist, quick search, draw item, reload, mark clue, short exchange.</div><div class="refrow"><b>Move:</b> Reposition, approach, retreat, cross room/zone.</div><div class="refrow"><b>Reaction:</b> Dodge, Brace, Counter, protect ally, trigger prepared action.</div><div class="refrow"><b>Recovery:</b> Stabilize, catch breath, suppress effect.</div></section>
+    <section class="card"><h2>Inspections / Investigation</h2><div class="refrow"><b>Ask 3:</b> Method? Approach? Attribute?</div><div class="refrow"><b>Field:</b> Instinct — scene, tracks, disturbances, hidden danger.</div><div class="refrow"><b>Research:</b> Intellect — lore, records, symbols, weaknesses.</div><div class="refrow"><b>Social:</b> Charisma — witnesses, cover identity, pressure, bargains.</div><div class="refrow"><b>Technical:</b> Tinkering/Intellect — EMF, recordings, forensics, devices.</div><div class="note"><b>Full Success:</b> remove 2 possibilities, precise clue, +1 forward. <b>Partial:</b> remove 1. <b>Failure:</b> false lead, danger, time loss, suspicion, escalation.</div></section>
+  </div></div>
+
+  <div id="occult" class="tabpane hidden"><div class="grid two">
+    <section class="card"><h2>Quick Spell Deck</h2><div id="quickSpells" class="grid"></div></section>
+    <section class="card"><h2>Ritual Logic</h2><div class="formula" style="font-size:15px;text-align:left"><b>Quick Spell:</b> 3d6 ≤ Will + Energy Control or Ritual Basics − Setbacks<br><br><b>Structured Rite:</b> 3d6 ≤ Will + Ritual Casting + support skill − Setbacks<br><br><b>Binding / Warding:</b> 3d6 ≤ Will + Binding or Warding − Setbacks</div><div class="refrow"><b>Summoning Frame:</b> Core Components + Catalyst + Anchor + Cost.</div><div class="refrow"><b>Magic Risk:</b> strain, rare materials, exposure, corruption, attention, affliction marks, or loss of control.</div><div class="note"><i>Fast spells buy seconds. Structured rites buy control. Forbidden workings buy answers and then charge interest.</i></div></section>
+  </div></div>
+
+  <div id="data" class="tabpane hidden"><div class="grid two">
+    <section class="card"><h2>Save Character to Device</h2><p>This app auto-saves in this browser/device. Use the buttons below to make a backup file or load one later.</p><div class="grid"><button class="btn primary" onclick="saveNow()">Save to Browser</button><button class="btn" onclick="downloadCharacter()">Download Character JSON</button><button class="btn" onclick="print()">Print / Save as PDF</button></div></section>
+    <section class="card"><h2>Load Character from Device</h2><p>Load a saved <b>.json</b> character file from your phone, tablet, or computer.</p><input class="fileInput" id="loadFile" type="file" accept="application/json,.json"><div class="grid"><button class="btn primary" onclick="document.getElementById('loadFile').click()">Choose Character File</button><button class="btn danger" onclick="resetCharacter()">Reset Blank Character</button></div><label style="margin-top:12px">Raw Character Data<textarea id="rawData" style="min-height:220px"></textarea></label><div class="controls"><button class="btn" onclick="copyRawData()">Copy Raw Data</button><button class="btn primary" onclick="loadRawData()">Load Raw Data</button></div></section>
+  </div></div>
+
+  <div class="footerhint">Case mantra: investigate first, prepare second, confront last. The wrong answer is more dangerous than no answer.</div>
+</div>
+<script>
+const ATTRIBUTES = [
+  { key:'force', label:'Force', use:'damage / grapple / leverage' },{ key:'prowess', label:'Prowess', use:'aim / stealth / move' },{ key:'intellect', label:'Intellect', use:'research / clues / crafting' },{ key:'instinct', label:'Instinct', use:'awareness / tracking / reaction' },{ key:'will', label:'Will', use:'composure / rituals / vessel checks' },{ key:'charisma', label:'Charisma', use:'social pressure / bargains / cover' },{ key:'endurance', label:'Endurance', use:'fatigue / recovery / injury resistance' }
+];
+const ROLES = {
+  Enforcer:{bonuses:{force:2,prowess:1,will:1},function:'Ends the threat directly.',starter:['Melee Combat','Firearms','Intimidation','Endurance','Close Quarters','Weapon Handling'],experienced:['Combat Flow','Suppression','Armor Breaking','Threat Control'],master:['Execution Strike','Multi-Target Combat','Adrenal Surge']},
+  Infiltrator:{bonuses:{prowess:2,instinct:1,charisma:1},function:'Gets in where others cannot.',starter:['Deception','Persuasion','Disguise','Investigation','Stealth','Observation'],experienced:['Deep Cover','Interrogation','Forgery','Social Engineering'],master:['Perfect Impersonation','Psychological Control','Invisible Presence']},
+  Lorekeeper:{bonuses:{intellect:2,will:1,instinct:1},function:'Understands what the team is facing.',starter:['Research','Occult Knowledge','Investigation','History','Symbolism','Pattern Study'],experienced:['Ritual Analysis','Weakness Identification','Language Decoding','Archive Retrieval'],master:['True Pattern Sight','Forbidden Lore','Perfect Deduction']},
+  Tracker:{bonuses:{instinct:2,prowess:1,endurance:1},function:'Finds what does not want to be found.',starter:['Tracking','Survival','Awareness','Investigation','Stealth','Navigation'],experienced:['Ambush','Trap Avoidance','Environmental Reading','Pursuit'],master:['Supernatural Tracking','Kill Setup','Apex Predator']},
+  Survivor:{bonuses:{endurance:2,force:1,will:1},function:'Stays standing when everyone else is breaking.',starter:['Endurance','Resistance','Awareness','Survival','Pain Tolerance','Recovery'],experienced:['Damage Mitigation','Fear Resistance','Adrenal Control','Last Stand'],master:['Death Defiance','Unyielding Body','Crisis Overdrive']},
+  Occultist:{bonuses:{will:2,intellect:1,charisma:1},function:'Controls dangerous rituals and bindings.',starter:['Ritual Casting','Occult Knowledge','Investigation','Focus','Sigil Reading','Energy Control'],experienced:['Advanced Rituals','Warding','Binding','Curse Handling'],master:['Forbidden Magic','Entity Binding','Reality Manipulation']},
+  Medium:{bonuses:{charisma:2,will:1,instinct:1},function:'Communicates with what others cannot reach.',starter:['Spirit Communication','Insight','Investigation','Occult','Presence Sense','Emotional Reading'],experienced:['Spirit Bargaining','Astral Awareness','Possession Resistance','Energy Reading'],master:['Spirit Command','Veil Manipulation','Forced Manifestation']},
+  Tinkerer:{bonuses:{intellect:2,prowess:1,endurance:1},function:'Builds the tools that make impossible hunts survivable.',starter:['Engineering','Crafting','Trap Setting','Forensics','Repair','Improvisation'],experienced:['Advanced Traps','Ammo Crafting','Mechanism Design','Explosive Rigging'],master:['Killbox Systems','Remote Triggers','Anti-Entity Devices']}
+};
+const SHARED_SKILLS = [
+  {name:'Awareness',attr:'Instinct',use:'Notice danger, anomalies, movement, and ambush conditions.'},{name:'Investigation',attr:'Intellect',use:'Search scenes, connect clues, and narrow entity possibilities.'},{name:'Stealth',attr:'Prowess',use:'Move unseen, bypass notice, and establish ambush position.'},{name:'Survival',attr:'Instinct',use:'Operate in harsh environments and read terrain or tracks.'},{name:'Endurance',attr:'Endurance',use:'Resist fatigue, bodily stress, and cumulative pressure.'},{name:'Composure',attr:'Will',use:'Resist fear, panic, and mental collapse.'},{name:'Occult Knowledge',attr:'Intellect',use:'Recognize rituals, supernatural signs, and likely weaknesses.'},{name:'Ritual Basics',attr:'Intellect / Will',use:'Attempt basic rituals with elevated danger and instability.'},{name:'Ritual Casting',attr:'Will',use:'Perform controlled ritual work.'},{name:'Binding',attr:'Will',use:'Restrict, contain, or pin down supernatural entities.'},{name:'Warding',attr:'Will',use:'Create barriers, circles, protections, and thresholds.'},{name:'Melee Combat',attr:'Force',use:'Resolve close violence, control, and finishing pressure.'},{name:'Firearms',attr:'Prowess',use:'Deliver precise ranged attacks and target weaknesses at distance.'},{name:'Tinkering',attr:'Intellect + Prowess',use:'Build traps, modify gear, create anti-entity tools.'},{name:'Presence Sense',attr:'Instinct / Will',use:'Detect or classify supernatural presence.'},{name:'Spirit Communication',attr:'Charisma / Will',use:'Speak to spirits for information, leverage, or release.'},{name:'Insight',attr:'Charisma / Instinct',use:'Read motives, lies, emotional fractures, and hidden pressure.'}
+];
+const QUICK_SPELLS = [
+  {name:'Force Pulse',roll:'Will + Energy Control',cost:'1 strain | Minor',effect:'Push or stagger one target.'},{name:'Veil Snap',roll:'Will + Ritual Basics / Presence Sense',cost:'1 strain | Minor',effect:'Expose hidden spirit, glamour, or sigil.'},{name:'Lantern Spark',roll:'Will + Energy Control',cost:'1 strain | Minor',effect:'Light area; cancel darkness -1.'},{name:'Grave Chill',roll:'Will + Energy Control',cost:'1 strain | Minor',effect:'Slow living or spirit target.'},{name:'Shield Burst',roll:'Will + Energy Control',cost:'1 strain | Minor',effect:'Reduce one incoming damage tier.'},{name:'Ash Mark',roll:'Will + Ritual Basics',cost:'1 strain | Minor',effect:'Tag target for tracking.'},{name:'Static Hex',roll:'Will + Energy Control',cost:'1 strain | Minor',effect:'Jam electronics / audio / focus.'},{name:'Spirit Lash',roll:'Will + Energy Control',cost:'2 strain | Major',effect:'Direct harm to manifested spirit.'}
+];
+const DEFAULT_CHARACTER = {fileNo:'',safehouse:'',caseName:'',session:'',name:'',lineage:'',age:'',role:'Tracker',height:'',background:'',weight:'',pronouns:'',attributes:Object.fromEntries(ATTRIBUTES.map(a=>[a.key,9])),subfocus:Object.fromEntries(ATTRIBUTES.map(a=>[a.key,''])),health:{healthy:4,wounded:0,critical:0,downed:false},afflictions:'',move:4,initiative:'Instinct + Awareness',wardenMarks:0,skills:{},equipment:''};
+let character = loadLocal() || structuredClone(DEFAULT_CHARACTER); let rollLog=[];
+function $(id){return document.getElementById(id)} function clamp(n,min,max){return Math.max(min,Math.min(max,Number(n)||0))} function roleSkills(role=character.role){const r=ROLES[role]||ROLES.Tracker;return [...r.starter,...r.experienced,...r.master]} function rankOf(skill){return clamp(character.skills?.[skill]||0,0,3)}
+function skillOptions(){return [...new Set([...roleSkills(),...SHARED_SKILLS.map(s=>s.name),...QUICK_SPELLS.map(s=>s.name)])].sort()}
+function saveLocal(){localStorage.setItem('night-wardens-character-v2', JSON.stringify(character)); $('rawData').value=JSON.stringify(character,null,2)} function loadLocal(){try{return JSON.parse(localStorage.getItem('night-wardens-character-v2'))}catch{return null}}
+function bindBasics(){['fileNo','safehouse','caseName','session','name','lineage','age','height','background','weight','pronouns','afflictions','move','initiative','wardenMarks','equipment'].forEach(id=>{$(id).addEventListener('input',()=>{character[id]=$({caseName:'caseName'}[id]||id).value; if(['move','wardenMarks'].includes(id))character[id]=Number(character[id])||0; saveLocal(); renderMeta();})}); ['healthHealthy','healthWounded','healthCritical','healthDowned'].forEach(id=>$(id).addEventListener('change',()=>{character.health.healthy=Number($('healthHealthy').value)||0; character.health.wounded=Number($('healthWounded').value)||0; character.health.critical=Number($('healthCritical').value)||0; character.health.downed=$('healthDowned').value==='true'; saveLocal()})); $('role').addEventListener('change',()=>{character.role=$('role').value; saveLocal(); renderAll()}); $('skillSearch').addEventListener('input',renderSkillLibrary); $('loadFile').addEventListener('change',loadFile); document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));}
+function setVal(id,v){if($(id))$(id).value=v??''}
+function syncInputs(){Object.keys(DEFAULT_CHARACTER).forEach(k=>{if(typeof character[k] !== 'object') setVal(k,character[k])}); setVal('role',character.role); setVal('healthHealthy',character.health.healthy); setVal('healthWounded',character.health.wounded); setVal('healthCritical',character.health.critical); setVal('healthDowned',String(!!character.health.downed)); $('rawData').value=JSON.stringify(character,null,2)}
+function renderRoleSelect(){ $('role').innerHTML=Object.keys(ROLES).map(r=>`<option value="${r}">${r}</option>`).join('') }
+function renderMeta(){const r=ROLES[character.role]||ROLES.Tracker; $('roleNote').innerHTML=`<b>${character.role}:</b> ${r.function} <span style="color:#6b6258">Bonuses: ${Object.entries(r.bonuses).map(([k,v])=>`${ATTRIBUTES.find(a=>a.key===k).label} +${v}`).join(', ')}</span>`; $('marksBox').textContent=`Warden Marks: ${character.wardenMarks||0}`; renderRollSelects();}
+function rankBoxes(skill){return `<span class="rank" data-skill="${skill}">${[1,2,3].map(n=>`<span class="box ${rankOf(skill)>=n?'on':''}" onclick="setRank('${escapeJS(skill)}',${rankOf(skill)===n?n-1:n})"></span>`).join('')}</span>`}
+function escapeJS(s){return String(s).replaceAll('\\','\\\\').replaceAll("'","\\'")}
+function setRank(skill,val){character.skills[skill]=clamp(val,0,3); saveLocal(); renderAll(false)}
+function renderAttributes(){ $('attributes').innerHTML=ATTRIBUTES.map(a=>`<div class="row"><div><div class="title">${a.label}</div><div class="use">${a.use}</div></div><label>Value<input type="number" value="${character.attributes[a.key]||0}" onchange="character.attributes['${a.key}']=Number(this.value)||0; saveLocal(); renderMeta()"></label><label>Sub / Focus<input value="${character.subfocus[a.key]||''}" onchange="character.subfocus['${a.key}']=this.value; saveLocal()"></label></div>`).join('') }
+function renderRoleSkills(){const r=ROLES[character.role]||ROLES.Tracker; $('roleSkills').innerHTML=roleSkills().map(s=>`<div class="row" style="grid-template-columns:90px 1fr auto"><div>${rankBoxes(s)}</div><b>${s}</b><span class="pill">${r.starter.includes(s)?'Starter':r.experienced.includes(s)?'Experienced':'Master'}</span></div>`).join('')}
+function renderSharedSkills(){ $('sharedSkills').innerHTML=SHARED_SKILLS.slice(0,9).map(s=>`<div class="row" style="grid-template-columns:90px 1fr"><div>${rankBoxes(s.name)}</div><div><b>${s.name}</b> <span style="color:var(--blood);font-size:12px">(${s.attr})</span><div class="use">${s.use}</div></div></div>`).join('') }
+function renderSkillLibrary(){const q=($('skillSearch').value||'').toLowerCase(); const r=ROLES[character.role]||ROLES.Tracker; const list=skillOptions().filter(s=>s.toLowerCase().includes(q)); $('skillLibrary').innerHTML=list.map(skill=>{const shared=SHARED_SKILLS.find(s=>s.name===skill), spell=QUICK_SPELLS.find(s=>s.name===skill); const tier=r.starter.includes(skill)?'Starter':r.experienced.includes(skill)?'Experienced':r.master.includes(skill)?'Master':spell?'Quick Spell':'Shared'; return `<div class="skillcard"><h3>${skill}<span class="pill">${tier}</span></h3><p>${shared?.use||spell?.effect||'Role skill. Define exact use from role context and table fiction.'}</p><div style="display:flex;justify-content:space-between;align-items:center">${rankBoxes(skill)}<small>${shared?.attr||spell?.roll||character.role}</small></div></div>`}).join('') }
+function renderQuickSpells(){ $('quickSpells').innerHTML=QUICK_SPELLS.map(spell=>`<div class="skillcard"><h3>${spell.name}<span class="pill">${spell.cost}</span></h3><p><b>Roll:</b> ${spell.roll}<br><b>Effect:</b> ${spell.effect}</p>${rankBoxes(spell.name)}</div>`).join('') }
+function renderRollSelects(){const attr=$('rollAttribute'); attr.innerHTML=ATTRIBUTES.map(a=>`<option value="${a.key}">${a.label} (${character.attributes[a.key]||0})</option>`).join(''); const skills=skillOptions(); ['primarySkill','support1','support2'].forEach((id,i)=>{$(id).innerHTML=(i?'<option value="none">None</option>':'')+skills.map(s=>`<option value="${s}">${s} r${rankOf(s)}</option>`).join('')}); if(!$('rollAttribute').value)$('rollAttribute').value='instinct'; if(!$('primarySkill').value)$('primarySkill').value='Awareness'}
+function renderAll(sync=true){renderRoleSelect(); if(sync) syncInputs(); renderMeta(); renderAttributes(); renderRoleSkills(); renderSharedSkills(); renderSkillLibrary(); renderQuickSpells(); renderRollSelects(); renderRollLog()}
+function showTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab)); document.querySelectorAll('.tabpane').forEach(p=>p.classList.toggle('hidden', p.id!==tab)); if(tab==='data')$('rawData').value=JSON.stringify(character,null,2)}
+function applyRolePackage(){character.attributes=Object.fromEntries(ATTRIBUTES.map(a=>[a.key,9])); Object.entries((ROLES[character.role]||ROLES.Tracker).bonuses).forEach(([k,v])=>character.attributes[k]+=v); (ROLES[character.role]||ROLES.Tracker).starter.forEach(s=>character.skills[s]=Math.max(character.skills[s]||0,1)); saveLocal(); renderAll()}
+function saveNow(){saveLocal(); alert('Character saved to this browser/device.')} function downloadCharacter(){saveLocal(); const blob=new Blob([JSON.stringify(character,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(character.name||'night_wardens_character').replace(/[^a-z0-9_-]+/gi,'_')+'.json'; a.click(); URL.revokeObjectURL(a.href)}
+function loadFile(e){const f=e.target.files[0]; if(!f)return; const reader=new FileReader(); reader.onload=()=>{try{character={...structuredClone(DEFAULT_CHARACTER),...JSON.parse(reader.result)}; saveLocal(); renderAll(); alert('Character loaded.')}catch(err){alert('Could not load JSON file.')}}; reader.readAsText(f)}
+function copyRawData(){navigator.clipboard?.writeText($('rawData').value); alert('Raw data copied.')} function loadRawData(){try{character={...structuredClone(DEFAULT_CHARACTER),...JSON.parse($('rawData').value)}; saveLocal(); renderAll(); alert('Raw character data loaded.')}catch(e){alert('Invalid JSON.')}} function resetCharacter(){if(confirm('Reset this character on this device?')){character=structuredClone(DEFAULT_CHARACTER); saveLocal(); renderAll()}}
+function makeRoll(){const count=$('diceMode').value==='2d6'?2:3; const dice=Array.from({length:count},()=>Math.floor(Math.random()*6)+1); const total=dice.reduce((a,b)=>a+b,0); const attrKey=$('rollAttribute').value||'instinct'; const primary=$('primarySkill').value||'Awareness'; const s1=$('support1').value, s2=$('support2').value; const supportOffset=Math.min(2,(s1&&s1!=='none'&&rankOf(s1)>0?1:0)+(s2&&s2!=='none'&&rankOf(s2)>0?1:0)); const target=(Number(character.attributes[attrKey])||0)+rankOf(primary)-Math.max(0,(Number($('setbacks').value)||0)-supportOffset); const success=total<=target; rollLog.unshift({time:new Date().toLocaleTimeString(),dice,total,target,success,label:`${ATTRIBUTES.find(a=>a.key===attrKey).label} + ${primary}`,detail:`Attr ${character.attributes[attrKey]} + skill ${rankOf(primary)} - setbacks ${$('setbacks').value} + support offset ${supportOffset}`,mode:$('diceMode').value,margin:target-total}); rollLog=rollLog.slice(0,12); renderRollLog()}
+function renderRollLog(){const el=$('rollLog'); if(!el)return; el.innerHTML=rollLog.length?rollLog.map(r=>`<div class="log ${r.success?'success':'failure'}"><span class="badge">${r.success?'SUCCESS':'FAILURE'}</span><b>${r.label}</b><div>Rolled <b>${r.dice.join(' + ')} = ${r.total}</b> vs target <b>${r.target}</b> (${r.mode})</div><small>${r.detail} | Margin ${r.margin} | ${r.time}</small></div>`).join(''):'<div class="refrow" style="text-align:center;padding:30px">No rolls yet.</div>'}
+window.addEventListener('DOMContentLoaded',()=>{bindBasics(); renderAll(); saveLocal()});
+</script>
+</body>
+</html>
