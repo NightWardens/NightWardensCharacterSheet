@@ -1,0 +1,11 @@
+{
+  "name": "Night Wardens Beyond Lite",
+  "short_name": "NW Beyond",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eee7db",
+  "theme_color": "#2b0b0d",
+  "description": "Night Wardens character sheet, guided creation, campaigns, dice roller, and grid lite.",
+  "icons": []
+}

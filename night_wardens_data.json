@@ -1,971 +1,113 @@
 {
-  "version": "2.0",
+  "version": "0.3.0-local-prototype",
+  "game": "Night Wardens",
+  "baseAttributes": {
+    "force": 9,
+    "prowess": 9,
+    "intellect": 9,
+    "instinct": 9,
+    "will": 9,
+    "charisma": 9,
+    "endurance": 9
+  },
+  "attributes": [
+    {"key":"force","label":"Force","use":"damage, grapple, leverage, close violence"},
+    {"key":"prowess","label":"Prowess","use":"aim, stealth, move, coordination"},
+    {"key":"intellect","label":"Intellect","use":"research, clues, crafting, deduction"},
+    {"key":"instinct","label":"Instinct","use":"awareness, tracking, reaction, hunting sense"},
+    {"key":"will","label":"Will","use":"composure, rituals, vessel checks, possession resistance"},
+    {"key":"charisma","label":"Charisma","use":"social pressure, bargains, cover, spirit contact"},
+    {"key":"endurance","label":"Endurance","use":"fatigue, recovery, injury resistance, survival"}
+  ],
   "roles": {
-    "Tracker": {
-      "bonuses": {
-        "instinct": 2,
-        "prowess": 1,
-        "endurance": 1
-      },
-      "function": "Finds what does not want to be found.",
-      "starter": [
-        "Tracking",
-        "Survival",
-        "Awareness",
-        "Investigation",
-        "Stealth",
-        "Navigation"
-      ],
-      "experienced": [
-        "Ambush",
-        "Trap Avoidance",
-        "Environmental Reading",
-        "Pursuit"
-      ],
-      "master": [
-        "Supernatural Tracking",
-        "Kill Setup",
-        "Apex Predator"
-      ],
-      "backgrounds": "hunter, survivor, wilderness guide",
-      "flavor": "instinct-driven, isolated, observant"
-    },
-    "Lorekeeper": {
-      "bonuses": {
-        "intellect": 2,
-        "will": 1,
-        "instinct": 1
-      },
-      "function": "Understands the threat.",
-      "starter": [
-        "Research",
-        "Occult Knowledge",
-        "Investigation",
-        "History",
-        "Symbolism",
-        "Pattern Study"
-      ],
-      "experienced": [
-        "Ritual Analysis",
-        "Weakness Identification",
-        "Language Decoding",
-        "Archive Retrieval"
-      ],
-      "master": [
-        "True Pattern Sight",
-        "Forbidden Lore",
-        "Perfect Deduction"
-      ],
-      "backgrounds": "scholar, archivist, secret order",
-      "flavor": "obsessive, informed, burdened"
-    },
-    "Enforcer": {
-      "bonuses": {
-        "force": 2,
-        "prowess": 1,
-        "will": 1
-      },
-      "function": "Ends the threat directly.",
-      "starter": [
-        "Melee Combat",
-        "Firearms",
-        "Intimidation",
-        "Endurance",
-        "Close Quarters",
-        "Weapon Handling"
-      ],
-      "experienced": [
-        "Combat Flow",
-        "Suppression",
-        "Armor Breaking",
-        "Threat Control"
-      ],
-      "master": [
-        "Execution Strike",
-        "Multi-Target Combat",
-        "Adrenal Surge"
-      ],
-      "backgrounds": "military, law enforcement, protector",
-      "flavor": "direct, scarred, relentless"
-    },
-    "Tinkerer": {
-      "bonuses": {
-        "intellect": 2,
-        "prowess": 1,
-        "endurance": 1
-      },
-      "function": "Builds what the hunt needs.",
-      "starter": [
-        "Engineering",
-        "Crafting",
-        "Trap Setting",
-        "Forensics",
-        "Repair",
-        "Improvisation"
-      ],
-      "experienced": [
-        "Advanced Traps",
-        "Ammo Crafting",
-        "Mechanism Design",
-        "Explosive Rigging"
-      ],
-      "master": [
-        "Killbox Systems",
-        "Remote Triggers",
-        "Anti-Entity Devices"
-      ],
-      "backgrounds": "mechanic, engineer, inventor",
-      "flavor": "improvisational, analytical"
-    },
-    "Medium": {
-      "bonuses": {
-        "charisma": 2,
-        "will": 1,
-        "instinct": 1
-      },
-      "function": "Communicates with the dead.",
-      "starter": [
-        "Spirit Communication",
-        "Insight",
-        "Investigation",
-        "Occult",
-        "Presence Sense",
-        "Emotional Reading"
-      ],
-      "experienced": [
-        "Spirit Bargaining",
-        "Astral Awareness",
-        "Possession Resistance",
-        "Energy Reading"
-      ],
-      "master": [
-        "Spirit Command",
-        "Veil Manipulation",
-        "Forced Manifestation"
-      ],
-      "backgrounds": "born sensitive, near-death survivor",
-      "flavor": "haunted, perceptive, unstable"
-    },
-    "Survivor": {
-      "bonuses": {
-        "endurance": 2,
-        "force": 1,
-        "will": 1
-      },
-      "function": "Stays standing.",
-      "starter": [
-        "Endurance",
-        "Resistance",
-        "Awareness",
-        "Survival",
-        "Pain Tolerance",
-        "Recovery"
-      ],
-      "experienced": [
-        "Damage Mitigation",
-        "Fear Resistance",
-        "Adrenal Control",
-        "Last Stand"
-      ],
-      "master": [
-        "Death Defiance",
-        "Unyielding Body",
-        "Crisis Overdrive"
-      ],
-      "backgrounds": "lone survivor, cursed victim",
-      "flavor": "resilient, guarded"
-    },
-    "Infiltrator": {
-      "bonuses": {
-        "prowess": 2,
-        "instinct": 1,
-        "charisma": 1
-      },
-      "function": "Gets in where others cannot.",
-      "starter": [
-        "Deception",
-        "Persuasion",
-        "Disguise",
-        "Investigation",
-        "Stealth",
-        "Observation"
-      ],
-      "experienced": [
-        "Deep Cover",
-        "Interrogation",
-        "Forgery",
-        "Social Engineering"
-      ],
-      "master": [
-        "Perfect Impersonation",
-        "Psychological Control",
-        "Invisible Presence"
-      ],
-      "backgrounds": "con artist, undercover operative",
-      "flavor": "deceptive, adaptive"
-    },
-    "Occultist": {
-      "bonuses": {
-        "will": 2,
-        "intellect": 1,
-        "charisma": 1
-      },
-      "function": "Controls dangerous rituals.",
-      "starter": [
-        "Ritual Casting",
-        "Occult Knowledge",
-        "Investigation",
-        "Focus",
-        "Sigil Reading",
-        "Energy Control"
-      ],
-      "experienced": [
-        "Advanced Rituals",
-        "Warding",
-        "Binding",
-        "Curse Handling"
-      ],
-      "master": [
-        "Forbidden Magic",
-        "Entity Binding",
-        "Reality Manipulation"
-      ],
-      "backgrounds": "trained, self-taught, pact-bound",
-      "flavor": "dangerous, knowledgeable"
-    }
+    "Enforcer": {"function":"Ends the threat directly.","bonuses":{"force":2,"prowess":1,"will":1},"starter":["Melee Combat","Firearms","Intimidation","Endurance","Close Quarters","Weapon Handling"],"experienced":["Combat Flow","Suppression","Armor Breaking","Threat Control"],"master":["Execution Strike","Multi-Target Combat","Adrenal Surge"]},
+    "Infiltrator": {"function":"Gets in where others cannot.","bonuses":{"prowess":2,"instinct":1,"charisma":1},"starter":["Deception","Persuasion","Disguise","Investigation","Stealth","Observation"],"experienced":["Deep Cover","Interrogation","Forgery","Social Engineering"],"master":["Perfect Impersonation","Psychological Control","Invisible Presence"]},
+    "Lorekeeper": {"function":"Understands what the team is facing.","bonuses":{"intellect":2,"will":1,"instinct":1},"starter":["Research","Occult Knowledge","Investigation","History","Symbolism","Pattern Study"],"experienced":["Ritual Analysis","Weakness Identification","Language Decoding","Archive Retrieval"],"master":["True Pattern Sight","Forbidden Lore","Perfect Deduction"]},
+    "Tracker": {"function":"Finds what does not want to be found.","bonuses":{"instinct":2,"prowess":1,"endurance":1},"starter":["Tracking","Survival","Awareness","Investigation","Stealth","Navigation"],"experienced":["Ambush","Trap Avoidance","Environmental Reading","Pursuit"],"master":["Supernatural Tracking","Kill Setup","Apex Predator"]},
+    "Survivor": {"function":"Stays standing when everyone else is breaking.","bonuses":{"endurance":2,"force":1,"will":1},"starter":["Endurance","Resistance","Awareness","Survival","Pain Tolerance","Recovery"],"experienced":["Damage Mitigation","Fear Resistance","Adrenal Control","Last Stand"],"master":["Death Defiance","Unyielding Body","Crisis Overdrive"]},
+    "Occultist": {"function":"Controls dangerous rituals and bindings.","bonuses":{"will":2,"intellect":1,"charisma":1},"starter":["Ritual Casting","Occult Knowledge","Investigation","Focus","Sigil Reading","Energy Control"],"experienced":["Advanced Rituals","Warding","Binding","Curse Handling"],"master":["Forbidden Magic","Entity Binding","Reality Manipulation"]},
+    "Medium": {"function":"Communicates with what others cannot reach.","bonuses":{"charisma":2,"will":1,"instinct":1},"starter":["Spirit Communication","Insight","Investigation","Occult","Presence Sense","Emotional Reading"],"experienced":["Spirit Bargaining","Astral Awareness","Possession Resistance","Energy Reading"],"master":["Spirit Command","Veil Manipulation","Forced Manifestation"]},
+    "Tinkerer": {"function":"Builds the tools that make impossible hunts survivable.","bonuses":{"intellect":2,"prowess":1,"endurance":1},"starter":["Engineering","Crafting","Trap Setting","Forensics","Repair","Improvisation"],"experienced":["Advanced Traps","Ammo Crafting","Mechanism Design","Explosive Rigging"],"master":["Killbox Systems","Remote Triggers","Anti-Entity Devices"]}
   },
   "sharedSkills": [
-    {
-      "name": "Awareness",
-      "attr": "Instinct",
-      "use": "Notice threats, anomalies, hidden movement, and ambush conditions."
-    },
-    {
-      "name": "Investigation",
-      "attr": "Intellect",
-      "use": "Search scenes, connect clues, and narrow entity possibilities."
-    },
-    {
-      "name": "Stealth",
-      "attr": "Prowess",
-      "use": "Move unseen, bypass notice, and establish ambush position."
-    },
-    {
-      "name": "Survival",
-      "attr": "Instinct",
-      "use": "Operate in harsh environments and read terrain or tracks."
-    },
-    {
-      "name": "Endurance",
-      "attr": "Endurance",
-      "use": "Resist fatigue, bodily stress, and cumulative pressure."
-    },
-    {
-      "name": "Composure",
-      "attr": "Will",
-      "use": "Resist fear, panic, and mental collapse under supernatural stress."
-    },
-    {
-      "name": "Occult Knowledge",
-      "attr": "Intellect",
-      "use": "Recognize rituals, supernatural signs, and likely weaknesses."
-    },
-    {
-      "name": "Ritual Basics",
-      "attr": "Intellect / Will",
-      "use": "Attempt basic rituals with elevated danger and instability."
-    },
-    {
-      "name": "Ritual Casting",
-      "attr": "Will",
-      "use": "Perform controlled ritual work, especially for Occultists."
-    },
-    {
-      "name": "Binding",
-      "attr": "Will",
-      "use": "Restrict, contain, or pin down supernatural entities."
-    },
-    {
-      "name": "Warding",
-      "attr": "Will",
-      "use": "Create barriers, circles, protections, and anti-entity thresholds."
-    },
-    {
-      "name": "Melee Combat",
-      "attr": "Force",
-      "use": "Resolve close violence, control, and finishing pressure."
-    },
-    {
-      "name": "Firearms",
-      "attr": "Prowess",
-      "use": "Deliver precise ranged attacks and target weaknesses at distance."
-    },
-    {
-      "name": "Tinkering",
-      "attr": "Intellect + Prowess",
-      "use": "Build traps, modify gear, and create anti-entity tools."
-    },
-    {
-      "name": "Presence Sense",
-      "attr": "Instinct / Will",
-      "use": "Detect or classify supernatural presence."
-    },
-    {
-      "name": "Spirit Communication",
-      "attr": "Charisma / Will",
-      "use": "Speak to spirits for information, leverage, or release."
-    },
-    {
-      "name": "Insight",
-      "attr": "Charisma / Instinct",
-      "use": "Read motives, lies, emotional fractures, and hidden pressure."
-    },
-    {
-      "name": "Advanced Firearms",
-      "attr": "Prowess",
-      "use": "Advanced ranged tactics and special ammunition use."
-    },
-    {
-      "name": "Dual Wielding",
-      "attr": "Prowess",
-      "use": "Fight with paired weapons under pressure."
-    },
-    {
-      "name": "Tactical Movement",
-      "attr": "Prowess / Instinct",
-      "use": "Move through danger without losing position."
-    },
-    {
-      "name": "Exorcism",
-      "attr": "Will",
-      "use": "Drive a possessor out through ritual procedure."
-    },
-    {
-      "name": "Demon Binding",
-      "attr": "Will",
-      "use": "Contain or pin infernal entities."
-    },
-    {
-      "name": "Angelic Channeling",
-      "attr": "Will",
-      "use": "Call or carry divine force at risk."
-    },
-    {
-      "name": "Interrogation",
-      "attr": "Charisma / Intellect",
-      "use": "Extract truth through pressure and reading contradictions."
-    },
-    {
-      "name": "Psychological Profiling",
-      "attr": "Intellect / Instinct",
-      "use": "Predict behavior, motive, and escalation."
-    },
-    {
-      "name": "Forensic Analysis",
-      "attr": "Intellect",
-      "use": "Read physical evidence, wounds, residue, and scene logic."
-    },
-    {
-      "name": "Medical Stabilization",
-      "attr": "Intellect / Endurance",
-      "use": "Keep someone alive or reduce injury pressure."
-    },
-    {
-      "name": "Trap Engineering",
-      "attr": "Intellect / Prowess",
-      "use": "Design and deploy traps, snares, and killboxes."
-    },
-    {
-      "name": "Vehicle Operation",
-      "attr": "Prowess",
-      "use": "Drive, pursue, flee, or maneuver under pressure."
-    }
-  ],
-  "spells": [
-    {
-      "name": "Force Pulse",
-      "kind": "Quick Spell",
-      "school": "Evocation",
-      "roll": "Will + Energy Control",
-      "cost": "1 strain | Minor",
-      "effect": "Push or stagger one target; break a charge or open a lane.",
-      "backlash": "You stagger; next roll -1. On heavy failure, rebound leaves you exposed."
-    },
-    {
-      "name": "Veil Snap",
-      "kind": "Quick Spell",
-      "school": "Veilcraft",
-      "roll": "Will + Ritual Basics or Presence Sense",
-      "cost": "1 strain | Minor",
-      "effect": "Expose hidden spirit, broken glamour, hidden sigil, or host tell.",
-      "backlash": "Wrong reveal or false tell; heavy failure draws attention."
-    },
-    {
-      "name": "Lantern Spark",
-      "kind": "Quick Spell",
-      "school": "Purification / Evocation",
-      "roll": "Will + Energy Control",
-      "cost": "1 strain | Minor",
-      "effect": "Create occult light; remove 1 darkness setback in the zone.",
-      "backlash": "Spark dies, flares loudly, or exposes the group."
-    },
-    {
-      "name": "Grave Chill",
-      "kind": "Quick Spell",
-      "school": "Evocation",
-      "roll": "Will + Energy Control",
-      "cost": "1 strain | Minor",
-      "effect": "Impose -1 setback on one target's next physical action.",
-      "backlash": "Caster takes chill; -1 Endurance or Prowess."
-    },
-    {
-      "name": "Shield Burst",
-      "kind": "Quick Spell",
-      "school": "Warding / Evocation",
-      "roll": "Will + Energy Control",
-      "cost": "1 strain | Minor",
-      "effect": "Reduce one incoming damage tier or cancel one minor supernatural impact.",
-      "backlash": "Shield shatters; suffer recoil strain."
-    },
-    {
-      "name": "Ash Mark",
-      "kind": "Quick Spell",
-      "school": "Ritual Basics",
-      "roll": "Will + Ritual Basics",
-      "cost": "1 strain | Minor",
-      "effect": "Tag target for tracking.",
-      "backlash": "Mark rebounds onto caster."
-    },
-    {
-      "name": "Static Hex",
-      "kind": "Quick Spell",
-      "school": "Curse / Evocation",
-      "roll": "Will + Energy Control",
-      "cost": "1 strain | Minor",
-      "effect": "Jam electronics, audio, or focus.",
-      "backlash": "Nearby gear glitches unpredictably."
-    },
-    {
-      "name": "Spirit Lash",
-      "kind": "Quick Spell",
-      "school": "Evocation / Veilcraft",
-      "roll": "Will + Energy Control",
-      "cost": "2 strain | Major",
-      "effect": "Deal direct occult harm to a manifested spirit.",
-      "backlash": "Pain echo; take -1 Will."
-    },
-    {
-      "name": "Disruption",
-      "kind": "Quick Spell",
-      "school": "Evocation / Purification",
-      "roll": "Will + Energy Control or Ritual Basics",
-      "cost": "1 strain | Minor",
-      "effect": "Interrupt a weak manifestation, ability, or rite.",
-      "backlash": "Scatters focus or feeds the hostile effect."
-    },
-    {
-      "name": "Energy Strike",
-      "kind": "Quick Spell",
-      "school": "Evocation",
-      "roll": "Will + Energy Control",
-      "cost": "2 strain | Major",
-      "effect": "Direct occult harm to a manifested entity or hostile ward.",
-      "backlash": "Backlash pain; affliction pressure or hostile attention spike."
-    },
-    {
-      "name": "Burning Sigil",
-      "kind": "Quick Spell",
-      "school": "Purification / Evocation",
-      "roll": "Will + Ritual Basics + Sigil Reading",
-      "cost": "1 strain | Minor",
-      "effect": "Mark target with sanctified burn; punishes infernal or fae movement.",
-      "backlash": "Wrong symbol or caster marked instead."
-    },
-    {
-      "name": "Iron Vein",
-      "kind": "Quick Spell",
-      "school": "Threshold / Blessing",
-      "roll": "Will + Ritual Basics",
-      "cost": "1 strain | Minor",
-      "effect": "Give weapon, trap, or touch a brief anti-fae iron edge.",
-      "backlash": "Item heats, rejects charge, or becomes unstable."
-    },
-    {
-      "name": "Anchor Step",
-      "kind": "Quick Spell",
-      "school": "Veilcraft / Focus",
-      "roll": "Will + Focus",
-      "cost": "1 strain | Minor",
-      "effect": "Ignore forced movement, resist fear spike, or hold position in unstable ritual space.",
-      "backlash": "Lose movement or lock in place."
-    },
-    {
-      "name": "Ward Flash",
-      "kind": "Quick Spell",
-      "school": "Warding",
-      "roll": "Will + Warding",
-      "cost": "1 strain | Minor",
-      "effect": "Repelling flare and brief safe space.",
-      "backlash": "Barrier breaks early or creates recoil."
-    },
-    {
-      "name": "Silence Knot",
-      "kind": "Quick Spell",
-      "school": "Focus / Warding",
-      "roll": "Will + Focus",
-      "cost": "1 strain | Minor",
-      "effect": "Suppress whispers, chants, or sonic distraction.",
-      "backlash": "Silence rebounds or blocks allies at the wrong time."
-    },
-    {
-      "name": "Presence Flare",
-      "kind": "Quick Spell",
-      "school": "Veilcraft",
-      "roll": "Will + Presence Sense",
-      "cost": "1 strain | Minor",
-      "effect": "Reveal nearby supernatural presence.",
-      "backlash": "Presence notices you back."
-    },
-    {
-      "name": "Protective Circle",
-      "kind": "Structured Rite",
-      "school": "Warding",
-      "roll": "Will + Warding + Sigil Reading",
-      "cost": "1 strain | 10 minutes",
-      "effect": "Create warded circle that blocks or slows spirits, minor demons, and unstable manifestations.",
-      "backlash": "Circle tears, traps wrong side, or creates false safety."
-    },
-    {
-      "name": "Binding Chain Rite",
-      "kind": "Structured Rite",
-      "school": "Binding",
-      "roll": "Will + Binding + Ritual Casting",
-      "cost": "2 strain | 10 minutes",
-      "effect": "Pin a manifested entity to a room, object, or marked position.",
-      "backlash": "Target lashes out or bind snaps onto wrong creature/item/Warden."
-    },
-    {
-      "name": "Anchor Revelation",
-      "kind": "Structured Rite",
-      "school": "Veilcraft",
-      "roll": "Will + Ritual Casting + Occult Knowledge",
-      "cost": "1 strain | 15 minutes",
-      "effect": "Learn broad nature of active anchor: remains, object, vessel, bargain token, shrine, or blood tie.",
-      "backlash": "False anchor clue, wasted time, or true anchor reacts."
-    },
-    {
-      "name": "Name Calling",
-      "kind": "Structured Rite",
-      "school": "Threshold",
-      "roll": "Will + Ritual Casting + Focus",
-      "cost": "2 strain | 10 minutes",
-      "effect": "Compel named entity to answer, twitch, or reveal reaction to true/near-true name.",
-      "backlash": "Attention without leverage; retaliation or caller marked."
-    },
-    {
-      "name": "Exorcist's Litany",
-      "kind": "Structured Rite",
-      "school": "Purification",
-      "roll": "Will + Ritual Casting + Spirit Communication or Occult Knowledge",
-      "cost": "2 strain | 3 uninterrupted rounds",
-      "effect": "Drive hostile possessor out of host without killing host first.",
-      "backlash": "Host convulses; backlash, extra rounds, escalation, or loss of control."
-    },
-    {
-      "name": "Consecrate Ground",
-      "kind": "Structured Rite",
-      "school": "Purification",
-      "roll": "Will + Ritual Casting",
-      "cost": "2 strain | 20 minutes",
-      "effect": "Sanctify room or site.",
-      "backlash": "Area flares unstable."
-    },
-    {
-      "name": "Seal the Threshold",
-      "kind": "Structured Rite",
-      "school": "Threshold",
-      "roll": "Will + Warding",
-      "cost": "2 strain | 15 minutes",
-      "effect": "Close breach, gate, or layered path.",
-      "backlash": "Exit denial hits allies too."
-    },
-    {
-      "name": "Curse Severance",
-      "kind": "Structured Rite",
-      "school": "Purification",
-      "roll": "Will + Curse Handling",
-      "cost": "2 strain | 15 minutes",
-      "effect": "Break active hex or knot.",
-      "backlash": "Curse jumps target."
-    },
-    {
-      "name": "Ashen Burden",
-      "kind": "Curse",
-      "school": "Curse",
-      "roll": "Will + Curse Handling",
-      "cost": "1 strain | Minor",
-      "effect": "Target suffers -1 movement / pursuit.",
-      "backlash": "Mark stains you too."
-    },
-    {
-      "name": "Black Thread",
-      "kind": "Curse",
-      "school": "Curse",
-      "roll": "Will + Curse Handling",
-      "cost": "1 strain | Minor",
-      "effect": "Track target by emotional pull.",
-      "backlash": "Target tracks you back."
-    },
-    {
-      "name": "Hunger Bell",
-      "kind": "Curse",
-      "school": "Forbidden Magic",
-      "roll": "Will + Forbidden Magic",
-      "cost": "2 strain | Major",
-      "effect": "Agitate beast / wendigo / feeding urge.",
-      "backlash": "You feel it too."
-    },
-    {
-      "name": "Saint's Breath",
-      "kind": "Blessing",
-      "school": "Ritual Basics",
-      "roll": "Will + Ritual Basics",
-      "cost": "1 strain | Minor",
-      "effect": "Ally ignores 1 fear setback.",
-      "backlash": "Calm turns to numbness."
-    },
-    {
-      "name": "Hunter's Oath",
-      "kind": "Blessing",
-      "school": "Ritual Basics",
-      "roll": "Will + Ritual Basics",
-      "cost": "1 strain | Minor",
-      "effect": "One weapon gains anti-entity edge.",
-      "backlash": "Weapon burns hot in hand."
-    },
-    {
-      "name": "Mercy Ward",
-      "kind": "Blessing",
-      "school": "Warding",
-      "roll": "Will + Warding",
-      "cost": "1 strain | Minor",
-      "effect": "Protect host/civilian from possession spike.",
-      "backlash": "Ward breaks under panic."
-    },
-    {
-      "name": "Vessel Override",
-      "kind": "Forbidden Working",
-      "school": "Blood & Vessel Work",
-      "roll": "Will + Forbidden Magic + Focus",
-      "cost": "3 strain and 1 affliction mark | Major",
-      "effect": "Seize control of shared host-body moment for one scene.",
-      "backlash": "Resident entity gains control, critical strain, GM control, or vessel fracture."
-    },
-    {
-      "name": "Soul Pin",
-      "kind": "Forbidden Working",
-      "school": "Forbidden Binding",
-      "roll": "Will + Entity Binding + Sigil Reading",
-      "cost": "3 strain and 1 corruption mark | 10 minutes",
-      "effect": "Nail spirit, demon, or escaping manifestation to its anchor for one final exchange.",
-      "backlash": "Part of target anchors in you/site; haunted/corrupted pressure."
-    },
-    {
-      "name": "Black Gate Petition",
-      "kind": "Forbidden Working",
-      "school": "Threshold Work",
-      "roll": "Will + Forbidden Magic + Occult Knowledge",
-      "cost": "3 strain plus narrative cost",
-      "effect": "Ask outer or infernal force for specific answer, location, or opening at terrible cost.",
-      "backlash": "The answer comes with a price, attention, or an opening that should not exist."
-    }
+    {"name":"Awareness","attribute":"Instinct","use":"Notice threats, anomalies, hidden movement, and ambush conditions."},
+    {"name":"Investigation","attribute":"Intellect","use":"Search scenes, connect clues, and narrow entity possibilities."},
+    {"name":"Stealth","attribute":"Prowess","use":"Move unseen, bypass notice, and establish ambush position."},
+    {"name":"Survival","attribute":"Instinct","use":"Operate in harsh environments and read terrain or tracks."},
+    {"name":"Endurance","attribute":"Endurance","use":"Resist fatigue, bodily stress, and cumulative pressure."},
+    {"name":"Composure","attribute":"Will","use":"Resist fear, panic, and mental collapse under supernatural stress."},
+    {"name":"Occult Knowledge","attribute":"Intellect","use":"Recognize rituals, supernatural signs, and likely weaknesses."},
+    {"name":"Ritual Basics","attribute":"Intellect / Will","use":"Attempt basic rituals with elevated danger and instability."},
+    {"name":"Ritual Casting","attribute":"Will","use":"Perform controlled ritual work, especially for Occultists."},
+    {"name":"Binding","attribute":"Will","use":"Restrict, contain, or pin down supernatural entities."},
+    {"name":"Warding","attribute":"Will","use":"Create barriers, circles, protections, and anti-entity thresholds."},
+    {"name":"Melee Combat","attribute":"Force","use":"Resolve close violence, control, and finishing pressure."},
+    {"name":"Firearms","attribute":"Prowess","use":"Deliver precise ranged attacks and target weaknesses at distance."},
+    {"name":"Tinkering","attribute":"Intellect + Prowess","use":"Build traps, modify gear, and create anti-entity tools."},
+    {"name":"Presence Sense","attribute":"Instinct / Will","use":"Detect or classify supernatural presence."},
+    {"name":"Spirit Communication","attribute":"Charisma / Will","use":"Speak to spirits for information, leverage, or release."},
+    {"name":"Insight","attribute":"Charisma / Instinct","use":"Read motives, lies, emotional fractures, and hidden pressure."}
   ],
   "gear": [
-    {
-      "name": "Iron Knife",
-      "category": "Weapon / Tool",
-      "type": "Melee",
-      "effect": "Basic damage; reliable field blade and anti-fae option.",
-      "notes": "Cheap, reliable."
-    },
-    {
-      "name": "Silver Blade",
-      "category": "Weapon",
-      "type": "Melee",
-      "effect": "Ignores or bypasses many supernatural resistances.",
-      "notes": "Requires silver."
-    },
-    {
-      "name": "Shotgun",
-      "category": "Weapon",
-      "type": "Ranged",
-      "effect": "High close-range damage and breach potential.",
-      "notes": "Spread bonus."
-    },
-    {
-      "name": "Handgun",
-      "category": "Weapon",
-      "type": "Ranged",
-      "effect": "Balanced sidearm for precision shots.",
-      "notes": "Common."
-    },
-    {
-      "name": "Crowbar",
-      "category": "Tool / Weapon",
-      "type": "Utility",
-      "effect": "+1 Force for breaking / forced entry.",
-      "notes": "Utility leverage."
-    },
-    {
-      "name": "EMF Reader",
-      "category": "Tool",
-      "type": "Detection",
-      "effect": "Detects supernatural presence; supports investigation.",
-      "notes": "+1 Awareness style support when relevant."
-    },
-    {
-      "name": "Flashlight",
-      "category": "Tool",
-      "type": "Utility",
-      "effect": "Reduces darkness setbacks and can reveal certain entities.",
-      "notes": "Essential."
-    },
-    {
-      "name": "Lockpick Kit",
-      "category": "Tool",
-      "type": "Infiltration",
-      "effect": "Supports infiltration and access work.",
-      "notes": "Limited uses."
-    },
-    {
-      "name": "Holy Water",
-      "category": "Consumable",
-      "type": "Purification",
-      "effect": "Damages or repels certain spirits and infernals.",
-      "notes": "Instant use."
-    },
-    {
-      "name": "Salt Pack",
-      "category": "Consumable",
-      "type": "Barrier",
-      "effect": "Blocks entity movement or creates crossing denial.",
-      "notes": "Scene duration."
-    },
-    {
-      "name": "Adrenaline Shot",
-      "category": "Consumable",
-      "type": "Medical",
-      "effect": "Ignore physical penalties briefly.",
-      "notes": "Crash afterward."
-    },
-    {
-      "name": "Painkillers",
-      "category": "Consumable",
-      "type": "Medical",
-      "effect": "Reduce wound penalties for 1-2 scenes.",
-      "notes": "Addictive risk."
-    },
-    {
-      "name": "Fire Bomb",
-      "category": "Consumable",
-      "type": "Weapon",
-      "effect": "Area damage and cleansing; useful against fire weakness.",
-      "notes": "Loud and unstable."
-    },
-    {
-      "name": "Blessed Rosary",
-      "category": "Relic",
-      "type": "Divine",
-      "effect": "-2 setbacks versus possession.",
-      "notes": "Will strain on repeated use."
-    },
-    {
-      "name": "Demon Bone Dagger",
-      "category": "Relic",
-      "type": "Infernal",
-      "effect": "+2 damage versus entities.",
-      "notes": "Corruption risk."
-    },
-    {
-      "name": "Spirit Lantern",
-      "category": "Relic",
-      "type": "Ghost",
-      "effect": "Reveals hidden or invisible entities.",
-      "notes": "Drains energy."
-    },
-    {
-      "name": "Binding Chain",
-      "category": "Relic",
-      "type": "Arcane",
-      "effect": "Holds or limits manifested entities.",
-      "notes": "Requires Will support."
-    },
-    {
-      "name": "Ancient Coin",
-      "category": "Relic",
-      "type": "Fate",
-      "effect": "Reroll 1 failed check.",
-      "notes": "One use per session."
-    },
-    {
-      "name": "True Name Scroll",
-      "category": "Relic",
-      "type": "Ritual",
-      "effect": "-3 setbacks for summoning or banishing.",
-      "notes": "Consumed."
-    },
-    {
-      "name": "Warded Amulet",
-      "category": "Relic",
-      "type": "Protection",
-      "effect": "Blocks 1 supernatural attack.",
-      "notes": "Recharge required."
-    },
-    {
-      "name": "Steel",
-      "category": "Material",
-      "type": "Base",
-      "effect": "Reliable weapon and tool construction.",
-      "notes": "Common material."
-    },
-    {
-      "name": "Scrap Metal",
-      "category": "Material",
-      "type": "Base",
-      "effect": "Improvised builds.",
-      "notes": "Common material."
-    },
-    {
-      "name": "Wood",
-      "category": "Material",
-      "type": "Base",
-      "effect": "Traps, stakes, supports, circles.",
-      "notes": "Common material."
-    },
-    {
-      "name": "Electronics",
-      "category": "Material",
-      "type": "Base",
-      "effect": "Devices, scanners, triggers, remote systems.",
-      "notes": "Common material."
-    },
-    {
-      "name": "Silver",
-      "category": "Material",
-      "type": "Catalyst",
-      "effect": "Bypass resistance.",
-      "notes": "Uncommon/rare."
-    },
-    {
-      "name": "Holy Oil",
-      "category": "Material",
-      "type": "Catalyst",
-      "effect": "Repel and sanctify.",
-      "notes": "Sacred matter."
-    },
-    {
-      "name": "Ectoplasm",
-      "category": "Material",
-      "type": "Catalyst",
-      "effect": "Improves spirit interaction.",
-      "notes": "Hazardous sample."
-    },
-    {
-      "name": "Demon Blood",
-      "category": "Material",
-      "type": "Catalyst",
-      "effect": "Amplifies power at high risk.",
-      "notes": "Dangerous; corruption risk."
-    },
-    {
-      "name": "Ash / Burned Remains",
-      "category": "Material",
-      "type": "Catalyst",
-      "effect": "Required for some banishments.",
-      "notes": "Evidence handling risk."
-    },
-    {
-      "name": "Sigils",
-      "category": "Material",
-      "type": "Stabilizer",
-      "effect": "Reduce ritual or trap instability.",
-      "notes": "Prepared symbol work."
-    },
-    {
-      "name": "Blessed Cloth",
-      "category": "Material",
-      "type": "Stabilizer",
-      "effect": "Stabilizes relics and cleanses contact.",
-      "notes": "Limited supply."
-    },
-    {
-      "name": "Iron",
-      "category": "Material",
-      "type": "Stabilizer",
-      "effect": "Broad anti-fae / anti-entity protection.",
-      "notes": "Nails, filings, chain, coins."
-    }
+    {"name":"Iron Knife","type":"Melee","effect":"Reliable field blade and basic anti-fae option."},
+    {"name":"Silver Blade","type":"Melee","effect":"Bypasses many supernatural resistances."},
+    {"name":"Shotgun","type":"Ranged","effect":"High close-range damage and breach potential."},
+    {"name":"Handgun","type":"Ranged","effect":"Balanced sidearm for precision shots."},
+    {"name":"Crowbar","type":"Tool","effect":"Utility leverage and forced entry."},
+    {"name":"EMF Reader","type":"Tool","effect":"Detects activity and grants investigation support."},
+    {"name":"Flashlight","type":"Tool","effect":"Reduces darkness pressure and reveals certain entities."},
+    {"name":"Lockpick Kit","type":"Tool","effect":"Supports infiltration and access work."}
   ],
-  "factions": [
-    {
-      "name": "The Wardens",
-      "type": "Hunters",
-      "bonus": "Balanced skill access",
-      "drawback": "No inherent specialization bonus"
-    },
-    {
-      "name": "Archive Order",
-      "type": "Knowledge",
-      "bonus": "-2 research setbacks",
-      "drawback": "Weaker in open combat"
-    },
-    {
-      "name": "Faithbound",
-      "type": "Divine",
-      "bonus": "Strong against infernals",
-      "drawback": "Narrower doctrinal scope"
-    },
-    {
-      "name": "Black Sigil Circle",
-      "type": "Occult",
-      "bonus": "Forbidden magic access",
-      "drawback": "Corruption risk"
-    },
-    {
-      "name": "Iron Brotherhood",
-      "type": "Combat",
-      "bonus": "+1 damage",
-      "drawback": "Weaker investigation posture"
-    },
-    {
-      "name": "Veilwalkers",
-      "type": "Mediums",
-      "bonus": "Spirit handling bonus",
-      "drawback": "Higher possession exposure"
-    },
-    {
-      "name": "The Forged",
-      "type": "Tinkerers",
-      "bonus": "Crafting bonuses",
-      "drawback": "Resource-dependent methods"
-    }
+  "consumablesRelics": [
+    {"name":"Holy Water","type":"Consumable","effect":"Repels or harms certain spirits and infernals.","cost":"Instant use"},
+    {"name":"Salt Pack","type":"Consumable","effect":"Creates barrier or crossing denial.","cost":"Scene duration"},
+    {"name":"Adrenaline","type":"Consumable","effect":"Ignore penalties briefly.","cost":"Crash afterward"},
+    {"name":"Fire Bomb","type":"Consumable","effect":"Area damage and cleansing.","cost":"Loud and unstable"},
+    {"name":"Blessed Rosary","type":"Relic","effect":"Improves possession defense.","cost":"Strain on repeated use"},
+    {"name":"Spirit Lantern","type":"Relic","effect":"Reveals hidden entities.","cost":"Draining"},
+    {"name":"Binding Chain","type":"Relic","effect":"Holds or limits manifested entities.","cost":"Requires Will support"},
+    {"name":"True Name Scroll","type":"Relic","effect":"Reduces summon or banish difficulty.","cost":"Consumed"}
   ],
-  "attributes": [
-    "force",
-    "prowess",
-    "intellect",
-    "instinct",
-    "will",
-    "charisma",
-    "endurance"
+  "materials": [
+    {"name":"Steel","category":"Base","function":"Reliable weapon and tool construction"},
+    {"name":"Silver","category":"Catalyst","function":"Bypasses resistance"},
+    {"name":"Holy Oil","category":"Catalyst","function":"Repels and sanctifies"},
+    {"name":"Ectoplasm","category":"Catalyst","function":"Strengthens spirit interactions"},
+    {"name":"Demon Blood","category":"Catalyst","function":"Adds power at high risk"},
+    {"name":"Salt","category":"Stabilizer","function":"Barrier and cleansing support"},
+    {"name":"Sigils","category":"Stabilizer","function":"Reduce ritual or trap instability"},
+    {"name":"Iron","category":"Stabilizer","function":"Broad anti-fae protection"}
   ],
-  "attributeLabels": {
-    "force": "Force",
-    "prowess": "Prowess",
-    "intellect": "Intellect",
-    "instinct": "Instinct",
-    "will": "Will",
-    "charisma": "Charisma",
-    "endurance": "Endurance"
+  "spells": [
+    {"name":"Force Pulse","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Push or stagger one target.","backlash":"You stagger; next roll -1."},
+    {"name":"Veil Snap","kind":"Quick Spell","roll":"Will + Ritual Basics / Presence Sense","cost":"1 strain | Minor","effect":"Expose hidden spirit, glamour, or sigil.","backlash":"Wrong reveal; false tell."},
+    {"name":"Lantern Spark","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Light area; cancel darkness -1.","backlash":"Spark dies; attention drawn."},
+    {"name":"Grave Chill","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Slow living or spirit target.","backlash":"Caster takes chill -1 Endurance."},
+    {"name":"Shield Burst","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Reduce one incoming damage tier.","backlash":"Shield shatters; suffer recoil."},
+    {"name":"Ash Mark","kind":"Quick Spell","roll":"Will + Ritual Basics","cost":"1 strain | Minor","effect":"Tag target for tracking.","backlash":"Mark rebounds onto caster."},
+    {"name":"Static Hex","kind":"Quick Spell","roll":"Will + Energy Control","cost":"1 strain | Minor","effect":"Jam electronics/audio/focus.","backlash":"Nearby gear glitches unpredictably."},
+    {"name":"Spirit Lash","kind":"Quick Spell","roll":"Will + Energy Control","cost":"2 strain | Major","effect":"Direct harm to manifested spirit.","backlash":"Pain echo; take -1 Will."},
+    {"name":"Protective Circle","kind":"Rite","roll":"Will + Warding + Sigil Reading","cost":"1 strain | 10 minutes","effect":"Block entry/crossing with a warded boundary.","backlash":"Circle tears; exposed."},
+    {"name":"Binding Chain Rite","kind":"Rite","roll":"Will + Binding + Ritual Casting","cost":"2 strain | 10 minutes","effect":"Immobilize manifested target.","backlash":"Target breaks free violently."},
+    {"name":"Anchor Revelation","kind":"Rite","roll":"Will + Ritual Casting + Occult Knowledge","cost":"1 strain | 15 minutes","effect":"Identify anchor, remains, vessel, shrine, or blood tie.","backlash":"False anchor clue."},
+    {"name":"Name Calling","kind":"Rite","roll":"Will + Ritual Casting + Focus","cost":"2 strain | 10 minutes","effect":"Force entity response by name.","backlash":"Hostile attention."},
+    {"name":"Exorcist's Litany","kind":"Rite","roll":"Will + Ritual Casting + Spirit Communication / Occult Knowledge","cost":"2 strain | 3 uninterrupted rounds","effect":"Drive possessor from host.","backlash":"Backlash/escalation."},
+    {"name":"Consecrate Ground","kind":"Rite","roll":"Will + Ritual Casting","cost":"2 strain | 20 minutes","effect":"Sanctify a room or site.","backlash":"Area flares unstable."},
+    {"name":"Seal the Threshold","kind":"Rite","roll":"Will + Warding","cost":"2 strain | 15 minutes","effect":"Close breach, gate, or layered path.","backlash":"Exit denial hits allies too."},
+    {"name":"Curse Severance","kind":"Rite","roll":"Will + Curse Handling","cost":"2 strain | 15 minutes","effect":"Break active hex or knot.","backlash":"Curse jumps target."},
+    {"name":"Ashen Burden","kind":"Curse","roll":"Will + Curse Handling","cost":"1 strain | Minor","effect":"Target suffers -1 movement/pursuit.","backlash":"Mark stains you too."},
+    {"name":"Black Thread","kind":"Curse","roll":"Will + Curse Handling","cost":"1 strain | Minor","effect":"Track target by emotional pull.","backlash":"Target tracks you back."},
+    {"name":"Hunter's Oath","kind":"Blessing","roll":"Will + Ritual Basics","cost":"1 strain | Minor","effect":"One weapon gains anti-entity edge.","backlash":"Weapon burns hot in hand."},
+    {"name":"Mercy Ward","kind":"Blessing","roll":"Will + Warding","cost":"1 strain | Minor","effect":"Protect host/civilian from possession spike.","backlash":"Ward breaks under panic."},
+    {"name":"Vessel Override","kind":"Forbidden","roll":"Will + Forbidden Magic + Focus","cost":"3 strain + 1 affliction mark | Major","effect":"Seize control of shared host-body moment.","backlash":"Resident entity may gain control; vessel fracture."},
+    {"name":"Soul Pin","kind":"Forbidden","roll":"Will + Entity Binding + Sigil Reading","cost":"3 strain + 1 corruption mark | 10 minutes","effect":"Pin spirit/demon/manifestation to its anchor for one final exchange.","backlash":"Entity tags caster or site."}
+  ],
+  "starterEquipmentPackages": {
+    "Field Kit": ["Flashlight", "Salt Pack", "Iron Knife", "EMF Reader"],
+    "Combat Kit": ["Handgun", "Shotgun", "Salt Pack", "Holy Water"],
+    "Occult Kit": ["Holy Water", "Blessed Rosary", "Salt Pack", "True Name Scroll"],
+    "Investigation Kit": ["EMF Reader", "Flashlight", "Lockpick Kit", "Crowbar"],
+    "Tinker Kit": ["Crowbar", "Lockpick Kit", "Steel", "Sigils", "Iron"],
+    "Relic Risk Kit": ["Spirit Lantern", "Binding Chain", "Blessed Rosary", "Salt Pack"]
   }
 }
