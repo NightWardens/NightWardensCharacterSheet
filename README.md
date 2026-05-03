@@ -1,28 +1,50 @@
-# Night Wardens Auto-GM Pass 10 — Expanded Modular Variability
+# Night Wardens Auto-GM Pass 16 — NPC Voices, Warden HQs, Recruitable Wardens, Dialogue Profiles
 
-This replaces the broken/unavailable Pass 10 link and expands the Pass 9 modular library before repo upload.
+Upload these files to the GitHub Pages repo root:
 
-## Upload to GitHub repo root
+- `auto-gm.html`
+- `auto-gm-pass13.js`
+- `auto-gm-llm-adapter.js`
+- `auto_gm_modular_library.json`
+- `README.md`
 
-- auto-gm.html
-- auto-gm-pass10.js
-- auto_gm_modular_library.json
+Open:
 
-Then open:
-https://scottas369-collab.github.io/NightWardensCharacterSheet/auto-gm.html?v=10.0
+`https://scottas369-collab.github.io/NightWardensCharacterSheet/auto-gm.html?v=16.0`
 
-## Current modular library counts
+## New in Pass 16
 
-- Campaign themes: 10
-- Locations: 32
-- Witnesses: 19
-- Evidence modules: 28
-- Entities: 25
-- Signs: 24
-- Prep modules: 22
-- Complications: 22
-- Clue definitions: 107
+- Assigns voice profiles to witnesses, strangers, recruitable allies, available Wardens, and creatures.
+- Adds Warden HQ modules to generated cases.
+- Adds an RNG-based available Warden roster per case.
+- Adds a Warden recruit pool with roles, services, bonuses, voice profiles, and dialogue options.
+- Adds character profile support for NPCs, Wardens, strangers, and entities.
+- Adds dialogue option listings for NPCs and creatures.
+- Adds creature interaction commands such as observe, taunt, and parley.
+- Keeps small talk ephemeral unless it becomes a solid clue.
+- Keeps the structured Auto-GM as the source of truth; the LLM can phrase dialogue but cannot invent hidden clues.
+
+## New commands
+
+```text
+list hq
+list wardens
+hq
+hq refresh
+profile Mrs Harlan
+profile entity
+profile Arden Cross
+dialogue Mrs Harlan
+dialogue entity
+dialogue Arden Cross
+recruit Arden Cross
+ask Arden Cross about role
+ask Arden Cross about case
+observe entity
+taunt entity
+parley entity
+```
 
 ## Notes
 
-This is still static GitHub Pages friendly. It does not require a backend. It keeps Auto-GM as a separate page and loads the modular case library from JSON.
+Warden availability is rolled when a case is generated. Use `hq refresh` to reroll who is currently available at the Warden HQ. Recruitable Wardens can join as NPC allies if the recruitment check succeeds and any cost is paid.

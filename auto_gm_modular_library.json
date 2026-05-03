@@ -1,5 +1,5 @@
 {
-  "version": "pass10-expanded-modular-variability",
+  "version": "pass13-npc-ally-llm-context",
   "design_goal": "Swappable Auto-GM case modules chosen by tarot domain, campaign theme, and location/story tags. Expanded Pass 10 doubles modular case parts before repo upload.",
   "tarot": {
     "majors": [
@@ -1572,6 +1572,25 @@
             "church_annex"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "ordinary",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -1650,6 +1669,25 @@
             "sealed_tunnel"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "older",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -1724,6 +1762,25 @@
             "town_records"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "older",
+        "style": "frightened",
+        "rate": 1.03,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -1777,6 +1834,25 @@
             "church_annex"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -1834,6 +1910,25 @@
             "lower_room"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "any",
+        "age": "young",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 1
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -1887,6 +1982,25 @@
             "host strain"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "ordinary",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -1944,6 +2058,25 @@
             "field locker"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "older",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -1996,6 +2129,25 @@
             "thing below"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "older",
+        "style": "solemn",
+        "rate": 0.94,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2048,6 +2200,25 @@
             "lower_room"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "frightened",
+        "rate": 1.03,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2104,6 +2275,25 @@
             "hunter_cache"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "any",
+        "age": "young",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 1
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2151,6 +2341,25 @@
             "clue_sheriff_erased_minutes"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "ordinary",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2205,6 +2414,25 @@
             "old_well"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "older",
+        "style": "frightened",
+        "rate": 1.03,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2251,6 +2479,25 @@
             "clue_seal_ninth_rotation"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "older",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2292,6 +2539,25 @@
             "clue_angel_mark_heat"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2335,6 +2601,25 @@
             "clue_silver_reacts_black"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "any",
+        "age": "young",
+        "style": "frightened",
+        "rate": 1.03,
+        "pitch": 1
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2382,6 +2667,25 @@
             "clue_train_schedule_dead"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2424,6 +2728,25 @@
             "clue_dream_black_sea"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "older",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2467,6 +2790,25 @@
             "clue_wraith_tether_song"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "older",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     },
     {
@@ -2509,6 +2851,25 @@
             "clue_black_star"
           ]
         }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
       }
     }
   ],
@@ -3317,7 +3678,18 @@
         "isolate a witness",
         "fake a medical episode",
         "trigger possession pressure"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "black_choir_fragment",
@@ -3349,7 +3721,18 @@
         "coordinate witnesses",
         "advance ritual",
         "fracture memory"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "vengeful_miner",
@@ -3381,7 +3764,18 @@
         "write in dust",
         "warn through dreams",
         "attack those who disturb the seal"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "mirror_shade",
@@ -3413,7 +3807,18 @@
         "swap briefly",
         "plant false memory",
         "haunt isolated rooms"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "redcap_ruin",
@@ -3445,7 +3850,18 @@
         "stone-hop through ruins",
         "sabotage gear",
         "mock victims"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "wendigo_echo",
@@ -3477,7 +3893,18 @@
         "separate party",
         "freeze a path",
         "feed to escalate"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "djinn_vessel",
@@ -3509,7 +3936,18 @@
         "isolate with illusion",
         "twist desire",
         "move anchor"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "changeling_claim",
@@ -3541,7 +3979,18 @@
         "copy voice",
         "turn family against Wardens",
         "hide behind etiquette"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "chain_scribe",
@@ -3573,7 +4022,18 @@
         "twist wording",
         "mark a witness",
         "call in debt"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "veil_render",
@@ -3605,7 +4065,18 @@
         "deny exits",
         "stretch hallway",
         "fold sound"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "woman_in_white",
@@ -3637,7 +4108,18 @@
         "repeat last words",
         "possess briefly",
         "show old memory"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "poltergeist_source",
@@ -3669,7 +4151,18 @@
         "slam doors",
         "target doubters",
         "escalate with stress"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "black_choir_node",
@@ -3702,7 +4195,18 @@
         "advance the chant",
         "make witnesses speak in unison",
         "overload electronics"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "well_bride",
@@ -3735,7 +4239,18 @@
         "lure victims to water",
         "erase names from paper",
         "offer safe passage at a cost"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "borrowed_son",
@@ -3766,7 +4281,18 @@
         "avoid direct pronouns",
         "turn family trust against Wardens",
         "force the host to flee"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "red_thread_courtier",
@@ -3797,7 +4323,18 @@
         "collect a promised name",
         "make doors require payment",
         "punish broken etiquette"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "stolen_minute_wraith",
@@ -3828,7 +4365,18 @@
         "appear one minute early",
         "make witnesses forget a moment",
         "feed on delayed panic"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "wish_room_djinn",
@@ -3859,7 +4407,18 @@
         "offer a cleaner version of events",
         "isolate one Warden in a perfect memory",
         "turn desire into evidence"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "no_moon_werewolf",
@@ -3890,7 +4449,18 @@
         "leave misleading claw marks",
         "attack oath-breakers first",
         "flee from the anchor, not silver"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "starving_rugaru",
@@ -3921,7 +4491,18 @@
         "stalk loved ones",
         "trigger hunger panic",
         "attack during emotional spikes"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "ash_cradle_mother",
@@ -3952,7 +4533,18 @@
         "comfort victims into possession",
         "hide inside burned objects",
         "turn grief into doors"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "threshold_hag",
@@ -3983,7 +4575,18 @@
         "move doors between locations",
         "increase bone charm count",
         "curse the safest plan"
-      ]
+      ],
+      "profile": {
+        "intelligence": 4,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "lantern_child",
@@ -4014,7 +4617,18 @@
         "appear before deaths",
         "trade names on crosses",
         "hide behind child testimony"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "rotting_archive",
@@ -4045,7 +4659,18 @@
         "make false records feel official",
         "rewrite witness memory",
         "feed on repeated misinformation"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     },
     {
       "id": "black_key_echo",
@@ -4076,7 +4701,18 @@
         "offer shortcuts",
         "let something follow through",
         "move rooms out of order"
-      ]
+      ],
+      "profile": {
+        "intelligence": 2,
+        "motive": "protect its anchor and escalate the case until stopped",
+        "social_logic": "responds through behavior, signs, pressure, and limited speech if contained or intelligent"
+      },
+      "dialogue_options": {
+        "observe": "Observe its movement, hunting target, reaction to wards, and signs left behind.",
+        "taunt": "Provoke a behavioral tell at risk of pressure escalation.",
+        "parley": "Attempt negotiation only if it is intelligent, contained, or emotionally anchored.",
+        "warning": "The entity may threaten, bargain, or display signs, but hidden weakness remains locked behind clues."
+      }
     }
   ],
   "sign_modules": [
@@ -5204,5 +5840,2531 @@
     "clue_ritual_blood_not_human": "The ritual blood is not human, but it pretends to be under tests.",
     "clue_wardens_old_badge": "An old Warden badge is hidden where only the entity could place it.",
     "clue_final_anchor_is_story": "The anchor is not an object; it is the repeated story everyone keeps telling wrong."
+  },
+  "item_catalog": [
+    {
+      "id": "salt_pack",
+      "name": "Salt Pack",
+      "aliases": [
+        "salt",
+        "bag of salt"
+      ],
+      "cost": 5,
+      "tags": [
+        "spirit",
+        "demon",
+        "fae",
+        "barrier"
+      ],
+      "use": "Creates a barrier or fuels salt traps."
+    },
+    {
+      "id": "rock_salt_shells",
+      "name": "Rock Salt Shells",
+      "aliases": [
+        "salt shells",
+        "shotgun salt",
+        "rock salt"
+      ],
+      "cost": 12,
+      "tags": [
+        "spirit",
+        "weapon",
+        "ammo"
+      ],
+      "use": "Special ammo that harms or disrupts spirits."
+    },
+    {
+      "id": "iron_nails",
+      "name": "Iron Nails",
+      "aliases": [
+        "nails",
+        "iron nail"
+      ],
+      "cost": 6,
+      "tags": [
+        "fae",
+        "threshold",
+        "trap",
+        "demon"
+      ],
+      "use": "Threshold pinning, ward circles, and improvised traps."
+    },
+    {
+      "id": "cold_iron_chain",
+      "name": "Cold Iron Chain",
+      "aliases": [
+        "iron chain",
+        "chain"
+      ],
+      "cost": 24,
+      "tags": [
+        "fae",
+        "restraint",
+        "trap"
+      ],
+      "use": "Restrains fae and some threshold entities."
+    },
+    {
+      "id": "silver_rounds",
+      "name": "Silver Rounds",
+      "aliases": [
+        "silver ammo",
+        "silver bullet"
+      ],
+      "cost": 22,
+      "tags": [
+        "creature",
+        "werewolf",
+        "rugaru",
+        "weapon",
+        "ammo"
+      ],
+      "use": "Bypasses several beast resistances."
+    },
+    {
+      "id": "silver_wire",
+      "name": "Silver Wire",
+      "aliases": [
+        "silver line"
+      ],
+      "cost": 18,
+      "tags": [
+        "spirit",
+        "creature",
+        "trap"
+      ],
+      "use": "Trip lines, anchors, and restraint loops."
+    },
+    {
+      "id": "holy_water",
+      "name": "Holy Water",
+      "aliases": [
+        "blessed water"
+      ],
+      "cost": 14,
+      "tags": [
+        "demon",
+        "spirit",
+        "holy",
+        "consumable"
+      ],
+      "use": "Repels or burns infernal and some spirit-class threats."
+    },
+    {
+      "id": "holy_oil",
+      "name": "Holy Oil",
+      "aliases": [
+        "consecrated oil"
+      ],
+      "cost": 18,
+      "tags": [
+        "holy",
+        "demon",
+        "ritual"
+      ],
+      "use": "Stabilizes banishment, exorcism, and sanctified fire."
+    },
+    {
+      "id": "chalk",
+      "name": "Ritual Chalk",
+      "aliases": [
+        "chalk",
+        "white chalk"
+      ],
+      "cost": 4,
+      "tags": [
+        "ritual",
+        "sigils",
+        "trap"
+      ],
+      "use": "Draw circles, ward marks, and evidence outlines."
+    },
+    {
+      "id": "black_candles",
+      "name": "Black Candles",
+      "aliases": [
+        "candles"
+      ],
+      "cost": 8,
+      "tags": [
+        "demon",
+        "ritual",
+        "sigils"
+      ],
+      "use": "Ritual component for infernal traces or counter-rites."
+    },
+    {
+      "id": "emf_reader",
+      "name": "EMF Reader",
+      "aliases": [
+        "emf",
+        "scanner"
+      ],
+      "cost": 30,
+      "tags": [
+        "spirit",
+        "investigation",
+        "technical"
+      ],
+      "use": "Detects supernatural field spikes and false positives."
+    },
+    {
+      "id": "flashlight",
+      "name": "Heavy Flashlight",
+      "aliases": [
+        "flashlight",
+        "torch"
+      ],
+      "cost": 10,
+      "tags": [
+        "tool",
+        "darkness"
+      ],
+      "use": "Removes darkness pressure; can be used as an improvised weapon."
+    },
+    {
+      "id": "first_aid_kit",
+      "name": "First Aid Kit",
+      "aliases": [
+        "medkit",
+        "medical kit"
+      ],
+      "cost": 20,
+      "tags": [
+        "healing",
+        "injury"
+      ],
+      "use": "Treats wounds and stabilizes downed Wardens."
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "aliases": [
+        "climbing rope"
+      ],
+      "cost": 8,
+      "tags": [
+        "movement",
+        "trap",
+        "restraint"
+      ],
+      "use": "Climbing, restraint, lowering into wells/mines."
+    },
+    {
+      "id": "gasoline",
+      "name": "Gasoline Can",
+      "aliases": [
+        "gas",
+        "fuel"
+      ],
+      "cost": 16,
+      "tags": [
+        "fire",
+        "wendigo",
+        "creature",
+        "trap"
+      ],
+      "use": "Fire trap fuel; dangerous indoors."
+    },
+    {
+      "id": "flare",
+      "name": "Emergency Flare",
+      "aliases": [
+        "flare"
+      ],
+      "cost": 8,
+      "tags": [
+        "fire",
+        "light",
+        "signal"
+      ],
+      "use": "Temporary light, lure, or ignition source."
+    },
+    {
+      "id": "mirror_shards",
+      "name": "Mirror Shards",
+      "aliases": [
+        "mirror",
+        "broken mirror"
+      ],
+      "cost": 7,
+      "tags": [
+        "fae",
+        "djinn",
+        "truth",
+        "sigils"
+      ],
+      "use": "Disrupts glamour and reflection entities."
+    },
+    {
+      "id": "warded_thread",
+      "name": "Warded Red Thread",
+      "aliases": [
+        "red thread",
+        "ward thread"
+      ],
+      "cost": 10,
+      "tags": [
+        "fae",
+        "spirit",
+        "trap"
+      ],
+      "use": "Ties charms, doorframes, and name-lure circles."
+    }
+  ],
+  "material_catalog": [
+    {
+      "id": "iron_filings",
+      "name": "Iron Filings",
+      "aliases": [
+        "filings"
+      ],
+      "cost": 5,
+      "tags": [
+        "fae",
+        "ward",
+        "sigils"
+      ],
+      "use": "Sprinkled into circles and threshold lines."
+    },
+    {
+      "id": "blessed_ash",
+      "name": "Blessed Ash",
+      "aliases": [
+        "ash",
+        "sanctified ash"
+      ],
+      "cost": 12,
+      "tags": [
+        "holy",
+        "demon",
+        "spirit",
+        "ritual"
+      ],
+      "use": "Consecration, banishment, and sigil sealing."
+    },
+    {
+      "id": "ectoplasm_sample",
+      "name": "Ectoplasm Sample",
+      "aliases": [
+        "ectoplasm"
+      ],
+      "cost": 20,
+      "tags": [
+        "spirit",
+        "research",
+        "ritual"
+      ],
+      "use": "Improves spirit communication and anchor revelation."
+    },
+    {
+      "id": "demon_blood_vial",
+      "name": "Demon Blood Vial",
+      "aliases": [
+        "demon blood"
+      ],
+      "cost": 35,
+      "tags": [
+        "demon",
+        "forbidden",
+        "ritual"
+      ],
+      "use": "Powerful but corrupting catalyst."
+    },
+    {
+      "id": "grave_dirt",
+      "name": "Grave Dirt",
+      "aliases": [
+        "grave soil"
+      ],
+      "cost": 8,
+      "tags": [
+        "spirit",
+        "death",
+        "ritual"
+      ],
+      "use": "Spirit rites and tether tracing."
+    },
+    {
+      "id": "rowan_sprig",
+      "name": "Rowan Sprig",
+      "aliases": [
+        "rowan"
+      ],
+      "cost": 9,
+      "tags": [
+        "fae",
+        "ward",
+        "threshold"
+      ],
+      "use": "Fae snare and threshold cage component."
+    },
+    {
+      "id": "mugwort",
+      "name": "Mugwort",
+      "aliases": [
+        "rare herb"
+      ],
+      "cost": 9,
+      "tags": [
+        "djinn",
+        "vision",
+        "ritual"
+      ],
+      "use": "Dream, illusion, and djinn detection rites."
+    }
+  ],
+  "trap_recipes": [
+    {
+      "id": "salt_circle",
+      "name": "Salt Circle",
+      "aliases": [
+        "circle of salt"
+      ],
+      "requires": {
+        "salt_pack": 1,
+        "chalk": 1
+      },
+      "works_on": [
+        "spirit",
+        "demon",
+        "fae"
+      ],
+      "tags": [
+        "spirit",
+        "demon",
+        "fae",
+        "barrier"
+      ],
+      "skill": "Trap Setting",
+      "support": [
+        "Ritual Basics",
+        "Warding"
+      ],
+      "effect": "Creates a temporary containment boundary. The right entity cannot cross without contesting the ward."
+    },
+    {
+      "id": "devil_trap",
+      "name": "Devil Trap",
+      "aliases": [
+        "demon trap",
+        "anti demon trap"
+      ],
+      "requires": {
+        "chalk": 1,
+        "iron_nails": 1,
+        "holy_water": 1
+      },
+      "works_on": [
+        "demon",
+        "possessor",
+        "infernal"
+      ],
+      "tags": [
+        "demon",
+        "sigils",
+        "trap"
+      ],
+      "skill": "Ritual Casting",
+      "support": [
+        "Sigil Reading",
+        "Binding"
+      ],
+      "effect": "Pins a demon or possessor long enough for exorcism, bargaining, or banishment."
+    },
+    {
+      "id": "iron_threshold_cage",
+      "name": "Iron Threshold Cage",
+      "aliases": [
+        "threshold cage",
+        "iron cage"
+      ],
+      "requires": {
+        "iron_nails": 2,
+        "rowan_sprig": 1,
+        "warded_thread": 1
+      },
+      "works_on": [
+        "fae",
+        "changeling",
+        "threshold"
+      ],
+      "tags": [
+        "fae",
+        "threshold",
+        "trap"
+      ],
+      "skill": "Trap Setting",
+      "support": [
+        "Warding",
+        "Occult Knowledge"
+      ],
+      "effect": "Turns a doorway or crossing into a rule-bound cage."
+    },
+    {
+      "id": "silver_trip_snare",
+      "name": "Silver Trip Snare",
+      "aliases": [
+        "silver trap",
+        "silver snare"
+      ],
+      "requires": {
+        "silver_wire": 1,
+        "rope": 1
+      },
+      "works_on": [
+        "creature",
+        "werewolf",
+        "rugaru",
+        "vampire"
+      ],
+      "tags": [
+        "creature",
+        "relics",
+        "trap"
+      ],
+      "skill": "Trap Setting",
+      "support": [
+        "Tinkering",
+        "Awareness"
+      ],
+      "effect": "Trips, exposes, or briefly pins a physical predator."
+    },
+    {
+      "id": "fire_killbox",
+      "name": "Fire Killbox",
+      "aliases": [
+        "fire trap",
+        "burn trap"
+      ],
+      "requires": {
+        "gasoline": 1,
+        "flare": 1,
+        "salt_pack": 1
+      },
+      "works_on": [
+        "wendigo",
+        "creature",
+        "demon"
+      ],
+      "tags": [
+        "fire",
+        "creature",
+        "demon",
+        "trap"
+      ],
+      "skill": "Trap Setting",
+      "support": [
+        "Survival",
+        "Tinkering"
+      ],
+      "setback": 1,
+      "effect": "Creates a dangerous ignition zone. Strong against cold hunger entities and some infernals."
+    },
+    {
+      "id": "mirror_witness_setup",
+      "name": "Mirror Witness Setup",
+      "aliases": [
+        "mirror trap",
+        "glamour trap"
+      ],
+      "requires": {
+        "mirror_shards": 1,
+        "chalk": 1
+      },
+      "works_on": [
+        "fae",
+        "djinn",
+        "glamour",
+        "illusion"
+      ],
+      "tags": [
+        "fae",
+        "djinn",
+        "truth",
+        "trap"
+      ],
+      "skill": "Investigation",
+      "support": [
+        "Occult Knowledge",
+        "Symbolism"
+      ],
+      "effect": "Forces contradictions in glamours, illusions, or disguised witnesses to show."
+    },
+    {
+      "id": "spirit_lantern_lane",
+      "name": "Spirit Lantern Lane",
+      "aliases": [
+        "lantern lane",
+        "light trap"
+      ],
+      "requires": {
+        "flashlight": 1,
+        "salt_pack": 1,
+        "grave_dirt": 1
+      },
+      "works_on": [
+        "spirit",
+        "wraith",
+        "ghost"
+      ],
+      "tags": [
+        "spirit",
+        "light",
+        "trap"
+      ],
+      "skill": "Tinkering",
+      "support": [
+        "Presence Sense",
+        "Warding"
+      ],
+      "effect": "Creates a visible path spirits must cross, exposing movement and anchor direction."
+    },
+    {
+      "id": "silence_ward",
+      "name": "Silence Ward",
+      "aliases": [
+        "anti bell ward",
+        "sound ward"
+      ],
+      "requires": {
+        "chalk": 1,
+        "blessed_ash": 1,
+        "iron_nails": 1
+      },
+      "works_on": [
+        "demon",
+        "ritual",
+        "sound",
+        "sigils"
+      ],
+      "tags": [
+        "sigils",
+        "demon",
+        "ritual",
+        "sound"
+      ],
+      "skill": "Ritual Casting",
+      "support": [
+        "Warding",
+        "Focus"
+      ],
+      "effect": "Suppresses sonic triggers, chant fragments, bells, and resonance-based rituals."
+    }
+  ],
+  "spell_catalog": [
+    {
+      "id": "veil_snap",
+      "name": "Veil Snap",
+      "aliases": [
+        "snap veil",
+        "reveal glamour"
+      ],
+      "requires": {
+        "salt_pack": 1
+      },
+      "roll": "Will + Ritual Basics or Presence Sense",
+      "tags": [
+        "reveal",
+        "spirit",
+        "fae",
+        "djinn"
+      ],
+      "effect": "Expose a hidden spirit, glamour, sigil, or host tell."
+    },
+    {
+      "id": "anchor_revelation",
+      "name": "Anchor Revelation",
+      "aliases": [
+        "find anchor",
+        "trace anchor"
+      ],
+      "requires": {
+        "chalk": 1,
+        "grave_dirt": 1
+      },
+      "roll": "Will + Ritual Casting + Occult Knowledge",
+      "tags": [
+        "spirit",
+        "demon",
+        "investigation"
+      ],
+      "effect": "Reveals broad nature of anchor: remains, object, vessel, token, shrine, or blood tie."
+    },
+    {
+      "id": "exorcists_litany",
+      "name": "Exorcist's Litany",
+      "aliases": [
+        "exorcism",
+        "banish demon"
+      ],
+      "requires": {
+        "holy_water": 1,
+        "blessed_ash": 1
+      },
+      "roll": "Will + Ritual Casting + Spirit Communication or Occult Knowledge",
+      "tags": [
+        "demon",
+        "possessor",
+        "banishment"
+      ],
+      "effect": "Drives a hostile possessor out over 3 uninterrupted rounds."
+    },
+    {
+      "id": "protective_circle",
+      "name": "Protective Circle",
+      "aliases": [
+        "ward circle",
+        "protection circle"
+      ],
+      "requires": {
+        "salt_pack": 1,
+        "chalk": 1,
+        "iron_filings": 1
+      },
+      "roll": "Will + Warding + Sigil Reading",
+      "tags": [
+        "ward",
+        "spirit",
+        "demon",
+        "fae"
+      ],
+      "effect": "Blocks or slows hostile crossings."
+    },
+    {
+      "id": "lantern_spark",
+      "name": "Lantern Spark",
+      "aliases": [
+        "occult light"
+      ],
+      "requires": {
+        "flashlight": 1
+      },
+      "roll": "Will + Energy Control",
+      "tags": [
+        "light",
+        "spirit",
+        "darkness"
+      ],
+      "effect": "Creates occult light and cancels darkness pressure."
+    }
+  ],
+  "attack_options": [
+    {
+      "id": "rock_salt_shot",
+      "name": "Rock Salt Shot",
+      "aliases": [
+        "shoot with salt",
+        "salt shotgun",
+        "rock salt shells"
+      ],
+      "consumes": {
+        "rock_salt_shells": 1
+      },
+      "attribute": "Prowess",
+      "skill": "Firearms",
+      "support": [
+        "Awareness",
+        "Weapon Handling"
+      ],
+      "tags": [
+        "spirit",
+        "weapon"
+      ],
+      "effect": "Disrupts spirits and weak manifestations."
+    },
+    {
+      "id": "silver_shot",
+      "name": "Silver Shot",
+      "aliases": [
+        "shoot with silver",
+        "silver rounds",
+        "silver bullet"
+      ],
+      "consumes": {
+        "silver_rounds": 1
+      },
+      "attribute": "Prowess",
+      "skill": "Firearms",
+      "support": [
+        "Awareness",
+        "Weakness Identification"
+      ],
+      "tags": [
+        "creature",
+        "werewolf",
+        "rugaru"
+      ],
+      "effect": "Bypasses beast resistance when correct."
+    },
+    {
+      "id": "iron_strike",
+      "name": "Iron Strike",
+      "aliases": [
+        "hit with iron",
+        "iron knife",
+        "iron weapon"
+      ],
+      "consumes": {},
+      "attribute": "Force",
+      "skill": "Melee Combat",
+      "support": [
+        "Weapon Handling",
+        "Awareness"
+      ],
+      "tags": [
+        "fae",
+        "melee"
+      ],
+      "effect": "Hurts fae and threshold creatures when true form is exposed."
+    },
+    {
+      "id": "holy_water_splash",
+      "name": "Holy Water Splash",
+      "aliases": [
+        "throw holy water",
+        "splash holy water"
+      ],
+      "consumes": {
+        "holy_water": 1
+      },
+      "attribute": "Prowess",
+      "skill": "Ritual Basics",
+      "support": [
+        "Occult Knowledge",
+        "Aim"
+      ],
+      "tags": [
+        "demon",
+        "spirit",
+        "holy"
+      ],
+      "effect": "Repels infernal manifestations or exposes possessed hosts."
+    },
+    {
+      "id": "fire_finish",
+      "name": "Fire Finish",
+      "aliases": [
+        "burn it",
+        "use fire",
+        "ignite"
+      ],
+      "consumes": {
+        "gasoline": 1,
+        "flare": 1
+      },
+      "attribute": "Prowess",
+      "skill": "Survival",
+      "support": [
+        "Trap Setting",
+        "Firearms"
+      ],
+      "tags": [
+        "wendigo",
+        "creature",
+        "fire"
+      ],
+      "effect": "Needed for some kill conditions that require complete burning."
+    }
+  ],
+  "npc_ally_modules": [
+    {
+      "id": "deputy_mara_vale",
+      "name": "Deputy Mara Vale",
+      "aliases": [
+        "mara",
+        "deputy",
+        "deputy vale"
+      ],
+      "type": "law enforcement ally",
+      "tags": [
+        "police",
+        "records",
+        "combat",
+        "public"
+      ],
+      "location_hint": "sheriff_station",
+      "opening": "A tired deputy with a folder full of reports she was told not to file.",
+      "recruitment": {
+        "requires_any": [
+          "clue_false_report",
+          "clue_missing_pages",
+          "clue_patterned_attacks"
+        ],
+        "cost": 0,
+        "test": "Charisma + Persuasion or Intellect + Investigation",
+        "failure": "She refuses to risk her badge without proof."
+      },
+      "services": [
+        "police records",
+        "scene access",
+        "backup response"
+      ],
+      "bonuses": {
+        "research": 1,
+        "investigate": 1,
+        "combat": 1
+      },
+      "topics": {
+        "reports": {
+          "response": "Mara can quietly pull incident reports that were reclassified as animal attacks or drug calls.",
+          "clues": [
+            "clue_patterned_attacks"
+          ],
+          "unlocks_locations": [
+            "sheriff_station",
+            "town_records"
+          ]
+        },
+        "coverup": {
+          "response": "She says the sheriff signs off on strange cases personally, then seals them in a side cabinet.",
+          "clues": [
+            "clue_false_report"
+          ],
+          "unlocks_topics": [
+            "sheriff",
+            "sealed cabinet"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "law enforcement ally",
+        "intelligence": 4,
+        "motive": "help the Wardens if proof justifies the risk",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "father_crowe",
+      "name": "Father Crowe",
+      "aliases": [
+        "father",
+        "priest",
+        "crowe"
+      ],
+      "type": "faithbound ally",
+      "tags": [
+        "church",
+        "demon",
+        "spirit",
+        "sigils",
+        "ritual"
+      ],
+      "location_hint": "church_annex",
+      "opening": "An old priest who knows the basement was sealed for a reason.",
+      "recruitment": {
+        "requires_any": [
+          "clue_lower_room",
+          "clue_black_star",
+          "clue_underground_bell"
+        ],
+        "cost": 0,
+        "test": "Charisma + Persuasion or Will + Ritual Casting",
+        "failure": "He prays for you, but will not enter the hunting ground."
+      },
+      "services": [
+        "holy water",
+        "sanctuary access",
+        "exorcism witness"
+      ],
+      "bonuses": {
+        "cast": 1,
+        "prep": 1,
+        "ask": 1
+      },
+      "topics": {
+        "bell": {
+          "response": "Crowe says the bell was removed from the steeple in 1911 because it rang after the miners died.",
+          "clues": [
+            "clue_bell_history"
+          ],
+          "unlocks_locations": [
+            "town_records",
+            "church_basement"
+          ]
+        },
+        "exorcism": {
+          "response": "He can serve as a trusted witness for an exorcism, but only if the host can be restrained safely.",
+          "clues": [
+            "clue_exorcism_witness"
+          ],
+          "unlocks_topics": [
+            "host",
+            "restraint"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "faithbound ally",
+        "intelligence": 2,
+        "motive": "help the Wardens if proof justifies the risk",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "older",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "juniper_black",
+      "name": "Juniper Black",
+      "aliases": [
+        "juniper",
+        "occult shop owner",
+        "shop owner"
+      ],
+      "type": "occult supplier",
+      "tags": [
+        "shop",
+        "relics",
+        "sigils",
+        "fae",
+        "demon",
+        "spirit"
+      ],
+      "location_hint": "occult_shop",
+      "opening": "A shop owner who sells candles to tourists and warding chalk to people who know how to ask.",
+      "recruitment": {
+        "requires_any": [
+          "clue_black_star",
+          "clue_sigils_wrong",
+          "clue_true_name_fragment"
+        ],
+        "cost": 25,
+        "test": "Charisma + Persuasion or Intellect + Occult Knowledge",
+        "failure": "She gives advice, not allegiance."
+      },
+      "services": [
+        "rare components",
+        "symbol decoding",
+        "discount gear"
+      ],
+      "bonuses": {
+        "shop": 1,
+        "research": 1,
+        "cast": 1
+      },
+      "topics": {
+        "black star": {
+          "response": "Juniper says the black star is not a demon sigil. It is a seal map disguised as a cult mark.",
+          "clues": [
+            "clue_black_star_seal_map"
+          ],
+          "unlocks_topics": [
+            "seal map",
+            "nine circles"
+          ]
+        },
+        "components": {
+          "response": "She can sell powdered iron, grave salt, blessed twine, and mirror glass if you have cash.",
+          "clues": [],
+          "unlocks_topics": [
+            "grave salt",
+            "mirror glass"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "occult supplier",
+        "intelligence": 2,
+        "motive": "help the Wardens if proof justifies the risk",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "older",
+        "style": "solemn",
+        "rate": 0.94,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "ellis_ward",
+      "name": "Ellis Ward",
+      "aliases": [
+        "ellis",
+        "paramedic",
+        "emt"
+      ],
+      "type": "medical ally",
+      "tags": [
+        "hospital",
+        "blood",
+        "witness",
+        "injury"
+      ],
+      "location_hint": "hospital_room",
+      "opening": "A paramedic who has seen enough impossible injuries to stop laughing at impossible explanations.",
+      "recruitment": {
+        "requires_any": [
+          "clue_body_wrong_temp",
+          "clue_survivor_blackout",
+          "clue_patterned_attacks"
+        ],
+        "cost": 0,
+        "test": "Charisma + Persuasion or Intellect + Forensics",
+        "failure": "Ellis will patch you up, but will not get involved."
+      },
+      "services": [
+        "field treatment",
+        "medical records",
+        "civilian stabilization"
+      ],
+      "bonuses": {
+        "investigate": 1,
+        "ask": 1,
+        "combat_defense": 1
+      },
+      "topics": {
+        "injuries": {
+          "response": "Ellis says the wounds do not match animal jaws, blades, or human hands. They look staged after the fact.",
+          "clues": [
+            "clue_wounds_staged"
+          ],
+          "unlocks_topics": [
+            "staged wounds",
+            "survivor"
+          ]
+        },
+        "survivor": {
+          "response": "The survivor kept repeating a phrase before sedation: 'it rang without sound.'",
+          "clues": [
+            "clue_soundless_ring"
+          ],
+          "unlocks_topics": [
+            "bell",
+            "lower room"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "medical ally",
+        "intelligence": 2,
+        "motive": "help the Wardens if proof justifies the risk",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "rowan_kade",
+      "name": "Rowan Kade",
+      "aliases": [
+        "rowan",
+        "old hunter",
+        "kade"
+      ],
+      "type": "retired hunter",
+      "tags": [
+        "relics",
+        "combat",
+        "creature",
+        "spirit",
+        "prep"
+      ],
+      "location_hint": "hunting_cabin",
+      "opening": "A retired Warden-adjacent hunter who recognizes old field signs and bad plans.",
+      "recruitment": {
+        "requires_any": [
+          "clue_prior_warden_cache",
+          "clue_wrong_weakness",
+          "clue_patterned_attacks"
+        ],
+        "cost": 15,
+        "test": "Charisma + Persuasion or Instinct + Tracking",
+        "failure": "He loans advice, then tells you to leave town."
+      },
+      "services": [
+        "trap advice",
+        "weapon prep",
+        "old case memory"
+      ],
+      "bonuses": {
+        "attack": 1,
+        "trap": 1,
+        "hide": 1
+      },
+      "topics": {
+        "old case": {
+          "response": "Kade remembers a team misidentified the entity and died because they used salt when they needed silence.",
+          "clues": [
+            "clue_wrong_weakness"
+          ],
+          "unlocks_topics": [
+            "silence",
+            "old cache"
+          ]
+        },
+        "cache": {
+          "response": "He marked a storage locker years ago. If it is still there, it may hold emergency Wardens gear.",
+          "clues": [
+            "clue_prior_warden_cache"
+          ],
+          "unlocks_locations": [
+            "storage_unit"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "retired hunter",
+        "intelligence": 2,
+        "motive": "help the Wardens if proof justifies the risk",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "any",
+        "age": "young",
+        "style": "frightened",
+        "rate": 1.03,
+        "pitch": 1
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    }
+  ],
+  "stranger_modules": [
+    {
+      "id": "gas_station_clerk",
+      "name": "Gas Station Clerk",
+      "aliases": [
+        "clerk",
+        "cashier",
+        "gas clerk"
+      ],
+      "tags": [
+        "roadside",
+        "public",
+        "rumor"
+      ],
+      "location_hint": "gas_station",
+      "smalltalk": [
+        "They complain about the lights flickering every night after 2:13 a.m.",
+        "They mention tourists keep asking for directions to a church that closed decades ago."
+      ],
+      "topics": {
+        "church": {
+          "response": "The clerk says people still drive toward the old church after midnight, even though no event is listed.",
+          "clues": [
+            "clue_midnight_traffic"
+          ],
+          "unlocks_locations": [
+            "church_annex"
+          ]
+        },
+        "bell": {
+          "response": "They heard a bell through the cooler doors, but thought it was a truck backing up.",
+          "clues": [
+            "clue_underground_bell"
+          ],
+          "unlocks_topics": [
+            "cooler",
+            "midnight"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "ordinary",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "motel_owner",
+      "name": "Motel Owner",
+      "aliases": [
+        "owner",
+        "motel owner",
+        "front desk"
+      ],
+      "tags": [
+        "motel",
+        "public",
+        "witness"
+      ],
+      "location_hint": "abandoned_motel",
+      "smalltalk": [
+        "They talk about cancellations, bad plumbing, and a smell like pennies after storms.",
+        "They say the last group paid in cash and asked for rooms with no mirrors."
+      ],
+      "topics": {
+        "last group": {
+          "response": "The last group carried duffel bags, candles, and a black case that hummed when the owner touched it.",
+          "clues": [
+            "clue_humming_case"
+          ],
+          "unlocks_topics": [
+            "black case",
+            "duffel bags"
+          ]
+        },
+        "mirrors": {
+          "response": "Every mirror in their rooms was covered with towels. One towel had a nine-ring symbol drawn in ash.",
+          "clues": [
+            "clue_covered_mirrors"
+          ],
+          "unlocks_locations": [
+            "motel_room"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "older",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "graveyard_groundskeeper",
+      "name": "Groundskeeper",
+      "aliases": [
+        "groundskeeper",
+        "gravekeeper",
+        "cemetery worker"
+      ],
+      "tags": [
+        "cemetery",
+        "spirit",
+        "records"
+      ],
+      "location_hint": "cemetery_edge",
+      "smalltalk": [
+        "They discuss weather, vandals, and how animals refuse to cross the older fence line."
+      ],
+      "topics": {
+        "grave": {
+          "response": "One grave has fresh dirt but no burial record. Someone dug down, then filled it back badly.",
+          "clues": [
+            "clue_disturbed_remains"
+          ],
+          "unlocks_locations": [
+            "cemetery_edge"
+          ]
+        },
+        "old fence": {
+          "response": "The old fence line has iron spikes bent inward, like something tried to get out rather than in.",
+          "clues": [
+            "clue_iron_bent_inward"
+          ],
+          "unlocks_topics": [
+            "iron",
+            "escape"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 4,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "older",
+        "style": "guarded",
+        "rate": 1,
+        "pitch": 1.06
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "night_janitor",
+      "name": "Night Janitor",
+      "aliases": [
+        "janitor",
+        "night janitor",
+        "custodian"
+      ],
+      "tags": [
+        "school",
+        "hospital",
+        "public",
+        "sighting"
+      ],
+      "location_hint": "school_hallway",
+      "smalltalk": [
+        "They warn you not to use the east hallway because the motion lights turn on by themselves."
+      ],
+      "topics": {
+        "east hallway": {
+          "response": "The janitor saw three people walk into the east hallway and only two shadows come out.",
+          "clues": [
+            "clue_missing_shadow"
+          ],
+          "unlocks_locations": [
+            "school_hallway"
+          ]
+        },
+        "lights": {
+          "response": "The lights flicker in a pattern: long, short, short, long. They wrote it down because it kept happening.",
+          "clues": [
+            "clue_light_pattern"
+          ],
+          "unlocks_topics": [
+            "pattern",
+            "morse"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.94,
+        "pitch": 0.92
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    },
+    {
+      "id": "rideshare_driver",
+      "name": "Rideshare Driver",
+      "aliases": [
+        "driver",
+        "rideshare",
+        "cab driver"
+      ],
+      "tags": [
+        "roadside",
+        "city",
+        "sighting"
+      ],
+      "location_hint": "roadside_wreck",
+      "smalltalk": [
+        "They ask if you are reporters, cops, or one of those ghost podcast people."
+      ],
+      "topics": {
+        "passenger": {
+          "response": "A passenger asked to be dropped at the bridge, but the driver saw the same passenger already standing there when they arrived.",
+          "clues": [
+            "clue_duplicate_passenger"
+          ],
+          "unlocks_locations": [
+            "river_bridge"
+          ]
+        },
+        "bridge": {
+          "response": "They refuse to cross the bridge after midnight. The GPS always says they are already on the other side.",
+          "clues": [
+            "clue_bridge_gps_loop"
+          ],
+          "unlocks_topics": [
+            "gps loop"
+          ]
+        }
+      },
+      "profile": {
+        "archetype": "civilian",
+        "intelligence": 2,
+        "motive": "survive the case and avoid being blamed",
+        "secret": "knows a detail they will only share with trust or proof"
+      },
+      "voiceProfile": {
+        "gender": "any",
+        "age": "young",
+        "style": "frightened",
+        "rate": 1.03,
+        "pitch": 1
+      },
+      "dialogue_options": {
+        "background": "Ask who they are, why they are involved, and what changed before the case became dangerous.",
+        "fear": "Ask what they are afraid will happen if the truth comes out.",
+        "trust": "Ask what proof they need before they cooperate.",
+        "help": "Ask what access, supplies, contacts, or local knowledge they can offer."
+      }
+    }
+  ],
+  "assistant_prompts": {
+    "system": "You are the Night Wardens Field Assistant. Use only the structured case state, clues, rules data, and command context. Do not invent final answers unless the case state has unlocked them.",
+    "structured_modes": [
+      "summarize case",
+      "suggest next steps",
+      "explain clue",
+      "generate narration",
+      "interpret tarot pressure",
+      "combat advice",
+      "prep checklist",
+      "witness follow-up"
+    ]
+  },
+  "warden_hq_modules": [
+    {
+      "id": "regional_warden_hq",
+      "name": "Regional Warden Field Office",
+      "tags": [
+        "warden",
+        "hq",
+        "records",
+        "gear",
+        "safehouse"
+      ],
+      "description": "A disguised administrative office with case files, gear lockers, sleeping rooms, and a back-room briefing table.",
+      "services": [
+        "recruit Wardens",
+        "buy/requisition gear",
+        "research case files",
+        "medical stabilization"
+      ],
+      "stock_bonus": [
+        "holy_water",
+        "rock_salt_shells",
+        "silver_rounds",
+        "salt_pack",
+        "iron_nails"
+      ]
+    },
+    {
+      "id": "blackwood_safehouse",
+      "name": "Blackwood Safehouse",
+      "tags": [
+        "warden",
+        "safehouse",
+        "occult",
+        "rural",
+        "spirit"
+      ],
+      "description": "A rural Warden house with salt in the walls, old maps, and a cellar full of labeled evidence crates.",
+      "services": [
+        "occult consultation",
+        "spirit containment kit",
+        "rest and recovery",
+        "stakeout support"
+      ],
+      "stock_bonus": [
+        "salt_pack",
+        "spirit_lantern",
+        "chalk",
+        "iron_nails"
+      ]
+    },
+    {
+      "id": "archive_annex",
+      "name": "Archive Annex Substation",
+      "tags": [
+        "warden",
+        "hq",
+        "records",
+        "sigils",
+        "research"
+      ],
+      "description": "A climate-controlled records annex hidden behind a county document storage contractor.",
+      "services": [
+        "entity records",
+        "old case files",
+        "symbol decoding",
+        "background checks"
+      ],
+      "stock_bonus": [
+        "emf_reader",
+        "chalk",
+        "true_name_scroll",
+        "field_recorder"
+      ]
+    },
+    {
+      "id": "mobile_hunter_van",
+      "name": "Mobile Hunter Van",
+      "tags": [
+        "warden",
+        "mobile",
+        "gear",
+        "relics",
+        "blades"
+      ],
+      "description": "An armored, unmarked van that rotates through active cases with ammo, traps, and a tired operator.",
+      "services": [
+        "mobile quartermaster",
+        "ammo purchase",
+        "trap components",
+        "field extraction"
+      ],
+      "stock_bonus": [
+        "rock_salt_shells",
+        "silver_rounds",
+        "cold_iron_chain",
+        "first_aid_kit"
+      ]
+    },
+    {
+      "id": "chapel_bunker",
+      "name": "Chapel Bunker",
+      "tags": [
+        "warden",
+        "divine",
+        "demon",
+        "holy",
+        "safehouse"
+      ],
+      "description": "A buried chapel room beneath a burned roadside mission, still consecrated and still monitored.",
+      "services": [
+        "exorcism support",
+        "holy supplies",
+        "possession warding",
+        "sanctuary"
+      ],
+      "stock_bonus": [
+        "holy_water",
+        "blessed_oil",
+        "chalk",
+        "first_aid_kit"
+      ]
+    }
+  ],
+  "warden_recruit_pool": [
+    {
+      "id": "arden_cross",
+      "name": "Arden Cross",
+      "aliases": [
+        "arden cross",
+        "arden",
+        "tracker"
+      ],
+      "type": "recruitable Warden",
+      "role": "Tracker",
+      "tags": [
+        "warden",
+        "tracker",
+        "rural",
+        "creature",
+        "relics"
+      ],
+      "opening": "A quiet Tracker with old scars and a habit of checking every treeline twice.",
+      "availabilityChance": 0.55,
+      "services": [
+        "tracking support",
+        "stakeout",
+        "ambush setup"
+      ],
+      "bonuses": {
+        "investigate": 1,
+        "hide": 1,
+        "combat": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Arden Cross explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Arden Cross describes how a Tracker approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Tracker",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 0.9
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "juno_reyes",
+      "name": "Juno Reyes",
+      "aliases": [
+        "juno reyes",
+        "juno",
+        "lorekeeper"
+      ],
+      "type": "recruitable Warden",
+      "role": "Lorekeeper",
+      "tags": [
+        "warden",
+        "lorekeeper",
+        "records",
+        "sigils",
+        "research"
+      ],
+      "opening": "A Lorekeeper who speaks in case numbers and hates unsupported theories.",
+      "availabilityChance": 0.5,
+      "services": [
+        "records search",
+        "entity narrowing",
+        "symbol decoding"
+      ],
+      "bonuses": {
+        "research": 2,
+        "ask": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Juno Reyes explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Juno Reyes describes how a Lorekeeper approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Lorekeeper",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 1.04
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "marcus_knell",
+      "name": "Marcus Knell",
+      "aliases": [
+        "marcus knell",
+        "marcus",
+        "enforcer"
+      ],
+      "type": "recruitable Warden",
+      "role": "Enforcer",
+      "tags": [
+        "warden",
+        "enforcer",
+        "combat",
+        "blades",
+        "demon"
+      ],
+      "opening": "An Enforcer with a shotgun case and the calm of someone who has been bitten before.",
+      "availabilityChance": 0.42,
+      "services": [
+        "combat backup",
+        "protect ally",
+        "breach support"
+      ],
+      "bonuses": {
+        "combat": 2,
+        "attack": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 10,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Marcus Knell explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Marcus Knell describes how a Enforcer approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Enforcer",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 0.9
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "elsa_vane",
+      "name": "Elsa Vane",
+      "aliases": [
+        "elsa vane",
+        "elsa",
+        "medium"
+      ],
+      "type": "recruitable Warden",
+      "role": "Medium",
+      "tags": [
+        "warden",
+        "medium",
+        "spirit",
+        "blood",
+        "haunted"
+      ],
+      "opening": "A Medium who never enters a room without asking who died there.",
+      "availabilityChance": 0.46,
+      "services": [
+        "spirit communication",
+        "haunting read",
+        "possession warning"
+      ],
+      "bonuses": {
+        "ask": 1,
+        "investigate": 1,
+        "cast": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Elsa Vane explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Elsa Vane describes how a Medium approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Medium",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 1.04
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "otto_mire",
+      "name": "Otto Mire",
+      "aliases": [
+        "otto mire",
+        "otto",
+        "tinkerer"
+      ],
+      "type": "recruitable Warden",
+      "role": "Tinkerer",
+      "tags": [
+        "warden",
+        "tinkerer",
+        "gear",
+        "traps",
+        "relics"
+      ],
+      "opening": "A Tinkerer dragging a rolling crate of things that click, spark, and probably violate policy.",
+      "availabilityChance": 0.48,
+      "services": [
+        "trap construction",
+        "device repair",
+        "special ammo advice"
+      ],
+      "bonuses": {
+        "prep": 2,
+        "trap": 2
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 10,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Otto Mire explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Otto Mire describes how a Tinkerer approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Tinkerer",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 0.9
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "nadia_vale",
+      "name": "Nadia Vale",
+      "aliases": [
+        "nadia vale",
+        "nadia",
+        "infiltrator"
+      ],
+      "type": "recruitable Warden",
+      "role": "Infiltrator",
+      "tags": [
+        "warden",
+        "infiltrator",
+        "social",
+        "police",
+        "records"
+      ],
+      "opening": "An Infiltrator with three badges, none of them legally hers.",
+      "availabilityChance": 0.44,
+      "services": [
+        "cover identity",
+        "social pressure",
+        "restricted access"
+      ],
+      "bonuses": {
+        "ask": 2,
+        "move": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Nadia Vale explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Nadia Vale describes how a Infiltrator approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Infiltrator",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 1.04
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "brother_cassian",
+      "name": "Brother Cassian",
+      "aliases": [
+        "brother cassian",
+        "brother",
+        "occultist"
+      ],
+      "type": "recruitable Warden",
+      "role": "Occultist",
+      "tags": [
+        "warden",
+        "occultist",
+        "divine",
+        "demon",
+        "sigils"
+      ],
+      "opening": "A burned-out Occultist whose prayers sound too much like warnings.",
+      "availabilityChance": 0.37,
+      "services": [
+        "wards",
+        "bindings",
+        "exorcism support"
+      ],
+      "bonuses": {
+        "cast": 2,
+        "research": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 15,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Brother Cassian explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Brother Cassian describes how a Occultist approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Occultist",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 0.9
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "ivy_stone",
+      "name": "Ivy Stone",
+      "aliases": [
+        "ivy stone",
+        "ivy",
+        "survivor"
+      ],
+      "type": "recruitable Warden",
+      "role": "Survivor",
+      "tags": [
+        "warden",
+        "survivor",
+        "medical",
+        "combat",
+        "blood"
+      ],
+      "opening": "A Survivor with a trauma kit, steady hands, and no patience for heroic stupidity.",
+      "availabilityChance": 0.52,
+      "services": [
+        "medical stabilization",
+        "fear control",
+        "extraction"
+      ],
+      "bonuses": {
+        "brace": 1,
+        "heal": 2,
+        "combat": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Ivy Stone explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Ivy Stone describes how a Survivor approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Survivor",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 1.04
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "quinn_harlow",
+      "name": "Quinn Harlow",
+      "aliases": [
+        "quinn harlow",
+        "quinn",
+        "relic handler"
+      ],
+      "type": "recruitable Warden",
+      "role": "Relic Handler",
+      "tags": [
+        "warden",
+        "relics",
+        "gear",
+        "records"
+      ],
+      "opening": "A relic handler who knows which artifacts are safe and which ones only pretend to be.",
+      "availabilityChance": 0.34,
+      "services": [
+        "relic identification",
+        "dangerous item handling",
+        "gear requisition"
+      ],
+      "bonuses": {
+        "research": 1,
+        "prep": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 15,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Quinn Harlow explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Quinn Harlow describes how a Relic Handler approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Relic Handler",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 0.9
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "mara_voss",
+      "name": "Mara Voss",
+      "aliases": [
+        "mara voss",
+        "mara",
+        "veil scout"
+      ],
+      "type": "recruitable Warden",
+      "role": "Veil Scout",
+      "tags": [
+        "warden",
+        "medium",
+        "tracker",
+        "fae",
+        "threshold"
+      ],
+      "opening": "A Veil Scout with iron charms sewn into her jacket cuffs.",
+      "availabilityChance": 0.39,
+      "services": [
+        "fae threshold reading",
+        "trail recovery",
+        "glamour detection"
+      ],
+      "bonuses": {
+        "investigate": 1,
+        "move": 1,
+        "cast": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Mara Voss explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Mara Voss describes how a Veil Scout approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Veil Scout",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 1.04
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "silas_ward",
+      "name": "Silas Ward",
+      "aliases": [
+        "silas ward",
+        "silas",
+        "retired game warden"
+      ],
+      "type": "recruitable Warden",
+      "role": "Retired Game Warden",
+      "tags": [
+        "warden",
+        "hq",
+        "mentor",
+        "blades"
+      ],
+      "opening": "A semi-retired Warden who claims he is unavailable while already packing a rifle.",
+      "availabilityChance": 0.28,
+      "services": [
+        "case advice",
+        "combat command",
+        "old contacts"
+      ],
+      "bonuses": {
+        "assistant": 1,
+        "combat": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Silas Ward explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Silas Ward describes how a Retired Game Warden approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Retired Game Warden",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "male",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 0.9
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    },
+    {
+      "id": "talia_brooks",
+      "name": "Talia Brooks",
+      "aliases": [
+        "talia brooks",
+        "talia",
+        "field medic"
+      ],
+      "type": "recruitable Warden",
+      "role": "Field Medic",
+      "tags": [
+        "warden",
+        "medical",
+        "blood",
+        "hospital"
+      ],
+      "opening": "A field medic with color-coded trauma pouches and an unblinking stare.",
+      "availabilityChance": 0.58,
+      "services": [
+        "wound treatment",
+        "affliction triage",
+        "stabilization"
+      ],
+      "bonuses": {
+        "heal": 2,
+        "brace": 1
+      },
+      "recruitment": {
+        "requires_any": [],
+        "cost": 0,
+        "test": "Charisma + Persuasion, Role authority, or proven case need",
+        "failure": "They are unavailable unless the team proves the case is worth the risk."
+      },
+      "topics": {
+        "availability": {
+          "response": "Talia Brooks explains what support they can offer and whether they can join the field team.",
+          "clues": []
+        },
+        "role": {
+          "response": "Talia Brooks describes how a Field Medic approaches a hunt and what kind of danger they are best against.",
+          "clues": []
+        },
+        "case": {
+          "response": "They ask for the cleanest known clue, the suspected entity category, and what prep the team already has.",
+          "clues": []
+        }
+      },
+      "profile": {
+        "archetype": "Field Medic",
+        "intelligence": 4,
+        "motive": "complete the hunt, protect civilians, and preserve Warden secrecy",
+        "secret": "has a prior case that shapes how they judge this threat"
+      },
+      "voiceProfile": {
+        "gender": "female",
+        "age": "adult",
+        "style": "authoritative",
+        "rate": 0.95,
+        "pitch": 1.04
+      },
+      "dialogue_options": {
+        "availability": "Ask whether they can deploy now or only provide remote support.",
+        "role": "Ask how their role changes the hunt plan.",
+        "case": "Brief them on the known clues and ask for tactical advice.",
+        "trust": "Ask what proof they need before risking their badge, gear, or life."
+      }
+    }
+  ],
+  "scenario_dialogue_templates": [
+    {
+      "id": "opening_debrief",
+      "name": "Opening Debrief",
+      "use": "Game Warden opener",
+      "prompts": [
+        "What is the visible incident?",
+        "Who called it in?",
+        "What does the first witness fear?",
+        "What should the Wardens do first?"
+      ]
+    },
+    {
+      "id": "hunt_complication",
+      "name": "Hunt Complication",
+      "use": "When pressure rises",
+      "prompts": [
+        "What changes in the location?",
+        "Who notices it first?",
+        "What new sign appears?",
+        "What becomes unsafe?"
+      ]
+    },
+    {
+      "id": "post_combat_interview",
+      "name": "Post-Combat Interview",
+      "use": "After a fight",
+      "prompts": [
+        "Who is shaken?",
+        "What damage is visible?",
+        "What clue did the creature leave?",
+        "Who can be recruited after seeing proof?"
+      ]
+    },
+    {
+      "id": "hq_briefing",
+      "name": "HQ Briefing",
+      "use": "When players visit Warden HQ",
+      "prompts": [
+        "Which Wardens are available?",
+        "What resources are in stock?",
+        "What rumor or old case file connects to the current hunt?"
+      ]
+    }
+  ],
+  "npc_dialogue_option_defaults": {
+    "background": "Ask who they are and why they are connected to the case.",
+    "alibi": "Ask where they were when the incident happened.",
+    "fear": "Ask what they are afraid of.",
+    "help": "Ask how they can help.",
+    "secrets": "Ask what they have not told the police or other Wardens."
   }
 }

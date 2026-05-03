@@ -20,7 +20,7 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
   <header class="hero">
     <div class="kicker">Night Wardens</div>
     <h1>Digital Field Guide</h1>
-    <p class="sub">Auto-GM modular case engine • interactive fiction parser • shared party play • private split-branch narration</p>
+    <p class="sub">Auto-GM modular case engine • natural voice TTS • LLM-assisted openings • turn-based combat</p>
     <div class="topbar">
       <div class="row">
         <a class="btn ghost" href="index.html">← Field Office</a>
@@ -32,7 +32,7 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
       <div class="row small">
         <span id="campaignTag" class="pill">Local Case</span>
         <span id="syncTag" class="pill warn">LocalStorage fallback</span>
-        <span id="versionTag" class="pill">Pass 10</span>
+        <span id="versionTag" class="pill">Pass 15.0</span>
       </div>
     </div>
   </header>
@@ -43,6 +43,8 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
     <button class="tab" data-tab="modules">Modules</button>
     <button class="tab" data-tab="characters">Characters</button>
     <button class="tab" data-tab="private">Private Branches</button>
+    <button class="tab" data-tab="combat">Combat / Clock</button>
+    <button class="tab" data-tab="allies">NPCs / Assistant</button>
     <button class="tab" data-tab="help">Command Help</button>
     <button class="tab" data-tab="dev">Data / Debug</button>
   </nav>
@@ -114,12 +116,58 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
 
   <section id="tab-private" class="tabPage hidden"><div class="grid cols2"><div class="card privatePanel"><h2>Private Logs</h2><label>View Player<select id="privateViewPlayer"></select></label><div id="privateLog" class="transcript" style="height:500px"></div></div><div class="card"><h2>Reveal Private Discoveries</h2><div id="privateRevealList" class="list"></div></div></div></section>
 
+  <section id="tab-combat" class="tabPage hidden">
+    <div id="combatPanel"></div>
+  </section>
+
+
+  <section id="tab-allies" class="tabPage hidden">
+    <div class="grid cols2">
+      <div class="card"><h2>Recruitable NPC Allies / Warden HQ</h2><div id="allyList" class="list"></div></div>
+      <div class="card"><h2>Warden Field Assistant</h2>
+        <div class="note small">Structured helper mode is always available. Optional browser LLM mode loads <span class="kbd">Qwen2.5-0.5B-Instruct-q4f16_1-MLC</span> by default through WebLLM/WebGPU and uses only the current case graph, clues, gear, NPCs, and pressure clock as context. The LLM may voice NPC dialogue and craft opening transmissions, but hidden truth still comes from the modular case graph.</div>
+        <div class="divider"></div>
+        <div class="grid cols2">
+          <label>LLM Model<select id="llmModelSelect"><option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Fastest / Most Phones — Qwen2.5 0.5B</option><option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Balanced / Better Tone — Llama 3.2 1B</option><option value="Llama-3.2-3B-Instruct-q4f16_0-MLC">Heavy / Strong Devices — Llama 3.2 3B</option></select></label>
+          <div><label>LLM Status</label><div id="llmStatus" class="note small">LLM not loaded. Structured assistant is ready.</div></div>
+        </div>
+        <div class="row" style="margin-top:8px"><button id="llmLoadBtn" class="btn ghost">Load Browser LLM</button><button id="llmClearBtn" class="btn ghost">Use Structured Fallback</button><button id="openerBtn" class="btn violet">Craft Opening Transmission</button><label class="inline"><input type="checkbox" id="npcVoiceLLM" checked /> Use LLM NPC Voice when loaded</label></div>
+        <div class="divider"></div>
+        <h3>Voice / TTS Agent</h3>
+        <div class="note small" id="ttsSupportStatus">Browser speech status checking...</div><div class="note small" id="ttsBestVoiceHint">Voice ranking will appear after voices load.</div><div class="note small">This uses your device/browser voices. For the least robotic sound: Android usually works best with Google voices; iPhone uses Apple/Siri enhanced voices if installed. Pick a starred voice from the dropdown when available.</div>
+        <div class="grid cols2" style="margin-top:8px">
+          <label>Voice<select id="ttsVoiceSelect"><option value="">Auto Best Natural Voice</option></select></label>
+          <label>Voice Style<select id="ttsVoiceStyle"><option value="auto">Auto / Best Available</option><option value="female">Prefer Female</option><option value="male">Prefer Male</option></select></label>
+          <label>Rate<input id="ttsRate" type="range" min="0.65" max="1.35" step="0.05" value="0.92"></label>
+          <label>Pitch<input id="ttsPitch" type="range" min="0.65" max="1.35" step="0.05" value="0.94"></label>
+          <label>Volume<input id="ttsVolume" type="range" min="0" max="1" step="0.05" value="1"></label>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <label class="inline"><input type="checkbox" id="ttsEnabled" /> Enable Voice</label>
+          <label class="inline"><input type="checkbox" id="ttsNpc" checked /> Speak NPCs</label>
+          <label class="inline"><input type="checkbox" id="ttsTransmissions" checked /> Speak Game Warden transmissions</label>
+          <label class="inline"><input type="checkbox" id="autoOpener" checked /> Auto opener on new case</label>
+          <label class="inline"><input type="checkbox" id="llmOpener" checked /> Use LLM for opener when loaded</label>
+          <button id="ttsTestBtn" class="btn ghost">Test Voice</button><button id="ttsStopBtn" class="btn ghost">Stop Voice</button>
+        </div>
+        <div class="divider"></div>
+        <label>Assistant Prompt<textarea id="assistantPrompt" placeholder="summarize case
+suggest next steps
+prep checklist
+what should I ask Mrs Harlan next?"></textarea></label>
+        <div class="row" style="margin-top:8px"><button id="assistantRunBtn" class="btn violet">Ask Field Assistant</button><button class="btn ghost quick" data-cmd="assistant suggest next steps">Command Version</button><button class="btn ghost quick" data-cmd="opening transmission">Opener Command</button></div>
+        <div id="assistantOutput" class="transcript" style="height:300px;margin-top:12px"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="tab-help" class="tabPage hidden">
-    <div class="grid cols2"><div class="card"><h2>Command Patterns</h2><div class="list small" id="helpCommands"></div></div><div class="card"><h2>Interaction Depth</h2><div class="note">Ask follow-up questions by topic. Example: <span class="kbd">ask Mrs Harlan about her son</span> can unlock <span class="kbd">meetings</span>, which can unlock <span class="kbd">lower room</span>, which can unlock new locations or evidence.</div><div class="divider"></div><div class="darknote small">Useful verbs: look, go, move, ask, talk, interview, investigate, examine, search, research, prep, cast, attack, wait, clues, leads, reveal.</div></div></div>
+    <div class="grid cols2"><div class="card"><h2>Command Patterns</h2><div class="list small" id="helpCommands"></div></div><div class="card"><h2>Interaction Depth</h2><div class="note">Ask follow-up questions by topic. Example: <span class="kbd">ask Mrs Harlan about her son</span> can unlock <span class="kbd">meetings</span>, which can unlock <span class="kbd">lower room</span>, which can unlock new locations or evidence.</div><div class="divider"></div><div class="darknote small">Useful verbs: look, list, shop, buy, inventory, need, hide, wait, go, move, ask, talk, interview, investigate, examine, search, research, prep, trap, cast, attack, clues, leads, reveal.</div></div></div>
   </section>
 
   <section id="tab-dev" class="tabPage hidden"><div class="card"><h2>Case JSON</h2><textarea id="debugJson" class="jsonBox"></textarea><div class="row" style="margin-top:8px"><button id="loadDebugBtn" class="btn warn">Load JSON From Box</button><button id="refreshDebugBtn" class="btn ghost">Refresh JSON</button></div></div></section>
 </div>
-<script src="auto-gm-pass10.js?v=10.0"></script>
+<script src="auto-gm-llm-adapter.js?v=16.0"></script>
+<script src="auto-gm-pass13.js?v=16.0"></script>
 </body>
 </html>
