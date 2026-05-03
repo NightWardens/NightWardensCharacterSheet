@@ -1,6 +1,6 @@
 /* Night Wardens static store/admin layer with Firebase-ready upgrade. */
 const NW_ADMIN_EMAIL = "geeklitgames@gmail.com";
-const PRODUCT_JSON_URL = "products.json?v=firebase-config-1";
+const PRODUCT_JSON_URL = "products.json?v=placeholder-1";
 const LS_PRODUCT_KEY = "nw_admin_products_local";
 const LS_LIBRARY_KEY = "nw_user_library_local";
 const LS_CLAIMS_KEY = "nw_purchase_claims_local";
@@ -63,8 +63,7 @@ async function loadProducts(){
 function productCard(p){
   const live = !!p.available;
   const cover = p.coverUrl ? `<img class="cover" src="${escapeHtml(p.coverUrl)}" alt="${escapeHtml(p.title)} cover">` : `<div class="cover"><div><b>${escapeHtml(p.shortTitle||p.title)}</b><br><span class="small" style="color:#f5ecdd">Digital Field Office Product File</span></div></div>`;
-  const payUrl = p.squareUrl || p.squareLink || "";
-  const buy = live && payUrl ? `<a class="btn" href="${escapeHtml(payUrl)}" target="_blank" rel="noopener">Buy Now</a>` : `<button class="btn" disabled>${live ? 'Payment Link Missing' : 'Not Available Yet'}</button>`;
+  const buy = live ? `<a class="btn" href="${escapeHtml(p.squareUrl)}" target="_blank" rel="noopener">Buy Now</a>` : `<button class="btn" disabled>Not Available Yet</button>`;
   const claim = live ? `<a class="btn ghost" href="digital-library.html#claim">Claim Digital Access</a>` : `<span class="small">Purchase unlock will appear once the file is uploaded and availability is toggled on.</span>`;
   return `<article class="card product">
     ${cover}
@@ -143,7 +142,7 @@ async function renderAdmin(){
 }
 window.editProduct = function(id){
   const p = products.find(x=>x.id===id); if(!p) return;
-  byId('productId').value=p.id; byId('productTitle').value=p.title||''; byId('productPrice').value=p.price||''; byId('productSquare').value=p.squareUrl||p.squareLink||''; byId('productLabel').value=p.label||''; byId('productCategory').value=p.category||'book'; byId('productAvailable').checked=!!p.available; byId('productCover').value=p.coverUrl||''; byId('productDownload').value=p.downloadUrl||''; byId('productDescription').value=p.description||''; byId('productIncluded').value=(p.included||[]).join('\n');
+  byId('productId').value=p.id; byId('productTitle').value=p.title||''; byId('productPrice').value=p.price||''; byId('productSquare').value=p.squareUrl||''; byId('productLabel').value=p.label||''; byId('productCategory').value=p.category||'book'; byId('productAvailable').checked=!!p.available; byId('productCover').value=p.coverUrl||''; byId('productDownload').value=p.downloadUrl||''; byId('productDescription').value=p.description||''; byId('productIncluded').value=(p.included||[]).join('\n');
   location.hash='#editor';
 };
 window.toggleProduct = async function(id){ const p=products.find(x=>x.id===id); if(!p)return; p.available=!p.available; await saveProduct(p); toast(`${p.title} ${p.available?'available':'locked'}.`); renderAdmin(); };
@@ -155,7 +154,7 @@ async function saveProduct(p){
 async function saveProductFromForm(){
   const id = byId('productId').value.trim() || uid();
   const existing = products.find(x=>x.id===id)||{};
-  const p = {...existing, id, slug:id, title:byId('productTitle').value.trim(), shortTitle:byId('productTitle').value.trim().split('—')[0].trim(), price:byId('productPrice').value.trim(), squareUrl:byId('productSquare').value.trim(), squareLink:byId('productSquare').value.trim(), label:byId('productLabel').value.trim(), category:byId('productCategory').value, available:byId('productAvailable').checked, coverUrl:byId('productCover').value.trim(), downloadUrl:byId('productDownload').value.trim(), description:byId('productDescription').value.trim(), included:byId('productIncluded').value.split('\n').map(x=>x.trim()).filter(Boolean), libraryEnabled:true, sortOrder: existing.sortOrder || (products.length+1)*10};
+  const p = {...existing, id, slug:id, title:byId('productTitle').value.trim(), shortTitle:byId('productTitle').value.trim().split('—')[0].trim(), price:byId('productPrice').value.trim(), squareUrl:byId('productSquare').value.trim(), label:byId('productLabel').value.trim(), category:byId('productCategory').value, available:byId('productAvailable').checked, coverUrl:byId('productCover').value.trim(), downloadUrl:byId('productDownload').value.trim(), description:byId('productDescription').value.trim(), included:byId('productIncluded').value.split('\n').map(x=>x.trim()).filter(Boolean), libraryEnabled:true, sortOrder: existing.sortOrder || (products.length+1)*10};
   await saveProduct(p); toast('Product saved.'); renderAdmin();
 }
 async function uploadProductFile(){
