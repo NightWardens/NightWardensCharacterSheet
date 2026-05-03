@@ -1,0 +1,5208 @@
+{
+  "version": "pass10-expanded-modular-variability",
+  "design_goal": "Swappable Auto-GM case modules chosen by tarot domain, campaign theme, and location/story tags. Expanded Pass 10 doubles modular case parts before repo upload.",
+  "tarot": {
+    "majors": [
+      {
+        "id": "fool",
+        "name": "The Fool",
+        "theme": "unknown beginning",
+        "upright": "A hidden layer or second thread opens.",
+        "reversed": "Assumptions fail; the Wardens are in the wrong story."
+      },
+      {
+        "id": "magician",
+        "name": "The Magician",
+        "theme": "power and control",
+        "upright": "A deliberate supernatural method is steering events.",
+        "reversed": "Power destabilizes and turns unsafe."
+      },
+      {
+        "id": "high_priestess",
+        "name": "The High Priestess",
+        "theme": "hidden truth",
+        "upright": "A hidden truth can be revealed.",
+        "reversed": "False certainty or misleading evidence."
+      },
+      {
+        "id": "empress",
+        "name": "The Empress",
+        "theme": "growth",
+        "upright": "The threat is being fed or cultivated.",
+        "reversed": "Growth becomes corruption."
+      },
+      {
+        "id": "emperor",
+        "name": "The Emperor",
+        "theme": "authority",
+        "upright": "A faction or hierarchy intervenes.",
+        "reversed": "Authority blocks access or suppresses truth."
+      },
+      {
+        "id": "hierophant",
+        "name": "The Hierophant",
+        "theme": "doctrine and rite",
+        "upright": "Sacred structure or ritual order matters.",
+        "reversed": "Corrupted rite or rigid dogma harms the hunt."
+      },
+      {
+        "id": "lovers",
+        "name": "The Lovers",
+        "theme": "bond and choice",
+        "upright": "A relationship, pact, or tether defines the case.",
+        "reversed": "Betrayal or painful severance."
+      },
+      {
+        "id": "chariot",
+        "name": "The Chariot",
+        "theme": "momentum",
+        "upright": "Pace accelerates toward a chase or countdown.",
+        "reversed": "Loss of control; timing turns hostile."
+      },
+      {
+        "id": "strength",
+        "name": "Strength",
+        "theme": "restraint and will",
+        "upright": "Self-control, affliction, or possession pressure is central.",
+        "reversed": "Control breaks under pressure."
+      },
+      {
+        "id": "hermit",
+        "name": "The Hermit",
+        "theme": "isolation and insight",
+        "upright": "A solitary clue or isolated witness is key.",
+        "reversed": "The team is cut off or support is lost."
+      },
+      {
+        "id": "wheel",
+        "name": "Wheel of Fortune",
+        "theme": "cycle and reversal",
+        "upright": "Timing, repetition, and reversal shift the case.",
+        "reversed": "Bad timing hurts the team."
+      },
+      {
+        "id": "justice",
+        "name": "Justice",
+        "theme": "truth and consequence",
+        "upright": "A debt, lie, or old wrong must be exposed.",
+        "reversed": "False accusation complicates the hunt."
+      },
+      {
+        "id": "hanged_man",
+        "name": "The Hanged Man",
+        "theme": "sacrifice",
+        "upright": "Progress requires a real cost.",
+        "reversed": "A stall wastes a critical window."
+      },
+      {
+        "id": "death",
+        "name": "Death",
+        "theme": "transformation",
+        "upright": "The threat changes form or phase.",
+        "reversed": "Mutation or unstable escalation."
+      },
+      {
+        "id": "temperance",
+        "name": "Temperance",
+        "theme": "balance",
+        "upright": "Mixed forces can be stabilized.",
+        "reversed": "Imbalance doubles danger."
+      },
+      {
+        "id": "devil",
+        "name": "The Devil",
+        "theme": "corruption",
+        "upright": "Temptation, possession, or dark leverage grows.",
+        "reversed": "A chance to resist appears, but not freely."
+      },
+      {
+        "id": "tower",
+        "name": "The Tower",
+        "theme": "collapse",
+        "upright": "Breach, structural failure, or catastrophe hits.",
+        "reversed": "Collapse is delayed and dread builds."
+      },
+      {
+        "id": "star",
+        "name": "The Star",
+        "theme": "hope",
+        "upright": "A clue, recovery window, or moral center appears.",
+        "reversed": "False hope comforts before it misleads."
+      },
+      {
+        "id": "moon",
+        "name": "The Moon",
+        "theme": "illusion",
+        "upright": "Concealment and false readings cloud the hunt.",
+        "reversed": "The hidden thing is forced into view."
+      },
+      {
+        "id": "sun",
+        "name": "The Sun",
+        "theme": "clarity",
+        "upright": "Truth is exposed and false leads burn away.",
+        "reversed": "Success comes with cost or overconfidence."
+      },
+      {
+        "id": "judgment",
+        "name": "Judgment",
+        "theme": "reckoning",
+        "upright": "A confrontation must happen.",
+        "reversed": "Outcome is postponed but pressure remains."
+      },
+      {
+        "id": "world",
+        "name": "The World",
+        "theme": "completion",
+        "upright": "A case closes or a milestone is marked.",
+        "reversed": "An unfinished thread survives."
+      }
+    ],
+    "minor_suits": {
+      "blades": {
+        "name": "Blades",
+        "domain": "violence",
+        "entity_tags": [
+          "spirit",
+          "demon",
+          "predator",
+          "killer"
+        ],
+        "prep_tags": [
+          "weapons",
+          "containment",
+          "fast_response"
+        ],
+        "opening": "An attack has already happened or is about to."
+      },
+      "blood": {
+        "name": "Blood",
+        "domain": "victims",
+        "entity_tags": [
+          "spirit",
+          "possessor",
+          "curse",
+          "djinn"
+        ],
+        "prep_tags": [
+          "interviews",
+          "anchor_truth",
+          "empathy"
+        ],
+        "opening": "The human story is the key to the case."
+      },
+      "relics": {
+        "name": "Relics",
+        "domain": "tools",
+        "entity_tags": [
+          "creature",
+          "hunter",
+          "relic",
+          "predator"
+        ],
+        "prep_tags": [
+          "gear",
+          "traps",
+          "ammo",
+          "caches"
+        ],
+        "opening": "What the Wardens can use matters as much as what they face."
+      },
+      "sigils": {
+        "name": "Sigils",
+        "domain": "rituals",
+        "entity_tags": [
+          "demon",
+          "fae",
+          "djinn",
+          "cult",
+          "ritual"
+        ],
+        "prep_tags": [
+          "wards",
+          "binding",
+          "threshold",
+          "catalyst_denial"
+        ],
+        "opening": "A structure of magic is active."
+      }
+    },
+    "values": [
+      "Ace",
+      "Two",
+      "Three",
+      "Four",
+      "Five",
+      "Six",
+      "Seven",
+      "Eight",
+      "Nine",
+      "Ten",
+      "Page",
+      "Knight",
+      "Queen",
+      "King"
+    ]
+  },
+  "module_rules": {
+    "case_build_order": [
+      "campaign_theme",
+      "tarot_seed",
+      "primary_location",
+      "support_locations",
+      "entity",
+      "witness_cluster",
+      "evidence_chain",
+      "pressure_complications",
+      "prep_opportunities"
+    ],
+    "target_module_counts": {
+      "locations": "6 active from 30+",
+      "witnesses": "5 active from 19+",
+      "evidence": "7 active from 28+",
+      "signs": "8 active from 24+",
+      "prep": "6 active from 22+",
+      "complications": "5 active from 22+"
+    },
+    "cross_link_rule": "Every case should have at least one witness-to-location chain, one evidence-to-entity chain, one research-to-weakness chain, and one prep-to-confrontation chain."
+  },
+  "campaign_themes": [
+    {
+      "id": "nine_black_star",
+      "name": "Nine Circles Around One Black Star",
+      "tags": [
+        "elder_god",
+        "sigils",
+        "seals",
+        "demon"
+      ],
+      "season_pressure": "Ancient seals are weakening and unrelated cases share the black star mark.",
+      "recurring_clues": [
+        "nine ring symbol",
+        "black star brand",
+        "underground bell",
+        "records erased by prior Wardens"
+      ]
+    },
+    {
+      "id": "lost_warden_files",
+      "name": "The Lost Warden Files",
+      "tags": [
+        "archive",
+        "warden",
+        "coverup",
+        "relics"
+      ],
+      "season_pressure": "Old Warden cases were misfiled on purpose and the truth is resurfacing.",
+      "recurring_clues": [
+        "redacted field report",
+        "dead handler name",
+        "old safehouse key",
+        "failed containment stamp"
+      ]
+    },
+    {
+      "id": "choir_beneath",
+      "name": "The Choir Beneath",
+      "tags": [
+        "demon",
+        "possession",
+        "sound",
+        "ritual"
+      ],
+      "season_pressure": "Multiple mouths sing the same phrase in different towns.",
+      "recurring_clues": [
+        "shared cadence",
+        "radio whisper",
+        "choir pressure",
+        "missing church records"
+      ]
+    },
+    {
+      "id": "thin_veil",
+      "name": "Thin Veil Nights",
+      "tags": [
+        "spirit",
+        "veil",
+        "medium",
+        "ghost"
+      ],
+      "season_pressure": "The dead are becoming easier to hear and harder to dismiss.",
+      "recurring_clues": [
+        "temperature collapse",
+        "shared dreams",
+        "unburied names",
+        "spirit lantern flare"
+      ]
+    },
+    {
+      "id": "iron_oath",
+      "name": "The Iron Oath",
+      "tags": [
+        "fae",
+        "bargain",
+        "threshold",
+        "iron"
+      ],
+      "season_pressure": "Fae rules bind victims before anyone realizes a deal was made.",
+      "recurring_clues": [
+        "milk and honey offering",
+        "iron burns",
+        "missing names",
+        "polite stranger"
+      ]
+    },
+    {
+      "id": "vanishing_children",
+      "name": "The Children Who Remember",
+      "tags": [
+        "blood",
+        "family",
+        "school",
+        "spirit",
+        "fae",
+        "elder_god"
+      ],
+      "season_pressure": "Children begin remembering lives they never lived and places beneath town they never visited.",
+      "recurring_clues": [
+        "clue_child_drawing_well",
+        "clue_school_bell_after_midnight",
+        "clue_final_anchor_is_story"
+      ]
+    },
+    {
+      "id": "broken_authority",
+      "name": "The Badge and the Black Star",
+      "tags": [
+        "records",
+        "sheriff",
+        "authority",
+        "demon",
+        "sigils"
+      ],
+      "season_pressure": "Local institutions are not merely covering up cases; they are unknowingly completing one.",
+      "recurring_clues": [
+        "clue_sheriff_erased_minutes",
+        "clue_archivist_stamp_false",
+        "clue_wardens_old_badge"
+      ]
+    },
+    {
+      "id": "threshold_town",
+      "name": "Every Door Has a Price",
+      "tags": [
+        "fae",
+        "threshold",
+        "bargain",
+        "sigils",
+        "relics"
+      ],
+      "season_pressure": "Doorways, bridges, wells, and elevators begin acting like negotiated borders instead of architecture.",
+      "recurring_clues": [
+        "clue_red_thread_bargain",
+        "clue_bridge_toll_coin",
+        "clue_elevator_extra_floor"
+      ]
+    },
+    {
+      "id": "static_choir",
+      "name": "The Choir in the Wires",
+      "tags": [
+        "demon",
+        "sound",
+        "radio",
+        "hospital",
+        "weather_station",
+        "sigils"
+      ],
+      "season_pressure": "A voice network spreads through radios, phones, alarms, and emergency channels.",
+      "recurring_clues": [
+        "clue_static_prayer",
+        "clue_choir_many_radios",
+        "clue_old_weather_station_signal"
+      ]
+    },
+    {
+      "id": "wrong_prep",
+      "name": "The Cache That Lied",
+      "tags": [
+        "relics",
+        "hunter",
+        "gear",
+        "warden",
+        "creature"
+      ],
+      "season_pressure": "Old Warden caches appear right before attacks, but their contents point hunters toward the wrong weakness.",
+      "recurring_clues": [
+        "clue_hunter_cache_wrong_ammo",
+        "clue_quartermaster_warning",
+        "clue_relic_box_empty_warm"
+      ]
+    }
+  ],
+  "location_modules": [
+    {
+      "id": "abandoned_church",
+      "name": "Abandoned Church",
+      "aliases": [
+        "church",
+        "old church",
+        "sanctuary"
+      ],
+      "tags": [
+        "religious",
+        "sigils",
+        "spirit",
+        "demon",
+        "blood"
+      ],
+      "description": "Pews rot beneath plastic sheets. The altar has been moved recently, leaving a clean rectangle in the dust.",
+      "exits": [
+        "church_basement",
+        "graveyard_edge",
+        "church_annex"
+      ],
+      "surface_clues": [
+        "Fresh candle wax near the altar.",
+        "A draft comes up from below the floorboards."
+      ],
+      "hidden_clues": [
+        "The altar was repositioned to expose a seam in the foundation."
+      ],
+      "suggestions": [
+        "investigate altar",
+        "move church basement",
+        "research wax residue"
+      ]
+    },
+    {
+      "id": "church_basement",
+      "name": "Church Basement",
+      "aliases": [
+        "basement",
+        "under church",
+        "cellar"
+      ],
+      "tags": [
+        "sigils",
+        "demon",
+        "ritual",
+        "threshold"
+      ],
+      "description": "The basement smells of old lime, wet stone, and scorched rope. Chalk marks have been scrubbed but not erased.",
+      "exits": [
+        "abandoned_church",
+        "lower_room",
+        "service_tunnel"
+      ],
+      "requires_any": [
+        "clue_church_access",
+        "clue_basement_door",
+        "loc_abandoned_church"
+      ],
+      "surface_clues": [
+        "Scrubbed sigil fragments remain in floor cracks.",
+        "A rusted chain disappears behind a bricked arch."
+      ],
+      "hidden_clues": [
+        "The chain once held a bell, not a prisoner."
+      ],
+      "suggestions": [
+        "investigate sigil fragments",
+        "investigate bell chain",
+        "move lower room"
+      ]
+    },
+    {
+      "id": "lower_room",
+      "name": "The Lower Room",
+      "aliases": [
+        "lower room",
+        "sealed room",
+        "under room",
+        "black star room"
+      ],
+      "tags": [
+        "elder_god",
+        "seal",
+        "sigils",
+        "ritual"
+      ],
+      "description": "The stone here is older than the church. An inverted bell hangs from a blackened frame, silent but vibrating in the teeth.",
+      "exits": [
+        "church_basement",
+        "service_tunnel"
+      ],
+      "requires_any": [
+        "clue_lower_room",
+        "clue_bell_chain"
+      ],
+      "surface_clues": [
+        "Nine circles surround a black star carved beneath the bell.",
+        "Dust avoids the center of the floor."
+      ],
+      "hidden_clues": [
+        "The bell is a resonator for weakening a seal, not the source itself."
+      ],
+      "suggestions": [
+        "investigate inverted bell",
+        "cast veil snap",
+        "prep silence ward"
+      ]
+    },
+    {
+      "id": "graveyard_edge",
+      "name": "Graveyard Edge",
+      "aliases": [
+        "graveyard",
+        "cemetery",
+        "cemetery edge"
+      ],
+      "tags": [
+        "spirit",
+        "blood",
+        "anchor",
+        "religious"
+      ],
+      "description": "Several headstones lean away from the church as if recoiling. One grave has sunken unevenly.",
+      "exits": [
+        "abandoned_church",
+        "town_records"
+      ],
+      "surface_clues": [
+        "A recent footprint stops at an old miner's grave.",
+        "Salt has been poured in a broken semicircle."
+      ],
+      "hidden_clues": [
+        "The wrong remains were blessed during the last containment."
+      ],
+      "suggestions": [
+        "investigate sunken grave",
+        "research miner name",
+        "prep salt line"
+      ]
+    },
+    {
+      "id": "church_annex",
+      "name": "Church Annex",
+      "aliases": [
+        "annex",
+        "meeting room",
+        "church office"
+      ],
+      "tags": [
+        "witness",
+        "records",
+        "blood",
+        "cult"
+      ],
+      "description": "A folding table is covered in coffee rings, old pamphlets, and a sign-in sheet with the bottom half torn away.",
+      "exits": [
+        "abandoned_church",
+        "town_records"
+      ],
+      "surface_clues": [
+        "Meeting notes mention a youth group that does not appear on the official schedule.",
+        "Someone replaced the smoke detector battery yesterday."
+      ],
+      "hidden_clues": [
+        "The meeting times line up with the bell heard underground."
+      ],
+      "suggestions": [
+        "investigate sign-in sheet",
+        "research youth group",
+        "ask witness about meetings"
+      ]
+    },
+    {
+      "id": "town_records",
+      "name": "Town Records Office",
+      "aliases": [
+        "records",
+        "archive",
+        "county records",
+        "library"
+      ],
+      "tags": [
+        "research",
+        "archive",
+        "blood",
+        "sigils"
+      ],
+      "description": "Microfiche machines hum beside cabinets that smell of dust and water damage.",
+      "exits": [
+        "church_annex",
+        "hospital_room",
+        "sheriff_office"
+      ],
+      "surface_clues": [
+        "The church was condemned twice but never demolished.",
+        "A mine map is missing its lowest chamber."
+      ],
+      "hidden_clues": [
+        "A previous Warden team sealed the mine and erased the report."
+      ],
+      "suggestions": [
+        "research church history",
+        "research mine map",
+        "research black star symbol"
+      ]
+    },
+    {
+      "id": "hospital_room",
+      "name": "Hospital Room",
+      "aliases": [
+        "hospital",
+        "room 214",
+        "patient room"
+      ],
+      "tags": [
+        "blood",
+        "victim",
+        "possession",
+        "witness"
+      ],
+      "description": "The patient monitor ticks steadily. The survivor's eyes keep tracking the ceiling corner when no one is there.",
+      "exits": [
+        "town_records",
+        "sheriff_office"
+      ],
+      "surface_clues": [
+        "Black ash is packed beneath the survivor's fingernails.",
+        "The survivor repeats a phrase in a voice too low for their throat."
+      ],
+      "hidden_clues": [
+        "The survivor heard the bell before the possession spike."
+      ],
+      "suggestions": [
+        "talk survivor",
+        "investigate black ash",
+        "cast presence sense"
+      ]
+    },
+    {
+      "id": "sheriff_office",
+      "name": "Sheriff's Office",
+      "aliases": [
+        "sheriff",
+        "police station",
+        "station"
+      ],
+      "tags": [
+        "authority",
+        "records",
+        "coverup",
+        "blades"
+      ],
+      "description": "The case board calls it vandalism. The locked drawer says otherwise.",
+      "exits": [
+        "town_records",
+        "hospital_room",
+        "rail_yard"
+      ],
+      "surface_clues": [
+        "The sheriff has a report from a similar incident fifteen years ago.",
+        "A deputy's bodycam corrupted at 3:09 a.m."
+      ],
+      "hidden_clues": [
+        "The sheriff was told by a Warden handler to keep the church sealed."
+      ],
+      "suggestions": [
+        "ask sheriff about church",
+        "investigate locked drawer",
+        "research bodycam"
+      ]
+    },
+    {
+      "id": "rail_yard",
+      "name": "Rail Yard",
+      "aliases": [
+        "rail yard",
+        "tracks",
+        "train yard"
+      ],
+      "tags": [
+        "blades",
+        "chase",
+        "predator",
+        "relics"
+      ],
+      "description": "Freight cars sit open like empty mouths. Something has dragged metal shavings into a spiral.",
+      "exits": [
+        "sheriff_office",
+        "motel_room",
+        "service_tunnel"
+      ],
+      "surface_clues": [
+        "Claw marks run along the underside of a freight car.",
+        "A torn jacket sleeve is caught on rusted wire."
+      ],
+      "hidden_clues": [
+        "The entity avoids crossing iron rails unless chasing prey."
+      ],
+      "suggestions": [
+        "track claw marks",
+        "investigate torn sleeve",
+        "prep iron line"
+      ]
+    },
+    {
+      "id": "motel_room",
+      "name": "Room 6, Mercy Motor Inn",
+      "aliases": [
+        "motel",
+        "room 6",
+        "motor inn"
+      ],
+      "tags": [
+        "blood",
+        "witness",
+        "blades",
+        "hideout"
+      ],
+      "description": "A cheap motel room with the curtains taped shut. Someone has written dates across the mirror in soap.",
+      "exits": [
+        "rail_yard",
+        "sheriff_office"
+      ],
+      "surface_clues": [
+        "The dates match missing-person reports.",
+        "The bathroom light flickers when the church is mentioned."
+      ],
+      "hidden_clues": [
+        "A witness hid here after seeing the lower room."
+      ],
+      "suggestions": [
+        "investigate mirror dates",
+        "talk hidden witness",
+        "research missing persons"
+      ]
+    },
+    {
+      "id": "family_house",
+      "name": "Harlan Family House",
+      "aliases": [
+        "harlan house",
+        "family house",
+        "mrs harlan house"
+      ],
+      "tags": [
+        "blood",
+        "witness",
+        "family",
+        "anchor"
+      ],
+      "description": "Family photos line the wall, but one frame is turned face-down and salted at the corners.",
+      "exits": [
+        "hospital_room",
+        "church_annex"
+      ],
+      "surface_clues": [
+        "A young man's jacket smells like candle smoke and river mud.",
+        "A phone buzzes with unsent texts about the meetings."
+      ],
+      "hidden_clues": [
+        "The son kept a token from beneath the church as proof of initiation."
+      ],
+      "suggestions": [
+        "ask Mrs Harlan about her son",
+        "investigate face-down photo",
+        "investigate phone"
+      ]
+    },
+    {
+      "id": "river_bridge",
+      "name": "Blackwater River Bridge",
+      "aliases": [
+        "bridge",
+        "river bridge",
+        "blackwater bridge"
+      ],
+      "tags": [
+        "threshold",
+        "fae",
+        "water",
+        "roadside"
+      ],
+      "description": "A rusted bridge where fog sits below the railing like held breath.",
+      "exits": [
+        "old_well",
+        "county_road",
+        "roadside_crosses"
+      ],
+      "surface_clues": [
+        "The river runs backward for thirteen seconds."
+      ],
+      "hidden_clues": [
+        "A coin under the bridge is dated tomorrow."
+      ],
+      "suggestions": [
+        "investigate river",
+        "investigate toll coin",
+        "prep threshold cage"
+      ]
+    },
+    {
+      "id": "salvage_yard",
+      "name": "Salvage Yard",
+      "aliases": [
+        "salvage",
+        "junkyard",
+        "yard"
+      ],
+      "tags": [
+        "relics",
+        "tools",
+        "tinkerer",
+        "creature"
+      ],
+      "description": "Piles of scrap form narrow canyons. A Warden field locker is hidden inside an old refrigerator shell.",
+      "exits": [
+        "rail_yard",
+        "highway_shoulder"
+      ],
+      "surface_clues": [
+        "A broken EMF reader still blinks toward the church.",
+        "Silver filings are scattered near a workbench."
+      ],
+      "hidden_clues": [
+        "The prior team built the wrong countermeasure."
+      ],
+      "suggestions": [
+        "investigate field locker",
+        "prep silver rounds",
+        "repair EMF reader"
+      ]
+    },
+    {
+      "id": "highway_shoulder",
+      "name": "Highway Shoulder",
+      "aliases": [
+        "highway",
+        "roadside",
+        "shoulder"
+      ],
+      "tags": [
+        "relics",
+        "blades",
+        "chase",
+        "predator"
+      ],
+      "description": "Skid marks end where the guardrail bends outward. The air smells like hot rubber and wet fur.",
+      "exits": [
+        "salvage_yard",
+        "motel_room"
+      ],
+      "surface_clues": [
+        "A dashcam caught a shape moving faster than traffic.",
+        "Something scraped the roof of the car, not the door."
+      ],
+      "hidden_clues": [
+        "The attack was baited by a sound broadcast from the church."
+      ],
+      "suggestions": [
+        "investigate dashcam",
+        "track roadside prints",
+        "research broadcast sound"
+      ]
+    },
+    {
+      "id": "sealed_tunnel",
+      "name": "Sealed Service Tunnel",
+      "aliases": [
+        "service tunnel",
+        "tunnel",
+        "sealed tunnel"
+      ],
+      "tags": [
+        "sigils",
+        "threshold",
+        "underground",
+        "elder_god"
+      ],
+      "description": "The tunnel slopes beneath the town. Every few yards, a Warden mark has been scratched out.",
+      "exits": [
+        "church_basement",
+        "rail_yard",
+        "lower_room"
+      ],
+      "requires_any": [
+        "clue_service_tunnel",
+        "clue_bell_chain"
+      ],
+      "surface_clues": [
+        "Old ward chalk has been cut by newer claw marks.",
+        "A cable runs from the annex speaker system into the dark."
+      ],
+      "hidden_clues": [
+        "The cult uses sound to synchronize the rite through the whole town."
+      ],
+      "suggestions": [
+        "investigate scratched marks",
+        "follow cable",
+        "prep ward repair"
+      ]
+    },
+    {
+      "id": "forest_clearing",
+      "name": "Forest Clearing",
+      "aliases": [
+        "woods",
+        "clearing",
+        "forest"
+      ],
+      "tags": [
+        "relics",
+        "creature",
+        "fae",
+        "wendigo"
+      ],
+      "description": "The trees bend inward. Bones hang from fishing line so thin it almost cannot be seen.",
+      "exits": [
+        "highway_shoulder",
+        "river_bridge"
+      ],
+      "surface_clues": [
+        "A lure made from a child's toy is tied to a branch.",
+        "The snow is clean except for one impossible footprint."
+      ],
+      "hidden_clues": [
+        "The predator uses familiar voices to separate victims."
+      ],
+      "suggestions": [
+        "track footprint",
+        "investigate hanging bones",
+        "prep bait trap"
+      ]
+    },
+    {
+      "id": "family_farmhouse",
+      "name": "Harlan Farmhouse",
+      "aliases": [
+        "farmhouse",
+        "harlan house",
+        "family house"
+      ],
+      "tags": [
+        "blood",
+        "family",
+        "witness",
+        "spirit",
+        "demon"
+      ],
+      "description": "A farmhouse with too many locked interior doors and family photos turned face down.",
+      "exits": [
+        "root_cellar",
+        "old_well",
+        "county_road"
+      ],
+      "surface_clues": [
+        "Family photos are burned on one side."
+      ],
+      "hidden_clues": [
+        "The inside lock has blood on it."
+      ],
+      "suggestions": [
+        "ask mrs harlan about family",
+        "investigate burned photos",
+        "move root cellar"
+      ]
+    },
+    {
+      "id": "root_cellar",
+      "name": "Root Cellar",
+      "aliases": [
+        "cellar",
+        "storm cellar"
+      ],
+      "tags": [
+        "family",
+        "anchor",
+        "blood",
+        "sigils"
+      ],
+      "description": "A cold root cellar under the house, packed with jars, dust, and one fresh line of salt.",
+      "exits": [
+        "family_farmhouse",
+        "old_well"
+      ],
+      "surface_clues": [
+        "The salt line was broken inward."
+      ],
+      "hidden_clues": [
+        "A doll contains hair matching a living witness."
+      ],
+      "suggestions": [
+        "investigate salt line",
+        "investigate doll",
+        "cast veil snap"
+      ]
+    },
+    {
+      "id": "old_well",
+      "name": "Old Well",
+      "aliases": [
+        "well",
+        "stone well"
+      ],
+      "tags": [
+        "threshold",
+        "water",
+        "fae",
+        "spirit"
+      ],
+      "description": "An old stone well that echoes before anyone speaks.",
+      "exits": [
+        "family_farmhouse",
+        "river_bridge"
+      ],
+      "surface_clues": [
+        "A child drew this well with a door in it."
+      ],
+      "hidden_clues": [
+        "The well repeats a Warden name three seconds early."
+      ],
+      "suggestions": [
+        "listen to well",
+        "investigate well",
+        "prep iron nail threshold"
+      ]
+    },
+    {
+      "id": "county_sheriff_station",
+      "name": "County Sheriff Station",
+      "aliases": [
+        "sheriff station",
+        "police station",
+        "station"
+      ],
+      "tags": [
+        "records",
+        "authority",
+        "sheriff",
+        "coverup"
+      ],
+      "description": "A fluorescent office full of sealed reports, coffee, and one room no deputy will enter.",
+      "exits": [
+        "evidence_lockup",
+        "county_road"
+      ],
+      "surface_clues": [
+        "The report timeline has a missing gap."
+      ],
+      "hidden_clues": [
+        "The archive stamp predates the Wardens."
+      ],
+      "suggestions": [
+        "ask sheriff bell about missing minutes",
+        "research dispatch log",
+        "move evidence lockup"
+      ]
+    },
+    {
+      "id": "evidence_lockup",
+      "name": "Evidence Lockup",
+      "aliases": [
+        "lockup",
+        "evidence room"
+      ],
+      "tags": [
+        "records",
+        "relics",
+        "warden",
+        "gear"
+      ],
+      "description": "A cramped evidence room where old hunter gear was tagged as unrelated burglary evidence.",
+      "exits": [
+        "county_sheriff_station"
+      ],
+      "surface_clues": [
+        "A relic box sits empty but warm."
+      ],
+      "hidden_clues": [
+        "A hunter cache contains intentionally wrong ammo."
+      ],
+      "suggestions": [
+        "investigate relic box",
+        "investigate hunter cache",
+        "research warden badge"
+      ]
+    },
+    {
+      "id": "mercy_hospital",
+      "name": "Mercy Falls Hospital",
+      "aliases": [
+        "hospital",
+        "clinic",
+        "emergency room"
+      ],
+      "tags": [
+        "hospital",
+        "survivor",
+        "blood",
+        "demon",
+        "possession"
+      ],
+      "description": "A small hospital running on backup power and careful lies.",
+      "exits": [
+        "hospital_records",
+        "county_road"
+      ],
+      "surface_clues": [
+        "The survivor coughs black ash when asked about the missing hour."
+      ],
+      "hidden_clues": [
+        "Power outages match manifestation pulses."
+      ],
+      "suggestions": [
+        "ask nurse vale about blackout",
+        "investigate patient ash",
+        "research hospital outages"
+      ]
+    },
+    {
+      "id": "hospital_records",
+      "name": "Hospital Records Room",
+      "aliases": [
+        "records room",
+        "medical records"
+      ],
+      "tags": [
+        "records",
+        "hospital",
+        "research"
+      ],
+      "description": "Locked cabinets, old admission books, and a printer repeating the same jammed page.",
+      "exits": [
+        "mercy_hospital"
+      ],
+      "surface_clues": [
+        "Body temperature reports do not make natural sense."
+      ],
+      "hidden_clues": [
+        "Three living patients are marked on an old vessel chart."
+      ],
+      "suggestions": [
+        "research body temperature",
+        "research vessel chart"
+      ]
+    },
+    {
+      "id": "roadside_crosses",
+      "name": "Roadside Crosses",
+      "aliases": [
+        "crosses",
+        "road memorial",
+        "memorial"
+      ],
+      "tags": [
+        "blades",
+        "blood",
+        "spirit",
+        "roadside"
+      ],
+      "description": "A roadside memorial for people who have not died yet.",
+      "exits": [
+        "river_bridge",
+        "county_road"
+      ],
+      "surface_clues": [
+        "Several crosses list living names."
+      ],
+      "hidden_clues": [
+        "A phone call arrives from a victim one hour in the future."
+      ],
+      "suggestions": [
+        "investigate crosses",
+        "answer phone",
+        "research living names"
+      ]
+    },
+    {
+      "id": "old_weather_station",
+      "name": "Old Weather Station",
+      "aliases": [
+        "weather station",
+        "radio tower"
+      ],
+      "tags": [
+        "radio",
+        "sound",
+        "demon",
+        "records",
+        "sigils"
+      ],
+      "description": "Abandoned instruments still transmit pressure, wind speed, and something like prayer.",
+      "exits": [
+        "county_road",
+        "tower_room"
+      ],
+      "surface_clues": [
+        "Wind data contains a chant."
+      ],
+      "hidden_clues": [
+        "Static hides a backward prayer."
+      ],
+      "suggestions": [
+        "research signal",
+        "investigate instruments",
+        "move tower room"
+      ]
+    },
+    {
+      "id": "tower_room",
+      "name": "Tower Control Room",
+      "aliases": [
+        "tower room",
+        "radio room",
+        "control room"
+      ],
+      "tags": [
+        "radio",
+        "sound",
+        "sigils",
+        "demon"
+      ],
+      "description": "A room of dead radios, all tuned to different stations speaking in one voice.",
+      "exits": [
+        "old_weather_station"
+      ],
+      "surface_clues": [
+        "Multiple radios form one choir."
+      ],
+      "hidden_clues": [
+        "The choir speaks only after a clue is found."
+      ],
+      "suggestions": [
+        "cast silence ward",
+        "investigate radios",
+        "prep grounding line"
+      ]
+    },
+    {
+      "id": "school_gym",
+      "name": "School Gym Shelter",
+      "aliases": [
+        "gym",
+        "school",
+        "shelter"
+      ],
+      "tags": [
+        "school",
+        "children",
+        "blood",
+        "sigils"
+      ],
+      "description": "A school gym converted to emergency shelter after the first disappearances.",
+      "exits": [
+        "school_hall",
+        "county_road"
+      ],
+      "surface_clues": [
+        "Chairs have scuffed the floor into a circle."
+      ],
+      "hidden_clues": [
+        "The school bell rings after midnight despite being disconnected."
+      ],
+      "suggestions": [
+        "investigate gym floor",
+        "ask child witness about bell",
+        "move school hall"
+      ]
+    },
+    {
+      "id": "school_hall",
+      "name": "School Hallway",
+      "aliases": [
+        "hallway",
+        "school hall"
+      ],
+      "tags": [
+        "school",
+        "children",
+        "spirit",
+        "fae"
+      ],
+      "description": "Lockers rattle in sequence when no one is nearby.",
+      "exits": [
+        "school_gym"
+      ],
+      "surface_clues": [
+        "A child\u2019s drawing shows a well under the school."
+      ],
+      "hidden_clues": [
+        "A name disappears from paper each time spoken aloud."
+      ],
+      "suggestions": [
+        "investigate drawing",
+        "research erased name"
+      ]
+    },
+    {
+      "id": "train_depot",
+      "name": "Abandoned Train Depot",
+      "aliases": [
+        "train depot",
+        "depot",
+        "station platform"
+      ],
+      "tags": [
+        "blades",
+        "spirit",
+        "threshold",
+        "records"
+      ],
+      "description": "A depot closed after a disaster but still listed on tomorrow\u2019s train schedule.",
+      "exits": [
+        "county_road",
+        "rail_tunnel"
+      ],
+      "surface_clues": [
+        "The schedule includes a dead stop."
+      ],
+      "hidden_clues": [
+        "Clocks here skip one stolen minute."
+      ],
+      "suggestions": [
+        "research train schedule",
+        "investigate clocks",
+        "move rail tunnel"
+      ]
+    },
+    {
+      "id": "county_road",
+      "name": "County Road 9",
+      "aliases": [
+        "road",
+        "county road"
+      ],
+      "tags": [
+        "roadside",
+        "travel",
+        "blades",
+        "blood"
+      ],
+      "description": "The rural road connecting the case sites, lined with fields and dead phone zones.",
+      "exits": [
+        "abandoned_church",
+        "family_farmhouse",
+        "county_sheriff_station",
+        "mercy_hospital",
+        "river_bridge",
+        "old_weather_station",
+        "school_gym",
+        "train_depot"
+      ],
+      "surface_clues": [
+        "Tire tracks stop abruptly in the middle of the road."
+      ],
+      "hidden_clues": [
+        "The same black star is scratched into several mile markers."
+      ],
+      "suggestions": [
+        "move abandoned church",
+        "move hospital",
+        "move sheriff station"
+      ]
+    },
+    {
+      "id": "motel_room_12",
+      "name": "Motel Room 12",
+      "aliases": [
+        "room 12",
+        "motel room"
+      ],
+      "tags": [
+        "motel",
+        "djinn",
+        "illusion",
+        "blood"
+      ],
+      "description": "A cheap motel room that returns to clean condition each dawn except for the blood.",
+      "exits": [
+        "county_road"
+      ],
+      "surface_clues": [
+        "The room resets except for a growing stain."
+      ],
+      "hidden_clues": [
+        "The reset behaves like a wish."
+      ],
+      "suggestions": [
+        "investigate repeating room",
+        "research wish echo"
+      ]
+    },
+    {
+      "id": "rail_tunnel",
+      "name": "Rail Tunnel",
+      "aliases": [
+        "tunnel",
+        "train tunnel"
+      ],
+      "tags": [
+        "train",
+        "spirit",
+        "threshold",
+        "darkness"
+      ],
+      "description": "An unused rail tunnel where sound arrives long before its source.",
+      "exits": [
+        "train_depot"
+      ],
+      "surface_clues": [
+        "The tunnel walls are scratched with passenger names."
+      ],
+      "hidden_clues": [
+        "The names match tomorrow\u2019s dead stop schedule."
+      ],
+      "suggestions": [
+        "listen in tunnel",
+        "prep salt line",
+        "cast lantern spark"
+      ]
+    }
+  ],
+  "witness_modules": [
+    {
+      "id": "mrs_harlan",
+      "name": "Mrs Harlan",
+      "aliases": [
+        "mrs harlan",
+        "harlan",
+        "mother",
+        "grieving mother"
+      ],
+      "tags": [
+        "blood",
+        "family",
+        "church",
+        "meetings"
+      ],
+      "location_hint": "family_house",
+      "trust": 0,
+      "fear": 3,
+      "opening": "She keeps folding and unfolding a tissue, watching the door like her son might still walk in.",
+      "topics": {
+        "son": {
+          "response": "Her son Caleb had been sneaking out after midnight. She thought it was drugs until she heard him whispering prayers he was never taught.",
+          "clues": [
+            "clue_caleb_midnight"
+          ],
+          "unlocks_topics": [
+            "meetings",
+            "whispered prayers",
+            "jacket"
+          ],
+          "unlocks_locations": [
+            "family_house"
+          ]
+        },
+        "meetings": {
+          "requires_any": [
+            "clue_caleb_midnight"
+          ],
+          "response": "She admits Caleb attended meetings under the church, but says he was scared after the third one. He called it 'the lower room.'",
+          "clues": [
+            "clue_lower_room"
+          ],
+          "unlocks_topics": [
+            "lower room",
+            "black star",
+            "bell"
+          ],
+          "unlocks_locations": [
+            "church_annex",
+            "church_basement"
+          ]
+        },
+        "lower room": {
+          "requires_any": [
+            "clue_lower_room"
+          ],
+          "response": "Caleb said the lower room had a bell that did not ring with sound. It rang in his teeth. He drew nine circles around a black star afterward.",
+          "clues": [
+            "clue_black_star",
+            "clue_bell_resonator"
+          ],
+          "unlocks_locations": [
+            "lower_room"
+          ],
+          "unlocks_topics": [
+            "bell",
+            "black star",
+            "token"
+          ]
+        },
+        "bell": {
+          "requires_any": [
+            "clue_lower_room"
+          ],
+          "response": "She never saw the bell, but Caleb woke screaming whenever the church bell rang underground. There has not been a bell in that church for a hundred years.",
+          "clues": [
+            "clue_underground_bell"
+          ],
+          "unlocks_topics": [
+            "old bell",
+            "mine"
+          ],
+          "unlocks_locations": [
+            "town_records"
+          ]
+        },
+        "black star": {
+          "requires_any": [
+            "clue_black_star"
+          ],
+          "response": "She shows you the back of an envelope. Caleb drew the black star over and over until the paper tore.",
+          "clues": [
+            "clue_black_star_drawing"
+          ],
+          "unlocks_locations": [
+            "town_records"
+          ]
+        },
+        "jacket": {
+          "response": "The jacket is still in his room. It smells of candle smoke, river mud, and something metallic.",
+          "clues": [
+            "clue_smoke_mud_metal"
+          ],
+          "unlocks_locations": [
+            "river_bridge",
+            "church_annex"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sheriff_mara",
+      "name": "Sheriff Mara Voss",
+      "aliases": [
+        "sheriff",
+        "mara",
+        "voss",
+        "sheriff voss"
+      ],
+      "tags": [
+        "authority",
+        "records",
+        "coverup"
+      ],
+      "location_hint": "sheriff_office",
+      "trust": -1,
+      "fear": 2,
+      "opening": "The sheriff is polite in the way people are when they already decided what not to say.",
+      "topics": {
+        "church": {
+          "response": "She says the church is condemned and no one should be there. Her left hand tightens around a key ring when she says it.",
+          "clues": [
+            "clue_sheriff_key"
+          ],
+          "unlocks_topics": [
+            "key",
+            "warden order",
+            "old case"
+          ],
+          "unlocks_locations": [
+            "sheriff_office"
+          ]
+        },
+        "key": {
+          "requires_any": [
+            "clue_sheriff_key"
+          ],
+          "response": "The oldest key on the ring is not for the church doors. It is stamped with a Warden safehouse code.",
+          "clues": [
+            "clue_warden_key"
+          ],
+          "unlocks_topics": [
+            "warden order",
+            "handler"
+          ],
+          "unlocks_locations": [
+            "church_basement"
+          ]
+        },
+        "old case": {
+          "response": "Fifteen years ago a deputy heard the same underground bell. The report claims carbon monoxide. The autopsy does not.",
+          "clues": [
+            "clue_old_case"
+          ],
+          "unlocks_locations": [
+            "town_records",
+            "hospital_room"
+          ]
+        },
+        "warden order": {
+          "requires_any": [
+            "clue_warden_key",
+            "clue_old_case"
+          ],
+          "response": "She finally admits a federal handler told her to keep everyone out of the church and burn any report mentioning bells.",
+          "clues": [
+            "clue_warden_coverup"
+          ],
+          "unlocks_topics": [
+            "handler",
+            "burn reports"
+          ],
+          "unlocks_locations": [
+            "sealed_tunnel"
+          ]
+        }
+      }
+    },
+    {
+      "id": "survivor_eli",
+      "name": "Eli Danner",
+      "aliases": [
+        "eli",
+        "survivor",
+        "patient",
+        "danner"
+      ],
+      "tags": [
+        "victim",
+        "possession",
+        "blood",
+        "bell"
+      ],
+      "location_hint": "hospital_room",
+      "trust": 0,
+      "fear": 4,
+      "opening": "Eli's lips are cracked black at the edges. When the monitor beeps, he flinches like it is a bell.",
+      "topics": {
+        "attack": {
+          "response": "He remembers Caleb laughing, then crying, then everyone staring at the floor when the bell rang beneath them.",
+          "clues": [
+            "clue_group_floor_stare"
+          ],
+          "unlocks_topics": [
+            "caleb",
+            "bell",
+            "floor"
+          ],
+          "unlocks_locations": [
+            "church_annex"
+          ]
+        },
+        "bell": {
+          "response": "He says the bell did not make sound. It made everyone remember something that never happened.",
+          "clues": [
+            "clue_memory_bell"
+          ],
+          "unlocks_topics": [
+            "false memory",
+            "lower room"
+          ],
+          "unlocks_locations": [
+            "church_basement"
+          ]
+        },
+        "caleb": {
+          "response": "Caleb tried to cut the rope holding the bell chain. Something wearing Caleb's voice told Eli to run.",
+          "clues": [
+            "clue_bell_chain"
+          ],
+          "unlocks_topics": [
+            "bell chain",
+            "voice"
+          ],
+          "unlocks_locations": [
+            "church_basement"
+          ]
+        },
+        "false memory": {
+          "requires_any": [
+            "clue_memory_bell"
+          ],
+          "response": "Eli describes a childhood in a town that never existed. The street names are all old names for Mercy Falls mines.",
+          "clues": [
+            "clue_mine_memory"
+          ],
+          "unlocks_locations": [
+            "town_records"
+          ]
+        }
+      }
+    },
+    {
+      "id": "deputy_ross",
+      "name": "Deputy Ross",
+      "aliases": [
+        "deputy",
+        "ross",
+        "bodycam deputy"
+      ],
+      "tags": [
+        "authority",
+        "witness",
+        "blades"
+      ],
+      "location_hint": "sheriff_office",
+      "trust": 0,
+      "fear": 1,
+      "opening": "Ross keeps watching his corrupted bodycam footage with the volume muted.",
+      "topics": {
+        "bodycam": {
+          "response": "The footage goes black for thirteen seconds. The audio still records a low bell and someone saying 'open the ninth.'",
+          "clues": [
+            "clue_open_the_ninth"
+          ],
+          "unlocks_topics": [
+            "open the ninth",
+            "audio",
+            "thirteen seconds"
+          ]
+        },
+        "audio": {
+          "requires_any": [
+            "clue_open_the_ninth"
+          ],
+          "response": "When slowed down, the bell is not ringing once. It is nine overlapping impacts.",
+          "clues": [
+            "clue_nine_impacts"
+          ],
+          "unlocks_topics": [
+            "nine",
+            "bell"
+          ]
+        },
+        "church": {
+          "response": "He saw candlelight in the annex but no cars outside. The kids were already inside somehow.",
+          "clues": [
+            "clue_annex_candlelight"
+          ],
+          "unlocks_locations": [
+            "church_annex"
+          ]
+        }
+      }
+    },
+    {
+      "id": "archivist_kline",
+      "name": "Archivist Kline",
+      "aliases": [
+        "kline",
+        "archivist",
+        "records clerk"
+      ],
+      "tags": [
+        "research",
+        "archive",
+        "warden"
+      ],
+      "location_hint": "town_records",
+      "trust": 1,
+      "fear": 2,
+      "opening": "Kline knows exactly which drawer not to open. That is the drawer you notice first.",
+      "topics": {
+        "mine map": {
+          "response": "The official map ends above the lower room. A hand-drawn overlay shows another chamber and the phrase 'acoustic seal.'",
+          "clues": [
+            "clue_acoustic_seal"
+          ],
+          "unlocks_locations": [
+            "lower_room",
+            "sealed_tunnel"
+          ],
+          "unlocks_topics": [
+            "acoustic seal",
+            "black star"
+          ]
+        },
+        "black star": {
+          "response": "The symbol appears in three town disasters. Every time, official records blame gas, flood, or panic.",
+          "clues": [
+            "clue_star_disasters"
+          ],
+          "unlocks_topics": [
+            "three disasters",
+            "warden reports"
+          ]
+        },
+        "warden reports": {
+          "response": "One report survived as a carbon copy: 'Do not destroy the bell. Silence it. If destroyed, the thing below hears us clearly.'",
+          "clues": [
+            "clue_do_not_destroy_bell"
+          ],
+          "unlocks_topics": [
+            "silence bell",
+            "thing below"
+          ],
+          "unlocks_locations": [
+            "lower_room"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dr_sato",
+      "name": "Dr Sato",
+      "aliases": [
+        "doctor",
+        "sato",
+        "dr sato"
+      ],
+      "tags": [
+        "hospital",
+        "medical",
+        "possession"
+      ],
+      "location_hint": "hospital_room",
+      "trust": 0,
+      "fear": 1,
+      "opening": "Dr. Sato has treated shock before. This is not shock, and they know it.",
+      "topics": {
+        "black ash": {
+          "response": "The ash under Eli's nails is not from wood or paper. Under magnification it looks like burned bone and iron filings.",
+          "clues": [
+            "clue_ash_bone_iron"
+          ],
+          "unlocks_topics": [
+            "iron filings",
+            "burned bone"
+          ],
+          "unlocks_locations": [
+            "salvage_yard"
+          ]
+        },
+        "voice": {
+          "response": "Eli's second voice registers below human vocal range. The sound waveform matches the bodycam bell distortion.",
+          "clues": [
+            "clue_voice_matches_bell"
+          ],
+          "unlocks_topics": [
+            "bell",
+            "audio"
+          ]
+        },
+        "injuries": {
+          "response": "The bruises form a pattern like fingers gripping from inside the rib cage.",
+          "clues": [
+            "clue_internal_grip"
+          ],
+          "unlocks_topics": [
+            "possession",
+            "host strain"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hidden_hunter",
+      "name": "Old Hunter Graves",
+      "aliases": [
+        "hunter",
+        "old hunter",
+        "graves",
+        "mr graves"
+      ],
+      "tags": [
+        "relics",
+        "warden",
+        "survivor"
+      ],
+      "location_hint": "motel_room",
+      "trust": -1,
+      "fear": 0,
+      "opening": "Graves has a sawed-off shotgun, a tremor in one hand, and the exhausted look of someone who survived the wrong lesson.",
+      "topics": {
+        "church": {
+          "response": "He says the church is not haunted. It is a lid. Bad hunters keep trying to shoot what is under it.",
+          "clues": [
+            "clue_church_is_lid"
+          ],
+          "unlocks_topics": [
+            "lid",
+            "wrong lesson",
+            "bell"
+          ]
+        },
+        "wrong lesson": {
+          "response": "His old team tried silver, salt, and fire. None mattered until the bell stopped vibrating.",
+          "clues": [
+            "clue_silence_over_damage"
+          ],
+          "unlocks_topics": [
+            "silence bell",
+            "countermeasure"
+          ],
+          "unlocks_locations": [
+            "salvage_yard"
+          ]
+        },
+        "countermeasure": {
+          "response": "Graves hid a silence rig in a field locker at the salvage yard. He never went back for it.",
+          "clues": [
+            "clue_silence_rig"
+          ],
+          "unlocks_locations": [
+            "salvage_yard"
+          ],
+          "unlocks_topics": [
+            "field locker"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fae_stranger",
+      "name": "The Polite Stranger",
+      "aliases": [
+        "stranger",
+        "polite stranger",
+        "well dressed stranger"
+      ],
+      "tags": [
+        "fae",
+        "bargain",
+        "blood",
+        "sigils"
+      ],
+      "location_hint": "river_bridge",
+      "trust": -2,
+      "fear": 0,
+      "opening": "They smile without showing teeth and ask if you are here to return what was borrowed.",
+      "topics": {
+        "borrowed": {
+          "response": "They insist no one stole Caleb. Caleb accepted a door, and doors have prices.",
+          "clues": [
+            "clue_door_price"
+          ],
+          "unlocks_topics": [
+            "door",
+            "price",
+            "caleb"
+          ]
+        },
+        "door": {
+          "response": "The river bridge is one door. The lower room is another. One opens sideways. One opens downward.",
+          "clues": [
+            "clue_two_doors"
+          ],
+          "unlocks_locations": [
+            "river_bridge",
+            "lower_room"
+          ]
+        },
+        "price": {
+          "response": "The price was not Caleb's life. It was his name spoken by the thing below.",
+          "clues": [
+            "clue_name_price"
+          ],
+          "unlocks_topics": [
+            "true name",
+            "thing below"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cult_defector",
+      "name": "Nora Vale",
+      "aliases": [
+        "nora",
+        "defector",
+        "cultist",
+        "nora vale"
+      ],
+      "tags": [
+        "cult",
+        "sigils",
+        "fear",
+        "meetings"
+      ],
+      "location_hint": "motel_room",
+      "trust": -1,
+      "fear": 4,
+      "opening": "Nora has scratched the black star off her own wrist until the skin split.",
+      "topics": {
+        "meetings": {
+          "response": "The meetings were not worship. They were rehearsals. Everyone practiced speaking in one voice before going below.",
+          "clues": [
+            "clue_rehearsal_chant"
+          ],
+          "unlocks_topics": [
+            "one voice",
+            "below",
+            "leader"
+          ]
+        },
+        "leader": {
+          "response": "She never saw the leader's face clearly. The voice came from the speakers even when the power was out.",
+          "clues": [
+            "clue_speaker_voice"
+          ],
+          "unlocks_locations": [
+            "church_annex",
+            "sealed_tunnel"
+          ]
+        },
+        "below": {
+          "response": "Below, the bell made them remember the same dream: a black ocean with something huge turning in it.",
+          "clues": [
+            "clue_black_ocean_dream"
+          ],
+          "unlocks_locations": [
+            "lower_room"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sheriff_bell",
+      "name": "Sheriff Bell",
+      "aliases": [
+        "sheriff",
+        "bell",
+        "sheriff bell"
+      ],
+      "tags": [
+        "authority",
+        "records",
+        "sheriff",
+        "coverup"
+      ],
+      "location_hint": "county_sheriff_station",
+      "trust": 0,
+      "fear": 2,
+      "opening": "Sheriff Bell insists this is jurisdictional and already handled.",
+      "topics": {
+        "missing minutes": {
+          "response": "He claims dispatch lost power, but his hand moves to the lockup key when he says it.",
+          "clues": [
+            "clue_sheriff_erased_minutes"
+          ],
+          "unlocks_locations": [
+            "evidence_lockup"
+          ],
+          "unlocks_topics": [
+            "warden badge",
+            "old evidence"
+          ]
+        },
+        "warden badge": {
+          "requires": [
+            "clue_sheriff_erased_minutes"
+          ],
+          "response": "He admits the badge came from a sealed evidence box no one logged.",
+          "clues": [
+            "clue_wardens_old_badge",
+            "clue_archivist_stamp_false"
+          ],
+          "unlocks_locations": [
+            "evidence_lockup"
+          ]
+        },
+        "old evidence": {
+          "response": "He says the old hunter cache was tagged as burglary evidence before he took office.",
+          "clues": [
+            "clue_hunter_cache_wrong_ammo"
+          ],
+          "unlocks": [
+            "hunter_cache"
+          ]
+        }
+      }
+    },
+    {
+      "id": "nurse_vale",
+      "name": "Nurse Vale",
+      "aliases": [
+        "nurse",
+        "vale",
+        "nurse vale"
+      ],
+      "tags": [
+        "hospital",
+        "survivor",
+        "blood"
+      ],
+      "location_hint": "mercy_hospital",
+      "trust": 1,
+      "fear": 3,
+      "opening": "Nurse Vale keeps lowering her voice whenever the monitors click.",
+      "topics": {
+        "blackout": {
+          "response": "The lights cut out in pulses, exactly like something breathing through the building.",
+          "clues": [
+            "clue_hospital_blackout_pattern"
+          ],
+          "unlocks_topics": [
+            "patient ash",
+            "missing hour"
+          ]
+        },
+        "patient ash": {
+          "response": "The survivor coughs ash only when asked about the church or the bell.",
+          "clues": [
+            "clue_patient_ash_cough",
+            "clue_voice_matches_bell"
+          ],
+          "unlocks_locations": [
+            "hospital_records"
+          ]
+        },
+        "missing hour": {
+          "response": "The chart says the patient was awake, but every camera frame is blank for eleven minutes.",
+          "clues": [
+            "clue_camera_frame_extra_person",
+            "clue_sheriff_erased_minutes"
+          ]
+        }
+      }
+    },
+    {
+      "id": "child_witness_eli",
+      "name": "Eli Cross",
+      "aliases": [
+        "eli",
+        "child",
+        "boy",
+        "child witness"
+      ],
+      "tags": [
+        "children",
+        "school",
+        "witness",
+        "blood",
+        "fae"
+      ],
+      "location_hint": "school_gym",
+      "trust": 1,
+      "fear": 4,
+      "opening": "Eli will only draw answers at first.",
+      "topics": {
+        "drawing": {
+          "response": "He draws a well under the school and says the bell lives there when it is asleep.",
+          "clues": [
+            "clue_child_drawing_well",
+            "clue_school_bell_after_midnight"
+          ],
+          "unlocks_locations": [
+            "old_well",
+            "school_hall"
+          ]
+        },
+        "bell": {
+          "response": "He says the bell rings before bad things happen, not after.",
+          "clues": [
+            "clue_three_knocks",
+            "clue_school_bell_after_midnight"
+          ],
+          "unlocks_topics": [
+            "well"
+          ]
+        },
+        "well": {
+          "response": "He writes a name, then panics when the letters fade off the page.",
+          "clues": [
+            "clue_fae_name_erasure",
+            "clue_well_echo_name"
+          ],
+          "unlocks_locations": [
+            "old_well"
+          ]
+        }
+      }
+    },
+    {
+      "id": "archivist_morrow",
+      "name": "Archivist Morrow",
+      "aliases": [
+        "morrow",
+        "archivist",
+        "records clerk"
+      ],
+      "tags": [
+        "records",
+        "archive",
+        "lorekeeper",
+        "warden"
+      ],
+      "location_hint": "hospital_records",
+      "trust": 0,
+      "fear": 1,
+      "opening": "Morrow has already pulled the wrong books and knows it.",
+      "topics": {
+        "town founding": {
+          "response": "Every founding record is missing the same six pages. Someone removed the origin of the seal.",
+          "clues": [
+            "clue_library_pages_removed",
+            "clue_ninth_seal"
+          ],
+          "unlocks_topics": [
+            "archive stamp"
+          ]
+        },
+        "archive stamp": {
+          "response": "The stamp on the report predates the agency mark, but not the symbol.",
+          "clues": [
+            "clue_archivist_stamp_false",
+            "clue_wardens_old_badge"
+          ]
+        },
+        "black star": {
+          "response": "The black star appears only in cases marked unresolved, sealed, or buried.",
+          "clues": [
+            "clue_black_star",
+            "clue_star_disasters",
+            "clue_seal_ninth_rotation"
+          ]
+        }
+      }
+    },
+    {
+      "id": "roadside_preacher",
+      "name": "Brother Ansel",
+      "aliases": [
+        "preacher",
+        "ansel",
+        "brother ansel"
+      ],
+      "tags": [
+        "roadside",
+        "divine",
+        "prophecy",
+        "blood"
+      ],
+      "location_hint": "roadside_crosses",
+      "trust": 0,
+      "fear": 2,
+      "opening": "Brother Ansel preaches to the roadside memorial like it can answer.",
+      "topics": {
+        "next victim": {
+          "response": "He gives the name correctly, but the year is wrong by a century.",
+          "clues": [
+            "clue_prophet_wrong_date",
+            "clue_roadside_cross_wrong_names"
+          ]
+        },
+        "black star": {
+          "response": "He calls it the hole where a hymn should be.",
+          "clues": [
+            "clue_dream_black_sea",
+            "clue_static_prayer"
+          ]
+        },
+        "angel": {
+          "response": "He says a mark burned cold when he lied and hot when he confessed.",
+          "clues": [
+            "clue_angel_mark_heat"
+          ]
+        }
+      }
+    },
+    {
+      "id": "drifter_jo",
+      "name": "Jo Rusk",
+      "aliases": [
+        "jo",
+        "drifter",
+        "rusk"
+      ],
+      "tags": [
+        "roadside",
+        "relics",
+        "hunter",
+        "witness"
+      ],
+      "location_hint": "county_road",
+      "trust": -1,
+      "fear": 1,
+      "opening": "Jo has an old Warden patch and refuses to say where it came from.",
+      "topics": {
+        "patch": {
+          "response": "They found it in a cache full of the wrong ammo and a note that said obvious answers are bait.",
+          "clues": [
+            "clue_hunter_cache_wrong_ammo",
+            "clue_quartermaster_warning"
+          ],
+          "unlocks_locations": [
+            "evidence_lockup"
+          ]
+        },
+        "cache": {
+          "response": "The cache was warm when opened, like something had just left it.",
+          "clues": [
+            "clue_relic_box_empty_warm"
+          ]
+        },
+        "monster": {
+          "response": "Jo says the silver reacted to the anchor, not the thing wearing teeth.",
+          "clues": [
+            "clue_silver_reacts_black"
+          ]
+        }
+      }
+    },
+    {
+      "id": "diner_owner_mabel",
+      "name": "Mabel Crane",
+      "aliases": [
+        "mabel",
+        "diner owner",
+        "crane"
+      ],
+      "tags": [
+        "community",
+        "cult",
+        "blood",
+        "records"
+      ],
+      "location_hint": "county_road",
+      "trust": 1,
+      "fear": 2,
+      "opening": "Mabel remembers every meal, especially the ones people deny ordering.",
+      "topics": {
+        "cult": {
+          "response": "Different people ordered the exact same meal before every midnight meeting.",
+          "clues": [
+            "clue_cult_meal_receipts"
+          ],
+          "unlocks_topics": [
+            "meetings"
+          ]
+        },
+        "meetings": {
+          "response": "They never paid in cash or card. They left old coins with tomorrow\u2019s date.",
+          "clues": [
+            "clue_bridge_toll_coin",
+            "clue_meeting_dates"
+          ],
+          "unlocks_locations": [
+            "river_bridge"
+          ]
+        },
+        "missing people": {
+          "response": "The missing all stopped here after visiting the church, bridge, or station.",
+          "clues": [
+            "clue_roadside_cross_wrong_names",
+            "clue_train_schedule_dead"
+          ]
+        }
+      }
+    },
+    {
+      "id": "radio_operator_sims",
+      "name": "Edwin Sims",
+      "aliases": [
+        "sims",
+        "radio operator",
+        "edwin"
+      ],
+      "tags": [
+        "radio",
+        "weather_station",
+        "sound"
+      ],
+      "location_hint": "old_weather_station",
+      "trust": 0,
+      "fear": 3,
+      "opening": "Sims says the radios keep reporting pressure inside people, not storms.",
+      "topics": {
+        "signal": {
+          "response": "The wind data is a chant if you plot it as sound instead of weather.",
+          "clues": [
+            "clue_old_weather_station_signal",
+            "clue_static_prayer"
+          ],
+          "unlocks_locations": [
+            "tower_room"
+          ]
+        },
+        "choir": {
+          "response": "Every radio chooses a different station, but the voice is identical.",
+          "clues": [
+            "clue_choir_many_radios"
+          ]
+        },
+        "black sea": {
+          "response": "He dreamed of a black ocean the night the tower began transmitting.",
+          "clues": [
+            "clue_dream_black_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "trainmaster_holt",
+      "name": "Gideon Holt",
+      "aliases": [
+        "holt",
+        "trainmaster",
+        "gideon"
+      ],
+      "tags": [
+        "train",
+        "records",
+        "spirit",
+        "threshold"
+      ],
+      "location_hint": "train_depot",
+      "trust": 0,
+      "fear": 2,
+      "opening": "Holt still wears a uniform from a line that closed years ago.",
+      "topics": {
+        "schedule": {
+          "response": "The depot appears on tomorrow\u2019s schedule even though the tracks are dead.",
+          "clues": [
+            "clue_train_schedule_dead"
+          ],
+          "unlocks_locations": [
+            "rail_tunnel"
+          ]
+        },
+        "minute": {
+          "response": "Every clock loses the same minute when the platform lights flicker.",
+          "clues": [
+            "clue_clock_stolen_minute"
+          ]
+        },
+        "passengers": {
+          "response": "He says the dead do not board the train. They are delivered by it.",
+          "clues": [
+            "clue_cemetery_grave_empty",
+            "clue_wraith_tether_song"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quartermaster_ghost",
+      "name": "Quartermaster Vale\u2019s Recording",
+      "aliases": [
+        "recording",
+        "quartermaster",
+        "vale recording"
+      ],
+      "tags": [
+        "warden",
+        "relics",
+        "gear",
+        "spirit"
+      ],
+      "location_hint": "evidence_lockup",
+      "trust": 2,
+      "fear": 0,
+      "opening": "The old recording plays only when the wrong tool is picked up.",
+      "topics": {
+        "wrong ammo": {
+          "response": "The voice warns that perfect prep aimed at the wrong threat gets Wardens killed fastest.",
+          "clues": [
+            "clue_hunter_cache_wrong_ammo",
+            "clue_quartermaster_warning"
+          ]
+        },
+        "bell": {
+          "response": "Do not shoot the bell. Silence it, anchor it, or cut what answers through it.",
+          "clues": [
+            "clue_do_not_shoot_bell",
+            "clue_silence_over_damage"
+          ]
+        },
+        "black star": {
+          "response": "The star marks cases where the anchor is not where the monster is.",
+          "clues": [
+            "clue_final_anchor_is_story",
+            "clue_black_star"
+          ]
+        }
+      }
+    }
+  ],
+  "evidence_modules": [
+    {
+      "id": "bell_chain",
+      "name": "Bell Chain",
+      "aliases": [
+        "chain",
+        "bell chain",
+        "rusted chain"
+      ],
+      "tags": [
+        "sigils",
+        "bell",
+        "lower_room"
+      ],
+      "location_hint": "church_basement",
+      "surface": "A rusted chain runs behind a bricked arch.",
+      "deep": "The chain is tuned, not merely hung. It conducts vibration through the foundation.",
+      "hidden": "The chain can be dampened with cloth, wax, salt paste, or the silence rig.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_bell_chain"
+      ],
+      "unlocks": [
+        "lower_room",
+        "silence bell",
+        "inverted bell"
+      ]
+    },
+    {
+      "id": "black_star_symbol",
+      "name": "Nine-Circle Black Star Symbol",
+      "aliases": [
+        "black star",
+        "nine circles",
+        "star symbol",
+        "symbol"
+      ],
+      "tags": [
+        "elder_god",
+        "sigils",
+        "research"
+      ],
+      "location_hint": "lower_room",
+      "surface": "Nine circles orbit a black star, each ring scored deeper than the last.",
+      "deep": "The symbol is not a summoning mark. It is a countdown representation of layered seals.",
+      "hidden": "The active seal is the ninth; each bell resonance thins it.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_black_star",
+        "clue_ninth_seal"
+      ],
+      "unlocks": [
+        "seal countdown",
+        "thing below",
+        "do not destroy bell"
+      ]
+    },
+    {
+      "id": "sign_in_sheet",
+      "name": "Torn Sign-In Sheet",
+      "aliases": [
+        "sign in sheet",
+        "sheet",
+        "attendance",
+        "torn sheet"
+      ],
+      "tags": [
+        "meetings",
+        "blood",
+        "cult"
+      ],
+      "location_hint": "church_annex",
+      "surface": "The bottom half is missing. The remaining names are mostly teenagers and grieving adults.",
+      "deep": "Meeting dates match nights when witnesses heard the underground bell.",
+      "hidden": "The missing half contains the speaker access code written in the margin.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_meeting_dates"
+      ],
+      "unlocks": [
+        "meetings",
+        "speaker system",
+        "missing names"
+      ]
+    },
+    {
+      "id": "black_ash",
+      "name": "Black Ash Under Fingernails",
+      "aliases": [
+        "black ash",
+        "ash",
+        "fingernails",
+        "nails"
+      ],
+      "tags": [
+        "medical",
+        "demon",
+        "possession"
+      ],
+      "location_hint": "hospital_room",
+      "surface": "The ash is packed under the nails like the survivor clawed through a burned wall.",
+      "deep": "It contains burned bone, iron filings, and old lime mortar.",
+      "hidden": "The mix matches the lower room's old ward repair, meaning the survivor touched the seal itself.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_ash_bone_iron"
+      ],
+      "unlocks": [
+        "lower room",
+        "ward repair",
+        "burned bone"
+      ]
+    },
+    {
+      "id": "mine_map",
+      "name": "Altered Mine Map",
+      "aliases": [
+        "mine map",
+        "map",
+        "old map",
+        "overlay"
+      ],
+      "tags": [
+        "research",
+        "underground",
+        "warden"
+      ],
+      "location_hint": "town_records",
+      "surface": "The public mine map ends one chamber too soon.",
+      "deep": "A hand-drawn Warden overlay shows a lower chamber beneath the altar.",
+      "hidden": "The lower chamber is labeled 'acoustic seal \u2014 do not collapse.'",
+      "roll_intent": "research",
+      "clues": [
+        "clue_acoustic_seal"
+      ],
+      "unlocks": [
+        "lower_room",
+        "sealed_tunnel",
+        "do not collapse"
+      ]
+    },
+    {
+      "id": "bodycam_audio",
+      "name": "Corrupted Bodycam Audio",
+      "aliases": [
+        "bodycam",
+        "audio",
+        "corrupted footage",
+        "footage"
+      ],
+      "tags": [
+        "authority",
+        "bell",
+        "research"
+      ],
+      "location_hint": "sheriff_office",
+      "surface": "The video dies, but the audio captures a bell and a phrase: open the ninth.",
+      "deep": "The bell is nine tones overlapping, each slightly delayed.",
+      "hidden": "One tone is missing unless played through the church PA system.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_open_the_ninth",
+        "clue_nine_impacts"
+      ],
+      "unlocks": [
+        "speaker system",
+        "ninth seal",
+        "church annex"
+      ]
+    },
+    {
+      "id": "field_locker",
+      "name": "Old Warden Field Locker",
+      "aliases": [
+        "field locker",
+        "locker",
+        "warden locker",
+        "old refrigerator"
+      ],
+      "tags": [
+        "relics",
+        "prep",
+        "warden"
+      ],
+      "location_hint": "salvage_yard",
+      "surface": "Inside the refrigerator shell is a rusted Warden locker sealed with salt paste.",
+      "deep": "It contains waxed cloth, chalk, iron nails, dead batteries, and half-built silence rig components.",
+      "hidden": "A note says: 'Do not shoot the bell. Stop it from hearing itself.'",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_silence_rig",
+        "clue_do_not_shoot_bell"
+      ],
+      "unlocks": [
+        "silence rig",
+        "silence bell",
+        "prep silence ward"
+      ]
+    },
+    {
+      "id": "mirror_dates",
+      "name": "Mirror Dates",
+      "aliases": [
+        "mirror",
+        "dates",
+        "soap dates"
+      ],
+      "tags": [
+        "blood",
+        "pattern",
+        "motel"
+      ],
+      "location_hint": "motel_room",
+      "surface": "Dates are written across the motel mirror in soap.",
+      "deep": "Each date follows a minor tremor beneath the town by one day.",
+      "hidden": "The next date is tonight.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_next_date_tonight"
+      ],
+      "unlocks": [
+        "tonight",
+        "ritual countdown",
+        "crisis"
+      ]
+    },
+    {
+      "id": "red_thread",
+      "name": "Red Thread Offering",
+      "aliases": [
+        "red thread",
+        "thread",
+        "offering",
+        "bridge offering"
+      ],
+      "tags": [
+        "fae",
+        "blood",
+        "threshold"
+      ],
+      "location_hint": "river_bridge",
+      "surface": "Red thread ties coins, milk caps, and dried flowers to the bridge railing.",
+      "deep": "Each knot is tied with a name spoken once and then forgotten.",
+      "hidden": "One knot contains Caleb's nickname, not his legal name.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_name_price"
+      ],
+      "unlocks": [
+        "polite stranger",
+        "true name",
+        "river bargain"
+      ]
+    },
+    {
+      "id": "scratched_warden_marks",
+      "name": "Scratched Warden Marks",
+      "aliases": [
+        "warden marks",
+        "scratches",
+        "scratched marks",
+        "old wards"
+      ],
+      "tags": [
+        "warden",
+        "sigils",
+        "sealed_tunnel"
+      ],
+      "location_hint": "sealed_tunnel",
+      "surface": "Old Warden marks have been scratched out with something sharp and patient.",
+      "deep": "The scratched marks once redirected vibration away from the lower room.",
+      "hidden": "Repairing three marks can reduce the bell's pressure long enough for a rite.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_ward_redirect"
+      ],
+      "unlocks": [
+        "repair marks",
+        "prep ward repair",
+        "silence bell"
+      ]
+    },
+    {
+      "id": "dashcam_shape",
+      "name": "Dashcam Shape",
+      "aliases": [
+        "dashcam",
+        "shape",
+        "road footage",
+        "car footage"
+      ],
+      "tags": [
+        "creature",
+        "blades",
+        "relics"
+      ],
+      "location_hint": "highway_shoulder",
+      "surface": "The footage shows a tall shape crossing the road faster than a deer.",
+      "deep": "The shape flinches when headlights cross iron guardrail bolts.",
+      "hidden": "The highway attack was a lure, not the primary hunt.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_iron_flinch"
+      ],
+      "unlocks": [
+        "iron weakness",
+        "baited attack"
+      ]
+    },
+    {
+      "id": "hanging_bones",
+      "name": "Hanging Bones",
+      "aliases": [
+        "bones",
+        "hanging bones",
+        "bone charms"
+      ],
+      "tags": [
+        "creature",
+        "fae",
+        "forest"
+      ],
+      "location_hint": "forest_clearing",
+      "surface": "Bones hang from nearly invisible fishing line, clicking softly in the wind.",
+      "deep": "The pattern imitates a church bell's swing.",
+      "hidden": "The forest sign is a copycat lure planted by something human or cult-linked.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_copycat_lure"
+      ],
+      "unlocks": [
+        "cult defector",
+        "false trail"
+      ]
+    },
+    {
+      "id": "burned_family_photos",
+      "name": "Burned Family Photos",
+      "aliases": [
+        "photos",
+        "family photos",
+        "burned photos"
+      ],
+      "tags": [
+        "blood",
+        "family",
+        "evidence"
+      ],
+      "location_hint": "family_farmhouse",
+      "surface": "Every photo is burned on the same side.",
+      "deep": "The burned side always faces the person who heard the bell first.",
+      "hidden": "The burn pattern forms a partial black star when the photos are stacked.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_burned_photo_half",
+        "clue_black_star_drawing"
+      ],
+      "unlocks": [
+        "root_cellar"
+      ]
+    },
+    {
+      "id": "inside_blood_lock",
+      "name": "Blood on the Inside Lock",
+      "aliases": [
+        "lock blood",
+        "inside lock",
+        "bloody lock"
+      ],
+      "tags": [
+        "blood",
+        "threshold",
+        "evidence"
+      ],
+      "location_hint": "root_cellar",
+      "surface": "Blood stains the inside of a locked door.",
+      "deep": "No one broke in. Something was contained and let out.",
+      "hidden": "The blood is not human, but mimics human markers under basic tests.",
+      "roll_intent": "forensics",
+      "clues": [
+        "clue_blood_on_inside_lock",
+        "clue_ritual_blood_not_human"
+      ],
+      "unlocks": [
+        "root_cellar"
+      ]
+    },
+    {
+      "id": "salt_line_inward",
+      "name": "Broken Inward Salt Line",
+      "aliases": [
+        "salt line",
+        "broken salt",
+        "salt"
+      ],
+      "tags": [
+        "spirit",
+        "demon",
+        "threshold",
+        "prep"
+      ],
+      "location_hint": "root_cellar",
+      "surface": "A salt line has been broken inward.",
+      "deep": "The safe area became a trap because the threat was already inside.",
+      "hidden": "The line was crossed by something wearing a living body.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_salt_line_broken_inward",
+        "clue_possessor_avoids_pronouns"
+      ],
+      "unlocks": [
+        "possession_ward"
+      ]
+    },
+    {
+      "id": "well_child_drawing",
+      "name": "Child\u2019s Well Drawing",
+      "aliases": [
+        "drawing",
+        "well drawing",
+        "child drawing"
+      ],
+      "tags": [
+        "children",
+        "well",
+        "fae",
+        "spirit"
+      ],
+      "location_hint": "school_hall",
+      "surface": "A child drew a stone well with a door inside it.",
+      "deep": "The door matches a sealed hatch under the real well.",
+      "hidden": "The drawing changes when placed near iron.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_child_drawing_well",
+        "clue_well_echo_name",
+        "clue_fae_name_erasure"
+      ],
+      "unlocks": [
+        "old_well"
+      ]
+    },
+    {
+      "id": "hospital_power_log",
+      "name": "Hospital Power Log",
+      "aliases": [
+        "power log",
+        "blackout log",
+        "hospital log"
+      ],
+      "tags": [
+        "hospital",
+        "records",
+        "sound",
+        "demon"
+      ],
+      "location_hint": "hospital_records",
+      "surface": "Outages happen in repeating pulses.",
+      "deep": "The pulses match the survivor\u2019s breathing when the ash cough begins.",
+      "hidden": "The pulse graph can be read as a summoning cadence.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_hospital_blackout_pattern",
+        "clue_patient_ash_cough",
+        "clue_static_prayer"
+      ],
+      "unlocks": [
+        "tower_room"
+      ]
+    },
+    {
+      "id": "dispatch_gap",
+      "name": "Dispatch Recording Gap",
+      "aliases": [
+        "dispatch",
+        "missing minutes",
+        "recording gap"
+      ],
+      "tags": [
+        "records",
+        "sheriff",
+        "coverup"
+      ],
+      "location_hint": "county_sheriff_station",
+      "surface": "Dispatch audio cuts for eleven minutes.",
+      "deep": "A quiet bell tone remains under the silence.",
+      "hidden": "The missing audio returns if played beside the old Warden badge.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_sheriff_erased_minutes",
+        "clue_underground_bell",
+        "clue_wardens_old_badge"
+      ],
+      "unlocks": [
+        "evidence_lockup"
+      ]
+    },
+    {
+      "id": "empty_relic_box",
+      "name": "Empty Warm Relic Box",
+      "aliases": [
+        "relic box",
+        "empty box",
+        "warm box"
+      ],
+      "tags": [
+        "relics",
+        "warden",
+        "gear"
+      ],
+      "location_hint": "evidence_lockup",
+      "surface": "An empty relic box is warm to the touch.",
+      "deep": "It was opened recently from the inside.",
+      "hidden": "The missing relic was a sound-dampening chain, not a weapon.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_relic_box_empty_warm",
+        "clue_silence_rig"
+      ],
+      "unlocks": [
+        "silence_ward",
+        "binding_chain"
+      ]
+    },
+    {
+      "id": "river_toll_coin",
+      "name": "Tomorrow-Dated Toll Coin",
+      "aliases": [
+        "coin",
+        "toll coin",
+        "bridge coin"
+      ],
+      "tags": [
+        "fae",
+        "threshold",
+        "bargain",
+        "relics"
+      ],
+      "location_hint": "river_bridge",
+      "surface": "A coin under the bridge is dated tomorrow.",
+      "deep": "The coin is payment for crossing before the crossing happens.",
+      "hidden": "A name is etched on the rim, but disappears when spoken.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_bridge_toll_coin",
+        "clue_fae_name_erasure",
+        "clue_door_price"
+      ],
+      "unlocks": [
+        "threshold_cage"
+      ]
+    },
+    {
+      "id": "radio_static_prayer",
+      "name": "Backward Static Prayer",
+      "aliases": [
+        "static",
+        "prayer",
+        "radio static"
+      ],
+      "tags": [
+        "radio",
+        "sound",
+        "demon",
+        "sigils"
+      ],
+      "location_hint": "tower_room",
+      "surface": "A prayer hides under static.",
+      "deep": "Played backward, it is an invitation rather than protection.",
+      "hidden": "The same phrase appears in the black star records.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_static_prayer",
+        "clue_rehearsal_chant",
+        "clue_black_star"
+      ],
+      "unlocks": [
+        "silence_ward"
+      ]
+    },
+    {
+      "id": "gym_scuffed_circle",
+      "name": "Scuffed Gym Circle",
+      "aliases": [
+        "gym circle",
+        "circle",
+        "floor circle"
+      ],
+      "tags": [
+        "school",
+        "sigils",
+        "children"
+      ],
+      "location_hint": "school_gym",
+      "surface": "Dragged chairs have carved a circular scuff into the floor.",
+      "deep": "The circle is too clean to be accidental; it is a rehearsal diagram.",
+      "hidden": "Each chair leg marks a victim position.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_gym_floor_circle",
+        "clue_rehearsal_chant",
+        "clue_vessel_bloodline_chart"
+      ],
+      "unlocks": [
+        "school_hall"
+      ]
+    },
+    {
+      "id": "train_dead_schedule",
+      "name": "Dead-Line Train Schedule",
+      "aliases": [
+        "train schedule",
+        "schedule",
+        "dead stop"
+      ],
+      "tags": [
+        "train",
+        "spirit",
+        "records",
+        "threshold"
+      ],
+      "location_hint": "train_depot",
+      "surface": "The depot appears on tomorrow\u2019s schedule.",
+      "deep": "Every listed passenger has a memorial cross on County Road 9.",
+      "hidden": "The train never arrives; the dead are delivered to the platform.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_train_schedule_dead",
+        "clue_roadside_cross_wrong_names",
+        "clue_wraith_tether_song"
+      ],
+      "unlocks": [
+        "rail_tunnel"
+      ]
+    },
+    {
+      "id": "motel_repeating_room",
+      "name": "Repeating Motel Room",
+      "aliases": [
+        "motel room",
+        "room 12",
+        "repeating room"
+      ],
+      "tags": [
+        "djinn",
+        "illusion",
+        "blood",
+        "threshold"
+      ],
+      "location_hint": "motel_room_12",
+      "surface": "Room 12 resets every morning.",
+      "deep": "Only the bloodstain persists, growing by one handprint per reset.",
+      "hidden": "The reset is a wish trying to erase its own cost.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_motel_room_repeats",
+        "clue_djinn_wish_echo"
+      ],
+      "unlocks": [
+        "sealed_vessel"
+      ]
+    },
+    {
+      "id": "gas_station_sigils",
+      "name": "Gas Station Bathroom Sigils",
+      "aliases": [
+        "bathroom sigils",
+        "graffiti",
+        "gas station"
+      ],
+      "tags": [
+        "sigils",
+        "cult",
+        "roadside"
+      ],
+      "location_hint": "county_road",
+      "surface": "Bathroom graffiti repeats in groups of nine.",
+      "deep": "It is a route map disguised as profanity.",
+      "hidden": "Every route ends under the church.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_gas_station_sigils",
+        "clue_seal_ninth_rotation",
+        "clue_lower_room"
+      ],
+      "unlocks": [
+        "abandoned_church"
+      ]
+    },
+    {
+      "id": "bone_charm_bundle",
+      "name": "Bone Charm Bundle",
+      "aliases": [
+        "bone charms",
+        "charms",
+        "bundle"
+      ],
+      "tags": [
+        "fae",
+        "curse",
+        "evidence",
+        "blood"
+      ],
+      "location_hint": "family_farmhouse",
+      "surface": "Bone charms hang in a window frame.",
+      "deep": "The number of charms increases after every failed attempt.",
+      "hidden": "The charms count accepted bargains, not victims.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_bone_charm_count",
+        "clue_red_thread_bargain"
+      ],
+      "unlocks": [
+        "rowan_snare"
+      ]
+    },
+    {
+      "id": "vessel_bloodline_chart",
+      "name": "Vessel Bloodline Chart",
+      "aliases": [
+        "bloodline chart",
+        "vessel chart",
+        "chart"
+      ],
+      "tags": [
+        "divine",
+        "vessel",
+        "records",
+        "blood"
+      ],
+      "location_hint": "hospital_records",
+      "surface": "A bloodline chart lists living people as possible vessels.",
+      "deep": "One name has been crossed out after each black sea dream.",
+      "hidden": "The chart is not predicting vessels; it is selecting replacements.",
+      "roll_intent": "research",
+      "clues": [
+        "clue_vessel_bloodline_chart",
+        "clue_dream_black_sea",
+        "clue_angel_mark_heat"
+      ],
+      "unlocks": [
+        "mercy_hospital"
+      ]
+    },
+    {
+      "id": "black_star_mile_markers",
+      "name": "Black Star Mile Markers",
+      "aliases": [
+        "mile markers",
+        "black star markers",
+        "markers"
+      ],
+      "tags": [
+        "roadside",
+        "elder_god",
+        "sigils"
+      ],
+      "location_hint": "county_road",
+      "surface": "Several mile markers are scratched with the black star.",
+      "deep": "The scratched numbers form a route between old sealed sites.",
+      "hidden": "Each marker rotates one ninth after a connected death.",
+      "roll_intent": "investigate",
+      "clues": [
+        "clue_black_star",
+        "clue_seal_ninth_rotation",
+        "clue_star_disasters"
+      ],
+      "unlocks": [
+        "roadside_crosses",
+        "old_weather_station",
+        "train_depot"
+      ]
+    }
+  ],
+  "entity_modules": [
+    {
+      "id": "hollow_rider",
+      "name": "Hollow Rider",
+      "type": "Possessing Demon",
+      "tags": [
+        "demon",
+        "possessor",
+        "sigils",
+        "blood"
+      ],
+      "behavior_states": [
+        "watching",
+        "isolating",
+        "possessing",
+        "fleeing"
+      ],
+      "signs": [
+        "black ash",
+        "low voice",
+        "sulfur heat",
+        "memory gaps"
+      ],
+      "weakness": "exorcism plus containment sigil",
+      "anchor": "host chain and bell resonance",
+      "kill_condition": "Separate demon from host, silence the bell resonance, then bind or banish before repossession.",
+      "actions": [
+        "whisper through host",
+        "isolate a witness",
+        "fake a medical episode",
+        "trigger possession pressure"
+      ]
+    },
+    {
+      "id": "black_choir_fragment",
+      "name": "Black Choir Fragment",
+      "type": "Legion Infernal Echo",
+      "tags": [
+        "demon",
+        "sound",
+        "ritual",
+        "elder_god"
+      ],
+      "behavior_states": [
+        "watching",
+        "singing",
+        "networking",
+        "manifesting"
+      ],
+      "signs": [
+        "shared cadence",
+        "radio whisper",
+        "nine overlapping tones",
+        "black star mark"
+      ],
+      "weakness": "silence wards, severed speaker network, true anchor host",
+      "anchor": "inverted bell and PA speaker system",
+      "kill_condition": "Silence the bell, sever linked mouths, then complete a three-round banishment while the network is muted.",
+      "actions": [
+        "speak through radios",
+        "coordinate witnesses",
+        "advance ritual",
+        "fracture memory"
+      ]
+    },
+    {
+      "id": "vengeful_miner",
+      "name": "Vengeful Miner Spirit",
+      "type": "Bound Spirit",
+      "tags": [
+        "spirit",
+        "mine",
+        "blood",
+        "anchor"
+      ],
+      "behavior_states": [
+        "haunting",
+        "warning",
+        "manifesting",
+        "cornered"
+      ],
+      "signs": [
+        "coal dust",
+        "pick strikes",
+        "cold breath",
+        "old union songs"
+      ],
+      "weakness": "name and remains truth",
+      "anchor": "misblessed miner remains",
+      "kill_condition": "Identify the miner, correct the burial mistake, and burn or bless the true tether.",
+      "actions": [
+        "throw tools",
+        "write in dust",
+        "warn through dreams",
+        "attack those who disturb the seal"
+      ]
+    },
+    {
+      "id": "mirror_shade",
+      "name": "Mirror Shade",
+      "type": "Bound Reflection Spirit",
+      "tags": [
+        "spirit",
+        "illusion",
+        "blood",
+        "moon"
+      ],
+      "behavior_states": [
+        "watching",
+        "misleading",
+        "swapping",
+        "fleeing"
+      ],
+      "signs": [
+        "delayed reflection",
+        "cold mirrors",
+        "wrong dates",
+        "backward writing"
+      ],
+      "weakness": "covered or broken anchor mirror",
+      "anchor": "the dated motel mirror",
+      "kill_condition": "Identify the anchor mirror, force the true reflection into view, and break or seal it.",
+      "actions": [
+        "delay reflections",
+        "swap briefly",
+        "plant false memory",
+        "haunt isolated rooms"
+      ]
+    },
+    {
+      "id": "redcap_ruin",
+      "name": "Redcap of the Rail Ruins",
+      "type": "Predatory Fae",
+      "tags": [
+        "fae",
+        "blades",
+        "relics",
+        "iron"
+      ],
+      "behavior_states": [
+        "stalking",
+        "hunting",
+        "feeding",
+        "cornered"
+      ],
+      "signs": [
+        "rust footprints",
+        "old blood",
+        "broken teeth",
+        "iron smell"
+      ],
+      "weakness": "cold iron and loss of blood cap",
+      "anchor": "blood-soaked cap hidden in rail debris",
+      "kill_condition": "Corner it away from blood sources, ruin the cap, and finish with iron.",
+      "actions": [
+        "ambush stragglers",
+        "stone-hop through ruins",
+        "sabotage gear",
+        "mock victims"
+      ]
+    },
+    {
+      "id": "wendigo_echo",
+      "name": "Wendigo Echo",
+      "type": "Hunger Predator",
+      "tags": [
+        "creature",
+        "relics",
+        "forest",
+        "blades"
+      ],
+      "behavior_states": [
+        "stalking",
+        "luring",
+        "hunting",
+        "feeding"
+      ],
+      "signs": [
+        "familiar voices",
+        "impossible footprints",
+        "deep cold",
+        "half-eaten remains"
+      ],
+      "weakness": "fire and starvation of anchor",
+      "anchor": "hunger site in forest clearing",
+      "kill_condition": "Prevent feeding, expose the hunger anchor, and burn the body completely.",
+      "actions": [
+        "mimic a loved one",
+        "separate party",
+        "freeze a path",
+        "feed to escalate"
+      ]
+    },
+    {
+      "id": "djinn_vessel",
+      "name": "Broken Vessel Djinn",
+      "type": "Reality Distortion Entity",
+      "tags": [
+        "djinn",
+        "sigils",
+        "blood",
+        "illusion"
+      ],
+      "behavior_states": [
+        "watching",
+        "bargaining",
+        "distorting",
+        "fleeing"
+      ],
+      "signs": [
+        "contradictory memories",
+        "room geometry wrong",
+        "sand in sealed rooms",
+        "wishful coincidences"
+      ],
+      "weakness": "intact vessel control phrase",
+      "anchor": "cracked jar or ring hidden in family object",
+      "kill_condition": "Find the vessel, repair or seal it enough to command, then bind or destroy it.",
+      "actions": [
+        "offer false solution",
+        "isolate with illusion",
+        "twist desire",
+        "move anchor"
+      ]
+    },
+    {
+      "id": "changeling_claim",
+      "name": "Changeling Claimant",
+      "type": "Replacement Fae",
+      "tags": [
+        "fae",
+        "blood",
+        "family",
+        "threshold"
+      ],
+      "behavior_states": [
+        "watching",
+        "imitating",
+        "bargaining",
+        "fleeing"
+      ],
+      "signs": [
+        "wrong habits",
+        "iron aversion",
+        "missing name",
+        "too-perfect mimicry"
+      ],
+      "weakness": "iron and true identity reveal",
+      "anchor": "accepted bargain at threshold",
+      "kill_condition": "Reveal true form, break the exchange claim, then strike with iron or force retreat.",
+      "actions": [
+        "rewrite memory",
+        "copy voice",
+        "turn family against Wardens",
+        "hide behind etiquette"
+      ]
+    },
+    {
+      "id": "chain_scribe",
+      "name": "Chain Scribe",
+      "type": "Contract Demon",
+      "tags": [
+        "demon",
+        "sigils",
+        "blood",
+        "contracts"
+      ],
+      "behavior_states": [
+        "bargaining",
+        "recording",
+        "pressuring",
+        "fleeing"
+      ],
+      "signs": [
+        "infernal ink",
+        "contract residue",
+        "signature marks",
+        "impossible legal phrasing"
+      ],
+      "weakness": "contract loophole and true name binding",
+      "anchor": "agreement token or signed blood clause",
+      "kill_condition": "Break or reverse the contract, destroy the oath object, then bind by true name.",
+      "actions": [
+        "offer relief",
+        "twist wording",
+        "mark a witness",
+        "call in debt"
+      ]
+    },
+    {
+      "id": "veil_render",
+      "name": "Veil Render",
+      "type": "Rift Manipulator Demon",
+      "tags": [
+        "demon",
+        "sigils",
+        "threshold",
+        "illusion"
+      ],
+      "behavior_states": [
+        "watching",
+        "distorting",
+        "isolating",
+        "manifesting"
+      ],
+      "signs": [
+        "doors lead wrong",
+        "maps fail",
+        "sound travels incorrectly",
+        "unstable ward geometry"
+      ],
+      "weakness": "stable sacred geometry and repaired threshold wards",
+      "anchor": "layered location across tunnel and lower room",
+      "kill_condition": "Collapse the rift structure, repair threshold geometry, then banish before reseal.",
+      "actions": [
+        "split locations",
+        "deny exits",
+        "stretch hallway",
+        "fold sound"
+      ]
+    },
+    {
+      "id": "woman_in_white",
+      "name": "Woman in White",
+      "type": "Tragic Spirit",
+      "tags": [
+        "spirit",
+        "blood",
+        "victim",
+        "road"
+      ],
+      "behavior_states": [
+        "haunting",
+        "luring",
+        "warning",
+        "manifesting"
+      ],
+      "signs": [
+        "roadside sightings",
+        "crying",
+        "cold passenger seat",
+        "wet footprints"
+      ],
+      "weakness": "truth of betrayal and remains",
+      "anchor": "death site or personal object",
+      "kill_condition": "Resolve emotional loop or lay remains properly to rest.",
+      "actions": [
+        "lure driver",
+        "repeat last words",
+        "possess briefly",
+        "show old memory"
+      ]
+    },
+    {
+      "id": "poltergeist_source",
+      "name": "Poltergeist Source",
+      "type": "Chaotic Spirit Pressure",
+      "tags": [
+        "spirit",
+        "blood",
+        "house",
+        "emotion"
+      ],
+      "behavior_states": [
+        "quiet",
+        "throwing",
+        "escalating",
+        "exhausted"
+      ],
+      "signs": [
+        "objects thrown",
+        "energy spikes",
+        "activity around one person",
+        "broken glass"
+      ],
+      "weakness": "source individual and emotional stabilization",
+      "anchor": "living person under stress",
+      "kill_condition": "Identify anchor person and resolve/remove emotional trigger.",
+      "actions": [
+        "throw objects",
+        "slam doors",
+        "target doubters",
+        "escalate with stress"
+      ]
+    },
+    {
+      "id": "black_choir_node",
+      "name": "Black Choir Node",
+      "type": "Infernal Network",
+      "tags": [
+        "demon",
+        "sound",
+        "radio",
+        "sigils",
+        "elder_god"
+      ],
+      "behavior_states": [
+        "watching",
+        "stalking",
+        "manifesting",
+        "hunting"
+      ],
+      "signs": [
+        "clue_choir_many_radios",
+        "clue_static_prayer",
+        "clue_speaker_voice"
+      ],
+      "weakness": "Silence wards, severed broadcast links, and a central anchor host.",
+      "anchor": "Radio tower, PA system, or host chorus.",
+      "kill_condition": "Identify the command node, silence linked mouths, then exorcise or collapse the broadcast anchor.",
+      "actions": [
+        "speak through radios",
+        "split the party with false messages",
+        "advance the chant",
+        "make witnesses speak in unison",
+        "overload electronics"
+      ]
+    },
+    {
+      "id": "well_bride",
+      "name": "The Well Bride",
+      "type": "Bound Spirit / Fae-Touched Ghost",
+      "tags": [
+        "spirit",
+        "fae",
+        "well",
+        "blood",
+        "threshold"
+      ],
+      "behavior_states": [
+        "dormant",
+        "watching",
+        "luring",
+        "manifesting",
+        "contained"
+      ],
+      "signs": [
+        "clue_well_echo_name",
+        "clue_child_drawing_well",
+        "clue_fae_name_erasure"
+      ],
+      "weakness": "Iron nail threshold and return of the stolen name.",
+      "anchor": "The old well door and the name buried beneath it.",
+      "kill_condition": "Recover the true name, nail the threshold, and resolve or sever the bargain that drowned her.",
+      "actions": [
+        "echo names before they are spoken",
+        "lure victims to water",
+        "erase names from paper",
+        "offer safe passage at a cost"
+      ]
+    },
+    {
+      "id": "borrowed_son",
+      "name": "The Borrowed Son",
+      "type": "Possessor",
+      "tags": [
+        "demon",
+        "possession",
+        "family",
+        "blood"
+      ],
+      "behavior_states": [
+        "watching",
+        "deceiving",
+        "manifesting",
+        "cornered"
+      ],
+      "signs": [
+        "clue_possessor_avoids_pronouns",
+        "clue_patient_ash_cough",
+        "clue_mirror_host_delay"
+      ],
+      "weakness": "Exorcism space, trusted witness, and broken host leverage.",
+      "anchor": "The host\u2019s stolen promise made beneath the church.",
+      "kill_condition": "Separate demon from host, destroy or nullify the promise-token, then banish before repossession.",
+      "actions": [
+        "speak as a loved one",
+        "avoid direct pronouns",
+        "turn family trust against Wardens",
+        "force the host to flee"
+      ]
+    },
+    {
+      "id": "red_thread_courtier",
+      "name": "Red Thread Courtier",
+      "type": "Fae Bargain-Keeper",
+      "tags": [
+        "fae",
+        "bargain",
+        "threshold",
+        "blood"
+      ],
+      "behavior_states": [
+        "watching",
+        "bargaining",
+        "luring",
+        "fleeing"
+      ],
+      "signs": [
+        "clue_red_thread_bargain",
+        "clue_milk_sour_threshold",
+        "clue_bridge_toll_coin"
+      ],
+      "weakness": "Iron, exact refusal, and mirrored contract language.",
+      "anchor": "A red thread tied to a threshold gift.",
+      "kill_condition": "Identify the accepted terms, reverse the exchange, and drive it across an iron-held threshold.",
+      "actions": [
+        "offer a helpful lie",
+        "collect a promised name",
+        "make doors require payment",
+        "punish broken etiquette"
+      ]
+    },
+    {
+      "id": "stolen_minute_wraith",
+      "name": "Stolen-Minute Wraith",
+      "type": "Wraith",
+      "tags": [
+        "spirit",
+        "time",
+        "train",
+        "threshold"
+      ],
+      "behavior_states": [
+        "dormant",
+        "stalking",
+        "hunting",
+        "manifesting"
+      ],
+      "signs": [
+        "clue_clock_stolen_minute",
+        "clue_train_schedule_dead",
+        "clue_wraith_tether_song"
+      ],
+      "weakness": "Restored minute, salt circle, and tether song interruption.",
+      "anchor": "A repeated minute recorded in depot clocks and sung by the dead.",
+      "kill_condition": "Synchronize the clocks, interrupt the tether song, and lay the delivered dead to rest.",
+      "actions": [
+        "steal actions through time skips",
+        "appear one minute early",
+        "make witnesses forget a moment",
+        "feed on delayed panic"
+      ]
+    },
+    {
+      "id": "wish_room_djinn",
+      "name": "Wish-Room Djinn",
+      "type": "Djinn",
+      "tags": [
+        "djinn",
+        "illusion",
+        "motel",
+        "blood"
+      ],
+      "behavior_states": [
+        "deceiving",
+        "watching",
+        "luring",
+        "cornered"
+      ],
+      "signs": [
+        "clue_motel_room_repeats",
+        "clue_djinn_wish_echo",
+        "clue_camera_frame_extra_person"
+      ],
+      "weakness": "Intact vessel, true cost naming, and broken wish loop.",
+      "anchor": "The sealed object hidden inside the repeating room.",
+      "kill_condition": "Name the wish and its cost, destroy or seal the vessel, then escape before the reset.",
+      "actions": [
+        "reset the room",
+        "offer a cleaner version of events",
+        "isolate one Warden in a perfect memory",
+        "turn desire into evidence"
+      ]
+    },
+    {
+      "id": "no_moon_werewolf",
+      "name": "No-Moon Wolf",
+      "type": "Cursed Predator",
+      "tags": [
+        "creature",
+        "werewolf",
+        "blood",
+        "blades"
+      ],
+      "behavior_states": [
+        "stalking",
+        "hunting",
+        "feeding",
+        "fleeing"
+      ],
+      "signs": [
+        "clue_werewolf_moon_not_needed",
+        "clue_silver_reacts_black",
+        "clue_animal_refusal"
+      ],
+      "weakness": "Silver still harms it, but the true anchor is the curse-token.",
+      "anchor": "A curse-token tied to an oath rather than moonlight.",
+      "kill_condition": "Destroy the oath-token and strike with silver before the curse jumps hosts.",
+      "actions": [
+        "hunt without lunar pattern",
+        "leave misleading claw marks",
+        "attack oath-breakers first",
+        "flee from the anchor, not silver"
+      ]
+    },
+    {
+      "id": "starving_rugaru",
+      "name": "Starving Rugaru",
+      "type": "Hunger Predator",
+      "tags": [
+        "creature",
+        "rugaru",
+        "hunger",
+        "blood"
+      ],
+      "behavior_states": [
+        "watching",
+        "stalking",
+        "hunting",
+        "feeding"
+      ],
+      "signs": [
+        "clue_rugaru_food_hoard",
+        "clue_patient_ash_cough",
+        "clue_three_knocks"
+      ],
+      "weakness": "Restraint, sedative bait, and emotional trigger isolation.",
+      "anchor": "A bloodline hunger awakened by the black star pressure.",
+      "kill_condition": "Prevent feeding, identify the trigger, and either cure/suppress the bloodline or kill before transformation completes.",
+      "actions": [
+        "hoard food without eating",
+        "stalk loved ones",
+        "trigger hunger panic",
+        "attack during emotional spikes"
+      ]
+    },
+    {
+      "id": "ash_cradle_mother",
+      "name": "Ash Cradle Mother",
+      "type": "Named Possession Queen",
+      "tags": [
+        "demon",
+        "family",
+        "ash",
+        "blood"
+      ],
+      "behavior_states": [
+        "watching",
+        "deceiving",
+        "manifesting",
+        "hunting"
+      ],
+      "signs": [
+        "clue_lullaby_same_voice",
+        "clue_patient_ash_cough",
+        "clue_burned_photo_half"
+      ],
+      "weakness": "Sanctified ash reversal and recovery of every burned keepsake anchor.",
+      "anchor": "Burned keepsakes split across family sites.",
+      "kill_condition": "Find each ash-anchor, sever brood links, expose prime host, and banish before reseeding.",
+      "actions": [
+        "sing through children",
+        "comfort victims into possession",
+        "hide inside burned objects",
+        "turn grief into doors"
+      ]
+    },
+    {
+      "id": "threshold_hag",
+      "name": "Hag of the Ninth Door",
+      "type": "Fae Witch",
+      "tags": [
+        "fae",
+        "threshold",
+        "curse",
+        "sigils"
+      ],
+      "behavior_states": [
+        "watching",
+        "deceiving",
+        "manifesting",
+        "fleeing"
+      ],
+      "signs": [
+        "clue_door_price",
+        "clue_two_doors",
+        "clue_bone_charm_count"
+      ],
+      "weakness": "Iron, rowan, and destruction of curse knots at each marked door.",
+      "anchor": "A chain of door-price bargains.",
+      "kill_condition": "Break every curse knot, refuse the ninth door\u2019s price, and bind the hag with iron witness.",
+      "actions": [
+        "add a price to escape routes",
+        "move doors between locations",
+        "increase bone charm count",
+        "curse the safest plan"
+      ]
+    },
+    {
+      "id": "lantern_child",
+      "name": "The Lantern Child",
+      "type": "Omen Spirit",
+      "tags": [
+        "spirit",
+        "children",
+        "roadside",
+        "blood"
+      ],
+      "behavior_states": [
+        "dormant",
+        "watching",
+        "luring",
+        "contained"
+      ],
+      "signs": [
+        "clue_roadside_cross_wrong_names",
+        "clue_child_drawing_well",
+        "clue_lullaby_same_voice"
+      ],
+      "weakness": "Return of the lost path and acknowledgement by name.",
+      "anchor": "A memorial lantern lit for the wrong child.",
+      "kill_condition": "Identify the child actually lost, correct the memorial, and extinguish the lantern with saltwater.",
+      "actions": [
+        "lead Wardens to living memorials",
+        "appear before deaths",
+        "trade names on crosses",
+        "hide behind child testimony"
+      ]
+    },
+    {
+      "id": "rotting_archive",
+      "name": "The Rotting Archive",
+      "type": "Living Curse / Knowledge Parasite",
+      "tags": [
+        "records",
+        "curse",
+        "sigils",
+        "elder_god"
+      ],
+      "behavior_states": [
+        "dormant",
+        "watching",
+        "deceiving",
+        "manifesting"
+      ],
+      "signs": [
+        "clue_library_pages_removed",
+        "clue_archivist_stamp_false",
+        "clue_final_anchor_is_story"
+      ],
+      "weakness": "Corrected record chain and destruction of the false founding text.",
+      "anchor": "A story everyone repeats incorrectly.",
+      "kill_condition": "Reconstruct the true event, publicly correct the false story, and burn the false archive under warding.",
+      "actions": [
+        "remove pages after discovery",
+        "make false records feel official",
+        "rewrite witness memory",
+        "feed on repeated misinformation"
+      ]
+    },
+    {
+      "id": "black_key_echo",
+      "name": "Black Key Echo",
+      "type": "Threshold Entity",
+      "tags": [
+        "threshold",
+        "relics",
+        "elder_god",
+        "sigils"
+      ],
+      "behavior_states": [
+        "watching",
+        "luring",
+        "manifesting",
+        "cornered"
+      ],
+      "signs": [
+        "clue_elevator_extra_floor",
+        "clue_basement_smells_rain",
+        "clue_clock_stolen_minute"
+      ],
+      "weakness": "The key opens both ways; lock it with a named cost and refuse entry.",
+      "anchor": "A supernatural lock that should have remained sealed.",
+      "kill_condition": "Identify which door was opened, recover the key echo, close the lock with the right name, and prevent the passenger from crossing.",
+      "actions": [
+        "open impossible doors",
+        "offer shortcuts",
+        "let something follow through",
+        "move rooms out of order"
+      ]
+    }
+  ],
+  "sign_modules": [
+    {
+      "id": "sulfur_trace",
+      "name": "Sulfur Trace",
+      "tags": [
+        "demon"
+      ],
+      "surface": "A sulfur odor blooms and vanishes without a source.",
+      "deep": "The scent spikes near thresholds and speaker wiring.",
+      "points_to": [
+        "demon",
+        "ritual",
+        "threshold"
+      ]
+    },
+    {
+      "id": "cold_spot",
+      "name": "Localized Cold Spot",
+      "tags": [
+        "spirit",
+        "death"
+      ],
+      "surface": "The air drops cold enough to fog breath.",
+      "deep": "The cold follows names spoken aloud, not movement.",
+      "points_to": [
+        "spirit",
+        "anchor",
+        "name"
+      ]
+    },
+    {
+      "id": "wrong_reflection",
+      "name": "Wrong Reflection",
+      "tags": [
+        "spirit",
+        "illusion",
+        "djinn"
+      ],
+      "surface": "A reflection lags half a second behind.",
+      "deep": "Only the reflected room shows an extra door.",
+      "points_to": [
+        "mirror",
+        "illusion",
+        "hidden location"
+      ]
+    },
+    {
+      "id": "iron_flinch",
+      "name": "Iron Flinch",
+      "tags": [
+        "fae",
+        "creature"
+      ],
+      "surface": "The target avoids iron without acknowledging it.",
+      "deep": "Iron does not injure immediately; it interrupts disguise and crossing.",
+      "points_to": [
+        "fae",
+        "threshold",
+        "weakness"
+      ]
+    },
+    {
+      "id": "black_ash_sign",
+      "name": "Black Ash",
+      "tags": [
+        "demon",
+        "seal",
+        "ritual"
+      ],
+      "surface": "Fine black ash gathers where hands touched stone.",
+      "deep": "The ash contains burned bone, old lime, and iron filings.",
+      "points_to": [
+        "seal",
+        "possession",
+        "lower room"
+      ]
+    },
+    {
+      "id": "shared_phrase",
+      "name": "Shared Phrase",
+      "tags": [
+        "choir",
+        "demon",
+        "cult"
+      ],
+      "surface": "Different witnesses repeat the same phrase word-for-word.",
+      "deep": "The cadence matches the bodycam audio distortion.",
+      "points_to": [
+        "black choir",
+        "audio",
+        "ritual"
+      ]
+    },
+    {
+      "id": "impossible_tracks",
+      "name": "Impossible Tracks",
+      "tags": [
+        "creature",
+        "predator",
+        "fae"
+      ],
+      "surface": "Tracks begin where no path leads in and stop before open ground.",
+      "deep": "The stride changes when the track crosses old ward lines.",
+      "points_to": [
+        "predator",
+        "ward",
+        "threshold"
+      ]
+    },
+    {
+      "id": "erased_record",
+      "name": "Erased Record",
+      "tags": [
+        "warden",
+        "authority",
+        "coverup"
+      ],
+      "surface": "A file exists in the index but not in the drawer.",
+      "deep": "The missing number appears in a Warden report carbon copy.",
+      "points_to": [
+        "warden coverup",
+        "old case",
+        "authority"
+      ]
+    },
+    {
+      "id": "red_thread_sign",
+      "name": "Red Thread Knot",
+      "tags": [
+        "fae",
+        "bargain",
+        "bridge"
+      ],
+      "surface": "Red thread binds offerings to a railing or doorframe.",
+      "deep": "Each knot encodes a name or nickname.",
+      "points_to": [
+        "fae bargain",
+        "name price",
+        "threshold"
+      ]
+    },
+    {
+      "id": "ward_geometry",
+      "name": "Damaged Ward Geometry",
+      "tags": [
+        "sigils",
+        "warden",
+        "ritual"
+      ],
+      "surface": "Old ward lines are scratched through at precise points.",
+      "deep": "The cuts redirect sound toward the lower room.",
+      "points_to": [
+        "bell resonance",
+        "sabotage",
+        "seal"
+      ]
+    },
+    {
+      "id": "childlike_drawing",
+      "name": "Childlike Prophetic Drawing",
+      "tags": [
+        "children",
+        "blood",
+        "fae",
+        "spirit"
+      ],
+      "surface": "A childish drawing shows a place the child has never seen.",
+      "deep": "The drawing includes a hidden door, route, or anchor symbol.",
+      "points_to": [
+        "clue_child_drawing_well",
+        "old_well",
+        "school_hall"
+      ]
+    },
+    {
+      "id": "black_ash_breath",
+      "name": "Black Ash Breath",
+      "tags": [
+        "demon",
+        "possession",
+        "ash"
+      ],
+      "surface": "A survivor coughs black ash during specific questions.",
+      "deep": "The ash appears only when the host resists the possessing voice.",
+      "points_to": [
+        "clue_patient_ash_cough",
+        "clue_possessor_avoids_pronouns"
+      ]
+    },
+    {
+      "id": "backward_radio_prayer",
+      "name": "Backward Radio Prayer",
+      "tags": [
+        "radio",
+        "sound",
+        "demon",
+        "sigils"
+      ],
+      "surface": "Radio static forms half-heard prayer.",
+      "deep": "Reversed playback changes it into an invitation.",
+      "points_to": [
+        "clue_static_prayer",
+        "tower_room"
+      ]
+    },
+    {
+      "id": "threshold_red_thread",
+      "name": "Red Thread at the Threshold",
+      "tags": [
+        "fae",
+        "threshold",
+        "bargain"
+      ],
+      "surface": "A red thread is tied across or around a door.",
+      "deep": "It marks where a bargain was accepted.",
+      "points_to": [
+        "clue_red_thread_bargain",
+        "threshold_cage"
+      ]
+    },
+    {
+      "id": "warm_empty_box",
+      "name": "Warm Empty Relic Box",
+      "tags": [
+        "relics",
+        "warden",
+        "gear"
+      ],
+      "surface": "An empty relic box is warm and humming.",
+      "deep": "The missing object left recently or was taken from inside.",
+      "points_to": [
+        "clue_relic_box_empty_warm",
+        "evidence_lockup"
+      ]
+    },
+    {
+      "id": "wrong_ammo_cache",
+      "name": "Wrong Countermeasure Cache",
+      "tags": [
+        "relics",
+        "hunter",
+        "creature"
+      ],
+      "surface": "A hunter cache is stocked for the wrong entity.",
+      "deep": "The mistake looks deliberate, not careless.",
+      "points_to": [
+        "clue_hunter_cache_wrong_ammo",
+        "clue_quartermaster_warning"
+      ]
+    },
+    {
+      "id": "living_memorial",
+      "name": "Living Names on Memorial Crosses",
+      "tags": [
+        "roadside",
+        "spirit",
+        "blood"
+      ],
+      "surface": "Memorial crosses list people still alive.",
+      "deep": "The dates point to future attack windows.",
+      "points_to": [
+        "clue_roadside_cross_wrong_names",
+        "roadside_crosses"
+      ]
+    },
+    {
+      "id": "time_skip_clocks",
+      "name": "Synchronized Missing Minute",
+      "tags": [
+        "time",
+        "train",
+        "threshold"
+      ],
+      "surface": "Every clock skips the same minute.",
+      "deep": "The missing minute is when the entity acts unseen.",
+      "points_to": [
+        "clue_clock_stolen_minute",
+        "train_depot"
+      ]
+    },
+    {
+      "id": "sour_milk_threshold",
+      "name": "Soured Milk Offering",
+      "tags": [
+        "fae",
+        "threshold",
+        "bargain"
+      ],
+      "surface": "Milk spoils instantly near a doorway.",
+      "deep": "A fae rule has been accepted at that threshold.",
+      "points_to": [
+        "clue_milk_sour_threshold",
+        "clue_door_price"
+      ]
+    },
+    {
+      "id": "mirror_delay",
+      "name": "Delayed Reflection",
+      "tags": [
+        "possession",
+        "spirit",
+        "djinn"
+      ],
+      "surface": "A reflection moves a beat late.",
+      "deep": "The host, spirit, or illusion is not perfectly synchronized with the body.",
+      "points_to": [
+        "clue_mirror_host_delay",
+        "clue_witness_speaks_plural"
+      ]
+    },
+    {
+      "id": "animal_refusal",
+      "name": "Animal Refusal",
+      "tags": [
+        "creature",
+        "fae",
+        "demon",
+        "threshold"
+      ],
+      "surface": "Animals refuse to enter a location.",
+      "deep": "They react to a threshold rule rather than visible danger.",
+      "points_to": [
+        "clue_animal_refusal",
+        "clue_milk_sour_threshold"
+      ]
+    },
+    {
+      "id": "frost_words",
+      "name": "Frost-Written Warning",
+      "tags": [
+        "spirit",
+        "divine",
+        "vessel"
+      ],
+      "surface": "Words form in frost on the window.",
+      "deep": "The message responds to questions about hosts and vessels.",
+      "points_to": [
+        "clue_window_frost_words",
+        "clue_vessel_bloodline_chart"
+      ]
+    },
+    {
+      "id": "future_phone_call",
+      "name": "Future Phone Call",
+      "tags": [
+        "time",
+        "spirit",
+        "roadside"
+      ],
+      "surface": "A phone receives a call from someone not yet dead.",
+      "deep": "The call comes from the next pressure-clock threshold.",
+      "points_to": [
+        "clue_phone_calls_future",
+        "clue_clock_stolen_minute"
+      ]
+    },
+    {
+      "id": "impossible_floor",
+      "name": "Impossible Floor",
+      "tags": [
+        "threshold",
+        "elder_god",
+        "sigils"
+      ],
+      "surface": "An elevator or stairwell opens onto a floor not in the plans.",
+      "deep": "The building is becoming a map of the seal beneath it.",
+      "points_to": [
+        "clue_elevator_extra_floor",
+        "clue_basement_smells_rain"
+      ]
+    }
+  ],
+  "prep_modules": [
+    {
+      "id": "salt_line",
+      "name": "Salt Line",
+      "aliases": [
+        "salt",
+        "salt line",
+        "salt circle"
+      ],
+      "tags": [
+        "spirit",
+        "demon",
+        "containment"
+      ],
+      "effect": "Blocks or slows spirits and some infernal crossing. Reduces haunt/possession pressure by 1 when placed correctly.",
+      "requires": "salt pack or improvised salt source"
+    },
+    {
+      "id": "iron_nails",
+      "name": "Iron Nail Threshold",
+      "aliases": [
+        "iron nails",
+        "iron line",
+        "iron"
+      ],
+      "tags": [
+        "fae",
+        "threshold",
+        "containment"
+      ],
+      "effect": "Interrupts fae crossing, glamour, and some threshold tricks. Adds +1 prep against fae or veil distortions.",
+      "requires": "iron nails or cold iron scraps"
+    },
+    {
+      "id": "silver_rounds",
+      "name": "Silver Rounds",
+      "aliases": [
+        "silver",
+        "silver rounds",
+        "silver ammo"
+      ],
+      "tags": [
+        "creature",
+        "werewolf",
+        "rugaru"
+      ],
+      "effect": "Bypasses many beast/predator resistances. Useless against pure ritual structure unless the entity manifests physically.",
+      "requires": "silver filings and ammunition"
+    },
+    {
+      "id": "silence_ward",
+      "name": "Silence Ward",
+      "aliases": [
+        "silence ward",
+        "silence rig",
+        "mute bell",
+        "dampen bell"
+      ],
+      "tags": [
+        "bell",
+        "sound",
+        "choir",
+        "elder_god"
+      ],
+      "effect": "Dampens the bell resonance. Required for the black choir / lower room resolution path.",
+      "requires": "waxed cloth, chalk, iron nails, or field locker rig"
+    },
+    {
+      "id": "exorcism_space",
+      "name": "Exorcism Space",
+      "aliases": [
+        "exorcism",
+        "exorcism circle",
+        "holy water"
+      ],
+      "tags": [
+        "demon",
+        "possessor"
+      ],
+      "effect": "Creates a controlled place to separate possessor from host. Requires time and protection.",
+      "requires": "holy water, salt, witness, symbol"
+    },
+    {
+      "id": "ward_repair",
+      "name": "Ward Repair",
+      "aliases": [
+        "repair wards",
+        "ward repair",
+        "fix marks"
+      ],
+      "tags": [
+        "sigils",
+        "warden",
+        "seal"
+      ],
+      "effect": "Restores old Warden geometry, reducing pressure and slowing ritual progress.",
+      "requires": "chalk, salt paste, sigil knowledge"
+    },
+    {
+      "id": "bait_trap",
+      "name": "Bait Trap",
+      "aliases": [
+        "bait",
+        "bait trap",
+        "lure"
+      ],
+      "tags": [
+        "creature",
+        "predator"
+      ],
+      "effect": "Pulls predator into chosen ground if the clue trail identifies its hunger or hunting method.",
+      "requires": "bait tied to entity behavior"
+    },
+    {
+      "id": "mirror_cover",
+      "name": "Mirror Cover",
+      "aliases": [
+        "cover mirrors",
+        "mirror cover",
+        "break mirror"
+      ],
+      "tags": [
+        "mirror",
+        "spirit",
+        "djinn"
+      ],
+      "effect": "Blocks mirror shade or illusion line-of-sight. Can reveal false room logic.",
+      "requires": "cloth, paint, salt, or force"
+    },
+    {
+      "id": "speaker_cutoff",
+      "name": "Speaker Cutoff",
+      "aliases": [
+        "cut speakers",
+        "speaker system",
+        "pa system",
+        "cut cable"
+      ],
+      "tags": [
+        "sound",
+        "choir",
+        "ritual"
+      ],
+      "effect": "Severs one sound-channel used by the ritual network. Reduces Black Choir pressure.",
+      "requires": "access to annex or tunnel cable"
+    },
+    {
+      "id": "true_name_research",
+      "name": "True Name Research",
+      "aliases": [
+        "true name",
+        "name research",
+        "find name"
+      ],
+      "tags": [
+        "demon",
+        "fae",
+        "spirit"
+      ],
+      "effect": "Opens binding or bargain resolution paths. Usually needs records plus witness truth.",
+      "requires": "records, witness, or anchor object"
+    },
+    {
+      "id": "iron_nail_threshold",
+      "name": "Iron Nail Threshold",
+      "aliases": [
+        "iron nails",
+        "nail threshold",
+        "threshold nails"
+      ],
+      "tags": [
+        "fae",
+        "threshold",
+        "spirit"
+      ],
+      "effect": "Locks a doorway, well, or bridge against casual crossing and exposes fae pressure.",
+      "requires": [
+        "iron",
+        "doorway"
+      ]
+    },
+    {
+      "id": "grounding_line",
+      "name": "Grounding Line",
+      "aliases": [
+        "grounding wire",
+        "ground line"
+      ],
+      "tags": [
+        "radio",
+        "sound",
+        "demon",
+        "technology"
+      ],
+      "effect": "Bleeds off supernatural signal pressure and reduces radio/PA manifestations.",
+      "requires": [
+        "wire",
+        "metal stake"
+      ]
+    },
+    {
+      "id": "evidence_chain_packet",
+      "name": "Verified Evidence Chain Packet",
+      "aliases": [
+        "evidence packet",
+        "chain of evidence"
+      ],
+      "tags": [
+        "records",
+        "infiltration",
+        "demon"
+      ],
+      "effect": "Protects research from false-witness corruption and reduces investigation misdirection.",
+      "requires": [
+        "copies",
+        "witness signatures"
+      ]
+    },
+    {
+      "id": "rowan_snare",
+      "name": "Rowan Snare",
+      "aliases": [
+        "rowan trap",
+        "red thread snare"
+      ],
+      "tags": [
+        "fae",
+        "curse",
+        "threshold"
+      ],
+      "effect": "Restrains night-roaming fae and forces a bargain-maker to manifest or answer.",
+      "requires": [
+        "rowan",
+        "red thread",
+        "iron pin"
+      ]
+    },
+    {
+      "id": "saltwater_lantern",
+      "name": "Saltwater Lantern",
+      "aliases": [
+        "lantern",
+        "salt lantern"
+      ],
+      "tags": [
+        "spirit",
+        "roadside",
+        "children"
+      ],
+      "effect": "Reveals omen spirits and lets a false memorial be safely corrected.",
+      "requires": [
+        "saltwater",
+        "lantern"
+      ]
+    },
+    {
+      "id": "clock_sync_ritual",
+      "name": "Clock Synchronization Rite",
+      "aliases": [
+        "sync clocks",
+        "clock rite"
+      ],
+      "tags": [
+        "time",
+        "spirit",
+        "train"
+      ],
+      "effect": "Restores a stolen minute long enough to confront time-skipping entities.",
+      "requires": [
+        "three clocks",
+        "salt circle"
+      ]
+    },
+    {
+      "id": "wish_cost_ledger",
+      "name": "Wish-Cost Ledger",
+      "aliases": [
+        "ledger",
+        "cost ledger"
+      ],
+      "tags": [
+        "djinn",
+        "records",
+        "illusion"
+      ],
+      "effect": "Names the cost of a wish and makes djinn loops easier to break.",
+      "requires": [
+        "written wish",
+        "witness account"
+      ]
+    },
+    {
+      "id": "bloodline_ward",
+      "name": "Bloodline Ward",
+      "aliases": [
+        "blood ward",
+        "vessel ward"
+      ],
+      "tags": [
+        "vessel",
+        "divine",
+        "possession",
+        "blood"
+      ],
+      "effect": "Stabilizes a possible vessel or suppresses bloodline-triggered possession.",
+      "requires": [
+        "family item",
+        "ward ink"
+      ]
+    },
+    {
+      "id": "wrong_prep_audit",
+      "name": "Wrong-Prep Audit",
+      "aliases": [
+        "audit gear",
+        "check ammo",
+        "prep audit"
+      ],
+      "tags": [
+        "relics",
+        "hunter",
+        "gear"
+      ],
+      "effect": "Confirms whether gear matches the actual entity instead of the obvious false lead.",
+      "requires": [
+        "known sign",
+        "gear list"
+      ]
+    },
+    {
+      "id": "ash_anchor_jars",
+      "name": "Ash Anchor Jars",
+      "aliases": [
+        "ash jars",
+        "anchor jars"
+      ],
+      "tags": [
+        "demon",
+        "ash",
+        "family"
+      ],
+      "effect": "Contains burned keepsake anchors so a possession queen cannot reseed through them.",
+      "requires": [
+        "glass jars",
+        "holy oil",
+        "labels"
+      ]
+    },
+    {
+      "id": "true_name_quarantine",
+      "name": "True Name Quarantine",
+      "aliases": [
+        "name quarantine",
+        "sealed name"
+      ],
+      "tags": [
+        "fae",
+        "demon",
+        "sigils"
+      ],
+      "effect": "Lets Wardens test a name without speaking it aloud into the case.",
+      "requires": [
+        "paper",
+        "mirror",
+        "salt"
+      ]
+    },
+    {
+      "id": "route_map_overlay",
+      "name": "Route Map Overlay",
+      "aliases": [
+        "map overlay",
+        "route overlay"
+      ],
+      "tags": [
+        "roadside",
+        "sigils",
+        "elder_god"
+      ],
+      "effect": "Connects modular sites into a seal route and identifies which location should be checked next.",
+      "requires": [
+        "map",
+        "marker",
+        "three site clues"
+      ]
+    }
+  ],
+  "complication_modules": [
+    {
+      "id": "witness_panics",
+      "name": "Witness Panics",
+      "tags": [
+        "blood",
+        "social"
+      ],
+      "trigger": "failed social roll",
+      "effect": "The witness shuts down, calls authority, or flees to a dangerous place.",
+      "pressure": 1
+    },
+    {
+      "id": "false_lead",
+      "name": "False Lead",
+      "tags": [
+        "research",
+        "moon"
+      ],
+      "trigger": "failed research",
+      "effect": "The next theory points toward the wrong entity unless cross-checked.",
+      "pressure": 1
+    },
+    {
+      "id": "ambush_window",
+      "name": "Ambush Window",
+      "tags": [
+        "blades",
+        "combat"
+      ],
+      "trigger": "blind movement or failed investigate",
+      "effect": "The threat gets a free hostile move against an isolated Warden.",
+      "pressure": 2
+    },
+    {
+      "id": "gear_failure",
+      "name": "Gear Failure",
+      "tags": [
+        "relics",
+        "prep"
+      ],
+      "trigger": "failed prep",
+      "effect": "A prepared tool works once, then breaks or adds a setback.",
+      "pressure": 1
+    },
+    {
+      "id": "ritual_backlash",
+      "name": "Ritual Backlash",
+      "tags": [
+        "sigils",
+        "occult"
+      ],
+      "trigger": "failed casting",
+      "effect": "Caster gains strain, false vision, or unwanted attention.",
+      "pressure": 2
+    },
+    {
+      "id": "authority_blocks",
+      "name": "Authority Blocks Access",
+      "tags": [
+        "authority",
+        "emperor"
+      ],
+      "trigger": "public escalation",
+      "effect": "Sheriff, hospital, or records office access is restricted.",
+      "pressure": 1
+    },
+    {
+      "id": "split_memory",
+      "name": "Split Memory",
+      "tags": [
+        "illusion",
+        "moon"
+      ],
+      "trigger": "bell or djinn effect",
+      "effect": "Different players receive conflicting private descriptions.",
+      "pressure": 1
+    },
+    {
+      "id": "countdown_advances",
+      "name": "Countdown Advances",
+      "tags": [
+        "sigils",
+        "chariot"
+      ],
+      "trigger": "wait or repeated failure",
+      "effect": "The ritual advances by one stage and another sign appears.",
+      "pressure": 2
+    },
+    {
+      "id": "possession_spike",
+      "name": "Possession Spike",
+      "tags": [
+        "demon",
+        "will"
+      ],
+      "trigger": "close contact with host",
+      "effect": "A Warden or NPC must resist a control impulse.",
+      "pressure": 2
+    },
+    {
+      "id": "location_compromised",
+      "name": "Location Compromised",
+      "tags": [
+        "tower",
+        "crisis"
+      ],
+      "trigger": "pressure 8+",
+      "effect": "A safe or known location becomes unsafe.",
+      "pressure": 3
+    },
+    {
+      "id": "witness_vanishes",
+      "name": "Witness Vanishes",
+      "tags": [
+        "blood",
+        "witness",
+        "pressure"
+      ],
+      "trigger": "failed social investigation or high pressure",
+      "effect": "A key witness disappears, leaving only one private clue behind.",
+      "pressure": 2
+    },
+    {
+      "id": "authority_lockdown",
+      "name": "Authority Lockdown",
+      "tags": [
+        "authority",
+        "sheriff",
+        "records"
+      ],
+      "trigger": "public investigation at official site",
+      "effect": "Access to records or evidence requires deception, warrant, or stealth.",
+      "pressure": 1
+    },
+    {
+      "id": "wrong_gear_trap",
+      "name": "Wrong Gear Trap",
+      "tags": [
+        "relics",
+        "gear",
+        "hunter"
+      ],
+      "trigger": "prepping before entity is narrowed",
+      "effect": "The prepared gear works, but against the wrong threat; blind confrontation gains extra pressure.",
+      "pressure": 2
+    },
+    {
+      "id": "private_message_from_entity",
+      "name": "Private Message from Entity",
+      "tags": [
+        "private",
+        "demon",
+        "spirit",
+        "fae"
+      ],
+      "trigger": "split party or private command",
+      "effect": "One Warden receives a useful but manipulative private clue.",
+      "pressure": 1
+    },
+    {
+      "id": "location_shifts",
+      "name": "Location Shifts",
+      "tags": [
+        "threshold",
+        "djinn",
+        "elder_god"
+      ],
+      "trigger": "failed movement or ritual casting",
+      "effect": "A known exit leads to a different module until the anchor is identified.",
+      "pressure": 2
+    },
+    {
+      "id": "possessed_ally_micro_action",
+      "name": "Possessed Ally Micro-Action",
+      "tags": [
+        "possession",
+        "demon",
+        "blood"
+      ],
+      "trigger": "failed Will/occult roll near host",
+      "effect": "The entity takes one small action through a host or NPC.",
+      "pressure": 2
+    },
+    {
+      "id": "memory_contamination",
+      "name": "Memory Contamination",
+      "tags": [
+        "fae",
+        "spirit",
+        "records"
+      ],
+      "trigger": "failed research about old events",
+      "effect": "A clue is true but attached to the wrong person until verified.",
+      "pressure": 1
+    },
+    {
+      "id": "ritual_clock_advances",
+      "name": "Ritual Clock Advances",
+      "tags": [
+        "sigils",
+        "ritual",
+        "elder_god"
+      ],
+      "trigger": "failure, delay, or wait during sigil case",
+      "effect": "The active ritual gains a stage and unlocks a crisis sign.",
+      "pressure": 2
+    },
+    {
+      "id": "safehouse_not_safe",
+      "name": "Safehouse Not Safe",
+      "tags": [
+        "warden",
+        "demon",
+        "relics"
+      ],
+      "trigger": "returning to safety with unrevealed anchor",
+      "effect": "A prep location becomes compromised and gear may be sabotaged.",
+      "pressure": 2
+    },
+    {
+      "id": "false_confession",
+      "name": "False Confession",
+      "tags": [
+        "witness",
+        "records",
+        "demon"
+      ],
+      "trigger": "strong pressure during social scene",
+      "effect": "An NPC confesses to protect someone or because testimony is corrupted.",
+      "pressure": 1
+    },
+    {
+      "id": "environment_turns_hostile",
+      "name": "Environment Turns Hostile",
+      "tags": [
+        "creature",
+        "spirit",
+        "threshold"
+      ],
+      "trigger": "high pressure at dangerous location",
+      "effect": "Terrain adds setbacks until a prep module stabilizes it.",
+      "pressure": 1
+    },
+    {
+      "id": "cost_comes_due",
+      "name": "Cost Comes Due",
+      "tags": [
+        "fae",
+        "djinn",
+        "relics",
+        "bargain"
+      ],
+      "trigger": "using powerful prep or relic without knowing cost",
+      "effect": "A bargain, wish, or relic cost is collected immediately.",
+      "pressure": 2
+    }
+  ],
+  "clue_definitions": {
+    "clue_caleb_midnight": "Caleb was sneaking out after midnight before the incident.",
+    "clue_lower_room": "A hidden lower room exists beneath the church.",
+    "clue_black_star": "Nine circles around a black star mark the deeper threat.",
+    "clue_bell_resonator": "The underground bell resonates through the seal rather than ringing normally.",
+    "clue_underground_bell": "Witnesses hear a bell underground despite no church bell existing.",
+    "clue_black_star_drawing": "Caleb drew the black star repeatedly before vanishing.",
+    "clue_smoke_mud_metal": "Caleb's jacket links candle smoke, river mud, and metal trace.",
+    "clue_sheriff_key": "The sheriff has an old key connected to the church or Wardens.",
+    "clue_warden_key": "The key is marked with an old Warden safehouse code.",
+    "clue_old_case": "A similar incident occurred fifteen years ago and was mislabeled.",
+    "clue_warden_coverup": "A Warden handler ordered local records suppressed.",
+    "clue_group_floor_stare": "The group stared at the floor when the bell sounded.",
+    "clue_memory_bell": "The bell creates shared false memories.",
+    "clue_bell_chain": "The bell chain leads toward the lower chamber.",
+    "clue_mine_memory": "False memories contain old mine street names.",
+    "clue_open_the_ninth": "Bodycam audio says 'open the ninth.'",
+    "clue_nine_impacts": "The bell audio contains nine overlapping impacts.",
+    "clue_annex_candlelight": "Candlelight was seen in the annex with no cars outside.",
+    "clue_acoustic_seal": "The lower chamber was labeled as an acoustic seal.",
+    "clue_star_disasters": "The black star appears across several town disasters.",
+    "clue_do_not_destroy_bell": "Old Warden report warns not to destroy the bell.",
+    "clue_ash_bone_iron": "Black ash contains burned bone and iron filings.",
+    "clue_voice_matches_bell": "The survivor's voice distortion matches the bell audio.",
+    "clue_internal_grip": "Bruises suggest possession pressure from inside the body.",
+    "clue_church_is_lid": "An old hunter says the church is a lid, not just a haunted site.",
+    "clue_silence_over_damage": "Stopping the bell matters more than damaging the entity.",
+    "clue_silence_rig": "An old Warden silence rig may exist at the salvage yard.",
+    "clue_door_price": "A fae or threshold bargain may have opened access.",
+    "clue_two_doors": "The bridge and lower room are both thresholds.",
+    "clue_name_price": "A name was part of a bargain price.",
+    "clue_rehearsal_chant": "The meetings were rehearsals for speaking in one voice.",
+    "clue_speaker_voice": "The leader's voice came through speakers with no power.",
+    "clue_black_ocean_dream": "The cult shares a dream of a black ocean and a huge thing turning.",
+    "clue_meeting_dates": "Meeting dates match underground bell reports.",
+    "clue_ninth_seal": "The ninth seal is active and thinning.",
+    "clue_do_not_shoot_bell": "Do not shoot the bell; it must be silenced, not shattered.",
+    "clue_next_date_tonight": "The next ritual date is tonight.",
+    "clue_ward_redirect": "Scratched Warden marks redirect sound toward the seal.",
+    "clue_iron_flinch": "A road predator flinched at iron guardrail bolts.",
+    "clue_copycat_lure": "A forest clue is staged to imitate the bell pattern.",
+    "clue_child_drawing_well": "A child drew the well with a door inside it; no adult claims to know why.",
+    "clue_well_echo_name": "The well repeats a Warden name three seconds before anyone says it.",
+    "clue_hospital_blackout_pattern": "Hospital outages match the exact pulse of the entity\u2019s manifestation cycle.",
+    "clue_patient_ash_cough": "The survivor coughs black ash only when questioned about the missing hour.",
+    "clue_sheriff_erased_minutes": "The sheriff\u2019s report is missing eleven minutes between dispatch and arrival.",
+    "clue_body_temp_drop": "The corpse temperature dropped too quickly for natural death.",
+    "clue_animal_refusal": "Animals refuse to cross the threshold even when forced or hungry.",
+    "clue_three_knocks": "Three knocks precede every escalation event.",
+    "clue_red_thread_bargain": "A red thread tied around a doorknob marks an accepted bargain.",
+    "clue_milk_sour_threshold": "Milk spoils instantly near the marked threshold.",
+    "clue_iron_burned_floor": "The floorboards are burned in the shape of old iron nails.",
+    "clue_lullaby_same_voice": "Different witnesses heard the same lullaby in the same impossible voice.",
+    "clue_old_weather_station_signal": "A weather station recorded chanting where wind data should be.",
+    "clue_static_prayer": "A prayer is hidden under radio static, playing backward.",
+    "clue_roadside_cross_wrong_names": "Roadside crosses list names of people who are still alive.",
+    "clue_motel_room_repeats": "Motel room 12 resets every morning except for one growing bloodstain.",
+    "clue_train_schedule_dead": "A train schedule shows a stop that was closed after a mass death.",
+    "clue_cemetery_grave_empty": "The grave is empty, but the soil above it is freshly warm.",
+    "clue_school_bell_after_midnight": "The school bell rings at midnight despite being disconnected.",
+    "clue_gym_floor_circle": "The gym floor is scuffed into a perfect ritual circle by dragged chairs.",
+    "clue_factory_locker_names": "Old factory lockers contain names of current victims.",
+    "clue_burned_photo_half": "Half of every family photo is burned, always the same side.",
+    "clue_blood_on_inside_lock": "Blood is on the inside of the lock, not outside.",
+    "clue_salt_line_broken_inward": "The salt line was broken from inside the safe room.",
+    "clue_doll_hair_match": "Hair inside the doll matches a witness who never entered the house.",
+    "clue_drain_whispers": "Whispers rise through drains whenever holy water is nearby.",
+    "clue_river_runs_backward": "The river current reverses for exactly thirteen seconds at dusk.",
+    "clue_bridge_toll_coin": "A coin under the bridge is minted with tomorrow\u2019s date.",
+    "clue_library_pages_removed": "Every book about the town founding is missing the same six pages.",
+    "clue_archivist_stamp_false": "An archive stamp appears official but predates the agency itself.",
+    "clue_relic_box_empty_warm": "An empty relic box is warm and humming like something just escaped.",
+    "clue_camera_frame_extra_person": "Every camera frame includes one extra person no one remembers.",
+    "clue_mirror_host_delay": "The host\u2019s reflection moves half a second late.",
+    "clue_witness_speaks_plural": "The witness slips into \u201cwe\u201d when describing being alone.",
+    "clue_cult_meal_receipts": "Receipts from the diner show identical meals bought by different cult members.",
+    "clue_gas_station_sigils": "Bathroom graffiti at the gas station is actually a repeating sigil sequence.",
+    "clue_hunter_cache_wrong_ammo": "The hunter cache is stocked with the wrong countermeasure on purpose.",
+    "clue_quartermaster_warning": "An old quartermaster note says, \u201cIf it looks obvious, it is bait.\u201d",
+    "clue_bone_charm_count": "Bone charms increase by one after every failed investigation attempt.",
+    "clue_window_frost_words": "Frost on the window forms the words \u201cnot the first vessel.\u201d",
+    "clue_choir_many_radios": "Multiple radios speak as one choir from different stations.",
+    "clue_dream_black_sea": "Dreams of a black sea arrive only after a clue is found.",
+    "clue_wendigo_no_tracks_return": "Tracks enter the woods, but none come back \u2014 not even animal tracks.",
+    "clue_silver_reacts_black": "Silver turns black near the true anchor, not near the entity.",
+    "clue_fire_refuses_burn": "Fire refuses to burn in the room where the victim vanished.",
+    "clue_fae_name_erasure": "A name disappears from paper each time it is spoken aloud.",
+    "clue_djinn_wish_echo": "Every wish leaves an echo of what it cost in nearby reflections.",
+    "clue_vampire_no_invite": "The victim invited someone in, but every neighbor remembers a different guest.",
+    "clue_werewolf_moon_not_needed": "The attack happened under a new moon; this is not ordinary lycanthropy.",
+    "clue_rugaru_food_hoard": "The suspect hides untouched food everywhere, but is starving anyway.",
+    "clue_shadow_light_wrong": "The shadow moves toward the flashlight instead of away.",
+    "clue_wraith_tether_song": "The wraith\u2019s tether is a song, not an object.",
+    "clue_possessor_avoids_pronouns": "The possessor avoids first-person pronouns when speaking through the host.",
+    "clue_contract_fine_print_breath": "Fine print appears only when someone breathes on the contract.",
+    "clue_angel_mark_heat": "A divine mark burns hot near lies and cold near truth.",
+    "clue_vessel_bloodline_chart": "A bloodline chart marks three living people as possible vessels.",
+    "clue_seal_ninth_rotation": "The seal rotates one ninth after every death connected to the case.",
+    "clue_clock_stolen_minute": "Every clock in the site skips the same missing minute.",
+    "clue_phone_calls_future": "A phone receives calls from a version of the victim one hour in the future.",
+    "clue_elevator_extra_floor": "The elevator opens onto a floor that is not in the building plans.",
+    "clue_basement_smells_rain": "The basement smells like rain from a storm that has not happened yet.",
+    "clue_prophet_wrong_date": "A street preacher predicts the next victim but gives the wrong year.",
+    "clue_bible_margin_map": "A Bible margin contains a hand-drawn map to a sealed chamber.",
+    "clue_teeth_in_ashtray": "Human teeth in the ashtray belong to someone still alive.",
+    "clue_ritual_blood_not_human": "The ritual blood is not human, but it pretends to be under tests.",
+    "clue_wardens_old_badge": "An old Warden badge is hidden where only the entity could place it.",
+    "clue_final_anchor_is_story": "The anchor is not an object; it is the repeated story everyone keeps telling wrong."
+  }
+}

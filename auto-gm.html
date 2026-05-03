@@ -8,11 +8,11 @@
 <style>
 :root{--ink:#241f1b;--blood:#4b0d0d;--blood2:#7b1717;--paper:#efe8dc;--paper2:#fbf4e8;--line:#9d9385;--muted:#695f56;--dark:#29231f;--good:#1f6b3a;--warn:#a16000;--bad:#8d1b1b;--violet:#3b244b;--shadow:0 18px 45px rgba(26,18,12,.18)}
 *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh} button,input,select,textarea{font:inherit} button{cursor:pointer}.hidden{display:none!important}
-body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 17% 9%,rgba(95,78,62,.12) 0 5%,transparent 5.4%),radial-gradient(circle at 68% 18%,rgba(125,65,50,.09) 0 7%,transparent 7.3%),radial-gradient(circle at 82% 88%,rgba(80,70,60,.08) 0 6%,transparent 6.3%),radial-gradient(circle at 35% 78%,rgba(125,65,50,.08) 0 4%,transparent 4.3%),linear-gradient(90deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%),linear-gradient(0deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%)}
-body:after{content:"✦";position:fixed;left:50%;top:24px;transform:translateX(-50%);font-size:220px;color:rgba(70,64,58,.055);z-index:-1;line-height:1}.wrap{max-width:1440px;margin:auto;padding:18px}.hero{border:1px solid rgba(89,74,60,.35);background:rgba(248,242,232,.9);box-shadow:var(--shadow);border-radius:24px;padding:20px;text-align:center;backdrop-filter:blur(8px)}.kicker{font-size:12px;letter-spacing:.35em;text-transform:uppercase;font-weight:900;color:rgba(75,13,13,.85)} h1{margin:2px 0 0;font-size:clamp(34px,5vw,64px);line-height:.95;text-transform:uppercase;letter-spacing:.04em}.sub{margin:.45rem 0 0;color:var(--muted);font-style:italic}.grid{display:grid;gap:14px}.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}.cols4{grid-template-columns:repeat(4,minmax(0,1fr))}.mainGrid{grid-template-columns:330px 1fr 360px}.caseGrid{grid-template-columns:1fr 1fr}.commandGrid{grid-template-columns:1.2fr .8fr}@media(max-width:1100px){.cols2,.cols3,.cols4,.mainGrid,.caseGrid,.commandGrid{grid-template-columns:1fr}.wrap{padding:10px}.hero{padding:16px}}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 17% 9%,rgba(95,78,62,.12) 0 5%,transparent 5.4%),radial-gradient(circle at 68% 18%,rgba(125,65,50,.09) 0 7%,transparent 7.3%),radial-gradient(circle at 82% 88%,rgba(80,70,60,.08) 0 6%,transparent 6.3%),linear-gradient(90deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%),linear-gradient(0deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%)}
+body:after{content:"✦";position:fixed;left:50%;top:24px;transform:translateX(-50%);font-size:220px;color:rgba(70,64,58,.055);z-index:-1;line-height:1}.wrap{max-width:1480px;margin:auto;padding:18px}.hero{border:1px solid rgba(89,74,60,.35);background:rgba(248,242,232,.9);box-shadow:var(--shadow);border-radius:24px;padding:20px;text-align:center;backdrop-filter:blur(8px)}.kicker{font-size:12px;letter-spacing:.35em;text-transform:uppercase;font-weight:900;color:rgba(75,13,13,.85)} h1{margin:2px 0 0;font-size:clamp(34px,5vw,64px);line-height:.95;text-transform:uppercase;letter-spacing:.04em}.sub{margin:.45rem 0 0;color:var(--muted);font-style:italic}.grid{display:grid;gap:14px}.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}.mainGrid{grid-template-columns:340px 1fr 390px}.caseGrid{grid-template-columns:1fr 1fr}.commandGrid{grid-template-columns:1.2fr .8fr}@media(max-width:1150px){.cols2,.cols3,.mainGrid,.caseGrid,.commandGrid{grid-template-columns:1fr}.wrap{padding:10px}.hero{padding:16px}}
 .card{border:1px solid rgba(89,74,60,.45);background:rgba(248,242,232,.94);box-shadow:0 12px 30px rgba(26,18,12,.12);border-radius:20px;padding:14px;backdrop-filter:blur(6px)}.card h2{margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid rgba(89,74,60,.35);font-size:18px;text-transform:uppercase;letter-spacing:.08em}.card h3{margin:0 0 8px;color:var(--blood);font-size:18px}.small{font-size:12px;color:var(--muted)}.note{background:rgba(75,13,13,.08);border:1px solid rgba(75,13,13,.22);padding:10px;border-radius:14px}.darknote{background:#2d2723;color:#fff;border-radius:14px;padding:12px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.center{text-align:center}.list{display:grid;gap:8px}.item{border:1px solid rgba(89,74,60,.38);background:rgba(255,255,255,.58);border-radius:14px;padding:10px}.item.active{outline:2px solid var(--blood2);background:rgba(255,255,255,.82)}.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;background:rgba(75,13,13,.12);border:1px solid rgba(75,13,13,.2);font-size:12px;font-weight:800}.pill.good{background:rgba(31,107,58,.12);border-color:rgba(31,107,58,.3)}.pill.warn{background:rgba(161,96,0,.12);border-color:rgba(161,96,0,.3)}.pill.bad{background:rgba(141,27,27,.12);border-color:rgba(141,27,27,.3)}.pill.private{background:rgba(59,36,75,.12);border-color:rgba(59,36,75,.35)}
 label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:#554a42;margin-bottom:4px} input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:rgba(255,255,255,.72);color:var(--ink)} textarea{min-height:90px;resize:vertical}.btn{border:0;border-radius:13px;padding:10px 13px;font-weight:900;background:var(--blood);color:white}.btn.secondary{background:#3b342f}.btn.ghost{background:rgba(255,255,255,.68);color:var(--ink);border:1px solid var(--line)}.btn.good{background:var(--good)}.btn.warn{background:var(--warn)}.btn.bad{background:var(--bad)}.btn.violet{background:var(--violet)}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.full{width:100%}
-.topbar{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tab{background:#342d28;color:#fff;border:0;border-radius:14px;padding:10px 13px;font-weight:800}.tab.active{background:var(--blood2)}.transcript{height:520px;overflow:auto;background:rgba(255,255,255,.45);border:1px solid var(--line);border-radius:16px;padding:10px}.msg{border-radius:14px;background:#fff9;margin:8px 0;padding:9px;border:1px solid rgba(89,74,60,.25)}.msg.private{background:rgba(237,225,246,.85);border-color:rgba(59,36,75,.25)}.msg.system{background:rgba(42,37,33,.92);color:#fff}.msg.roll.success{border-left:6px solid var(--good)}.msg.roll.fail{border-left:6px solid var(--bad)}.msg .meta{font-size:11px;color:var(--muted);font-weight:900}.msg.system .meta{color:#d8cec2}.dangerText{color:var(--bad);font-weight:900}.successText{color:var(--good);font-weight:900}.inlineRoll{font-family:ui-monospace,Menlo,Consolas,monospace;background:#fff8;border:1px solid var(--line);padding:3px 7px;border-radius:8px}.divider{height:1px;background:rgba(89,74,60,.3);margin:12px 0}.meter{height:12px;background:#fff;border:1px solid var(--line);border-radius:999px;overflow:hidden}.meter>span{display:block;height:100%;background:linear-gradient(90deg,var(--good),var(--warn),var(--bad));width:0}.commandBox{min-height:120px;font-family:ui-monospace,Consolas,monospace}.kbd{font-family:ui-monospace,Consolas,monospace;background:#2d2723;color:#fff;border-radius:8px;padding:2px 6px}.mono{font-family:ui-monospace,Consolas,monospace}.thinList{max-height:260px;overflow:auto}.privatePanel{background:rgba(59,36,75,.08);border-color:rgba(59,36,75,.25)}
+.topbar{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tab{background:#342d28;color:#fff;border:0;border-radius:14px;padding:10px 13px;font-weight:800}.tab.active{background:var(--blood2)}.transcript{height:560px;overflow:auto;background:rgba(255,255,255,.45);border:1px solid var(--line);border-radius:16px;padding:10px}.msg{border-radius:14px;background:#fff9;margin:8px 0;padding:9px;border:1px solid rgba(89,74,60,.25)}.msg.private{background:rgba(237,225,246,.85);border-color:rgba(59,36,75,.25)}.msg.system{background:rgba(42,37,33,.92);color:#fff}.msg.roll.success{border-left:6px solid var(--good)}.msg.roll.fail{border-left:6px solid var(--bad)}.msg .meta{font-size:11px;color:var(--muted);font-weight:900}.msg.system .meta{color:#d8cec2}.dangerText{color:var(--bad);font-weight:900}.successText{color:var(--good);font-weight:900}.inlineRoll{font-family:ui-monospace,Menlo,Consolas,monospace;background:#fff8;border:1px solid var(--line);padding:3px 7px;border-radius:8px}.divider{height:1px;background:rgba(89,74,60,.3);margin:12px 0}.meter{height:12px;background:#fff;border:1px solid var(--line);border-radius:999px;overflow:hidden}.meter>span{display:block;height:100%;background:linear-gradient(90deg,var(--good),var(--warn),var(--bad));width:0}.commandBox{min-height:120px;font-family:ui-monospace,Consolas,monospace}.kbd{font-family:ui-monospace,Consolas,monospace;background:#2d2723;color:#fff;border-radius:8px;padding:2px 6px}.mono{font-family:ui-monospace,Consolas,monospace}.thinList{max-height:310px;overflow:auto}.privatePanel{background:rgba(59,36,75,.08);border-color:rgba(59,36,75,.25)}.suggestion{display:inline-block;margin:2px 4px 2px 0;padding:4px 7px;border-radius:999px;background:#fff8;border:1px solid var(--line);font-size:12px;cursor:pointer}.moduleGrid{grid-template-columns:repeat(auto-fit,minmax(245px,1fr))}.jsonBox{height:420px;font-family:ui-monospace,Consolas,monospace;font-size:12px}
 </style>
 </head>
 <body>
@@ -20,11 +20,11 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
   <header class="hero">
     <div class="kicker">Night Wardens</div>
     <h1>Digital Field Guide</h1>
-    <p class="sub">Auto-GM case engine • shared party transcript • private split-branch narration • typed field commands</p>
+    <p class="sub">Auto-GM modular case engine • interactive fiction parser • shared party play • private split-branch narration</p>
     <div class="topbar">
       <div class="row">
         <a class="btn ghost" href="index.html">← Field Office</a>
-        <button class="btn" id="newCaseBtn">New Tarot Case</button>
+        <button class="btn" id="newCaseBtn">New Modular Case</button>
         <button class="btn secondary" id="saveBtn">Save</button>
         <button class="btn ghost" id="exportBtn">Export Case JSON</button>
         <label class="btn ghost" style="margin:0">Import Case JSON<input id="importCaseFile" type="file" accept="application/json" class="hidden"></label>
@@ -32,14 +32,15 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
       <div class="row small">
         <span id="campaignTag" class="pill">Local Case</span>
         <span id="syncTag" class="pill warn">LocalStorage fallback</span>
-        <span id="versionTag" class="pill">Pass 7</span>
+        <span id="versionTag" class="pill">Pass 10</span>
       </div>
     </div>
   </header>
 
   <nav class="nav">
     <button class="tab active" data-tab="play">Play</button>
-    <button class="tab" data-tab="case">Case State</button>
+    <button class="tab" data-tab="case">Case Graph</button>
+    <button class="tab" data-tab="modules">Modules</button>
     <button class="tab" data-tab="characters">Characters</button>
     <button class="tab" data-tab="private">Private Branches</button>
     <button class="tab" data-tab="help">Command Help</button>
@@ -52,133 +53,73 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
         <h2>Case Controls</h2>
         <div class="grid">
           <label>Case Mode
-            <select id="caseMode">
-              <option value="solo">Solo / Local</option>
-              <option value="shared">Shared Campaign</option>
-              <option value="private">Private Player View</option>
-            </select>
+            <select id="caseMode"><option value="solo">Solo / Local</option><option value="shared">Shared Campaign</option><option value="private">Private Player View</option></select>
           </label>
-          <label>Active Player / Branch
-            <select id="activePlayer"></select>
-          </label>
-          <label>Dice Mode
-            <select id="diceMode">
-              <option value="3d6">3d6 roll-under</option>
-              <option value="2d6">2d6 quick-reference</option>
-            </select>
-          </label>
+          <label>Active Player / Branch<select id="activePlayer"></select></label>
+          <label>Dice Mode<select id="diceMode"><option value="3d6">3d6 roll-under</option><option value="2d6">2d6 quick-reference</option></select></label>
+          <label>Story Seed Style<select id="seedStyle"><option value="balanced">Balanced random modules</option><option value="horror">More horror pressure</option><option value="investigation">More witnesses/evidence</option><option value="combat">More threat/action</option><option value="ritual">More occult structure</option></select></label>
           <label><input type="checkbox" id="autoRoll" checked style="width:auto"> Auto-roll when character data exists</label>
-          <label><input type="checkbox" id="creatureResponse" checked style="width:auto"> Creature acts after risky actions</label>
-          <div class="note small"><b>Privacy syntax:</b> start a command with <span class="kbd">private Alex:</span> to show only Alex’s branch, or <span class="kbd">public Riley:</span> for the shared party transcript.</div>
+          <label><input type="checkbox" id="creatureResponse" checked style="width:auto"> Threat reacts after risky actions</label>
+          <div class="note small"><b>Split command:</b> <span class="kbd">Riley: investigate bell; Sam: ask Mrs Harlan about meetings</span></div>
         </div>
         <div class="divider"></div>
         <h3>Pressure Clock</h3>
         <div class="meter"><span id="pressureMeter"></span></div>
         <p class="small" id="pressureText"></p>
-        <div class="row">
-          <button class="btn warn" id="addPressureBtn">+ Pressure</button>
-          <button class="btn ghost" id="reducePressureBtn">− Pressure</button>
-        </div>
+        <div class="row"><button class="btn warn" id="addPressureBtn">+ Pressure</button><button class="btn ghost" id="reducePressureBtn">− Pressure</button></div>
         <div class="divider"></div>
-        <h3>Known Prep</h3>
-        <div id="prepList" class="list thinList"></div>
+        <h3>Current Location</h3><div id="currentLocationBox" class="item"></div>
+        <h3 style="margin-top:12px">Next Suggestions</h3><div id="suggestions" class="small"></div>
       </aside>
 
       <main class="card">
-        <h2>Typed Auto-GM Interface</h2>
-        <div class="note small">Try: <span class="kbd">Riley: investigate altar</span> • <span class="kbd">Sam: ask Mrs Harlan about the bell</span> • <span class="kbd">private Alex: research black star symbol</span> • <span class="kbd">Riley: prep salt line; Sam: cast Veil Snap</span></div>
-        <textarea id="commandInput" class="commandBox" placeholder="Type one command, or multiple split-party commands separated by semicolons..."></textarea>
-        <div class="row spread">
-          <div class="row">
-            <button class="btn" id="runCommandBtn">Run Command</button>
-            <button class="btn ghost" id="lookBtn">Look</button>
-            <button class="btn ghost" id="clearCommandBtn">Clear</button>
+        <h2>Party Transcript</h2>
+        <div id="transcript" class="transcript"></div>
+        <div class="divider"></div>
+        <div class="grid commandGrid">
+          <div>
+            <label>Typed Field Command</label>
+            <textarea id="commandInput" class="commandBox" placeholder="look\nask Mrs Harlan about her son\nRiley: investigate bell chain; Sam: research black star symbol\nprivate Alex: sneak into lower room"></textarea>
+            <div class="row" style="margin-top:8px"><button id="runCommandBtn" class="btn">Run Command</button><button id="clearInputBtn" class="btn ghost">Clear</button></div>
           </div>
-          <div class="row">
-            <button class="btn violet" id="revealSelectedBtn">Reveal Selected Private Clue</button>
+          <div>
+            <label>Quick Commands</label>
+            <div id="quickCommands" class="thinList"></div>
           </div>
         </div>
-        <h2 style="margin-top:14px">Shared Party Transcript</h2>
-        <div id="publicTranscript" class="transcript"></div>
       </main>
 
       <aside class="card">
-        <h2>Current Case Snapshot</h2>
-        <div id="caseSnapshot" class="list"></div>
+        <h2>Known Case Board</h2>
+        <div id="caseSummary" class="list"></div>
         <div class="divider"></div>
-        <h3>Known Clues</h3>
-        <div id="clueList" class="list thinList"></div>
+        <h3>Discovered Clues</h3><div id="clueList" class="thinList list"></div>
         <div class="divider"></div>
-        <h3>Possible Entities</h3>
-        <div id="entityList" class="list"></div>
+        <h3>Unlocked Leads</h3><div id="leadList" class="thinList list"></div>
       </aside>
     </div>
   </section>
 
   <section id="tab-case" class="tabPage hidden">
-    <div class="grid caseGrid">
-      <div class="card"><h2>Tarot + Case Seed</h2><div id="tarotPanel" class="list"></div></div>
-      <div class="card"><h2>Investigation Board</h2><div id="investigationPanel" class="list"></div></div>
-      <div class="card"><h2>Witnesses</h2><div id="witnessPanel" class="list"></div></div>
-      <div class="card"><h2>Entity Behavior</h2><div id="creaturePanel" class="list"></div></div>
-    </div>
+    <div class="grid caseGrid"><div class="card"><h2>Locations</h2><div id="locationList" class="list"></div></div><div class="card"><h2>Witnesses / Evidence</h2><div id="nodeList" class="list"></div></div></div>
+  </section>
+
+  <section id="tab-modules" class="tabPage hidden">
+    <div class="card"><h2>Loaded Modular Library</h2><p class="small">These are the swappable blocks used when a case is drawn. Future cases can add more JSON without rewriting the engine.</p><div id="moduleStats" class="grid moduleGrid"></div></div>
   </section>
 
   <section id="tab-characters" class="tabPage hidden">
-    <div class="grid cols2">
-      <div class="card">
-        <h2>Character Data</h2>
-        <p class="small">Import character JSON exported from the Digital Field Office. The Auto-GM reads attributes, skills, conditions, and movement when resolving typed actions.</p>
-        <label class="btn ghost" style="display:inline-block;margin-bottom:10px">Import Character JSON<input id="importCharacterFile" type="file" accept="application/json" class="hidden"></label>
-        <label>Manual Actor Name<input id="manualActorName" placeholder="Riley"></label>
-        <div class="row" style="margin-top:8px"><button class="btn" id="addBlankCharacterBtn">Add Blank Character</button></div>
-        <div class="divider"></div>
-        <div id="characterList" class="list"></div>
-      </div>
-      <div class="card">
-        <h2>Selected Character</h2>
-        <div id="selectedCharacterPanel"></div>
-      </div>
-    </div>
+    <div class="grid cols2"><div class="card"><h2>Import Character JSON</h2><label class="btn ghost" style="display:inline-block;margin-bottom:10px">Import Character<input id="importCharacterFile" type="file" accept="application/json" class="hidden"></label><p class="small">Imported characters let Auto-GM calculate rolls from attributes and skill ranks.</p><div id="characterList" class="list"></div></div><div class="card"><h2>Manual Player Branches</h2><label>Add Player Name<input id="newPlayerName" placeholder="Riley"></label><button id="addPlayerBtn" class="btn">Add Player</button><div id="playerList" class="list" style="margin-top:10px"></div></div></div>
   </section>
 
-  <section id="tab-private" class="tabPage hidden">
-    <div class="grid commandGrid">
-      <div class="card privatePanel">
-        <h2>Private Branch Logs</h2>
-        <div id="privateBranchTabs" class="row"></div>
-        <div id="privateTranscript" class="transcript"></div>
-      </div>
-      <div class="card">
-        <h2>Reveal Queue</h2>
-        <p class="small">Private clues can be queued and then revealed into the shared party transcript.</p>
-        <div id="privateClueList" class="list"></div>
-      </div>
-    </div>
-  </section>
+  <section id="tab-private" class="tabPage hidden"><div class="grid cols2"><div class="card privatePanel"><h2>Private Logs</h2><label>View Player<select id="privateViewPlayer"></select></label><div id="privateLog" class="transcript" style="height:500px"></div></div><div class="card"><h2>Reveal Private Discoveries</h2><div id="privateRevealList" class="list"></div></div></div></section>
 
   <section id="tab-help" class="tabPage hidden">
-    <div class="grid cols2">
-      <div class="card"><h2>Command Examples</h2><div id="helpExamples" class="list"></div></div>
-      <div class="card"><h2>Recognized Intents</h2><div id="intentHelp" class="list"></div></div>
-      <div class="card"><h2>How the Engine Thinks</h2><div class="list">
-        <div class="item"><b>Parser:</b> turns typed text into actor, privacy, intent, target, topic, and roll profile.</div>
-        <div class="item"><b>Roll Engine:</b> reads character attributes/skills, applies setbacks, support-skill offsets, and resolves result tier.</div>
-        <div class="item"><b>Witness + Investigation:</b> uses witness trust/fear/secrets and evidence thresholds to reveal public or private clues.</div>
-        <div class="item"><b>Creature AI:</b> uses entity type, pressure clock, tarot domain, and player failure to stalk, mislead, attack, flee, or escalate.</div>
-        <div class="item"><b>Shared/Private Layer:</b> separates party-visible truth from split-player private discoveries.</div>
-      </div></div>
-      <div class="card"><h2>Firebase Ready</h2><p class="small">This pass runs locally by default. If your main Firebase files are present, later patches can connect <span class="mono">caseState</span>, public transcript, and private branches to Firestore using the same campaign ID from the URL.</p></div>
-    </div>
+    <div class="grid cols2"><div class="card"><h2>Command Patterns</h2><div class="list small" id="helpCommands"></div></div><div class="card"><h2>Interaction Depth</h2><div class="note">Ask follow-up questions by topic. Example: <span class="kbd">ask Mrs Harlan about her son</span> can unlock <span class="kbd">meetings</span>, which can unlock <span class="kbd">lower room</span>, which can unlock new locations or evidence.</div><div class="divider"></div><div class="darknote small">Useful verbs: look, go, move, ask, talk, interview, investigate, examine, search, research, prep, cast, attack, wait, clues, leads, reveal.</div></div></div>
   </section>
 
-  <section id="tab-dev" class="tabPage hidden">
-    <div class="grid cols2">
-      <div class="card"><h2>Raw Case JSON</h2><textarea id="rawState" style="min-height:560px" class="mono"></textarea><div class="row"><button class="btn" id="applyRawBtn">Apply Raw JSON</button><button class="btn ghost" id="refreshRawBtn">Refresh Raw</button></div></div>
-      <div class="card"><h2>Engine Debug</h2><pre id="debugPanel" class="darknote mono" style="white-space:pre-wrap;min-height:560px;overflow:auto"></pre></div>
-    </div>
-  </section>
+  <section id="tab-dev" class="tabPage hidden"><div class="card"><h2>Case JSON</h2><textarea id="debugJson" class="jsonBox"></textarea><div class="row" style="margin-top:8px"><button id="loadDebugBtn" class="btn warn">Load JSON From Box</button><button id="refreshDebugBtn" class="btn ghost">Refresh JSON</button></div></div></section>
 </div>
-<script src="auto-gm-pass7.js?v=7.0.0"></script>
+<script src="auto-gm-pass10.js?v=10.0"></script>
 </body>
 </html>
