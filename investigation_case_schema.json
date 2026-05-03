@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Night Wardens Investigation Case State Schema",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "investigation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pressure": {
+      "type": "object"
+    },
+    "investigation": {
+      "type": "object"
+    },
+    "witnesses": {
+      "type": "array",
+      "items": {
+        "$ref": "witness_schema.json"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "evidence_schema.json"
+      }
+    },
+    "locations": {
+      "type": "array"
+    }
+  }
+}

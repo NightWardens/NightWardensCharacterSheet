@@ -1,0 +1,103 @@
+{
+  "autoGmPass4": {
+    "witnessEngine": {
+      "trustRange": [
+        -5,
+        5
+      ],
+      "fearRange": [
+        0,
+        5
+      ],
+      "clueAccessFormula": "witness.trust - floor(witness.fear/2) + rollPower",
+      "rollPowerMap": {
+        "criticalSuccess": 4,
+        "strongSuccess": 3,
+        "success": 2,
+        "partial": 1,
+        "failure": 0,
+        "criticalFailure": -1
+      }
+    },
+    "investigationNarrowing": {
+      "criticalSuccess": "Reveal exact entity, weakness, and anchor clue",
+      "strongSuccess": "Reveal exact entity type",
+      "success": "Offer 2-3 possible entity types",
+      "partial": "Remove 1 possibility or gain vague clue with cost",
+      "failure": "False lead, danger trigger, time loss, suspicion, or escalation",
+      "criticalFailure": "Wrong conclusion plus immediate threat reaction"
+    },
+    "topicAliases": {
+      "bell": [
+        "bell",
+        "ringing",
+        "church bell",
+        "sound underground"
+      ],
+      "victim": [
+        "victim",
+        "missing person",
+        "body",
+        "dead",
+        "survivor",
+        "son",
+        "daughter"
+      ],
+      "church": [
+        "church",
+        "chapel",
+        "altar",
+        "basement",
+        "mine",
+        "sanctuary"
+      ],
+      "symbol": [
+        "symbol",
+        "sigil",
+        "mark",
+        "circle",
+        "glyph",
+        "nine circles",
+        "black star"
+      ],
+      "demon": [
+        "demon",
+        "possession",
+        "black eyes",
+        "sulfur",
+        "infernal"
+      ],
+      "spirit": [
+        "ghost",
+        "spirit",
+        "haunting",
+        "apparition",
+        "dead miner"
+      ],
+      "ritual": [
+        "ritual",
+        "chant",
+        "summon",
+        "sacrifice",
+        "circle",
+        "catalyst"
+      ],
+      "timeline": [
+        "when",
+        "time",
+        "last seen",
+        "before",
+        "after",
+        "timeline"
+      ],
+      "authority": [
+        "sheriff",
+        "police",
+        "warden",
+        "government",
+        "cover up",
+        "records"
+      ]
+    }
+  }
+}

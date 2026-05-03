@@ -1,0 +1,8 @@
+field,scope,sync_strategy,notes
+publicState,shared,merge,Known clues pressure prep and public information
+hiddenState,gm,owner_only,True entity anchor kill condition and hidden AI memory
+transcripts.public,shared,append,Public actions and narration
+transcripts.system,shared,append,Mechanical sync messages
+privateBranches,private,subcollection_or_nested,Recommended subcollection for production Firestore
+revealQueue,hybrid,merge,Queued or published private clues
+playerPresence,shared,throttle,Update sparingly to avoid excess writes

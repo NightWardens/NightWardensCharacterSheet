@@ -1,0 +1,2768 @@
+{
+  "version": "8.0.0",
+  "rollModeDefault": "3d6",
+  "majorArcana": [
+    {
+      "name": "Fool",
+      "theme": "Unknown beginning",
+      "upright": "Open hidden layer, new force, or second thread",
+      "reversed": "Wrong story; assumptions fail"
+    },
+    {
+      "name": "Magician",
+      "theme": "Power and control",
+      "upright": "Add tools, leverage, deliberate supernatural method",
+      "reversed": "Power destabilizes and turns unsafe"
+    },
+    {
+      "name": "High Priestess",
+      "theme": "Hidden truth",
+      "upright": "Reveal real nature, key secret, or hidden clue",
+      "reversed": "False certainty or misleading evidence"
+    },
+    {
+      "name": "Empress",
+      "theme": "Growth",
+      "upright": "Spread influence, infestation, healing, life-tied force",
+      "reversed": "Growth becomes corruption"
+    },
+    {
+      "name": "Emperor",
+      "theme": "Authority",
+      "upright": "Faction, hierarchy, or command intervenes",
+      "reversed": "Oppressive control or blocked access"
+    },
+    {
+      "name": "Hierophant",
+      "theme": "Doctrine and rite",
+      "upright": "Sacred law, ritual order, divine structure",
+      "reversed": "Corrupted rite or rigid dogma harms hunt"
+    },
+    {
+      "name": "Lovers",
+      "theme": "Bond and choice",
+      "upright": "Relationship, pact, tether defines case",
+      "reversed": "Betrayal, fracture, painful severance"
+    },
+    {
+      "name": "Chariot",
+      "theme": "Momentum",
+      "upright": "Push hunt forward: chase, pursuit, acceleration",
+      "reversed": "Pace turns hostile; loss of control"
+    },
+    {
+      "name": "Strength",
+      "theme": "Restraint and will",
+      "upright": "Gain control over fear, affliction, pressure",
+      "reversed": "Control breaks; threat gets inside"
+    },
+    {
+      "name": "Hermit",
+      "theme": "Isolation and insight",
+      "upright": "Solitary clue, witness, record becomes key",
+      "reversed": "Lose support; team is cut off"
+    },
+    {
+      "name": "Wheel of Fortune",
+      "theme": "Cycle and reversal",
+      "upright": "Shift direction, timing, pressure track",
+      "reversed": "Bad timing or reversal hurts team"
+    },
+    {
+      "name": "Justice",
+      "theme": "Truth and consequence",
+      "upright": "Expose lie, debt, old wrong",
+      "reversed": "False accusation or skewed judgment"
+    },
+    {
+      "name": "Hanged Man",
+      "theme": "Sacrifice",
+      "upright": "Progress requires real cost or delay",
+      "reversed": "Painful stall or wasted opportunity"
+    },
+    {
+      "name": "Death",
+      "theme": "Transformation",
+      "upright": "Threat changes form; phase ends",
+      "reversed": "Mutation or unstable escalation"
+    },
+    {
+      "name": "Temperance",
+      "theme": "Balance",
+      "upright": "Stabilize scene or mixed forces",
+      "reversed": "Imbalance doubles danger"
+    },
+    {
+      "name": "Devil",
+      "theme": "Corruption",
+      "upright": "Temptation, possession, affliction grows",
+      "reversed": "Chance to resist but not free"
+    },
+    {
+      "name": "Tower",
+      "theme": "Collapse",
+      "upright": "Catastrophe, breach, structural failure",
+      "reversed": "Collapse delayed, dread builds"
+    },
+    {
+      "name": "Star",
+      "theme": "Hope",
+      "upright": "Major clue, recovery, moral center appears",
+      "reversed": "False hope or comforting mislead"
+    },
+    {
+      "name": "Moon",
+      "theme": "Illusion",
+      "upright": "Confusion, concealment, false readings",
+      "reversed": "Hidden thing forced into view"
+    },
+    {
+      "name": "Sun",
+      "theme": "Clarity",
+      "upright": "Expose truth, reveal path, remove false leads",
+      "reversed": "Success with cost or arrogant mistake"
+    },
+    {
+      "name": "Judgment",
+      "theme": "Reckoning",
+      "upright": "Force confrontation; reveal what must be answered",
+      "reversed": "Outcome postponed, pressure remains"
+    },
+    {
+      "name": "World",
+      "theme": "Completion",
+      "upright": "Resolve loop, mark milestone",
+      "reversed": "Unfinished thread survives ending"
+    }
+  ],
+  "minorArcana": {
+    "suits": {
+      "Blades": {
+        "domain": "Violence / attacks / direct harm",
+        "entityClass": "violent_spirit",
+        "caseStyle": "fast dangerous pressure-first case",
+        "openingClues": [
+          "fresh attack scene",
+          "damaged room",
+          "fleeing witness",
+          "bloodless wound",
+          "shattered lock from inside",
+          "body thrown through locked door"
+        ],
+        "prep": [
+          "containment",
+          "direct offense",
+          "fast response",
+          "escape routes"
+        ],
+        "reversal": "violence is hidden, mistimed, misdirected, or unstable"
+      },
+      "Blood": {
+        "domain": "Victims / emotion / human connection",
+        "entityClass": "human_tied",
+        "caseStyle": "investigation-heavy emotional case",
+        "openingClues": [
+          "family tension",
+          "grief object",
+          "survivor testimony",
+          "conflicting witness memories",
+          "old photograph with face scratched out",
+          "hospital witness refusing to speak"
+        ],
+        "prep": [
+          "interviews",
+          "empathy",
+          "anchor truth",
+          "emotional context"
+        ],
+        "reversal": "emotional truth is buried, twisted, or manipulated"
+      },
+      "Relics": {
+        "domain": "Tools / weapons / hunter gear",
+        "entityClass": "creature_hunt",
+        "caseStyle": "tracking and preparation case",
+        "openingClues": [
+          "tracks",
+          "torn gear",
+          "prior hunter notes",
+          "rare item rumor",
+          "broken trap",
+          "old field locker"
+        ],
+        "prep": [
+          "special ammo",
+          "traps",
+          "movement",
+          "gear caches"
+        ],
+        "reversal": "preparation fails, gear is flawed, or tools come with cost"
+      },
+      "Sigils": {
+        "domain": "Rituals / magic / circles / bindings",
+        "entityClass": "ritual_occult",
+        "caseStyle": "summoning, warding, cult or threshold case",
+        "openingClues": [
+          "circle residue",
+          "chant fragment",
+          "symbol trace",
+          "ritual site",
+          "burned sigil",
+          "room where geometry feels wrong"
+        ],
+        "prep": [
+          "wards",
+          "binding",
+          "threshold control",
+          "catalyst denial"
+        ],
+        "reversal": "rituals misfire, structures break, or occult process twists"
+      }
+    },
+    "values": {
+      "Ace": {
+        "tier": 1,
+        "intensity": "emergence / first sign",
+        "clock": 4
+      },
+      "2": {
+        "tier": 1,
+        "intensity": "early development",
+        "clock": 4
+      },
+      "3": {
+        "tier": 1,
+        "intensity": "early development",
+        "clock": 4
+      },
+      "4": {
+        "tier": 2,
+        "intensity": "standard danger",
+        "clock": 5
+      },
+      "5": {
+        "tier": 2,
+        "intensity": "stable pressure",
+        "clock": 5
+      },
+      "6": {
+        "tier": 3,
+        "intensity": "serious escalation",
+        "clock": 6
+      },
+      "7": {
+        "tier": 3,
+        "intensity": "dangerous hunt",
+        "clock": 6
+      },
+      "8": {
+        "tier": 4,
+        "intensity": "high threat",
+        "clock": 7
+      },
+      "9": {
+        "tier": 4,
+        "intensity": "crisis pressure",
+        "clock": 7
+      },
+      "10": {
+        "tier": 5,
+        "intensity": "peak event / full manifestation",
+        "clock": 8
+      },
+      "Page": {
+        "tier": 3,
+        "intensity": "unstable or learning force",
+        "clock": 6
+      },
+      "Knight": {
+        "tier": 4,
+        "intensity": "aggressive mobile force",
+        "clock": 7
+      },
+      "Queen": {
+        "tier": 5,
+        "intensity": "intelligent manipulative force",
+        "clock": 8
+      },
+      "King": {
+        "tier": 5,
+        "intensity": "apex commanding force",
+        "clock": 9
+      }
+    }
+  },
+  "locations": [
+    "abandoned church",
+    "church basement",
+    "sealed mine",
+    "family house",
+    "hospital room",
+    "funeral home",
+    "rail yard",
+    "abandoned motel",
+    "woods",
+    "hunting cabin",
+    "salvage yard",
+    "storage unit",
+    "cemetery edge",
+    "old tunnel",
+    "warehouse",
+    "school annex",
+    "roadside wreck",
+    "weather station bunker"
+  ],
+  "witnessTemplates": [
+    {
+      "role": "grieving parent",
+      "trust": 0,
+      "fear": 2,
+      "knows": [
+        "victim heard a bell",
+        "the church basement was sealed",
+        "someone from town lied to police"
+      ],
+      "hides": [
+        "victim joined a ritual circle"
+      ]
+    },
+    {
+      "role": "local deputy",
+      "trust": 0,
+      "fear": 1,
+      "knows": [
+        "records were altered",
+        "first responder saw black ash",
+        "sheriff ordered silence"
+      ],
+      "hides": [
+        "department lost evidence"
+      ]
+    },
+    {
+      "role": "surviving friend",
+      "trust": -1,
+      "fear": 3,
+      "knows": [
+        "they saw a symbol",
+        "the missing person followed a voice",
+        "the air smelled like sulfur or rot"
+      ],
+      "hides": [
+        "they ran and left someone behind"
+      ]
+    },
+    {
+      "role": "priest or caretaker",
+      "trust": 1,
+      "fear": 2,
+      "knows": [
+        "old wards were built under the site",
+        "a bell was removed decades ago",
+        "previous Wardens came here"
+      ],
+      "hides": [
+        "the seal was weakened once before"
+      ]
+    },
+    {
+      "role": "retired hunter",
+      "trust": 0,
+      "fear": 0,
+      "knows": [
+        "the old file named the wrong entity",
+        "the right weakness is not obvious",
+        "a cache exists nearby"
+      ],
+      "hides": [
+        "they abandoned a team member"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "skill": "Awareness",
+      "attributes": [
+        "instinct"
+      ],
+      "verbs": [
+        "look",
+        "watch",
+        "notice",
+        "scan",
+        "listen"
+      ],
+      "targets": [
+        "room",
+        "tracks",
+        "shadow",
+        "ambush",
+        "movement"
+      ],
+      "success": "notice anomaly or danger before it acts",
+      "failure": "miss the first pressure sign"
+    },
+    {
+      "skill": "Investigation",
+      "attributes": [
+        "intellect",
+        "instinct"
+      ],
+      "verbs": [
+        "investigate",
+        "inspect",
+        "search",
+        "examine",
+        "check"
+      ],
+      "targets": [
+        "scene",
+        "body",
+        "altar",
+        "symbol",
+        "room",
+        "object"
+      ],
+      "success": "gain clue or narrow entity list",
+      "failure": "false lead or time loss"
+    },
+    {
+      "skill": "Research",
+      "attributes": [
+        "intellect"
+      ],
+      "verbs": [
+        "research",
+        "study",
+        "archive",
+        "google",
+        "lookup"
+      ],
+      "targets": [
+        "records",
+        "symbol",
+        "lore",
+        "victim",
+        "church",
+        "entity"
+      ],
+      "success": "confirm lore, anchor, weakness, or historical pattern",
+      "failure": "contradictory records"
+    },
+    {
+      "skill": "Insight",
+      "attributes": [
+        "charisma",
+        "instinct"
+      ],
+      "verbs": [
+        "ask",
+        "talk",
+        "interview",
+        "question",
+        "comfort",
+        "pressure"
+      ],
+      "targets": [
+        "witness",
+        "victim",
+        "survivor",
+        "deputy",
+        "priest",
+        "family"
+      ],
+      "success": "read motive, lie, fear, or emotional truth",
+      "failure": "witness closes off or lies"
+    },
+    {
+      "skill": "Spirit Communication",
+      "attributes": [
+        "charisma",
+        "will"
+      ],
+      "verbs": [
+        "speak",
+        "call",
+        "contact",
+        "seance"
+      ],
+      "targets": [
+        "ghost",
+        "spirit",
+        "dead",
+        "haunt"
+      ],
+      "success": "spirit provides truth, warning, or anchor hint",
+      "failure": "spirit backlash or haunting pressure"
+    },
+    {
+      "skill": "Occult Knowledge",
+      "attributes": [
+        "intellect"
+      ],
+      "verbs": [
+        "identify",
+        "read",
+        "decode",
+        "classify"
+      ],
+      "targets": [
+        "sigil",
+        "ritual",
+        "ward",
+        "entity",
+        "omen"
+      ],
+      "success": "identify occult structure or entity category",
+      "failure": "misread supernatural rules"
+    },
+    {
+      "skill": "Ritual Casting",
+      "attributes": [
+        "will"
+      ],
+      "verbs": [
+        "cast",
+        "perform",
+        "complete",
+        "banish",
+        "exorcise"
+      ],
+      "targets": [
+        "rite",
+        "ritual",
+        "exorcism",
+        "banishment",
+        "circle"
+      ],
+      "success": "rite advances or stabilizes scene",
+      "failure": "backlash or escalation"
+    },
+    {
+      "skill": "Warding",
+      "attributes": [
+        "will"
+      ],
+      "verbs": [
+        "ward",
+        "protect",
+        "seal",
+        "circle"
+      ],
+      "targets": [
+        "door",
+        "threshold",
+        "room",
+        "circle",
+        "host"
+      ],
+      "success": "reduce crossing, possession, or manifestation risk",
+      "failure": "false safety or cracked ward"
+    },
+    {
+      "skill": "Binding",
+      "attributes": [
+        "will"
+      ],
+      "verbs": [
+        "bind",
+        "trap",
+        "contain",
+        "pin"
+      ],
+      "targets": [
+        "entity",
+        "demon",
+        "spirit",
+        "host",
+        "anchor"
+      ],
+      "success": "limit movement or escape",
+      "failure": "entity lashes out"
+    },
+    {
+      "skill": "Firearms",
+      "attributes": [
+        "prowess"
+      ],
+      "verbs": [
+        "shoot",
+        "fire",
+        "attack"
+      ],
+      "targets": [
+        "entity",
+        "creature",
+        "demon",
+        "spirit"
+      ],
+      "success": "deal damage if correct weakness/prep exists",
+      "failure": "miss or expose position"
+    },
+    {
+      "skill": "Melee Combat",
+      "attributes": [
+        "force"
+      ],
+      "verbs": [
+        "stab",
+        "strike",
+        "hit",
+        "attack",
+        "grapple"
+      ],
+      "targets": [
+        "entity",
+        "creature",
+        "host",
+        "demon"
+      ],
+      "success": "control or damage if method is valid",
+      "failure": "counterattack or injury"
+    },
+    {
+      "skill": "Tracking",
+      "attributes": [
+        "instinct"
+      ],
+      "verbs": [
+        "track",
+        "follow",
+        "trail"
+      ],
+      "targets": [
+        "prints",
+        "blood",
+        "scent",
+        "trail",
+        "tracks"
+      ],
+      "success": "locate movement route or lair clue",
+      "failure": "ambush risk"
+    },
+    {
+      "skill": "Crafting",
+      "attributes": [
+        "intellect"
+      ],
+      "verbs": [
+        "craft",
+        "build",
+        "repair",
+        "rig"
+      ],
+      "targets": [
+        "trap",
+        "ammo",
+        "ward",
+        "device",
+        "killbox"
+      ],
+      "success": "prep item added or trap improves",
+      "failure": "unstable gear"
+    },
+    {
+      "skill": "Stealth",
+      "attributes": [
+        "prowess"
+      ],
+      "verbs": [
+        "sneak",
+        "hide",
+        "tail",
+        "approach"
+      ],
+      "targets": [
+        "entity",
+        "building",
+        "witness",
+        "site"
+      ],
+      "success": "avoid notice or gain position",
+      "failure": "exposure"
+    },
+    {
+      "skill": "Composure",
+      "attributes": [
+        "will"
+      ],
+      "verbs": [
+        "resist",
+        "calm",
+        "focus",
+        "suppress"
+      ],
+      "targets": [
+        "fear",
+        "affliction",
+        "panic",
+        "possession"
+      ],
+      "success": "retain control",
+      "failure": "strain, GM influence, or affliction trigger"
+    }
+  ],
+  "interactions": [
+    {
+      "intent": "ask_witness",
+      "verbs": [
+        "ask",
+        "question",
+        "interview",
+        "talk",
+        "comfort",
+        "pressure"
+      ],
+      "defaultAttr": "charisma",
+      "skill": "Insight",
+      "onSuccess": [
+        "witness reveals one known fact",
+        "trust increases",
+        "hidden emotional truth appears"
+      ],
+      "onPartial": [
+        "vague answer",
+        "witness gives fear-shaped clue"
+      ],
+      "onFailure": [
+        "witness lies or shuts down",
+        "suspicion rises",
+        "false lead added"
+      ]
+    },
+    {
+      "intent": "investigate_scene",
+      "verbs": [
+        "investigate",
+        "inspect",
+        "search",
+        "examine",
+        "check"
+      ],
+      "defaultAttr": "intellect",
+      "skill": "Investigation",
+      "onSuccess": [
+        "clue found",
+        "possible entities narrowed"
+      ],
+      "onPartial": [
+        "clue with cost",
+        "domain confirmed only"
+      ],
+      "onFailure": [
+        "false lead",
+        "danger trigger",
+        "time loss"
+      ]
+    },
+    {
+      "intent": "research_lore",
+      "verbs": [
+        "research",
+        "study",
+        "archive",
+        "lookup",
+        "decode"
+      ],
+      "defaultAttr": "intellect",
+      "skill": "Research",
+      "onSuccess": [
+        "weakness or anchor hint found",
+        "entity class narrowed"
+      ],
+      "onPartial": [
+        "2-3 plausible types offered"
+      ],
+      "onFailure": [
+        "wrong lore",
+        "ritual pressure grows"
+      ]
+    },
+    {
+      "intent": "prepare_countermeasure",
+      "verbs": [
+        "prep",
+        "prepare",
+        "ward",
+        "set",
+        "craft",
+        "rig"
+      ],
+      "defaultAttr": "intellect",
+      "skill": "Crafting",
+      "onSuccess": [
+        "prep item added",
+        "future setback reduced"
+      ],
+      "onPartial": [
+        "prep works but costs time/material"
+      ],
+      "onFailure": [
+        "gear flawed",
+        "reversed relic pressure"
+      ]
+    },
+    {
+      "intent": "attack",
+      "verbs": [
+        "attack",
+        "shoot",
+        "stab",
+        "strike",
+        "grapple",
+        "hit"
+      ],
+      "defaultAttr": "prowess",
+      "skill": "Firearms",
+      "onSuccess": [
+        "damage if weakness/prep valid",
+        "otherwise temporary stagger only"
+      ],
+      "onPartial": [
+        "trade damage or position"
+      ],
+      "onFailure": [
+        "counterattack",
+        "pressure rises"
+      ]
+    },
+    {
+      "intent": "cast",
+      "verbs": [
+        "cast",
+        "banish",
+        "exorcise",
+        "bind",
+        "seal",
+        "ward"
+      ],
+      "defaultAttr": "will",
+      "skill": "Ritual Casting",
+      "onSuccess": [
+        "ritual advances",
+        "entity pressured"
+      ],
+      "onPartial": [
+        "works with strain or cost"
+      ],
+      "onFailure": [
+        "backlash",
+        "affliction pressure",
+        "ritual twist"
+      ]
+    }
+  ],
+  "spells": [
+    {
+      "name": "Veil Snap",
+      "verbs": [
+        "cast",
+        "snap",
+        "reveal"
+      ],
+      "roll": "Will + Ritual Basics or Presence Sense",
+      "effect": "Expose hidden spirit, glamour, hidden sigil, or disguised host tell",
+      "backlash": "false reveal or entity notices"
+    },
+    {
+      "name": "Force Pulse",
+      "verbs": [
+        "cast",
+        "pulse",
+        "push"
+      ],
+      "roll": "Will + Energy Control",
+      "effect": "Push or stagger a target",
+      "backlash": "caster staggers or blast rebounds"
+    },
+    {
+      "name": "Lantern Spark",
+      "verbs": [
+        "cast",
+        "spark",
+        "light"
+      ],
+      "roll": "Will + Energy Control",
+      "effect": "Remove darkness setback and reveal weak concealment",
+      "backlash": "attention drawn"
+    },
+    {
+      "name": "Shield Burst",
+      "verbs": [
+        "cast",
+        "shield",
+        "ward"
+      ],
+      "roll": "Will + Energy Control",
+      "effect": "Reduce incoming damage tier",
+      "backlash": "recoil strain"
+    },
+    {
+      "name": "Spirit Lash",
+      "verbs": [
+        "cast",
+        "lash",
+        "strike"
+      ],
+      "roll": "Will + Energy Control",
+      "effect": "Direct occult harm to manifested spirit",
+      "backlash": "pain echo, -1 Will"
+    },
+    {
+      "name": "Protective Circle",
+      "verbs": [
+        "circle",
+        "ward",
+        "protect"
+      ],
+      "roll": "Will + Warding + Sigil Reading",
+      "effect": "Block or slow spirits, demons, unstable manifestations",
+      "backlash": "circle tears or false safety"
+    },
+    {
+      "name": "Anchor Revelation",
+      "verbs": [
+        "reveal",
+        "trace",
+        "divine"
+      ],
+      "roll": "Will + Ritual Casting + Occult Knowledge",
+      "effect": "Learn broad anchor type and location hint",
+      "backlash": "decoy anchor"
+    },
+    {
+      "name": "Exorcist Litany",
+      "verbs": [
+        "exorcise",
+        "banish",
+        "litany"
+      ],
+      "roll": "Will + Ritual Casting + Spirit Communication or Occult Knowledge",
+      "effect": "Drive possessor from host over 3 rounds",
+      "backlash": "host convulses, escalation"
+    }
+  ],
+  "bestiary": [
+    {
+      "id": "vengeful_spirit",
+      "name": "Vengeful Spirit / Onryo",
+      "class": "violent_spirit",
+      "type": "Spirit",
+      "threat": 3,
+      "signs": [
+        "anger imprint",
+        "same person seen repeatedly",
+        "records tied to suspects",
+        "temperature drop near keepsake"
+      ],
+      "behaviors": [
+        "escalates over time",
+        "targets a list",
+        "becomes more physical as it rises"
+      ],
+      "actions": [
+        "manifest strike",
+        "fear aura",
+        "targeted haunting"
+      ],
+      "weaknesses": [
+        "remains",
+        "emotional resolution"
+      ],
+      "kill": "locate remains and burn them or resolve the grudge",
+      "skills": [
+        "Investigation",
+        "Occult Knowledge",
+        "Spirit Communication"
+      ]
+    },
+    {
+      "id": "poltergeist",
+      "name": "Poltergeist",
+      "class": "violent_spirit",
+      "type": "Chaotic Spirit",
+      "threat": 3,
+      "signs": [
+        "objects thrown",
+        "activity centered around one person",
+        "EMF spikes",
+        "broken glass in safe rooms"
+      ],
+      "behaviors": [
+        "builds pressure",
+        "lashes out through environment",
+        "centers on emotional source"
+      ],
+      "actions": [
+        "telekinetic assault",
+        "environmental manipulation",
+        "escalation surge"
+      ],
+      "weaknesses": [
+        "source individual",
+        "emotional stabilization"
+      ],
+      "kill": "identify anchor person and remove or resolve emotional trigger",
+      "skills": [
+        "Awareness",
+        "Investigation",
+        "Composure"
+      ]
+    },
+    {
+      "id": "wraith",
+      "name": "Wraith",
+      "class": "violent_spirit",
+      "type": "Spirit",
+      "threat": 3,
+      "signs": [
+        "life-drain marks",
+        "shadows moving independently",
+        "cold around tether",
+        "mirrors dim near target"
+      ],
+      "behaviors": [
+        "stalks from dark",
+        "avoids direct light",
+        "feeds before manifesting"
+      ],
+      "actions": [
+        "life drain",
+        "shadow step",
+        "tether pull"
+      ],
+      "weaknesses": [
+        "silver",
+        "tether object"
+      ],
+      "kill": "destroy tether object after revealing it",
+      "skills": [
+        "Presence Sense",
+        "Occult Knowledge",
+        "Investigation"
+      ]
+    },
+    {
+      "id": "woman_in_white",
+      "name": "Woman in White",
+      "class": "human_tied",
+      "type": "Tragic Spirit",
+      "threat": 2,
+      "signs": [
+        "roadside apparition",
+        "hitchhiker reports",
+        "phrase repeated by victims",
+        "water or rain motif"
+      ],
+      "behaviors": [
+        "lures emotionally vulnerable targets",
+        "repeats last moments",
+        "brief possession during spikes"
+      ],
+      "actions": [
+        "luring presence",
+        "echo loop",
+        "limited possession"
+      ],
+      "weaknesses": [
+        "truth of betrayal",
+        "proper rest"
+      ],
+      "kill": "resolve emotional loop or lay remains to rest",
+      "skills": [
+        "Insight",
+        "Spirit Communication",
+        "Investigation"
+      ]
+    },
+    {
+      "id": "possessor",
+      "name": "Possessor Demon",
+      "class": "human_tied",
+      "type": "Infernal",
+      "threat": 3,
+      "signs": [
+        "blackouts",
+        "personality inversion",
+        "sulfur trace",
+        "black-eyed reflection"
+      ],
+      "behaviors": [
+        "hides in host",
+        "isolates allies",
+        "uses social access"
+      ],
+      "actions": [
+        "borrowed face",
+        "pain split",
+        "host override"
+      ],
+      "weaknesses": [
+        "exorcism",
+        "holy water",
+        "binding sigils"
+      ],
+      "kill": "separate demon from host, trap or banish before repossession",
+      "skills": [
+        "Ritual Casting",
+        "Composure",
+        "Occult Knowledge"
+      ]
+    },
+    {
+      "id": "grief_haunt",
+      "name": "Grief Haunt",
+      "class": "human_tied",
+      "type": "Spirit",
+      "threat": 2,
+      "signs": [
+        "mourning object moves",
+        "dreams of deceased",
+        "family cannot leave home",
+        "photos weep or burn"
+      ],
+      "behaviors": [
+        "feeds on unresolved grief",
+        "protects anchor family",
+        "punishes denial"
+      ],
+      "actions": [
+        "memory loop",
+        "emotional pressure",
+        "spirit interference"
+      ],
+      "weaknesses": [
+        "truth",
+        "mourning object",
+        "ritual release"
+      ],
+      "kill": "name the grief, resolve the anchor, cleanse the mourning object",
+      "skills": [
+        "Insight",
+        "Spirit Communication",
+        "Composure"
+      ]
+    },
+    {
+      "id": "werewolf",
+      "name": "Werewolf / Rugaru",
+      "class": "creature_hunt",
+      "type": "Predator",
+      "threat": 3,
+      "signs": [
+        "large prints",
+        "animal attack too precise",
+        "silver aversion",
+        "survivor with bite fever"
+      ],
+      "behaviors": [
+        "hunts by scent",
+        "attacks isolated prey",
+        "flees bad odds"
+      ],
+      "actions": [
+        "pounce",
+        "maul",
+        "track by blood"
+      ],
+      "weaknesses": [
+        "silver",
+        "bait trap",
+        "moon cycle knowledge"
+      ],
+      "kill": "silver strike to heart or complete entity-specific kill condition",
+      "skills": [
+        "Tracking",
+        "Firearms",
+        "Survival"
+      ]
+    },
+    {
+      "id": "vampire",
+      "name": "Vampire",
+      "class": "creature_hunt",
+      "type": "Undead Predator",
+      "threat": 3,
+      "signs": [
+        "bloodless bodies",
+        "glamoured witness",
+        "night-only sightings",
+        "old property records"
+      ],
+      "behaviors": [
+        "uses charm",
+        "nests near food source",
+        "controls thralls"
+      ],
+      "actions": [
+        "bite",
+        "thrall command",
+        "predatory charm"
+      ],
+      "weaknesses": [
+        "sunlight",
+        "heart destruction",
+        "dead blood trail"
+      ],
+      "kill": "destroy heart and force sunlight or sanctified end condition",
+      "skills": [
+        "Investigation",
+        "Firearms",
+        "Occult Knowledge"
+      ]
+    },
+    {
+      "id": "wendigo",
+      "name": "Wendigo",
+      "class": "creature_hunt",
+      "type": "Apex Beast",
+      "threat": 5,
+      "signs": [
+        "half-eaten bodies",
+        "familiar voices in dark",
+        "unnatural cold",
+        "huge thin prints"
+      ],
+      "behaviors": [
+        "mimics voices",
+        "ambushes from cold",
+        "gains after feeding"
+      ],
+      "actions": [
+        "voice mimic",
+        "frenzy",
+        "ambush predator"
+      ],
+      "weaknesses": [
+        "fire",
+        "starving manifestation window"
+      ],
+      "kill": "burn completely before it feeds again",
+      "skills": [
+        "Survival",
+        "Tracking",
+        "Firearms"
+      ]
+    },
+    {
+      "id": "djinn",
+      "name": "Djinn",
+      "class": "ritual_occult",
+      "type": "Entity",
+      "threat": 4,
+      "signs": [
+        "contradicting stories",
+        "reality mismatch",
+        "sleeping victims living fantasies",
+        "sealed vessel nearby"
+      ],
+      "behaviors": [
+        "isolates targets",
+        "twists desire",
+        "hides truth behind comfort"
+      ],
+      "actions": [
+        "reality illusion",
+        "isolation trap",
+        "wish distortion"
+      ],
+      "weaknesses": [
+        "vessel",
+        "binding phrase"
+      ],
+      "kill": "destroy or seal the vessel",
+      "skills": [
+        "Occult Knowledge",
+        "Investigation",
+        "Ritual Casting"
+      ]
+    },
+    {
+      "id": "crossroads_demon",
+      "name": "Crossroads Demon",
+      "class": "ritual_occult",
+      "type": "Infernal Contract Entity",
+      "threat": 4,
+      "signs": [
+        "sudden success followed by tragedy",
+        "contract traces",
+        "calm stranger",
+        "crossroads token"
+      ],
+      "behaviors": [
+        "never lies outright",
+        "twists meaning",
+        "waits for consent"
+      ],
+      "actions": [
+        "contract binding",
+        "word twist",
+        "possession escape"
+      ],
+      "weaknesses": [
+        "contract loophole",
+        "anchor object",
+        "true name"
+      ],
+      "kill": "break contract or destroy anchor, then bind by true name",
+      "skills": [
+        "Insight",
+        "Occult Knowledge",
+        "Research"
+      ]
+    },
+    {
+      "id": "changeling",
+      "name": "Changeling",
+      "class": "ritual_occult",
+      "type": "Fae",
+      "threat": 2,
+      "signs": [
+        "personality shift",
+        "missing history",
+        "subtle household errors",
+        "iron aversion"
+      ],
+      "behaviors": [
+        "studies household",
+        "protects false identity",
+        "avoids open combat"
+      ],
+      "actions": [
+        "perfect mimicry",
+        "memory softening",
+        "social infiltration"
+      ],
+      "weaknesses": [
+        "iron",
+        "true identity reveal",
+        "family truth rite"
+      ],
+      "kill": "reveal true form, break exchange bargain, strike with iron or force retreat",
+      "skills": [
+        "Insight",
+        "Investigation",
+        "Iron Handling"
+      ]
+    },
+    {
+      "id": "redcap",
+      "name": "Redcap",
+      "class": "creature_hunt",
+      "type": "Predatory Fae",
+      "threat": 3,
+      "signs": [
+        "rust-colored footprints",
+        "old blood in corners",
+        "broken teeth",
+        "ruined stonework"
+      ],
+      "behaviors": [
+        "hunts stragglers",
+        "loves cellars and ruins",
+        "gets bold after injury"
+      ],
+      "actions": [
+        "butcher rush",
+        "stone-hop",
+        "cap of blood"
+      ],
+      "weaknesses": [
+        "iron",
+        "consecrated ground",
+        "loss of cap"
+      ],
+      "kill": "corner away from blood source, ruin cap, finish with iron",
+      "skills": [
+        "Tracking",
+        "Melee Combat",
+        "Survival"
+      ]
+    },
+    {
+      "id": "veil_render",
+      "name": "Veil Render",
+      "class": "ritual_occult",
+      "type": "High Demon / Rift Manipulator",
+      "threat": 4,
+      "signs": [
+        "doors lead wrong",
+        "maps fail",
+        "missing time",
+        "unstable ward geometry"
+      ],
+      "behaviors": [
+        "traps before attacking",
+        "denies exits",
+        "uses false space"
+      ],
+      "actions": [
+        "veil split",
+        "false space",
+        "exit denial"
+      ],
+      "weaknesses": [
+        "stable sacred geometry",
+        "repaired wards",
+        "true anchor location"
+      ],
+      "kill": "collapse rift structure, then banish or bind before veil reseals",
+      "skills": [
+        "Navigation",
+        "Occult Knowledge",
+        "Warding"
+      ]
+    }
+  ],
+  "vocab": {
+    "verbs": [
+      {
+        "token": "look",
+        "intent": "skill",
+        "skill": "Awareness",
+        "weight": 1
+      },
+      {
+        "token": "watch",
+        "intent": "skill",
+        "skill": "Awareness",
+        "weight": 1
+      },
+      {
+        "token": "notice",
+        "intent": "skill",
+        "skill": "Awareness",
+        "weight": 1
+      },
+      {
+        "token": "scan",
+        "intent": "skill",
+        "skill": "Awareness",
+        "weight": 1
+      },
+      {
+        "token": "listen",
+        "intent": "skill",
+        "skill": "Awareness",
+        "weight": 1
+      },
+      {
+        "token": "investigate",
+        "intent": "skill",
+        "skill": "Investigation",
+        "weight": 1
+      },
+      {
+        "token": "inspect",
+        "intent": "skill",
+        "skill": "Investigation",
+        "weight": 1
+      },
+      {
+        "token": "search",
+        "intent": "skill",
+        "skill": "Investigation",
+        "weight": 1
+      },
+      {
+        "token": "examine",
+        "intent": "skill",
+        "skill": "Investigation",
+        "weight": 1
+      },
+      {
+        "token": "check",
+        "intent": "skill",
+        "skill": "Investigation",
+        "weight": 1
+      },
+      {
+        "token": "research",
+        "intent": "skill",
+        "skill": "Research",
+        "weight": 1
+      },
+      {
+        "token": "study",
+        "intent": "skill",
+        "skill": "Research",
+        "weight": 1
+      },
+      {
+        "token": "archive",
+        "intent": "skill",
+        "skill": "Research",
+        "weight": 1
+      },
+      {
+        "token": "google",
+        "intent": "skill",
+        "skill": "Research",
+        "weight": 1
+      },
+      {
+        "token": "lookup",
+        "intent": "skill",
+        "skill": "Research",
+        "weight": 1
+      },
+      {
+        "token": "ask",
+        "intent": "skill",
+        "skill": "Insight",
+        "weight": 1
+      },
+      {
+        "token": "talk",
+        "intent": "skill",
+        "skill": "Insight",
+        "weight": 1
+      },
+      {
+        "token": "interview",
+        "intent": "skill",
+        "skill": "Insight",
+        "weight": 1
+      },
+      {
+        "token": "question",
+        "intent": "skill",
+        "skill": "Insight",
+        "weight": 1
+      },
+      {
+        "token": "comfort",
+        "intent": "skill",
+        "skill": "Insight",
+        "weight": 1
+      },
+      {
+        "token": "pressure",
+        "intent": "skill",
+        "skill": "Insight",
+        "weight": 1
+      },
+      {
+        "token": "speak",
+        "intent": "skill",
+        "skill": "Spirit Communication",
+        "weight": 1
+      },
+      {
+        "token": "call",
+        "intent": "skill",
+        "skill": "Spirit Communication",
+        "weight": 1
+      },
+      {
+        "token": "contact",
+        "intent": "skill",
+        "skill": "Spirit Communication",
+        "weight": 1
+      },
+      {
+        "token": "seance",
+        "intent": "skill",
+        "skill": "Spirit Communication",
+        "weight": 1
+      },
+      {
+        "token": "identify",
+        "intent": "skill",
+        "skill": "Occult Knowledge",
+        "weight": 1
+      },
+      {
+        "token": "read",
+        "intent": "skill",
+        "skill": "Occult Knowledge",
+        "weight": 1
+      },
+      {
+        "token": "decode",
+        "intent": "skill",
+        "skill": "Occult Knowledge",
+        "weight": 1
+      },
+      {
+        "token": "classify",
+        "intent": "skill",
+        "skill": "Occult Knowledge",
+        "weight": 1
+      },
+      {
+        "token": "cast",
+        "intent": "skill",
+        "skill": "Ritual Casting",
+        "weight": 1
+      },
+      {
+        "token": "perform",
+        "intent": "skill",
+        "skill": "Ritual Casting",
+        "weight": 1
+      },
+      {
+        "token": "complete",
+        "intent": "skill",
+        "skill": "Ritual Casting",
+        "weight": 1
+      },
+      {
+        "token": "banish",
+        "intent": "skill",
+        "skill": "Ritual Casting",
+        "weight": 1
+      },
+      {
+        "token": "exorcise",
+        "intent": "skill",
+        "skill": "Ritual Casting",
+        "weight": 1
+      },
+      {
+        "token": "ward",
+        "intent": "skill",
+        "skill": "Warding",
+        "weight": 1
+      },
+      {
+        "token": "protect",
+        "intent": "skill",
+        "skill": "Warding",
+        "weight": 1
+      },
+      {
+        "token": "seal",
+        "intent": "skill",
+        "skill": "Warding",
+        "weight": 1
+      },
+      {
+        "token": "circle",
+        "intent": "skill",
+        "skill": "Warding",
+        "weight": 1
+      },
+      {
+        "token": "bind",
+        "intent": "skill",
+        "skill": "Binding",
+        "weight": 1
+      },
+      {
+        "token": "trap",
+        "intent": "skill",
+        "skill": "Binding",
+        "weight": 1
+      },
+      {
+        "token": "contain",
+        "intent": "skill",
+        "skill": "Binding",
+        "weight": 1
+      },
+      {
+        "token": "pin",
+        "intent": "skill",
+        "skill": "Binding",
+        "weight": 1
+      },
+      {
+        "token": "shoot",
+        "intent": "skill",
+        "skill": "Firearms",
+        "weight": 1
+      },
+      {
+        "token": "fire",
+        "intent": "skill",
+        "skill": "Firearms",
+        "weight": 1
+      },
+      {
+        "token": "attack",
+        "intent": "skill",
+        "skill": "Firearms",
+        "weight": 1
+      },
+      {
+        "token": "stab",
+        "intent": "skill",
+        "skill": "Melee Combat",
+        "weight": 1
+      },
+      {
+        "token": "strike",
+        "intent": "skill",
+        "skill": "Melee Combat",
+        "weight": 1
+      },
+      {
+        "token": "hit",
+        "intent": "skill",
+        "skill": "Melee Combat",
+        "weight": 1
+      },
+      {
+        "token": "attack",
+        "intent": "skill",
+        "skill": "Melee Combat",
+        "weight": 1
+      },
+      {
+        "token": "grapple",
+        "intent": "skill",
+        "skill": "Melee Combat",
+        "weight": 1
+      },
+      {
+        "token": "track",
+        "intent": "skill",
+        "skill": "Tracking",
+        "weight": 1
+      },
+      {
+        "token": "follow",
+        "intent": "skill",
+        "skill": "Tracking",
+        "weight": 1
+      },
+      {
+        "token": "trail",
+        "intent": "skill",
+        "skill": "Tracking",
+        "weight": 1
+      },
+      {
+        "token": "craft",
+        "intent": "skill",
+        "skill": "Crafting",
+        "weight": 1
+      },
+      {
+        "token": "build",
+        "intent": "skill",
+        "skill": "Crafting",
+        "weight": 1
+      },
+      {
+        "token": "repair",
+        "intent": "skill",
+        "skill": "Crafting",
+        "weight": 1
+      },
+      {
+        "token": "rig",
+        "intent": "skill",
+        "skill": "Crafting",
+        "weight": 1
+      },
+      {
+        "token": "sneak",
+        "intent": "skill",
+        "skill": "Stealth",
+        "weight": 1
+      },
+      {
+        "token": "hide",
+        "intent": "skill",
+        "skill": "Stealth",
+        "weight": 1
+      },
+      {
+        "token": "tail",
+        "intent": "skill",
+        "skill": "Stealth",
+        "weight": 1
+      },
+      {
+        "token": "approach",
+        "intent": "skill",
+        "skill": "Stealth",
+        "weight": 1
+      },
+      {
+        "token": "resist",
+        "intent": "skill",
+        "skill": "Composure",
+        "weight": 1
+      },
+      {
+        "token": "calm",
+        "intent": "skill",
+        "skill": "Composure",
+        "weight": 1
+      },
+      {
+        "token": "focus",
+        "intent": "skill",
+        "skill": "Composure",
+        "weight": 1
+      },
+      {
+        "token": "suppress",
+        "intent": "skill",
+        "skill": "Composure",
+        "weight": 1
+      },
+      {
+        "token": "ask",
+        "intent": "ask_witness",
+        "skill": "Insight",
+        "weight": 2
+      },
+      {
+        "token": "question",
+        "intent": "ask_witness",
+        "skill": "Insight",
+        "weight": 2
+      },
+      {
+        "token": "interview",
+        "intent": "ask_witness",
+        "skill": "Insight",
+        "weight": 2
+      },
+      {
+        "token": "talk",
+        "intent": "ask_witness",
+        "skill": "Insight",
+        "weight": 2
+      },
+      {
+        "token": "comfort",
+        "intent": "ask_witness",
+        "skill": "Insight",
+        "weight": 2
+      },
+      {
+        "token": "pressure",
+        "intent": "ask_witness",
+        "skill": "Insight",
+        "weight": 2
+      },
+      {
+        "token": "investigate",
+        "intent": "investigate_scene",
+        "skill": "Investigation",
+        "weight": 2
+      },
+      {
+        "token": "inspect",
+        "intent": "investigate_scene",
+        "skill": "Investigation",
+        "weight": 2
+      },
+      {
+        "token": "search",
+        "intent": "investigate_scene",
+        "skill": "Investigation",
+        "weight": 2
+      },
+      {
+        "token": "examine",
+        "intent": "investigate_scene",
+        "skill": "Investigation",
+        "weight": 2
+      },
+      {
+        "token": "check",
+        "intent": "investigate_scene",
+        "skill": "Investigation",
+        "weight": 2
+      },
+      {
+        "token": "research",
+        "intent": "research_lore",
+        "skill": "Research",
+        "weight": 2
+      },
+      {
+        "token": "study",
+        "intent": "research_lore",
+        "skill": "Research",
+        "weight": 2
+      },
+      {
+        "token": "archive",
+        "intent": "research_lore",
+        "skill": "Research",
+        "weight": 2
+      },
+      {
+        "token": "lookup",
+        "intent": "research_lore",
+        "skill": "Research",
+        "weight": 2
+      },
+      {
+        "token": "decode",
+        "intent": "research_lore",
+        "skill": "Research",
+        "weight": 2
+      },
+      {
+        "token": "prep",
+        "intent": "prepare_countermeasure",
+        "skill": "Crafting",
+        "weight": 2
+      },
+      {
+        "token": "prepare",
+        "intent": "prepare_countermeasure",
+        "skill": "Crafting",
+        "weight": 2
+      },
+      {
+        "token": "ward",
+        "intent": "prepare_countermeasure",
+        "skill": "Crafting",
+        "weight": 2
+      },
+      {
+        "token": "set",
+        "intent": "prepare_countermeasure",
+        "skill": "Crafting",
+        "weight": 2
+      },
+      {
+        "token": "craft",
+        "intent": "prepare_countermeasure",
+        "skill": "Crafting",
+        "weight": 2
+      },
+      {
+        "token": "rig",
+        "intent": "prepare_countermeasure",
+        "skill": "Crafting",
+        "weight": 2
+      },
+      {
+        "token": "attack",
+        "intent": "attack",
+        "skill": "Firearms",
+        "weight": 2
+      },
+      {
+        "token": "shoot",
+        "intent": "attack",
+        "skill": "Firearms",
+        "weight": 2
+      },
+      {
+        "token": "stab",
+        "intent": "attack",
+        "skill": "Firearms",
+        "weight": 2
+      },
+      {
+        "token": "strike",
+        "intent": "attack",
+        "skill": "Firearms",
+        "weight": 2
+      },
+      {
+        "token": "grapple",
+        "intent": "attack",
+        "skill": "Firearms",
+        "weight": 2
+      },
+      {
+        "token": "hit",
+        "intent": "attack",
+        "skill": "Firearms",
+        "weight": 2
+      },
+      {
+        "token": "cast",
+        "intent": "cast",
+        "skill": "Ritual Casting",
+        "weight": 2
+      },
+      {
+        "token": "banish",
+        "intent": "cast",
+        "skill": "Ritual Casting",
+        "weight": 2
+      },
+      {
+        "token": "exorcise",
+        "intent": "cast",
+        "skill": "Ritual Casting",
+        "weight": 2
+      },
+      {
+        "token": "bind",
+        "intent": "cast",
+        "skill": "Ritual Casting",
+        "weight": 2
+      },
+      {
+        "token": "seal",
+        "intent": "cast",
+        "skill": "Ritual Casting",
+        "weight": 2
+      },
+      {
+        "token": "ward",
+        "intent": "cast",
+        "skill": "Ritual Casting",
+        "weight": 2
+      }
+    ],
+    "targets": [
+      {
+        "token": "room",
+        "skill_hint": "Awareness",
+        "category": "target"
+      },
+      {
+        "token": "tracks",
+        "skill_hint": "Awareness",
+        "category": "target"
+      },
+      {
+        "token": "shadow",
+        "skill_hint": "Awareness",
+        "category": "target"
+      },
+      {
+        "token": "ambush",
+        "skill_hint": "Awareness",
+        "category": "target"
+      },
+      {
+        "token": "movement",
+        "skill_hint": "Awareness",
+        "category": "target"
+      },
+      {
+        "token": "scene",
+        "skill_hint": "Investigation",
+        "category": "target"
+      },
+      {
+        "token": "body",
+        "skill_hint": "Investigation",
+        "category": "target"
+      },
+      {
+        "token": "altar",
+        "skill_hint": "Investigation",
+        "category": "target"
+      },
+      {
+        "token": "symbol",
+        "skill_hint": "Investigation",
+        "category": "target"
+      },
+      {
+        "token": "room",
+        "skill_hint": "Investigation",
+        "category": "target"
+      },
+      {
+        "token": "object",
+        "skill_hint": "Investigation",
+        "category": "target"
+      },
+      {
+        "token": "records",
+        "skill_hint": "Research",
+        "category": "target"
+      },
+      {
+        "token": "symbol",
+        "skill_hint": "Research",
+        "category": "target"
+      },
+      {
+        "token": "lore",
+        "skill_hint": "Research",
+        "category": "target"
+      },
+      {
+        "token": "victim",
+        "skill_hint": "Research",
+        "category": "target"
+      },
+      {
+        "token": "church",
+        "skill_hint": "Research",
+        "category": "target"
+      },
+      {
+        "token": "entity",
+        "skill_hint": "Research",
+        "category": "target"
+      },
+      {
+        "token": "witness",
+        "skill_hint": "Insight",
+        "category": "target"
+      },
+      {
+        "token": "victim",
+        "skill_hint": "Insight",
+        "category": "target"
+      },
+      {
+        "token": "survivor",
+        "skill_hint": "Insight",
+        "category": "target"
+      },
+      {
+        "token": "deputy",
+        "skill_hint": "Insight",
+        "category": "target"
+      },
+      {
+        "token": "priest",
+        "skill_hint": "Insight",
+        "category": "target"
+      },
+      {
+        "token": "family",
+        "skill_hint": "Insight",
+        "category": "target"
+      },
+      {
+        "token": "ghost",
+        "skill_hint": "Spirit Communication",
+        "category": "target"
+      },
+      {
+        "token": "spirit",
+        "skill_hint": "Spirit Communication",
+        "category": "target"
+      },
+      {
+        "token": "dead",
+        "skill_hint": "Spirit Communication",
+        "category": "target"
+      },
+      {
+        "token": "haunt",
+        "skill_hint": "Spirit Communication",
+        "category": "target"
+      },
+      {
+        "token": "sigil",
+        "skill_hint": "Occult Knowledge",
+        "category": "target"
+      },
+      {
+        "token": "ritual",
+        "skill_hint": "Occult Knowledge",
+        "category": "target"
+      },
+      {
+        "token": "ward",
+        "skill_hint": "Occult Knowledge",
+        "category": "target"
+      },
+      {
+        "token": "entity",
+        "skill_hint": "Occult Knowledge",
+        "category": "target"
+      },
+      {
+        "token": "omen",
+        "skill_hint": "Occult Knowledge",
+        "category": "target"
+      },
+      {
+        "token": "rite",
+        "skill_hint": "Ritual Casting",
+        "category": "target"
+      },
+      {
+        "token": "ritual",
+        "skill_hint": "Ritual Casting",
+        "category": "target"
+      },
+      {
+        "token": "exorcism",
+        "skill_hint": "Ritual Casting",
+        "category": "target"
+      },
+      {
+        "token": "banishment",
+        "skill_hint": "Ritual Casting",
+        "category": "target"
+      },
+      {
+        "token": "circle",
+        "skill_hint": "Ritual Casting",
+        "category": "target"
+      },
+      {
+        "token": "door",
+        "skill_hint": "Warding",
+        "category": "target"
+      },
+      {
+        "token": "threshold",
+        "skill_hint": "Warding",
+        "category": "target"
+      },
+      {
+        "token": "room",
+        "skill_hint": "Warding",
+        "category": "target"
+      },
+      {
+        "token": "circle",
+        "skill_hint": "Warding",
+        "category": "target"
+      },
+      {
+        "token": "host",
+        "skill_hint": "Warding",
+        "category": "target"
+      },
+      {
+        "token": "entity",
+        "skill_hint": "Binding",
+        "category": "target"
+      },
+      {
+        "token": "demon",
+        "skill_hint": "Binding",
+        "category": "target"
+      },
+      {
+        "token": "spirit",
+        "skill_hint": "Binding",
+        "category": "target"
+      },
+      {
+        "token": "host",
+        "skill_hint": "Binding",
+        "category": "target"
+      },
+      {
+        "token": "anchor",
+        "skill_hint": "Binding",
+        "category": "target"
+      },
+      {
+        "token": "entity",
+        "skill_hint": "Firearms",
+        "category": "target"
+      },
+      {
+        "token": "creature",
+        "skill_hint": "Firearms",
+        "category": "target"
+      },
+      {
+        "token": "demon",
+        "skill_hint": "Firearms",
+        "category": "target"
+      },
+      {
+        "token": "spirit",
+        "skill_hint": "Firearms",
+        "category": "target"
+      },
+      {
+        "token": "entity",
+        "skill_hint": "Melee Combat",
+        "category": "target"
+      },
+      {
+        "token": "creature",
+        "skill_hint": "Melee Combat",
+        "category": "target"
+      },
+      {
+        "token": "host",
+        "skill_hint": "Melee Combat",
+        "category": "target"
+      },
+      {
+        "token": "demon",
+        "skill_hint": "Melee Combat",
+        "category": "target"
+      },
+      {
+        "token": "prints",
+        "skill_hint": "Tracking",
+        "category": "target"
+      },
+      {
+        "token": "blood",
+        "skill_hint": "Tracking",
+        "category": "target"
+      },
+      {
+        "token": "scent",
+        "skill_hint": "Tracking",
+        "category": "target"
+      },
+      {
+        "token": "trail",
+        "skill_hint": "Tracking",
+        "category": "target"
+      },
+      {
+        "token": "tracks",
+        "skill_hint": "Tracking",
+        "category": "target"
+      },
+      {
+        "token": "trap",
+        "skill_hint": "Crafting",
+        "category": "target"
+      },
+      {
+        "token": "ammo",
+        "skill_hint": "Crafting",
+        "category": "target"
+      },
+      {
+        "token": "ward",
+        "skill_hint": "Crafting",
+        "category": "target"
+      },
+      {
+        "token": "device",
+        "skill_hint": "Crafting",
+        "category": "target"
+      },
+      {
+        "token": "killbox",
+        "skill_hint": "Crafting",
+        "category": "target"
+      },
+      {
+        "token": "entity",
+        "skill_hint": "Stealth",
+        "category": "target"
+      },
+      {
+        "token": "building",
+        "skill_hint": "Stealth",
+        "category": "target"
+      },
+      {
+        "token": "witness",
+        "skill_hint": "Stealth",
+        "category": "target"
+      },
+      {
+        "token": "site",
+        "skill_hint": "Stealth",
+        "category": "target"
+      },
+      {
+        "token": "fear",
+        "skill_hint": "Composure",
+        "category": "target"
+      },
+      {
+        "token": "affliction",
+        "skill_hint": "Composure",
+        "category": "target"
+      },
+      {
+        "token": "panic",
+        "skill_hint": "Composure",
+        "category": "target"
+      },
+      {
+        "token": "possession",
+        "skill_hint": "Composure",
+        "category": "target"
+      },
+      {
+        "token": "anger imprint",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "same person seen repeatedly",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "records tied to suspects",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "temperature drop near keepsake",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "objects thrown",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "activity centered around one person",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "EMF spikes",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "broken glass in safe rooms",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "life-drain marks",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "shadows moving independently",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "cold around tether",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "mirrors dim near target",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "roadside apparition",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "hitchhiker reports",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "phrase repeated by victims",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "water or rain motif",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "blackouts",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "personality inversion",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "sulfur trace",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "black-eyed reflection",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "mourning object moves",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "dreams of deceased",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "family cannot leave home",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "photos weep or burn",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "large prints",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "animal attack too precise",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "silver aversion",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "survivor with bite fever",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "bloodless bodies",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "glamoured witness",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "night-only sightings",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "old property records",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "half-eaten bodies",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "familiar voices in dark",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "unnatural cold",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "huge thin prints",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "contradicting stories",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "reality mismatch",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "sleeping victims living fantasies",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "sealed vessel nearby",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "sudden success followed by tragedy",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "contract traces",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "calm stranger",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "crossroads token",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "personality shift",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "missing history",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "subtle household errors",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "iron aversion",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "rust-colored footprints",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "old blood in corners",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "broken teeth",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "ruined stonework",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "doors lead wrong",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "maps fail",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "missing time",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      },
+      {
+        "token": "unstable ward geometry",
+        "skill_hint": "Investigation",
+        "category": "sign"
+      }
+    ]
+  },
+  "decisionTrees": {
+    "commandParse": {
+      "steps": [
+        "privacy prefix",
+        "actor prefix",
+        "verb intent",
+        "target phrase",
+        "topic phrase",
+        "character roll",
+        "state mutation",
+        "narration"
+      ],
+      "splitDelimiter": ";",
+      "actorDelimiter": ":"
+    },
+    "investigate": {
+      "roll": "best of Intellect/Instinct + Investigation/Awareness/skill match - setbacks",
+      "failure": [
+        "falseLead",
+        "pressure+1"
+      ],
+      "success": [
+        "clue",
+        "narrow"
+      ],
+      "strong": [
+        "exactEntity"
+      ],
+      "critical": [
+        "weakness",
+        "anchor"
+      ]
+    },
+    "talk": {
+      "roll": "Charisma/Instinct + Insight/Persuasion/Spirit Communication - fear/suspicion",
+      "failure": [
+        "witnessLie",
+        "trust-1",
+        "pressure+1"
+      ],
+      "success": [
+        "knownFact",
+        "trust+1"
+      ],
+      "critical": [
+        "hiddenTruth",
+        "privateTell"
+      ]
+    },
+    "research": {
+      "roll": "Intellect + Research/Occult Knowledge - badRecords",
+      "failure": [
+        "wrongLore",
+        "timeLoss"
+      ],
+      "success": [
+        "entityCategory",
+        "archiveClue"
+      ],
+      "critical": [
+        "weakness",
+        "killConditionHint"
+      ]
+    },
+    "prep": {
+      "roll": "Intellect/Prowess + Crafting/Tinkering/Trap Setting",
+      "failure": [
+        "flawedGear"
+      ],
+      "success": [
+        "prepAdded",
+        "setbackReduction"
+      ],
+      "critical": [
+        "perfectCounter"
+      ]
+    },
+    "attack": {
+      "roll": "Force/Prowess + Melee/Firearms - threatPressure",
+      "withoutWeakness": [
+        "temporaryStagger",
+        "counterattack",
+        "pressure+2"
+      ],
+      "withWeakness": [
+        "damageState",
+        "confrontProgress"
+      ],
+      "critical": [
+        "killConditionProgress"
+      ]
+    },
+    "cast": {
+      "roll": "Will + matching spell skill - ritualSetbacks",
+      "failure": [
+        "backlash",
+        "strain",
+        "pressure+1"
+      ],
+      "success": [
+        "spellEffect"
+      ],
+      "critical": [
+        "extraRevealOrControl"
+      ]
+    }
+  }
+}

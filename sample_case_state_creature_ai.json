@@ -1,0 +1,38 @@
+{
+  "caseId": "case_mercy_falls_001",
+  "phase": "investigate",
+  "pressureClock": 3,
+  "domain": "sigils",
+  "caseSeed": {
+    "card": "Seven of Sigils",
+    "suit": "sigils",
+    "value": "7",
+    "reversed": false
+  },
+  "party": [
+    {
+      "name": "Riley"
+    },
+    {
+      "name": "Sam"
+    },
+    {
+      "name": "Alex"
+    }
+  ],
+  "trueEntity": {
+    "name": "Hollow Rider",
+    "type": "demon",
+    "threat": 2,
+    "weakness": [
+      "exorcism",
+      "holy water",
+      "binding sigils"
+    ],
+    "killCondition": "Separate demon from host through exorcism, then trap or banish before repossession."
+  },
+  "clues": [],
+  "hiddenClues": [],
+  "publicLog": [],
+  "privateLogs": {}
+}

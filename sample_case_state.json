@@ -1,0 +1,20 @@
+{
+  "id": "case_mercy_falls_bell",
+  "phase": "investigate",
+  "pressureClock": 1,
+  "globalSetbacks": [],
+  "sceneSetbacks": [
+    "darkness_light"
+  ],
+  "flags": [],
+  "location": "abandoned church rooftop",
+  "knownClues": [
+    "A bell rings underground."
+  ],
+  "possibleEntities": [
+    "Demon",
+    "Vengeful Spirit",
+    "Djinn"
+  ],
+  "trueEntity": "Crossroads Demon"
+}

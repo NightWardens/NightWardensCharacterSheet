@@ -1,0 +1,64 @@
+{
+  "version": "pass2-command-parser-v1",
+  "compatibleWith": [
+    "night_wardens_auto_gm_parser_pass1_data_core"
+  ],
+  "commandGrammar": {
+    "multiActionSeparators": [
+      ";",
+      "then",
+      "and then"
+    ],
+    "actorPrefix": [
+      "Riley: investigate altar",
+      "Sam: talk witness"
+    ],
+    "privacyPrefix": [
+      "public Riley: investigate altar",
+      "private Alex: research sigil"
+    ],
+    "splitPartyFormat": [
+      "Riley: investigate altar; Sam: talk witness; Alex: prep salt line"
+    ],
+    "commandShape": "privacy? actor? verb target? preposition? topic/location/item?"
+  },
+  "actionObjectFields": [
+    "raw",
+    "privacy",
+    "actor",
+    "verb",
+    "intent",
+    "target",
+    "targetType",
+    "topic",
+    "location",
+    "confidence",
+    "flags",
+    "tokens",
+    "unresolved",
+    "rollProfile"
+  ],
+  "intents": [
+    "look",
+    "investigate",
+    "talk",
+    "research",
+    "prepare",
+    "cast",
+    "move",
+    "attack",
+    "use",
+    "help",
+    "wait",
+    "inventory",
+    "status",
+    "split",
+    "join",
+    "note"
+  ],
+  "nextPassHook": {
+    "pass3": "Use rollProfile + actor to load character JSON, find attribute and skill ranks, calculate target number, and resolve success tier.",
+    "pass4": "Use target/topic/intent to select witness, clue, lie, trust, fear, and reveal logic.",
+    "pass5": "Use entity state to trigger creature behavior, signs, actions, and counterattacks."
+  }
+}

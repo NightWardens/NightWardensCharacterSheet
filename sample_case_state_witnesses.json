@@ -1,0 +1,377 @@
+{
+  "id": "case_mercy_falls_bell",
+  "title": "The Bell Under Blackwater Church",
+  "phase": "investigation",
+  "pressure": {
+    "clock": 1,
+    "max": 6,
+    "notes": [
+      "The bell has already rung once underground."
+    ]
+  },
+  "investigation": {
+    "trueEntity": "Possessor Demon",
+    "possibilities": [
+      "Possessor Demon",
+      "Vengeful Spirit",
+      "Djinn",
+      "Changeling"
+    ],
+    "eliminated": [],
+    "confirmedEntity": null,
+    "weaknessKnown": false,
+    "anchorKnown": false,
+    "killConditionKnown": false,
+    "clueScore": 0,
+    "falseLeads": [],
+    "publicClues": [],
+    "privateClues": {},
+    "clueLog": []
+  },
+  "witnesses": [
+    {
+      "id": "mrs_harlan",
+      "name": "Mrs. Harlan",
+      "role": "grieving mother",
+      "alias": "mother witness",
+      "trust": 0,
+      "fear": 3,
+      "motivation": "Protect her son and avoid the sheriff's attention.",
+      "demeanor": "exhausted, defensive, religiously frightened",
+      "lieTrigger": "direct accusation of her son",
+      "publicClues": [
+        {
+          "text": "She heard the bell even though the church bell was removed over a century ago.",
+          "topics": [
+            "bell",
+            "church"
+          ],
+          "sensitivity": 0,
+          "suggest": [
+            "Possessor Demon",
+            "Vengeful Spirit"
+          ]
+        },
+        {
+          "text": "Her son came home with black ash under his fingernails.",
+          "topics": [
+            "victim",
+            "demon",
+            "ritual"
+          ],
+          "sensitivity": 0,
+          "suggest": [
+            "Possessor Demon"
+          ]
+        }
+      ],
+      "guardedClues": [
+        {
+          "text": "Her son received texts from an unknown number telling him to meet under the church.",
+          "topics": [
+            "victim",
+            "church",
+            "timeline"
+          ],
+          "sensitivity": 1,
+          "suggest": [
+            "Possessor Demon"
+          ]
+        },
+        {
+          "text": "She saw the sheriff take an old case file from the church office before the Wardens arrived.",
+          "topics": [
+            "authority",
+            "church",
+            "records"
+          ],
+          "sensitivity": 1
+        }
+      ],
+      "secrets": [
+        {
+          "text": "Her son joined a ritual circle because he thought it could bring his dead father back.",
+          "topics": [
+            "ritual",
+            "victim",
+            "blood"
+          ],
+          "sensitivity": 2,
+          "revealsAnchor": true,
+          "suggest": [
+            "Possessor Demon"
+          ]
+        },
+        {
+          "text": "She has the last voicemail from the missing victim; the chanting in the background is backwards.",
+          "topics": [
+            "victim",
+            "ritual",
+            "bell"
+          ],
+          "sensitivity": 2,
+          "revealsWeakness": true
+        }
+      ],
+      "confessions": [
+        {
+          "text": "She lied about the timeline. The survivor was already speaking in a stranger's voice before the police arrived.",
+          "topics": [
+            "timeline",
+            "demon",
+            "victim"
+          ],
+          "sensitivity": 3,
+          "confirmEntity": "Possessor Demon",
+          "revealsKillCondition": true
+        }
+      ],
+      "lies": [
+        {
+          "text": "She claims the survivor never entered the church basement, but her eyes move to the mud-stained shoes by the door.",
+          "topics": [
+            "church",
+            "timeline"
+          ],
+          "isFalseLead": true
+        },
+        {
+          "text": "She insists the sheriff has been helpful, which does not match her fear response.",
+          "topics": [
+            "authority"
+          ],
+          "isFalseLead": true
+        }
+      ]
+    },
+    {
+      "id": "deputy_crowe",
+      "name": "Deputy Crowe",
+      "role": "nervous deputy",
+      "trust": -1,
+      "fear": 2,
+      "motivation": "Keep his job and avoid admitting the department buried old reports.",
+      "demeanor": "official, shaky, suspicious",
+      "lieTrigger": "asking about missing case files without proof",
+      "publicClues": [
+        {
+          "text": "The survivor was found on the road facing away from the church, as if fleeing something behind them.",
+          "topics": [
+            "victim",
+            "timeline"
+          ],
+          "sensitivity": 0
+        }
+      ],
+      "guardedClues": [
+        {
+          "text": "Three similar incidents happened near the church in the last 40 years.",
+          "topics": [
+            "records",
+            "church",
+            "timeline"
+          ],
+          "sensitivity": 1,
+          "eliminate": [
+            "Changeling"
+          ]
+        },
+        {
+          "text": "The old mine map shows a sealed chamber below the altar.",
+          "topics": [
+            "church",
+            "symbol",
+            "ritual"
+          ],
+          "sensitivity": 1,
+          "revealsAnchor": true
+        }
+      ],
+      "secrets": [
+        {
+          "text": "The sheriff ordered him not to mention the black-star symbol burned into the bell frame.",
+          "topics": [
+            "symbol",
+            "authority",
+            "church"
+          ],
+          "sensitivity": 2,
+          "revealsAnchor": true
+        }
+      ],
+      "confessions": [
+        {
+          "text": "The sheriff is not acting alone. Someone from outside town calls him every time the bell is heard.",
+          "topics": [
+            "authority",
+            "bell"
+          ],
+          "sensitivity": 3
+        }
+      ],
+      "lies": [
+        {
+          "text": "He says there are no older reports, but he uses the exact phrase 'not anymore.'",
+          "topics": [
+            "records"
+          ],
+          "isFalseLead": true
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "black_ash",
+      "name": "Black ash under fingernails",
+      "type": "body evidence",
+      "location": "hospital",
+      "examined": false,
+      "surfaceClues": [
+        {
+          "text": "The ash is not from wood or cigarette smoke; it has a metallic, bitter smell.",
+          "topics": [
+            "demon",
+            "ritual"
+          ],
+          "sensitivity": 0,
+          "suggest": [
+            "Possessor Demon",
+            "Djinn"
+          ]
+        }
+      ],
+      "deepClues": [
+        {
+          "text": "The ash contains powdered iron and grave soil, suggesting a containment rite failed.",
+          "topics": [
+            "ritual",
+            "symbol"
+          ],
+          "sensitivity": 2,
+          "eliminate": [
+            "Changeling"
+          ],
+          "revealsAnchor": true
+        }
+      ],
+      "hiddenClues": [
+        {
+          "text": "A fragment of bell-metal is embedded beneath one nail, tying the survivor to the underground bell anchor.",
+          "topics": [
+            "bell",
+            "anchor"
+          ],
+          "sensitivity": 3,
+          "confirmEntity": "Possessor Demon",
+          "revealsAnchor": true
+        }
+      ]
+    },
+    {
+      "id": "nine_circle_symbol",
+      "name": "Nine circles around a black star",
+      "type": "occult symbol",
+      "location": "church steps",
+      "examined": false,
+      "surfaceClues": [
+        {
+          "text": "The symbol is repeated, not decorative. Someone used it as an operational mark.",
+          "topics": [
+            "symbol",
+            "ritual"
+          ],
+          "sensitivity": 0
+        }
+      ],
+      "deepClues": [
+        {
+          "text": "The outer circles are seals, not summons. Something is being loosened, not called for the first time.",
+          "topics": [
+            "symbol",
+            "ritual",
+            "anchor"
+          ],
+          "sensitivity": 2,
+          "revealsAnchor": true
+        }
+      ],
+      "hiddenClues": [
+        {
+          "text": "The black star marks an elder seal pattern. The demon is only a servant weakening one layer.",
+          "topics": [
+            "symbol",
+            "demon",
+            "ritual"
+          ],
+          "sensitivity": 3,
+          "confirmEntity": "Possessor Demon",
+          "revealsKillCondition": true
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "hospital",
+      "name": "Mercy Falls Hospital",
+      "evidenceIds": [
+        "black_ash"
+      ],
+      "pressure": 1
+    },
+    {
+      "id": "church",
+      "name": "Blackwater Church",
+      "evidenceIds": [
+        "nine_circle_symbol"
+      ],
+      "pressure": 2
+    }
+  ],
+  "researchClues": [
+    {
+      "text": "A 1911 article says the church bell was removed after miners reported hearing it underground.",
+      "topics": [
+        "bell",
+        "church",
+        "timeline"
+      ],
+      "sensitivity": 1,
+      "suggest": [
+        "Vengeful Spirit",
+        "Possessor Demon"
+      ]
+    },
+    {
+      "text": "Warden archive fragments classify black-star seals as containment layers, not summoning gates.",
+      "topics": [
+        "symbol",
+        "ritual",
+        "records"
+      ],
+      "sensitivity": 2,
+      "revealsAnchor": true
+    },
+    {
+      "text": "Infernal servants often use human grief to create consent-like invitations for possession.",
+      "topics": [
+        "demon",
+        "victim",
+        "ritual"
+      ],
+      "sensitivity": 2,
+      "confirmEntity": "Possessor Demon"
+    },
+    {
+      "text": "Destroying the bell will not be enough unless the possessor is exorcised or bound before the anchor cracks.",
+      "topics": [
+        "bell",
+        "demon",
+        "kill condition"
+      ],
+      "sensitivity": 3,
+      "revealsKillCondition": true
+    }
+  ]
+}

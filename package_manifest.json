@@ -1,0 +1,13 @@
+{
+  "name": "night_wardens_auto_gm_pass7_website_integration",
+  "version": "7.1.0",
+  "files": [
+    "auto-gm.html",
+    "auto-gm-pass7.js",
+    "README.md",
+    "package_manifest.json"
+  ],
+  "purpose": "Working Auto-GM static webpage integrating parser, rolls, witnesses, investigations, creature AI, and shared/private campaign layers.",
+  "uploadPath": "GitHub repo root",
+  "entrypoint": "auto-gm.html"
+}

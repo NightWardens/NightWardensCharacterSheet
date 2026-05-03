@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Night Wardens Auto-GM Creature AI Case State Extension",
+  "type": "object",
+  "properties": {
+    "pressureClock": {
+      "type": "number"
+    },
+    "trueEntity": {
+      "type": "object"
+    },
+    "creatureAI": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "dormant",
+            "watching",
+            "stalking",
+            "hunting",
+            "manifesting",
+            "cornered",
+            "fleeing",
+            "contained",
+            "banished"
+          ]
+        },
+        "suspicion": {
+          "type": "number"
+        },
+        "aggression": {
+          "type": "number"
+        },
+        "hunger": {
+          "type": "number"
+        },
+        "fear": {
+          "type": "number"
+        },
+        "ritualProgress": {
+          "type": "number"
+        },
+        "knowsWardens": {
+          "type": "boolean"
+        },
+        "targetActor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "behaviorHistory": {
+          "type": "array"
+        },
+        "discoveredSigns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hiddenSigns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    "clues": {
+      "type": "array"
+    },
+    "hiddenClues": {
+      "type": "array"
+    },
+    "publicLog": {
+      "type": "array"
+    },
+    "privateLogs": {
+      "type": "object"
+    }
+  }
+}

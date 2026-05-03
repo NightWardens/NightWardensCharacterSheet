@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Night Wardens Pass 5 Creature AI Demo</title>
+  <style>
+    body{font-family:Georgia,serif;background:#efe8dc;color:#231f1b;margin:0;padding:20px}
+    .card{background:#fbf4e8;border:1px solid #9d9385;border-radius:16px;padding:14px;margin:10px 0}
+    button{background:#4b0d0d;color:white;border:0;border-radius:10px;padding:10px;margin:4px;cursor:pointer}
+    pre{white-space:pre-wrap;background:#2d2723;color:#fff;border-radius:12px;padding:12px;max-height:420px;overflow:auto}
+  </style>
+</head>
+<body>
+  <h1>Night Wardens Auto-GM — Pass 5 Creature AI Demo</h1>
+  <div class="card">
+    <button onclick="step('investigate')">Riley investigates circle</button>
+    <button onclick="step('research')">Alex researches privately</button>
+    <button onclick="step('prep')">Sam preps salt line</button>
+    <button onclick="step('attack')">Riley attacks</button>
+    <button onclick="discover()">Discover signs</button>
+  </div>
+  <pre id="out"></pre>
+  <script src="../src/auto_gm_creature_ai_clue_trail.js"></script>
+  <script>
+    let state = {
+      caseId:"case_mercy_falls_001",
+      phase:"investigate",
+      pressureClock:3,
+      domain:"sigils",
+      caseSeed:{card:"Seven of Sigils",suit:"sigils",value:"7",reversed:false},
+      party:[{name:"Riley"},{name:"Sam"},{name:"Alex"}],
+      trueEntity:{name:"Hollow Rider",type:"demon",threat:2},
+      clues:[], hiddenClues:[], publicLog:[], privateLogs:{}
+    };
+    function render(){ document.getElementById("out").textContent = JSON.stringify(state,null,2); }
+    function step(intent){
+      const action = intent === "research" ? {privacy:"private",actor:"Alex",intent,target:"black star symbol"} : {privacy:"public",actor:intent==="prep"?"Sam":"Riley",intent,target:intent==="prep"?"salt line":"entity"};
+      const roll = intent === "attack" ? {success:false,outcome:"failure"} : {success:true,outcome:"success"};
+      const result = NightWardensCreatureAI.creatureTakeTurn(state, action, roll);
+      state = result.caseState;
+      render();
+    }
+    function discover(){
+      const result = NightWardensCreatureAI.discoverSigns(state, {privacy:"public",actor:"Riley",intent:"investigate",target:""}, {success:true,outcome:"strongSuccess"});
+      state = result.caseState;
+      render();
+    }
+    render();
+  </script>
+</body>
+</html>

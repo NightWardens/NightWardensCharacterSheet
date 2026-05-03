@@ -1,0 +1,28 @@
+{
+  "pass": 6,
+  "name": "Shared / Private Campaign Layer",
+  "version": "1.0.0",
+  "adds": [
+    "public party transcript",
+    "private player branch logs",
+    "campaign-linked Auto-GM case state",
+    "reveal private clue to party workflow",
+    "player-visible filtered state",
+    "party-visible filtered state",
+    "Firebase-ready adapter hooks",
+    "local storage fallback"
+  ],
+  "visibilityRules": {
+    "public": "visible to all campaign members",
+    "private": "visible to owning player and GM/Auto-GM only",
+    "gm": "hidden truth and unresolved case structure",
+    "system": "mechanical notices and sync messages"
+  },
+  "integrationOrder": [
+    "Pass 2 parser creates parsedAction",
+    "Pass 3 roll engine creates rollResult",
+    "Pass 4 witness engine creates witnessResult",
+    "Pass 5 creature AI creates creatureResult",
+    "Pass 6 applyActionResult routes result to public or private logs"
+  ]
+}

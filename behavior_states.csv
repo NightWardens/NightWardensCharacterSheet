@@ -1,0 +1,10 @@
+state,pressure_range,description,next_if_pressure
+dormant,0,Present but quiet; only faint symptoms are visible.,watching
+watching,0-2,Observing and testing Warden behavior.,stalking
+stalking,1-4,"Following, marking, or isolating targets.",hunting
+hunting,4-7,Actively seeks victims or leverage.,manifesting
+manifesting,7-10,Reveals stronger powers or physical presence.,cornered
+cornered,10+,"Crisis state; attack, full ritual, escape, or desperate bargain.",cornered
+fleeing,any,"Retreats to anchor, host, lair, or next zone.",stalking
+contained,any,"Held by rite, trap, social law, or physical countermeasure.",cornered
+banished,resolved,Removed from the case unless fallout restores it.,banished

@@ -1,0 +1,6 @@
+pressure_min,pressure_max,tier,state_hint,auto_gm_move
+0,0,quiet,watching,Add a subtle sign or uneasy witness statement.
+1,3,low,stalking,"Add a second symptom, marked target, or movement clue."
+4,6,moderate,hunting,"Add a new victim, active manifestation, or direct scene pressure."
+7,9,high,manifesting,"Reveal lair, active ritual, physical manifestation, or faction action."
+10,99,crisis,cornered,"Force confrontation, catastrophe, escape attempt, or completed ritual."

@@ -1,0 +1,217 @@
+{
+  "version": "pass5.1",
+  "signs": [
+    {
+      "id": "cold_spot",
+      "label": "Cold Spot",
+      "category": "environmental",
+      "reveals": [
+        "spirit",
+        "threshold instability"
+      ],
+      "searchTerms": [
+        "cold",
+        "temperature",
+        "frost",
+        "breath"
+      ],
+      "skillHooks": [
+        "Awareness",
+        "Presence Sense",
+        "Investigation"
+      ],
+      "clue": "A localized temperature drop suggests spirit activity or threshold instability."
+    },
+    {
+      "id": "emf_spike",
+      "label": "EMF Spike",
+      "category": "technical",
+      "reveals": [
+        "spirit",
+        "manifestation zone"
+      ],
+      "searchTerms": [
+        "emf",
+        "radio",
+        "static",
+        "scanner"
+      ],
+      "skillHooks": [
+        "Tinkering",
+        "Forensics",
+        "Presence Sense"
+      ],
+      "clue": "Electromagnetic activity spikes around the anchor path or manifestation zone."
+    },
+    {
+      "id": "sulfur",
+      "label": "Sulfur Trace",
+      "category": "infernal",
+      "reveals": [
+        "demon",
+        "infernal rite"
+      ],
+      "searchTerms": [
+        "sulfur",
+        "ash",
+        "burnt air",
+        "smell"
+      ],
+      "skillHooks": [
+        "Occult Knowledge",
+        "Presence Sense"
+      ],
+      "clue": "Sulfur, ash, or scorched air points toward infernal manifestation."
+    },
+    {
+      "id": "tracks",
+      "label": "Unnatural Tracks",
+      "category": "physical",
+      "reveals": [
+        "beast",
+        "pursuit route"
+      ],
+      "searchTerms": [
+        "tracks",
+        "prints",
+        "footprints",
+        "trail"
+      ],
+      "skillHooks": [
+        "Tracking",
+        "Survival",
+        "Investigation"
+      ],
+      "clue": "Tracks show size, gait, direction, and whether the threat is physical or staged."
+    },
+    {
+      "id": "circle_residue",
+      "label": "Circle Residue",
+      "category": "ritual",
+      "reveals": [
+        "sigils",
+        "summoning",
+        "binding"
+      ],
+      "searchTerms": [
+        "circle",
+        "chalk",
+        "salt",
+        "residue",
+        "ritual"
+      ],
+      "skillHooks": [
+        "Sigil Reading",
+        "Ritual Casting",
+        "Investigation"
+      ],
+      "clue": "Residue shows what was contained, summoned, or excluded."
+    },
+    {
+      "id": "contradicting_story",
+      "label": "Contradicting Story",
+      "category": "witness",
+      "reveals": [
+        "misdirection",
+        "memory manipulation"
+      ],
+      "searchTerms": [
+        "story",
+        "witness",
+        "contradiction",
+        "lie"
+      ],
+      "skillHooks": [
+        "Insight",
+        "Investigation",
+        "Interview"
+      ],
+      "clue": "Contradictions are patterned, not random, suggesting manipulation."
+    },
+    {
+      "id": "reality_mismatch",
+      "label": "Reality Mismatch",
+      "category": "reality",
+      "reveals": [
+        "djinn",
+        "illusion",
+        "threshold"
+      ],
+      "searchTerms": [
+        "wrong room",
+        "map",
+        "impossible",
+        "missing time"
+      ],
+      "skillHooks": [
+        "Investigation",
+        "Composure",
+        "Occult Knowledge"
+      ],
+      "clue": "The scene contradicts records, memory, or geometry, pointing toward djinn or threshold effects."
+    },
+    {
+      "id": "iron_aversion",
+      "label": "Iron Aversion",
+      "category": "behavioral",
+      "reveals": [
+        "fae",
+        "changeling"
+      ],
+      "searchTerms": [
+        "iron",
+        "nail",
+        "avoid",
+        "flinch"
+      ],
+      "skillHooks": [
+        "Insight",
+        "Investigation"
+      ],
+      "clue": "A subject avoids iron unconsciously, narrowing toward fae or changeling influence."
+    },
+    {
+      "id": "fresh_attack",
+      "label": "Fresh Attack",
+      "category": "violence",
+      "reveals": [
+        "current location",
+        "confidence",
+        "hunger"
+      ],
+      "searchTerms": [
+        "blood",
+        "attack",
+        "body",
+        "scream"
+      ],
+      "skillHooks": [
+        "Investigation",
+        "Tracking",
+        "Awareness"
+      ],
+      "clue": "The attack timing indicates current location, hunger, or confidence."
+    },
+    {
+      "id": "damaged_gear",
+      "label": "Damaged Gear",
+      "category": "sabotage",
+      "reveals": [
+        "enemy knows Wardens",
+        "human/cult involvement"
+      ],
+      "searchTerms": [
+        "broken gear",
+        "sabotage",
+        "trap",
+        "salt line"
+      ],
+      "skillHooks": [
+        "Tinkering",
+        "Awareness",
+        "Investigation"
+      ],
+      "clue": "Preparation was targeted; the enemy knows Warden methods."
+    }
+  ]
+}

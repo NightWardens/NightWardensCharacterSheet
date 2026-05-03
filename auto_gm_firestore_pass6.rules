@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isMember(caseId) {
+      return signedIn() && request.auth.uid in get(/databases/$(database)/documents/campaignCases/$(caseId)).data.memberIds;
+    }
+    match /campaignCases/{caseId} {
+      allow read: if isMember(caseId);
+      allow create: if signedIn() && request.auth.uid in request.resource.data.memberIds;
+      allow update: if isMember(caseId)
+        && !('hiddenState' in request.resource.data.diff(resource.data).affectedKeys())
+        || (signedIn() && request.auth.uid == resource.data.createdBy);
+      allow delete: if signedIn() && request.auth.uid == resource.data.createdBy;
+
+      match /privateBranches/{playerId} {
+        allow read, write: if signedIn() && (request.auth.uid == playerId || request.auth.uid == get(/databases/$(database)/documents/campaignCases/$(caseId)).data.createdBy);
+      }
+    }
+  }
+}

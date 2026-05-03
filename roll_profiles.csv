@@ -1,0 +1,8 @@
+intent,attribute,primarySkill,supportSkills,baseSetbacks,notes
+investigate,Intellect,Investigation,Awareness|Occult Knowledge,0,"Scene search, evidence, clues."
+research,Intellect,Research,Occult Knowledge|Symbolism,0,"Lore, archives, entity ID."
+talk,Charisma,Insight,Persuasion|Investigation,0,Witness interviews.
+attack_melee,Force,Melee Combat,Weapon Handling|Threat Control,0,Close attack.
+attack_ranged,Prowess,Firearms,Awareness|Aim,0,Ranged attack.
+cast_quick,Will,Energy Control,Ritual Basics|Focus,0,Quick spells.
+jump,Prowess,Athletics,Awareness|Survival,0,Movement and risky traversal.

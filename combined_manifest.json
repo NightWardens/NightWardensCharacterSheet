@@ -1,0 +1,9 @@
+{
+  "name": "Night Wardens Auto-GM Combined Pass 1-7",
+  "version": "7.2-combined",
+  "deploy_files": [
+    "deploy_to_github_root/auto-gm.html",
+    "deploy_to_github_root/auto-gm-pass7.js"
+  ],
+  "notes": "Pass 7 is the current integrated webpage. Passes 1-6 are included as source/reference modules."
+}

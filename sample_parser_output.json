@@ -1,0 +1,56 @@
+{
+  "raw": "public Riley: investigate altar; Sam: talk to witness about the bell; private Alex: research sigil",
+  "mode": "public",
+  "actionCount": 3,
+  "actions": [
+    {
+      "privacy": "public",
+      "actor": "Riley",
+      "intent": "investigate",
+      "target": "altar",
+      "targetType": "location",
+      "rollProfile": {
+        "attribute": "Intellect",
+        "primarySkill": "Occult Knowledge",
+        "supportSkills": [
+          "Investigation",
+          "Sigil Reading"
+        ],
+        "rollNeeded": true
+      }
+    },
+    {
+      "privacy": "public",
+      "actor": "Sam",
+      "intent": "talk",
+      "target": "witness",
+      "targetType": "witness",
+      "topic": "the bell",
+      "rollProfile": {
+        "attribute": "Charisma",
+        "primarySkill": "Persuasion/Insight",
+        "supportSkills": [
+          "Investigation",
+          "Observation"
+        ],
+        "rollNeeded": true
+      }
+    },
+    {
+      "privacy": "private",
+      "actor": "Alex",
+      "intent": "research",
+      "target": "sigil",
+      "targetType": "evidence",
+      "rollProfile": {
+        "attribute": "Intellect",
+        "primarySkill": "Occult Knowledge",
+        "supportSkills": [
+          "Research",
+          "Symbolism"
+        ],
+        "rollNeeded": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+permission,default,description
+allowPlayersRevealOwnPrivateClues,true,Player can publish their own private clues to party log
+allowPlayersCreatePrivateBranches,true,Player can act privately when split from the party
+allowPartyViewPublicTranscript,true,All campaign members can see party-visible transcript
+allowPlayersEditCampaignCase,false,Only GM/owner should edit hidden case structure by default

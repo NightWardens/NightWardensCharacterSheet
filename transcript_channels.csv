@@ -1,0 +1,5 @@
+channel,visibility,who_can_read,who_can_write,use_case
+public,public,campaign_members,campaign_members,party-visible narration and shared actions
+private,private,owning_player_and_gm,owning_player_and_auto_gm,split-party discoveries and individual branch narration
+gm,gm,gm_only,auto_gm_or_gm,hidden notes and unresolved secrets
+system,system,campaign_members,system,save/load sync messages and mechanical notices

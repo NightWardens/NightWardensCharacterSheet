@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Night Wardens Character Roll Shape",
+  "type": "object",
+  "required": [
+    "name",
+    "attributes",
+    "skills"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "move": {
+      "type": "number"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "force": {
+          "type": "number"
+        },
+        "prowess": {
+          "type": "number"
+        },
+        "intellect": {
+          "type": "number"
+        },
+        "instinct": {
+          "type": "number"
+        },
+        "will": {
+          "type": "number"
+        },
+        "charisma": {
+          "type": "number"
+        },
+        "endurance": {
+          "type": "number"
+        }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

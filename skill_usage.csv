@@ -1,0 +1,16 @@
+skill,attributes,verbs,targets,success,failure
+Awareness,['instinct'],"['look', 'watch', 'notice', 'scan', 'listen']","['room', 'tracks', 'shadow', 'ambush', 'movement']",notice anomaly or danger before it acts,miss the first pressure sign
+Investigation,"['intellect', 'instinct']","['investigate', 'inspect', 'search', 'examine', 'check']","['scene', 'body', 'altar', 'symbol', 'room', 'object']",gain clue or narrow entity list,false lead or time loss
+Research,['intellect'],"['research', 'study', 'archive', 'google', 'lookup']","['records', 'symbol', 'lore', 'victim', 'church', 'entity']","confirm lore, anchor, weakness, or historical pattern",contradictory records
+Insight,"['charisma', 'instinct']","['ask', 'talk', 'interview', 'question', 'comfort', 'pressure']","['witness', 'victim', 'survivor', 'deputy', 'priest', 'family']","read motive, lie, fear, or emotional truth",witness closes off or lies
+Spirit Communication,"['charisma', 'will']","['speak', 'call', 'contact', 'seance']","['ghost', 'spirit', 'dead', 'haunt']","spirit provides truth, warning, or anchor hint",spirit backlash or haunting pressure
+Occult Knowledge,['intellect'],"['identify', 'read', 'decode', 'classify']","['sigil', 'ritual', 'ward', 'entity', 'omen']",identify occult structure or entity category,misread supernatural rules
+Ritual Casting,['will'],"['cast', 'perform', 'complete', 'banish', 'exorcise']","['rite', 'ritual', 'exorcism', 'banishment', 'circle']",rite advances or stabilizes scene,backlash or escalation
+Warding,['will'],"['ward', 'protect', 'seal', 'circle']","['door', 'threshold', 'room', 'circle', 'host']","reduce crossing, possession, or manifestation risk",false safety or cracked ward
+Binding,['will'],"['bind', 'trap', 'contain', 'pin']","['entity', 'demon', 'spirit', 'host', 'anchor']",limit movement or escape,entity lashes out
+Firearms,['prowess'],"['shoot', 'fire', 'attack']","['entity', 'creature', 'demon', 'spirit']",deal damage if correct weakness/prep exists,miss or expose position
+Melee Combat,['force'],"['stab', 'strike', 'hit', 'attack', 'grapple']","['entity', 'creature', 'host', 'demon']",control or damage if method is valid,counterattack or injury
+Tracking,['instinct'],"['track', 'follow', 'trail']","['prints', 'blood', 'scent', 'trail', 'tracks']",locate movement route or lair clue,ambush risk
+Crafting,['intellect'],"['craft', 'build', 'repair', 'rig']","['trap', 'ammo', 'ward', 'device', 'killbox']",prep item added or trap improves,unstable gear
+Stealth,['prowess'],"['sneak', 'hide', 'tail', 'approach']","['entity', 'building', 'witness', 'site']",avoid notice or gain position,exposure
+Composure,['will'],"['resist', 'calm', 'focus', 'suppress']","['fear', 'affliction', 'panic', 'possession']",retain control,"strain, GM influence, or affliction trigger"

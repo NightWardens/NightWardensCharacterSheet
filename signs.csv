@@ -1,0 +1,57 @@
+creature,sign,class
+Vengeful Spirit / Onryo,anger imprint,violent_spirit
+Vengeful Spirit / Onryo,same person seen repeatedly,violent_spirit
+Vengeful Spirit / Onryo,records tied to suspects,violent_spirit
+Vengeful Spirit / Onryo,temperature drop near keepsake,violent_spirit
+Poltergeist,objects thrown,violent_spirit
+Poltergeist,activity centered around one person,violent_spirit
+Poltergeist,EMF spikes,violent_spirit
+Poltergeist,broken glass in safe rooms,violent_spirit
+Wraith,life-drain marks,violent_spirit
+Wraith,shadows moving independently,violent_spirit
+Wraith,cold around tether,violent_spirit
+Wraith,mirrors dim near target,violent_spirit
+Woman in White,roadside apparition,human_tied
+Woman in White,hitchhiker reports,human_tied
+Woman in White,phrase repeated by victims,human_tied
+Woman in White,water or rain motif,human_tied
+Possessor Demon,blackouts,human_tied
+Possessor Demon,personality inversion,human_tied
+Possessor Demon,sulfur trace,human_tied
+Possessor Demon,black-eyed reflection,human_tied
+Grief Haunt,mourning object moves,human_tied
+Grief Haunt,dreams of deceased,human_tied
+Grief Haunt,family cannot leave home,human_tied
+Grief Haunt,photos weep or burn,human_tied
+Werewolf / Rugaru,large prints,creature_hunt
+Werewolf / Rugaru,animal attack too precise,creature_hunt
+Werewolf / Rugaru,silver aversion,creature_hunt
+Werewolf / Rugaru,survivor with bite fever,creature_hunt
+Vampire,bloodless bodies,creature_hunt
+Vampire,glamoured witness,creature_hunt
+Vampire,night-only sightings,creature_hunt
+Vampire,old property records,creature_hunt
+Wendigo,half-eaten bodies,creature_hunt
+Wendigo,familiar voices in dark,creature_hunt
+Wendigo,unnatural cold,creature_hunt
+Wendigo,huge thin prints,creature_hunt
+Djinn,contradicting stories,ritual_occult
+Djinn,reality mismatch,ritual_occult
+Djinn,sleeping victims living fantasies,ritual_occult
+Djinn,sealed vessel nearby,ritual_occult
+Crossroads Demon,sudden success followed by tragedy,ritual_occult
+Crossroads Demon,contract traces,ritual_occult
+Crossroads Demon,calm stranger,ritual_occult
+Crossroads Demon,crossroads token,ritual_occult
+Changeling,personality shift,ritual_occult
+Changeling,missing history,ritual_occult
+Changeling,subtle household errors,ritual_occult
+Changeling,iron aversion,ritual_occult
+Redcap,rust-colored footprints,creature_hunt
+Redcap,old blood in corners,creature_hunt
+Redcap,broken teeth,creature_hunt
+Redcap,ruined stonework,creature_hunt
+Veil Render,doors lead wrong,ritual_occult
+Veil Render,maps fail,ritual_occult
+Veil Render,missing time,ritual_occult
+Veil Render,unstable ward geometry,ritual_occult

@@ -1,0 +1,100 @@
+token,intent,skill,weight
+look,skill,Awareness,1
+watch,skill,Awareness,1
+notice,skill,Awareness,1
+scan,skill,Awareness,1
+listen,skill,Awareness,1
+investigate,skill,Investigation,1
+inspect,skill,Investigation,1
+search,skill,Investigation,1
+examine,skill,Investigation,1
+check,skill,Investigation,1
+research,skill,Research,1
+study,skill,Research,1
+archive,skill,Research,1
+google,skill,Research,1
+lookup,skill,Research,1
+ask,skill,Insight,1
+talk,skill,Insight,1
+interview,skill,Insight,1
+question,skill,Insight,1
+comfort,skill,Insight,1
+pressure,skill,Insight,1
+speak,skill,Spirit Communication,1
+call,skill,Spirit Communication,1
+contact,skill,Spirit Communication,1
+seance,skill,Spirit Communication,1
+identify,skill,Occult Knowledge,1
+read,skill,Occult Knowledge,1
+decode,skill,Occult Knowledge,1
+classify,skill,Occult Knowledge,1
+cast,skill,Ritual Casting,1
+perform,skill,Ritual Casting,1
+complete,skill,Ritual Casting,1
+banish,skill,Ritual Casting,1
+exorcise,skill,Ritual Casting,1
+ward,skill,Warding,1
+protect,skill,Warding,1
+seal,skill,Warding,1
+circle,skill,Warding,1
+bind,skill,Binding,1
+trap,skill,Binding,1
+contain,skill,Binding,1
+pin,skill,Binding,1
+shoot,skill,Firearms,1
+fire,skill,Firearms,1
+attack,skill,Firearms,1
+stab,skill,Melee Combat,1
+strike,skill,Melee Combat,1
+hit,skill,Melee Combat,1
+attack,skill,Melee Combat,1
+grapple,skill,Melee Combat,1
+track,skill,Tracking,1
+follow,skill,Tracking,1
+trail,skill,Tracking,1
+craft,skill,Crafting,1
+build,skill,Crafting,1
+repair,skill,Crafting,1
+rig,skill,Crafting,1
+sneak,skill,Stealth,1
+hide,skill,Stealth,1
+tail,skill,Stealth,1
+approach,skill,Stealth,1
+resist,skill,Composure,1
+calm,skill,Composure,1
+focus,skill,Composure,1
+suppress,skill,Composure,1
+ask,ask_witness,Insight,2
+question,ask_witness,Insight,2
+interview,ask_witness,Insight,2
+talk,ask_witness,Insight,2
+comfort,ask_witness,Insight,2
+pressure,ask_witness,Insight,2
+investigate,investigate_scene,Investigation,2
+inspect,investigate_scene,Investigation,2
+search,investigate_scene,Investigation,2
+examine,investigate_scene,Investigation,2
+check,investigate_scene,Investigation,2
+research,research_lore,Research,2
+study,research_lore,Research,2
+archive,research_lore,Research,2
+lookup,research_lore,Research,2
+decode,research_lore,Research,2
+prep,prepare_countermeasure,Crafting,2
+prepare,prepare_countermeasure,Crafting,2
+ward,prepare_countermeasure,Crafting,2
+set,prepare_countermeasure,Crafting,2
+craft,prepare_countermeasure,Crafting,2
+rig,prepare_countermeasure,Crafting,2
+attack,attack,Firearms,2
+shoot,attack,Firearms,2
+stab,attack,Firearms,2
+strike,attack,Firearms,2
+grapple,attack,Firearms,2
+hit,attack,Firearms,2
+cast,cast,Ritual Casting,2
+banish,cast,Ritual Casting,2
+exorcise,cast,Ritual Casting,2
+bind,cast,Ritual Casting,2
+seal,cast,Ritual Casting,2
+ward,cast,Ritual Casting,2

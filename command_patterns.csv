@@ -1,0 +1,9 @@
+pattern_id,example,expected_intent,expected_actor,expected_privacy,notes
+P001,look,look,,public,general scene read
+P002,Riley: investigate altar,investigate,Riley,public,actor prefix
+P003,private Alex: research sigil,research,Alex,private,private branch
+P004,public Riley: investigate altar; Sam: talk witness,mixed,mixed,public,multi action
+P005,Sam: ask Mrs Harlan about the bell,talk,Sam,public,topic extraction
+P006,Alex: prep salt line,prepare,Alex,public,prep command
+P007,Riley: shoot the demon with silver,attack,Riley,public,attack + gear
+P008,split Riley to church basement,split,Riley,public,split branch

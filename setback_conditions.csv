@@ -1,0 +1,6 @@
+id,group,label,amount,tags,movementMultiplier,duration,notes
+broken_leg,injury,Broken Leg,2,movement|prowess|jump|sprint|climb,0.5,until_treated,Movement actions suffer 2 setbacks and movement is halved.
+shaken,injury,Shaken,1,all,,next_roll,-1 to next relevant roll.
+ritual_burn,spell,Ritual Burn,1,prowess|will|ritual,,until_treated,Backlash from occult failure.
+reality_distortion,supernatural,Reality Distortion,2,instinct|awareness|navigation|investigation|movement,,scene,Typical djinn or veil-render pressure.
+fear_aura_2,supernatural,Strong Fear Aura,2,will|composure|social|attack,,scene,Applies near terrifying entities.

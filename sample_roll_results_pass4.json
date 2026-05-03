@@ -1,0 +1,26 @@
+[
+  {
+    "outcome": "success",
+    "total": 9,
+    "target": 12,
+    "margin": 3
+  },
+  {
+    "outcome": "strongSuccess",
+    "total": 7,
+    "target": 13,
+    "margin": 6
+  },
+  {
+    "outcome": "criticalSuccess",
+    "total": 3,
+    "target": 13,
+    "margin": 10
+  },
+  {
+    "outcome": "failure",
+    "total": 15,
+    "target": 11,
+    "margin": -4
+  }
+]

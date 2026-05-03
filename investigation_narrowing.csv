@@ -1,0 +1,7 @@
+roll_result,effect,mechanical
+criticalSuccess,"Reveal exact entity, weakness, and anchor clue",confirmedEntity=true; weaknessKnown=true; anchorKnown=true
+strongSuccess,Reveal exact entity type,confirmedEntity=true
+success,Offer 2-3 possible entity types,trim possibilities to 2-3
+partial,Remove 1 possibility or gain vague clue with cost,eliminate one; optional pressure +0
+failure,"False lead, danger trigger, time loss, suspicion, or escalation",add falseLead; pressure +1
+criticalFailure,Wrong conclusion plus immediate threat reaction,add falseLead; pressure +2; creature acts

@@ -1,0 +1,30 @@
+[
+  {
+    "privacy": "public",
+    "actor": "Riley",
+    "intent": "talk",
+    "target": "Mrs. Harlan",
+    "topic": "the bell"
+  },
+  {
+    "privacy": "private",
+    "actor": "Alex",
+    "intent": "research",
+    "target": "black star symbol",
+    "topic": "symbol"
+  },
+  {
+    "privacy": "public",
+    "actor": "Sam",
+    "intent": "investigate",
+    "target": "black ash",
+    "topic": "demon"
+  },
+  {
+    "privacy": "private",
+    "actor": "Riley",
+    "intent": "ask",
+    "target": "Deputy Crowe",
+    "topic": "old reports"
+  }
+]

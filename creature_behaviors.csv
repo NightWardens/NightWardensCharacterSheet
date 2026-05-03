@@ -1,0 +1,43 @@
+creature,behavior,class
+Vengeful Spirit / Onryo,escalates over time,violent_spirit
+Vengeful Spirit / Onryo,targets a list,violent_spirit
+Vengeful Spirit / Onryo,becomes more physical as it rises,violent_spirit
+Poltergeist,builds pressure,violent_spirit
+Poltergeist,lashes out through environment,violent_spirit
+Poltergeist,centers on emotional source,violent_spirit
+Wraith,stalks from dark,violent_spirit
+Wraith,avoids direct light,violent_spirit
+Wraith,feeds before manifesting,violent_spirit
+Woman in White,lures emotionally vulnerable targets,human_tied
+Woman in White,repeats last moments,human_tied
+Woman in White,brief possession during spikes,human_tied
+Possessor Demon,hides in host,human_tied
+Possessor Demon,isolates allies,human_tied
+Possessor Demon,uses social access,human_tied
+Grief Haunt,feeds on unresolved grief,human_tied
+Grief Haunt,protects anchor family,human_tied
+Grief Haunt,punishes denial,human_tied
+Werewolf / Rugaru,hunts by scent,creature_hunt
+Werewolf / Rugaru,attacks isolated prey,creature_hunt
+Werewolf / Rugaru,flees bad odds,creature_hunt
+Vampire,uses charm,creature_hunt
+Vampire,nests near food source,creature_hunt
+Vampire,controls thralls,creature_hunt
+Wendigo,mimics voices,creature_hunt
+Wendigo,ambushes from cold,creature_hunt
+Wendigo,gains after feeding,creature_hunt
+Djinn,isolates targets,ritual_occult
+Djinn,twists desire,ritual_occult
+Djinn,hides truth behind comfort,ritual_occult
+Crossroads Demon,never lies outright,ritual_occult
+Crossroads Demon,twists meaning,ritual_occult
+Crossroads Demon,waits for consent,ritual_occult
+Changeling,studies household,ritual_occult
+Changeling,protects false identity,ritual_occult
+Changeling,avoids open combat,ritual_occult
+Redcap,hunts stragglers,creature_hunt
+Redcap,loves cellars and ruins,creature_hunt
+Redcap,gets bold after injury,creature_hunt
+Veil Render,traps before attacking,ritual_occult
+Veil Render,denies exits,ritual_occult
+Veil Render,uses false space,ritual_occult

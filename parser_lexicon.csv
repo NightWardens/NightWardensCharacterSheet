@@ -1,0 +1,38 @@
+kind,key,phrase,notes
+verb,look,look,scene overview
+verb,look,examine,also investigation depending target
+verb,investigate,investigate,primary clue action
+verb,investigate,search,scene search
+verb,investigate,process,forensic/evidence processing
+verb,talk,talk,general witness command
+verb,talk,ask,topic-based witness command
+verb,talk,question,interview pressure
+verb,talk,press,may increase fear/suspicion
+verb,talk,comfort,may increase trust
+verb,research,research,library/archive/lore
+verb,research,cross-reference,archive comparison
+verb,prepare,prep,short form
+verb,prepare,set up,trap/ward setup
+verb,prepare,draw,circle/sigil setup
+verb,cast,cast,quick spell
+verb,cast,exorcise,ritual conflict
+verb,attack,attack,generic attack
+verb,attack,shoot,firearms
+verb,attack,stab,melee
+verb,move,move,change location
+verb,move,go,change location
+verb,use,use,gear/relic
+verb,help,assist,support ally
+privacy,public,public,party-visible
+privacy,private,private,player-only branch
+target,witness,witness,generic witness
+target,witness,survivor,case survivor
+target,location,altar,ritual focus
+target,location,basement,scene location
+target,evidence,symbol,occult sign
+target,evidence,sigil,occult sign
+target,entity,demon,infernal entity
+target,entity,ghost,spirit entity
+target,gear,salt line,barrier prep
+target,gear,holy water,anti-demon/spirit
+target,spell,veil snap,reveal spell

@@ -1,0 +1,320 @@
+{
+  "version": "pass5.1",
+  "engine": "Night Wardens Auto-GM Creature AI + Clue Trail",
+  "behaviorStates": [
+    {
+      "id": "dormant",
+      "description": "Present but not actively responding yet.",
+      "defaultPressure": 0
+    },
+    {
+      "id": "watching",
+      "description": "Observing the Wardens, witnesses, or scene from concealment.",
+      "defaultPressure": 0
+    },
+    {
+      "id": "stalking",
+      "description": "Following or positioning around a target.",
+      "defaultPressure": 1
+    },
+    {
+      "id": "hunting",
+      "description": "Actively seeking victims or leverage.",
+      "defaultPressure": 2
+    },
+    {
+      "id": "manifesting",
+      "description": "Revealing stronger supernatural effects or physical presence.",
+      "defaultPressure": 2
+    },
+    {
+      "id": "cornered",
+      "description": "Dangerous crisis mode; attacks, flees, bargains, or completes ritual.",
+      "defaultPressure": 3
+    },
+    {
+      "id": "fleeing",
+      "description": "Retreating to anchor, vessel, lair, or next host.",
+      "defaultPressure": 0
+    },
+    {
+      "id": "contained",
+      "description": "Held by trap, rite, circle, social law, or physical restraint.",
+      "defaultPressure": 0
+    },
+    {
+      "id": "banished",
+      "description": "Removed from active case unless fallout restores thread.",
+      "defaultPressure": 0
+    }
+  ],
+  "entityArchetypes": {
+    "spirit": {
+      "motives": [
+        "revenge",
+        "grief loop",
+        "territorial haunting",
+        "unfinished message"
+      ],
+      "defaultState": "watching",
+      "preferredSigns": [
+        "cold_spot",
+        "emf_spike",
+        "repeated_phrase",
+        "object_moved",
+        "dream_echo"
+      ],
+      "commonBehaviors": [
+        "watch",
+        "haunt",
+        "mislead",
+        "attack",
+        "flee",
+        "negotiate"
+      ]
+    },
+    "demon": {
+      "motives": [
+        "corruption",
+        "possession",
+        "contract enforcement",
+        "seal weakening"
+      ],
+      "defaultState": "stalking",
+      "preferredSigns": [
+        "sulfur",
+        "black_eyes",
+        "layered_voice",
+        "animal_panic",
+        "burned_sigil"
+      ],
+      "commonBehaviors": [
+        "mislead",
+        "tempt",
+        "attack",
+        "possess",
+        "ritual",
+        "sabotage"
+      ]
+    },
+    "fae": {
+      "motives": [
+        "bargain collection",
+        "identity theft",
+        "territory defense",
+        "stolen child"
+      ],
+      "defaultState": "watching",
+      "preferredSigns": [
+        "missing_time",
+        "iron_aversion",
+        "unseasonal_growth",
+        "polite_threat",
+        "memory_gap"
+      ],
+      "commonBehaviors": [
+        "watch",
+        "mislead",
+        "bargain",
+        "lure",
+        "flee",
+        "attack"
+      ]
+    },
+    "beast": {
+      "motives": [
+        "feeding",
+        "territory",
+        "transformation impulse",
+        "nest protection"
+      ],
+      "defaultState": "hunting",
+      "preferredSigns": [
+        "tracks",
+        "half_eaten_body",
+        "claw_marks",
+        "animal_silence",
+        "blood_trail"
+      ],
+      "commonBehaviors": [
+        "stalk",
+        "attack",
+        "ambush",
+        "feed",
+        "flee"
+      ]
+    },
+    "djinn": {
+      "motives": [
+        "wish distortion",
+        "isolation",
+        "vessel protection",
+        "reality game"
+      ],
+      "defaultState": "watching",
+      "preferredSigns": [
+        "reality_mismatch",
+        "contradicting_story",
+        "vessel_symbol",
+        "missing_time",
+        "false_room"
+      ],
+      "commonBehaviors": [
+        "watch",
+        "mislead",
+        "isolate",
+        "illusion",
+        "bargain",
+        "flee"
+      ]
+    },
+    "cult": {
+      "motives": [
+        "summoning",
+        "coverup",
+        "sacrifice",
+        "ritual completion"
+      ],
+      "defaultState": "stalking",
+      "preferredSigns": [
+        "chant_fragment",
+        "circle_residue",
+        "witness_intimidation",
+        "missing_records",
+        "staged_scene"
+      ],
+      "commonBehaviors": [
+        "watch",
+        "mislead",
+        "ritual",
+        "sabotage",
+        "recruit",
+        "attack"
+      ]
+    }
+  },
+  "pressureEscalation": [
+    {
+      "clockRange": "0",
+      "tier": "quiet",
+      "stateHint": "watching",
+      "description": "One subtle sign, low urgency."
+    },
+    {
+      "clockRange": "1-3",
+      "tier": "low",
+      "stateHint": "stalking",
+      "description": "A second symptom, nearby presence, or witness pressure."
+    },
+    {
+      "clockRange": "4-6",
+      "tier": "moderate",
+      "stateHint": "hunting",
+      "description": "New victim, active manifestation, or direct pressure."
+    },
+    {
+      "clockRange": "7-9",
+      "tier": "high",
+      "stateHint": "manifesting",
+      "description": "Hostile scene, ritual nearing completion, lair revealed."
+    },
+    {
+      "clockRange": "10+",
+      "tier": "crisis",
+      "stateHint": "cornered",
+      "description": "Immediate confrontation, catastrophe, escape, or full manifestation."
+    }
+  ],
+  "behaviorToSigns": {
+    "watch": [
+      "cold_spot",
+      "animal_silence",
+      "unseen_observer"
+    ],
+    "stalk": [
+      "tracks",
+      "blood_trail",
+      "scratched_wall"
+    ],
+    "haunt": [
+      "repeated_phrase",
+      "object_moved",
+      "dream_echo"
+    ],
+    "mislead": [
+      "false_clue",
+      "staged_scene",
+      "contradicting_story"
+    ],
+    "lure": [
+      "false_beacon",
+      "familiar_voice",
+      "threshold_mark"
+    ],
+    "attack": [
+      "fresh_attack",
+      "blood_spatter",
+      "impact_mark"
+    ],
+    "ambush": [
+      "staged_scene",
+      "hidden_approach",
+      "fresh_attack"
+    ],
+    "flee": [
+      "dropped_token",
+      "escape_route",
+      "distorted_path"
+    ],
+    "feed": [
+      "half_eaten_body",
+      "drained_victim",
+      "blood_trail"
+    ],
+    "possess": [
+      "black_eyes",
+      "layered_voice",
+      "memory_gap"
+    ],
+    "tempt": [
+      "contract_trace",
+      "polite_threat",
+      "private_offer"
+    ],
+    "bargain": [
+      "offering_removed",
+      "polite_threat",
+      "threshold_mark"
+    ],
+    "ritual": [
+      "circle_residue",
+      "chant_fragment",
+      "burned_sigil"
+    ],
+    "sabotage": [
+      "damaged_gear",
+      "moved_salt",
+      "missing_records"
+    ],
+    "isolate": [
+      "false_room",
+      "missing_time",
+      "distorted_path"
+    ],
+    "illusion": [
+      "reality_mismatch",
+      "false_room",
+      "contradicting_story"
+    ],
+    "recruit": [
+      "witness_intimidation",
+      "changed_behavior",
+      "shared_phrase"
+    ],
+    "negotiate": [
+      "repeated_phrase",
+      "private_message",
+      "symbol_response"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+sign_id,label,category,search_terms,reveals,skills,clue
+cold_spot,Cold Spot,environmental,cold|temperature|frost|breath,spirit|threshold instability,Awareness|Presence Sense|Investigation,Localized temperature drop suggests spirit activity or threshold instability.
+sulfur,Sulfur Trace,infernal,sulfur|ash|burnt air|smell,demon|infernal rite,Occult Knowledge|Presence Sense,"Sulfur, ash, or scorched air points toward infernal manifestation."
+tracks,Unnatural Tracks,physical,tracks|prints|footprints|trail,beast|route,Tracking|Survival|Investigation,"Tracks show size, gait, direction, and whether the threat is physical or staged."
+circle_residue,Circle Residue,ritual,circle|chalk|salt|residue|ritual,summoning|binding|warding,Sigil Reading|Ritual Casting|Investigation,"Residue shows what was contained, summoned, or excluded."
+contradicting_story,Contradicting Story,witness,story|witness|contradiction|lie,misdirection|memory manipulation,Insight|Investigation|Interview,"Contradictions are patterned, not random, suggesting manipulation."
+reality_mismatch,Reality Mismatch,reality,wrong room|map|impossible|missing time,djinn|illusion|threshold,Investigation|Composure|Occult Knowledge,"Scene contradicts records, memory, or geometry."
+iron_aversion,Iron Aversion,behavioral,iron|nail|avoid|flinch,fae|changeling,Insight|Investigation,A subject avoids iron unconsciously.
+fresh_attack,Fresh Attack,violence,blood|attack|body|scream,current location|confidence|hunger,Investigation|Tracking|Awareness,"Attack timing indicates location, hunger, or confidence."
+damaged_gear,Damaged Gear,sabotage,broken gear|sabotage|trap|salt line,enemy knows wardens|human involvement,Tinkering|Awareness|Investigation,Preparation was targeted; the enemy knows Warden methods.

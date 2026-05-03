@@ -1,0 +1,5 @@
+id,intent,target_keywords,margin_min,margin_max,conditions,case_flags,pressure_delta,narration
+failed_rooftop_jump_broken_leg,move|jump|flee|climb,roof|rooftop|ledge|window|fire escape|gap,3,,broken_leg|shaken,,1,The landing goes wrong. Bone pops under the impact. Movement actions now suffer 2 setbacks and movement is halved until treated.
+false_lead,investigate|research|inspect,,1,,,false_lead,1,"The evidence seems to point one way, but something in the pattern is off."
+witness_shuts_down,talk|ask|interrogate|persuade,,1,,,witness_guarded,0,"The witness gives you something, but not the whole truth."
+ritual_backlash,cast|ritual|ward|bind|banish,,1,,ritual_burn,,1,The circle flares wrong. The magic works against the hand that shaped it.

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Night Wardens Auto-GM Campaign Case Shared/Private State",
+  "type": "object",
+  "required": ["id", "campaignId", "title", "publicState", "hiddenState", "transcripts", "privateBranches"],
+  "properties": {
+    "id": { "type": "string" },
+    "campaignId": { "type": "string" },
+    "campaignCode": { "type": "string" },
+    "title": { "type": "string" },
+    "mode": { "enum": ["solo", "shared", "private-test"] },
+    "status": { "enum": ["active", "paused", "resolved", "archived"] },
+    "phase": { "type": "string" },
+    "memberIds": { "type": "array", "items": { "type": "string" } },
+    "publicState": {
+      "type": "object",
+      "properties": {
+        "seasonPressure": {},
+        "caseSeed": {},
+        "location": { "type": "string" },
+        "pressureClock": { "type": "number" },
+        "knownClues": { "type": "array" },
+        "revealedSigns": { "type": "array" },
+        "knownPossibleEntities": { "type": "array" },
+        "knownWeaknesses": { "type": "array" },
+        "knownAnchors": { "type": "array" },
+        "prep": { "type": "array" }
+      }
+    },
+    "hiddenState": { "type": "object" },
+    "transcripts": {
+      "type": "object",
+      "properties": {
+        "public": { "type": "array" },
+        "system": { "type": "array" },
+        "gm": { "type": "array" }
+      }
+    },
+    "privateBranches": { "type": "object" },
+    "revealQueue": { "type": "array" },
+    "playerPresence": { "type": "object" },
+    "permissions": { "type": "object" }
+  }
+}

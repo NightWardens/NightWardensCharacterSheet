@@ -1,0 +1,43 @@
+creature,action,class
+Vengeful Spirit / Onryo,manifest strike,violent_spirit
+Vengeful Spirit / Onryo,fear aura,violent_spirit
+Vengeful Spirit / Onryo,targeted haunting,violent_spirit
+Poltergeist,telekinetic assault,violent_spirit
+Poltergeist,environmental manipulation,violent_spirit
+Poltergeist,escalation surge,violent_spirit
+Wraith,life drain,violent_spirit
+Wraith,shadow step,violent_spirit
+Wraith,tether pull,violent_spirit
+Woman in White,luring presence,human_tied
+Woman in White,echo loop,human_tied
+Woman in White,limited possession,human_tied
+Possessor Demon,borrowed face,human_tied
+Possessor Demon,pain split,human_tied
+Possessor Demon,host override,human_tied
+Grief Haunt,memory loop,human_tied
+Grief Haunt,emotional pressure,human_tied
+Grief Haunt,spirit interference,human_tied
+Werewolf / Rugaru,pounce,creature_hunt
+Werewolf / Rugaru,maul,creature_hunt
+Werewolf / Rugaru,track by blood,creature_hunt
+Vampire,bite,creature_hunt
+Vampire,thrall command,creature_hunt
+Vampire,predatory charm,creature_hunt
+Wendigo,voice mimic,creature_hunt
+Wendigo,frenzy,creature_hunt
+Wendigo,ambush predator,creature_hunt
+Djinn,reality illusion,ritual_occult
+Djinn,isolation trap,ritual_occult
+Djinn,wish distortion,ritual_occult
+Crossroads Demon,contract binding,ritual_occult
+Crossroads Demon,word twist,ritual_occult
+Crossroads Demon,possession escape,ritual_occult
+Changeling,perfect mimicry,ritual_occult
+Changeling,memory softening,ritual_occult
+Changeling,social infiltration,ritual_occult
+Redcap,butcher rush,creature_hunt
+Redcap,stone-hop,creature_hunt
+Redcap,cap of blood,creature_hunt
+Veil Render,veil split,ritual_occult
+Veil Render,false space,ritual_occult
+Veil Render,exit denial,ritual_occult

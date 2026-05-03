@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Night Wardens Evidence Schema",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "examined": {
+      "type": "boolean"
+    },
+    "surfaceClues": {
+      "type": "array",
+      "items": {
+        "$ref": "witness_schema.json#/$defs/clue"
+      }
+    },
+    "deepClues": {
+      "type": "array",
+      "items": {
+        "$ref": "witness_schema.json#/$defs/clue"
+      }
+    },
+    "hiddenClues": {
+      "type": "array",
+      "items": {
+        "$ref": "witness_schema.json#/$defs/clue"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+behavior,trigger,public_result,private_result,pressure_delta,creates_signs
+watch,low pressure or investigation begins,Something unseen observes the Wardens.,Actor feels watched.,0,cold_spot|animal_silence|unseen_observer
+stalk,separated target or rising suspicion,The threat follows the most isolated Warden.,Actor hears movement pacing them.,1,tracks|blood_trail|scratched_wall
+haunt,spirit or emotional pressure,The scene repeats old sounds or displaced objects.,Actor hears a repeated phrase.,1,repeated_phrase|object_moved|dream_echo
+mislead,research/investigation failure or deceptive entity,A clue points too cleanly toward the wrong answer.,Actor finds a staged clue.,1,false_clue|staged_scene|contradicting_story
+lure,fae/beast/djinn target isolation,"A sound, voice, or light pulls attention toward danger.",Actor notices a personal lure.,1,false_beacon|familiar_voice|threshold_mark
+attack,high pressure or failed confrontation,The threat strikes openly.,Actor is hit before others understand.,2,fresh_attack|blood_spatter|impact_mark
+ambush,team moves blind or enemy is tactical,The enemy attacks from a wrong angle.,Actor realizes the safe route was a trap.,2,staged_scene|hidden_approach|fresh_attack
+flee,weakness revealed or entity threatened,The threat withdraws before confirmation.,Actor sees it retreat through an impossible path.,0,dropped_token|escape_route|distorted_path
+feed,beast/wendigo/vampire hunger or ignored threat,The entity feeds and may return stronger.,Actor finds evidence of recent feeding.,2,half_eaten_body|drained_victim|blood_trail
+possess,demon/spirit near weak host,A host becomes a doorway.,Actor feels a thought that is not theirs.,2,black_eyes|layered_voice|memory_gap
+tempt,demon or bargain entity senses vulnerability,The threat offers a shortcut.,Actor receives a private offer.,1,contract_trace|polite_threat|private_offer
+bargain,fae/djinn/social law enters play,"Debt, invitation, or exchange shapes the scene.",Actor realizes a phrase may have counted as agreement.,1,offering_removed|polite_threat|threshold_mark
+ritual,sigils domain or cult/demon active,The occult structure progresses.,Actor sees a symbol complete itself.,2,circle_residue|chant_fragment|burned_sigil
+sabotage,team prepares or uses gear,"Gear, wards, or evidence are compromised.",Actor sees prep altered by someone who knew where to touch it.,1,damaged_gear|moved_salt|missing_records
+isolate,"split party, djinn/fae/demon pressure",Space or social pressure separates one Warden.,Actor looks back and the hallway is longer.,2,false_room|missing_time|distorted_path
+illusion,djinn/moon/fae threshold effects,The environment stops agreeing with itself.,Actor sees two versions of the room.,1,reality_mismatch|false_room|contradicting_story
+recruit,cult/demon pressures NPCs,An NPC is turned into leverage.,Actor notices the witness repeating new phrases.,1,witness_intimidation|changed_behavior|shared_phrase
+negotiate,spirit/fae/demon communicates,The entity attempts contact.,Actor receives a message meant only for them.,0,repeated_phrase|private_message|symbol_response

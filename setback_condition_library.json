@@ -1,0 +1,262 @@
+{
+  "version": "pass3",
+  "libraries": {
+    "environmental": [
+      {
+        "id": "darkness_light",
+        "label": "Dim light / weak darkness",
+        "amount": 1,
+        "tags": [
+          "vision",
+          "environment"
+        ]
+      },
+      {
+        "id": "darkness_heavy",
+        "label": "Heavy darkness",
+        "amount": 2,
+        "tags": [
+          "vision",
+          "environment"
+        ]
+      },
+      {
+        "id": "smoke",
+        "label": "Smoke / obscured air",
+        "amount": 1,
+        "tags": [
+          "vision",
+          "breathing",
+          "environment"
+        ]
+      },
+      {
+        "id": "storm",
+        "label": "Storm / hard weather",
+        "amount": 1,
+        "tags": [
+          "environment",
+          "movement"
+        ]
+      },
+      {
+        "id": "unstable_rooftop",
+        "label": "Unstable rooftop footing",
+        "amount": 2,
+        "tags": [
+          "movement",
+          "height",
+          "environment"
+        ]
+      },
+      {
+        "id": "cursed_ground",
+        "label": "Cursed ground",
+        "amount": 2,
+        "tags": [
+          "supernatural",
+          "will",
+          "ritual"
+        ]
+      }
+    ],
+    "injury": [
+      {
+        "id": "shaken",
+        "label": "Shaken",
+        "amount": 1,
+        "tags": [
+          "all"
+        ],
+        "duration": "next_roll"
+      },
+      {
+        "id": "wounded",
+        "label": "Wounded",
+        "amount": 1,
+        "tags": [
+          "all"
+        ],
+        "duration": "until_treated"
+      },
+      {
+        "id": "critical",
+        "label": "Critical",
+        "amount": 2,
+        "tags": [
+          "all"
+        ],
+        "duration": "until_stabilized"
+      },
+      {
+        "id": "broken_leg",
+        "label": "Broken Leg",
+        "amount": 2,
+        "tags": [
+          "movement",
+          "prowess",
+          "jump",
+          "sprint",
+          "climb"
+        ],
+        "movementMultiplier": 0.5,
+        "duration": "until_treated"
+      },
+      {
+        "id": "broken_arm",
+        "label": "Broken Arm",
+        "amount": 2,
+        "tags": [
+          "attack",
+          "force",
+          "melee",
+          "grapple",
+          "craft"
+        ],
+        "duration": "until_treated"
+      },
+      {
+        "id": "concussion",
+        "label": "Concussion",
+        "amount": 2,
+        "tags": [
+          "intellect",
+          "research",
+          "focus",
+          "ritual"
+        ],
+        "duration": "until_treated"
+      },
+      {
+        "id": "deep_laceration",
+        "label": "Deep Laceration / Bleeding",
+        "amount": 1,
+        "tags": [
+          "all"
+        ],
+        "escalation": "bleeding",
+        "duration": "until_treated"
+      },
+      {
+        "id": "sprained_ankle",
+        "label": "Sprained Ankle",
+        "amount": 1,
+        "tags": [
+          "movement",
+          "jump",
+          "sprint"
+        ],
+        "movementFlatPenalty": 1,
+        "duration": "scene"
+      }
+    ],
+    "spell": [
+      {
+        "id": "force_pulse_recoil",
+        "label": "Force Pulse recoil",
+        "amount": 1,
+        "tags": [
+          "physical",
+          "movement",
+          "attack"
+        ],
+        "duration": "next_roll"
+      },
+      {
+        "id": "shield_burst_recoil",
+        "label": "Shield Burst recoil",
+        "amount": 1,
+        "tags": [
+          "will",
+          "ritual",
+          "physical"
+        ],
+        "duration": "next_roll"
+      },
+      {
+        "id": "grave_chill_self",
+        "label": "Grave Chill backlash",
+        "amount": 1,
+        "tags": [
+          "prowess",
+          "movement",
+          "attack"
+        ],
+        "duration": "next_roll"
+      },
+      {
+        "id": "static_hex_glitch",
+        "label": "Static Hex gear glitch",
+        "amount": 1,
+        "tags": [
+          "technical",
+          "tinkering",
+          "gear"
+        ],
+        "duration": "scene"
+      },
+      {
+        "id": "ritual_burn",
+        "label": "Ritual Burn",
+        "amount": 1,
+        "tags": [
+          "prowess",
+          "will",
+          "ritual"
+        ],
+        "duration": "until_treated"
+      }
+    ],
+    "creature_attack": [
+      {
+        "id": "wendigo_cold_exposure",
+        "label": "Wendigo cold exposure",
+        "amount": 1,
+        "tags": [
+          "endurance",
+          "movement",
+          "attack"
+        ]
+      },
+      {
+        "id": "wraith_life_drain",
+        "label": "Wraith life drain",
+        "amount": 2,
+        "tags": [
+          "endurance",
+          "will",
+          "recovery"
+        ]
+      },
+      {
+        "id": "demon_pain_split",
+        "label": "Demonic pain split",
+        "amount": 1,
+        "tags": [
+          "will",
+          "composure"
+        ]
+      },
+      {
+        "id": "fae_glamour",
+        "label": "Fae glamour confusion",
+        "amount": 1,
+        "tags": [
+          "investigation",
+          "social",
+          "instinct"
+        ]
+      },
+      {
+        "id": "poltergeist_debris",
+        "label": "Flying debris pressure",
+        "amount": 2,
+        "tags": [
+          "movement",
+          "prowess",
+          "attack"
+        ]
+      }
+    ]
+  }
+}

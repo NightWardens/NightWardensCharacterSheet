@@ -1,0 +1,8 @@
+table,result,effect
+investigation,failure,"domain clear, exact type uncertain; add false lead or pressure"
+investigation,success,offer 2-3 plausible entity types
+investigation,strong,reveal exact type
+investigation,critical,reveal weakness and one anchor clue
+rewards,full_success,3 Warden Marks
+rewards,partial_success,2 Warden Marks
+rewards,failure_survive,1 Warden Mark and immediate fallout draw

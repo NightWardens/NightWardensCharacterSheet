@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Night Wardens Witness Schema",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "role"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "trust": {
+      "type": "integer",
+      "minimum": -5,
+      "maximum": 5
+    },
+    "fear": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "motivation": {
+      "type": "string"
+    },
+    "demeanor": {
+      "type": "string"
+    },
+    "lieTrigger": {
+      "type": "string"
+    },
+    "publicClues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clue"
+      }
+    },
+    "guardedClues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clue"
+      }
+    },
+    "secrets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clue"
+      }
+    },
+    "confessions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clue"
+      }
+    },
+    "lies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clue"
+      }
+    }
+  },
+  "$defs": {
+    "clue": {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sensitivity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "suggest": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "eliminate": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confirmEntity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revealsWeakness": {
+          "type": "boolean"
+        },
+        "revealsAnchor": {
+          "type": "boolean"
+        },
+        "revealsKillCondition": {
+          "type": "boolean"
+        },
+        "isFalseLead": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

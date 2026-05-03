@@ -1,0 +1,46 @@
+{
+  "id": "case_demo_001",
+  "campaignId": "campaign_mercy_falls",
+  "campaignCode": "MERCY-9STAR",
+  "title": "The Bell Under Blackwater Church",
+  "mode": "shared",
+  "status": "active",
+  "phase": "investigate",
+  "createdBy": "gm_local",
+  "createdAt": "2026-05-02T00:00:00.000Z",
+  "updatedAt": "2026-05-02T00:00:00.000Z",
+  "memberIds": ["riley", "sam", "alex"],
+  "publicState": {
+    "seasonPressure": { "card": "The Moon", "theme": "Illusion" },
+    "caseSeed": { "card": "Seven of Sigils", "domain": "Ritual / occult structure", "threatTier": 3 },
+    "location": "Mercy Falls / abandoned church",
+    "pressureClock": 4,
+    "knownClues": [
+      { "id": "clue_public_1", "title": "Bell Heard Underground", "text": "Witnesses report a bell ringing beneath the church even though the bell was removed decades ago.", "source": "witness" }
+    ],
+    "revealedSigns": [],
+    "knownPossibleEntities": ["Demon", "Possessor", "Bound Spirit"],
+    "knownWeaknesses": [],
+    "knownAnchors": [],
+    "prep": ["salt", "flashlights", "holy water"]
+  },
+  "hiddenState": {
+    "trueEntity": "Crossroads Demon",
+    "anchor": "inverted bell buried in sealed mine chamber",
+    "killCondition": "exorcise current host and bind the demon through the bell-anchor before it rings three times",
+    "unrevealedSigns": ["sulfur in church stairwell", "black star scratched below altar"],
+    "secrets": ["the sheriff's father helped seal the mine"],
+    "aiMemory": [],
+    "pressureReasons": []
+  },
+  "transcripts": { "public": [], "system": [], "gm": [] },
+  "privateBranches": {},
+  "revealQueue": [],
+  "playerPresence": {},
+  "permissions": {
+    "allowPlayersRevealOwnPrivateClues": true,
+    "allowPlayersCreatePrivateBranches": true,
+    "allowPartyViewPublicTranscript": true,
+    "allowPlayersEditCampaignCase": false
+  }
+}

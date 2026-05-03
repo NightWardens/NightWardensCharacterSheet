@@ -1,0 +1,6 @@
+topic,aliases,default_skill,reveals
+bell,bell|ringing|church bell|sound underground,Insight,"timeline, anchor clue, supernatural symptom"
+victim,victim|survivor|missing person|body|son|daughter,Interview,"emotional context, last known action, human stakes"
+symbol,symbol|sigil|glyph|circle|black star,Occult Knowledge,"ritual structure, faction mark, anchor"
+authority,sheriff|police|warden|government|records,Persuasion or Deception,"cover-up, missing files, outside faction"
+ritual,ritual|chant|summon|circle|catalyst|sacrifice,Occult Knowledge,"process stage, required prep, interruption point"

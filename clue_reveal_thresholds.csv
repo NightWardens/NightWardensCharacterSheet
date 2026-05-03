@@ -1,0 +1,6 @@
+access_level,name,description
+0,public clue,available with ordinary questioning or surface inspection
+1,guarded clue,"requires trust, leverage, or a decent roll"
+2,secret,"requires strong roll, strong trust, proof, or private branch"
+3,confession,requires exceptional success or fulfilled witness need
+-1,false lead risk,"failure or fear causes witness to mislead, shut down, or omit truth"

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Night Wardens Auto-GM Parser Demo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{background:#efe8dc;color:#241f1b;font-family:Georgia,serif;margin:0;padding:18px}
+main{max-width:1000px;margin:auto}
+textarea,input{width:100%;box-sizing:border-box;border:1px solid #9d9385;border-radius:12px;padding:10px;background:#fff9;font:inherit}
+button{background:#4b0d0d;color:white;border:0;border-radius:12px;padding:10px 14px;font-weight:bold;margin:8px 0}
+pre{white-space:pre-wrap;background:#2a2521;color:#fff;padding:14px;border-radius:14px;overflow:auto}
+.card{border:1px solid #9d9385;background:#fbf4e8cc;border-radius:18px;padding:14px;margin:12px 0}
+</style>
+</head>
+<body>
+<main>
+  <h1>Night Wardens Auto-GM Parser Demo</h1>
+  <p>Type a command or several simultaneous split-party commands.</p>
+  <textarea id="cmd" rows="5">public Riley: investigate altar; Sam: talk to witness about the bell; private Alex: research sigil</textarea>
+  <button onclick="runParse()">Parse Command</button>
+  <div class="card"><h2>Structured Output</h2><pre id="out"></pre></div>
+  <div class="card"><h2>Narration Prompts</h2><pre id="prompts"></pre></div>
+</main>
+<script src="../src/auto_gm_command_parser.js"></script>
+<script>
+function runParse(){
+  const parser = window.NightWardensCommandParser;
+  const result = parser.parseCommandInput(document.getElementById('cmd').value, {
+    knownActors: ['Riley','Sam','Alex','Morgan']
+  });
+  document.getElementById('out').textContent = JSON.stringify(result,null,2);
+  document.getElementById('prompts').textContent = result.actions.map(a => parser.commandToNarrationPrompt(a, {knownFacts:['The bell rang underground','Ash was found near the altar']})).join("\\n\\n");
+}
+runParse();
+</script>
+</body>
+</html>

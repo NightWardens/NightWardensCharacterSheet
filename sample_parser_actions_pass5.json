@@ -1,0 +1,30 @@
+[
+  {
+    "privacy": "public",
+    "actor": "Riley",
+    "intent": "investigate",
+    "target": "circle residue",
+    "targetType": "evidence"
+  },
+  {
+    "privacy": "private",
+    "actor": "Alex",
+    "intent": "research",
+    "target": "black star symbol",
+    "targetType": "evidence"
+  },
+  {
+    "privacy": "public",
+    "actor": "Sam",
+    "intent": "prep",
+    "target": "salt line",
+    "targetType": "gear"
+  },
+  {
+    "privacy": "public",
+    "actor": "Riley",
+    "intent": "attack",
+    "target": "entity",
+    "targetType": "creature"
+  }
+]

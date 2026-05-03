@@ -1,0 +1,130 @@
+token,skill_hint,category
+room,Awareness,target
+tracks,Awareness,target
+shadow,Awareness,target
+ambush,Awareness,target
+movement,Awareness,target
+scene,Investigation,target
+body,Investigation,target
+altar,Investigation,target
+symbol,Investigation,target
+room,Investigation,target
+object,Investigation,target
+records,Research,target
+symbol,Research,target
+lore,Research,target
+victim,Research,target
+church,Research,target
+entity,Research,target
+witness,Insight,target
+victim,Insight,target
+survivor,Insight,target
+deputy,Insight,target
+priest,Insight,target
+family,Insight,target
+ghost,Spirit Communication,target
+spirit,Spirit Communication,target
+dead,Spirit Communication,target
+haunt,Spirit Communication,target
+sigil,Occult Knowledge,target
+ritual,Occult Knowledge,target
+ward,Occult Knowledge,target
+entity,Occult Knowledge,target
+omen,Occult Knowledge,target
+rite,Ritual Casting,target
+ritual,Ritual Casting,target
+exorcism,Ritual Casting,target
+banishment,Ritual Casting,target
+circle,Ritual Casting,target
+door,Warding,target
+threshold,Warding,target
+room,Warding,target
+circle,Warding,target
+host,Warding,target
+entity,Binding,target
+demon,Binding,target
+spirit,Binding,target
+host,Binding,target
+anchor,Binding,target
+entity,Firearms,target
+creature,Firearms,target
+demon,Firearms,target
+spirit,Firearms,target
+entity,Melee Combat,target
+creature,Melee Combat,target
+host,Melee Combat,target
+demon,Melee Combat,target
+prints,Tracking,target
+blood,Tracking,target
+scent,Tracking,target
+trail,Tracking,target
+tracks,Tracking,target
+trap,Crafting,target
+ammo,Crafting,target
+ward,Crafting,target
+device,Crafting,target
+killbox,Crafting,target
+entity,Stealth,target
+building,Stealth,target
+witness,Stealth,target
+site,Stealth,target
+fear,Composure,target
+affliction,Composure,target
+panic,Composure,target
+possession,Composure,target
+anger imprint,Investigation,sign
+same person seen repeatedly,Investigation,sign
+records tied to suspects,Investigation,sign
+temperature drop near keepsake,Investigation,sign
+objects thrown,Investigation,sign
+activity centered around one person,Investigation,sign
+EMF spikes,Investigation,sign
+broken glass in safe rooms,Investigation,sign
+life-drain marks,Investigation,sign
+shadows moving independently,Investigation,sign
+cold around tether,Investigation,sign
+mirrors dim near target,Investigation,sign
+roadside apparition,Investigation,sign
+hitchhiker reports,Investigation,sign
+phrase repeated by victims,Investigation,sign
+water or rain motif,Investigation,sign
+blackouts,Investigation,sign
+personality inversion,Investigation,sign
+sulfur trace,Investigation,sign
+black-eyed reflection,Investigation,sign
+mourning object moves,Investigation,sign
+dreams of deceased,Investigation,sign
+family cannot leave home,Investigation,sign
+photos weep or burn,Investigation,sign
+large prints,Investigation,sign
+animal attack too precise,Investigation,sign
+silver aversion,Investigation,sign
+survivor with bite fever,Investigation,sign
+bloodless bodies,Investigation,sign
+glamoured witness,Investigation,sign
+night-only sightings,Investigation,sign
+old property records,Investigation,sign
+half-eaten bodies,Investigation,sign
+familiar voices in dark,Investigation,sign
+unnatural cold,Investigation,sign
+huge thin prints,Investigation,sign
+contradicting stories,Investigation,sign
+reality mismatch,Investigation,sign
+sleeping victims living fantasies,Investigation,sign
+sealed vessel nearby,Investigation,sign
+sudden success followed by tragedy,Investigation,sign
+contract traces,Investigation,sign
+calm stranger,Investigation,sign
+crossroads token,Investigation,sign
+personality shift,Investigation,sign
+missing history,Investigation,sign
+subtle household errors,Investigation,sign
+iron aversion,Investigation,sign
+rust-colored footprints,Investigation,sign
+old blood in corners,Investigation,sign
+broken teeth,Investigation,sign
+ruined stonework,Investigation,sign
+doors lead wrong,Investigation,sign
+maps fail,Investigation,sign
+missing time,Investigation,sign
+unstable ward geometry,Investigation,sign

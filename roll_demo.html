@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Night Wardens Auto-GM Pass 3 Roll Demo</title>
+  <style>
+    body{font-family:Georgia,serif;background:#efe8dc;color:#241f1b;margin:0;padding:20px}
+    textarea,pre{width:100%;box-sizing:border-box;border:1px solid #9d9385;border-radius:12px;padding:12px;background:#fff8}
+    button{background:#4b0d0d;color:white;border:0;border-radius:12px;padding:10px 14px;font-weight:bold}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:800px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <h1>Night Wardens Auto-GM — Pass 3 Roll Demo</h1>
+  <p>This demo resolves one parsed action against one character.</p>
+  <div class="grid">
+    <div>
+      <h2>Character JSON</h2>
+      <textarea id="character" rows="22"></textarea>
+    </div>
+    <div>
+      <h2>Parsed Action JSON</h2>
+      <textarea id="action" rows="22"></textarea>
+    </div>
+  </div>
+  <h2>Case State JSON</h2>
+  <textarea id="caseState" rows="8"></textarea>
+  <p><button onclick="runRoll()">Resolve Roll</button></p>
+  <h2>Output</h2>
+  <pre id="out"></pre>
+
+<script src="../src/auto_gm_roll_engine.js"></script>
+<script>
+const sampleChar = {
+  name:"Riley Maddox", move:4,
+  attributes:{ force:9, prowess:10, intellect:9, instinct:11, will:9, charisma:9, endurance:10 },
+  skills:{ Awareness:1, Survival:1, Investigation:1, Firearms:1, Tracking:1 },
+  conditions:[]
+};
+const sampleAction = {
+  actor:"Riley Maddox", intent:"jump", target:"rooftop gap", location:"abandoned church rooftop",
+  rollProfile:{ attribute:"Prowess", primarySkill:"Athletics", supportSkills:["Awareness","Survival"], rollNeeded:true },
+  contextSetbacks:[{id:"rain_slick_roof",label:"Rain-slick roof",amount:1}],
+  fixedRoll:[6,6,5]
+};
+const sampleCase = { pressureClock:1, sceneSetbacks:["unstable_rooftop"], globalSetbacks:[] };
+character.value = JSON.stringify(sampleChar,null,2);
+action.value = JSON.stringify(sampleAction,null,2);
+caseState.value = JSON.stringify(sampleCase,null,2);
+function runRoll(){
+  const c = JSON.parse(character.value);
+  const a = JSON.parse(action.value);
+  const s = JSON.parse(caseState.value);
+  const result = NightWardensRollEngine.resolveAction(c,a,s);
+  out.textContent = JSON.stringify(result,null,2);
+}
+</script>
+</body>
+</html>

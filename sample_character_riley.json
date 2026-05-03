@@ -1,0 +1,36 @@
+{
+  "id": "char_riley_maddox",
+  "name": "Riley Maddox",
+  "role": "Tracker",
+  "level": 1,
+  "move": 4,
+  "attributes": {
+    "force": 9,
+    "prowess": 10,
+    "intellect": 9,
+    "instinct": 11,
+    "will": 9,
+    "charisma": 9,
+    "endurance": 10
+  },
+  "skills": {
+    "Tracking": 1,
+    "Survival": 1,
+    "Awareness": 1,
+    "Investigation": 1,
+    "Stealth": 1,
+    "Navigation": 1,
+    "Occult Knowledge": 0,
+    "Firearms": 1,
+    "Melee Combat": 0,
+    "Energy Control": 0,
+    "Ritual Basics": 0
+  },
+  "conditions": [],
+  "equipment": [
+    "flashlight",
+    "salt pack",
+    "handgun",
+    "field knife"
+  ]
+}

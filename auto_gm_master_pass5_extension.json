@@ -1,0 +1,30 @@
+{
+  "pass": 5,
+  "name": "Creature AI + Clue Trail",
+  "adds": [
+    "entity behavior states",
+    "creature behavior selection",
+    "pressure-clock escalation",
+    "sign/clue generation",
+    "hidden clues discoverable by investigation",
+    "public/private narration hooks",
+    "entity memory and behavior history"
+  ],
+  "integration": {
+    "afterParser": "Use parsedAction.intent, actor, privacy, target.",
+    "afterRoll": "Use rollResult.success/outcome to bias creature response.",
+    "beforeNarration": "Call creatureTakeTurn to generate creature response and signs.",
+    "duringInvestigation": "Call discoverSigns to reveal hidden signs based on roll quality.",
+    "statePath": "caseState.creatureAI"
+  },
+  "files": [
+    "src/auto_gm_creature_ai_clue_trail.js",
+    "creature_ai_library.json",
+    "sign_library.json",
+    "csv/entity_archetypes.csv",
+    "csv/behavior_states.csv",
+    "csv/creature_behaviors_detailed.csv",
+    "csv/sign_clue_library.csv",
+    "csv/pressure_escalation.csv"
+  ]
+}

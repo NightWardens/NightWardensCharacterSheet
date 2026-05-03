@@ -1,0 +1,44 @@
+[
+  {
+    "privacy": "public",
+    "actor": "Riley Maddox",
+    "intent": "jump",
+    "target": "rooftop gap",
+    "targetType": "movement",
+    "location": "abandoned church rooftop",
+    "rollProfile": {
+      "attribute": "Prowess",
+      "primarySkill": "Athletics",
+      "supportSkills": [
+        "Awareness",
+        "Survival"
+      ],
+      "rollNeeded": true
+    },
+    "contextSetbacks": [
+      {
+        "id": "rain_slick_roof",
+        "label": "Rain-slick roof",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "privacy": "private",
+    "actor": "Riley Maddox",
+    "intent": "investigate",
+    "target": "bell symbol",
+    "targetType": "evidence",
+    "topic": "underground ringing",
+    "location": "church roof access",
+    "rollProfile": {
+      "attribute": "Intellect",
+      "primarySkill": "Investigation",
+      "supportSkills": [
+        "Awareness",
+        "Occult Knowledge"
+      ],
+      "rollNeeded": true
+    }
+  }
+]

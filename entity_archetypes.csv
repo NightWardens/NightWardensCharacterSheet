@@ -1,0 +1,7 @@
+entity_type,default_state,motives,preferred_behaviors,preferred_signs,weaknesses
+spirit,watching,revenge|grief loop|territorial haunting|unfinished message,watch|haunt|mislead|attack|flee|negotiate,cold_spot|emf_spike|repeated_phrase|object_moved|dream_echo,salt|iron|anchor object|remains|emotional resolution
+demon,stalking,corruption|possession|contract enforcement|seal weakening,mislead|tempt|attack|possess|ritual|sabotage,sulfur|black_eyes|layered_voice|animal_panic|burned_sigil,holy water|true name|exorcism|devil trap|anchor destruction
+fae,watching,bargain collection|identity theft|territory defense|stolen child,watch|mislead|bargain|lure|flee|attack,missing_time|iron_aversion|unseasonal_growth|polite_threat|memory_gap,iron|true name|threshold rules|contract reversal|rowan
+beast,hunting,feeding|territory|transformation impulse|nest protection,stalk|attack|ambush|feed|flee,tracks|half_eaten_body|claw_marks|animal_silence|blood_trail,silver|fire|bait trap|tracking|killbox
+djinn,watching,wish distortion|isolation|vessel protection|reality game,watch|mislead|isolate|illusion|bargain|flee,reality_mismatch|contradicting_story|vessel_symbol|missing_time|false_room,vessel|binding phrase|sealed container|true environment|ritual seal
+cult,stalking,summoning|coverup|sacrifice|ritual completion,watch|mislead|ritual|sabotage|recruit|attack,chant_fragment|circle_residue|witness_intimidation|missing_records|staged_scene,ritual disruption|anchor denial|witness testimony|symbols|evidence chain

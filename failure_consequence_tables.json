@@ -1,0 +1,92 @@
+{
+  "version": "pass3",
+  "description": "Failure outcomes applied after roll misses, keyed by intent and margin.",
+  "margin_rules": {
+    "partial_or_cost": "miss by 1-2",
+    "failure": "miss by 3+",
+    "critical_failure": "natural 17+ on 3d6"
+  },
+  "outcomes": [
+    {
+      "id": "failed_rooftop_jump_broken_leg",
+      "category": "movement_failure",
+      "intents": [
+        "move",
+        "jump",
+        "flee",
+        "climb"
+      ],
+      "target_keywords": [
+        "roof",
+        "rooftop",
+        "ledge",
+        "window",
+        "fire escape",
+        "gap"
+      ],
+      "margin_min": 3,
+      "apply_conditions": [
+        "broken_leg",
+        "shaken"
+      ],
+      "movement_multiplier": 0.5,
+      "pressure_delta": 1,
+      "public_narration": "The landing goes wrong. Bone pops under the impact. Movement actions now suffer 2 setbacks and movement is halved until treated."
+    },
+    {
+      "id": "failed_jump_sprain",
+      "category": "movement_failure",
+      "intents": [
+        "move",
+        "jump",
+        "flee",
+        "climb"
+      ],
+      "target_keywords": [
+        "gap",
+        "fence",
+        "wall",
+        "stair",
+        "window"
+      ],
+      "margin_min": 1,
+      "margin_max": 2,
+      "apply_conditions": [
+        "sprained_ankle"
+      ],
+      "public_narration": "The landing is ugly. You stay upright, but your footing is compromised."
+    },
+    {
+      "id": "false_lead",
+      "category": "investigation_failure",
+      "intents": [
+        "investigate",
+        "research",
+        "inspect"
+      ],
+      "margin_min": 1,
+      "case_flags": [
+        "false_lead"
+      ],
+      "pressure_delta": 1,
+      "public_narration": "The evidence seems to point one way, but something in the pattern is off."
+    },
+    {
+      "id": "ritual_backlash",
+      "category": "occult_failure",
+      "intents": [
+        "cast",
+        "ritual",
+        "ward",
+        "bind",
+        "banish"
+      ],
+      "margin_min": 1,
+      "apply_conditions": [
+        "ritual_burn"
+      ],
+      "pressure_delta": 1,
+      "public_narration": "The circle flares wrong. The magic works against the hand that shaped it."
+    }
+  ]
+}
