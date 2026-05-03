@@ -1,14 +1,16 @@
-// Night Wardens Firebase configuration
-// 1) Create a Firebase project.
-// 2) Enable Authentication -> Google provider.
-// 3) Enable Firestore Database.
-// 4) Add your GitHub Pages domain to Authentication -> Settings -> Authorized domains.
-// 5) Replace the placeholder values below with your Firebase Web App config.
-window.NW_FIREBASE_CONFIG = {
-  apiKey: "PASTE_API_KEY_HERE",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT_ID.firebasestorage.app",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID"
+// firebase-config.js
+// Night Wardens Firebase client config.
+// Safe for frontend use. DO NOT put firebase-admin or serviceAccountKey.json in GitHub Pages.
+
+window.firebaseConfig = {
+  apiKey: "AIzaSyDv8mkLCohfgjD7SWqg3d5-uNaYYXMUboQ",
+  authDomain: "nightwardenswebsite.firebaseapp.com",
+  projectId: "nightwardenswebsite",
+  storageBucket: "nightwardenswebsite.firebasestorage.app",
+  messagingSenderId: "298794027808",
+  appId: "1:298794027808:web:fa1ed523ac4430b2b76545",
+  measurementId: "G-7EVEHLN642"
 };
+
+// Alias used by newer Night Wardens packages.
+window.NW_FIREBASE_CONFIG = window.firebaseConfig;

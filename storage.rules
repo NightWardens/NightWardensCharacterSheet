@@ -1,0 +1,15 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && request.auth.token.email == 'geeklitgames@gmail.com'; }
+    match /product-files/{allPaths=**} {
+      allow read: if true; // For MVP link access. Tighten later with signed URLs / backend.
+      allow write: if isAdmin();
+    }
+    match /product-covers/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
