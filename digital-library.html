@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2a1512" />
+  <title>Night Wardens Digital Library</title>
+  <style>
+    :root{--ink:#241f1b;--blood:#4b0d0d;--blood2:#7b1717;--paper:#efe8dc;--paper2:#fbf4e8;--line:#9d9385;--muted:#695f56;--dark:#29231f;--good:#1f6b3a;--warn:#a16000;--bad:#8d1b1b;--shadow:0 18px 45px rgba(26,18,12,.18)}
+    *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh} button,input,select,textarea{font:inherit} button{cursor:pointer} body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 17% 9%,rgba(95,78,62,.12) 0 5%,transparent 5.4%),radial-gradient(circle at 68% 18%,rgba(125,65,50,.09) 0 7%,transparent 7.3%),linear-gradient(90deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%),linear-gradient(0deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%)}
+    .wrap{max-width:1320px;margin:auto;padding:18px}.hero,.card{border:1px solid rgba(89,74,60,.45);background:rgba(248,242,232,.93);box-shadow:0 12px 30px rgba(26,18,12,.12);border-radius:22px;padding:16px;backdrop-filter:blur(6px)}.hero{text-align:center;box-shadow:var(--shadow)}.kicker{font-size:12px;letter-spacing:.35em;text-transform:uppercase;font-weight:900;color:rgba(75,13,13,.85)} h1{margin:2px 0 0;font-size:clamp(34px,5vw,64px);line-height:.95;text-transform:uppercase;letter-spacing:.04em}.sub{margin:.5rem auto 0;color:var(--muted);font-style:italic;max-width:820px}.grid{display:grid;gap:14px}.cols2{grid-template-columns:380px 1fr}.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:980px){.cols2,.cols3{grid-template-columns:1fr}.wrap{padding:10px}}
+    .nav,.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.nav{margin:14px 0}.btn,.nav a{border:0;border-radius:13px;padding:10px 13px;font-weight:900;background:var(--blood);color:white;text-decoration:none}.btn.secondary,.nav a.secondary{background:#3b342f}.btn.ghost,.nav a.ghost{background:rgba(255,255,255,.68);color:var(--ink);border:1px solid var(--line)}.btn.good{background:var(--good)}.btn.bad{background:var(--bad)}.btn.full{width:100%}.card h2{margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid rgba(89,74,60,.35);font-size:18px;text-transform:uppercase;letter-spacing:.08em}.card h3{margin:4px 0 8px;color:var(--blood);font-size:20px}.small{font-size:12px;color:var(--muted)}.note{background:rgba(75,13,13,.08);border:1px solid rgba(75,13,13,.22);padding:10px;border-radius:14px}.dark{background:#2d2723;color:#fff;border-radius:16px;padding:12px}.list{display:grid;gap:8px}.item{border:1px solid rgba(89,74,60,.38);background:rgba(255,255,255,.58);border-radius:14px;padding:10px}.item.active{outline:2px solid var(--blood2);background:rgba(255,255,255,.82)} label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:#554a42;margin-bottom:4px} input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:rgba(255,255,255,.72);color:var(--ink)} textarea{min-height:120px;resize:vertical}.reader{height:520px;overflow:auto;white-space:pre-wrap;line-height:1.55;background:rgba(255,255,255,.56);border:1px solid var(--line);border-radius:16px;padding:14px}.answer{min-height:220px;white-space:pre-wrap}.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;background:rgba(75,13,13,.12);border:1px solid rgba(75,13,13,.2);font-size:12px;font-weight:800}.muted{color:var(--muted)} .progress{height:8px;background:#fff9;border:1px solid var(--line);border-radius:999px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--blood2)}
+  </style>
+  <script type="module">
+    try{
+      const pdfjsLib = await import('https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.mjs');
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.mjs';
+      window.NW_PDFJS = pdfjsLib;
+      window.dispatchEvent(new Event('nw-pdf-ready'));
+    }catch(e){ console.warn('PDF extraction unavailable', e); }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">Field Office Archive</div>
+      <h1>Digital Library</h1>
+      <p class="sub">Read owned files, upload/paste book text, and ask the dossier questions about the section you are reading. The book text is the source of truth.</p>
+      <div class="row" style="justify-content:center;margin-top:14px">
+        <a class="btn ghost" href="index.html">Back to Field Office</a>
+        <a class="btn ghost" href="storefront.html">Storefront</a>
+        <a class="btn ghost" href="auto-gm.html">Auto-GM</a>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <a class="ghost" href="index.html">Field Office</a>
+      <a class="ghost" href="storefront.html">Storefront</a>
+      <a class="ghost" href="commercial-blueprint.html">Commercial Blueprint</a>
+    </nav>
+
+    <main class="grid cols2">
+      <aside class="grid">
+        <section class="card">
+          <h2>Library Shelf</h2>
+          <div class="note small"><b>MVP behavior:</b> Books are stored on this device for now. Future account mode should load owned products from the official library.</div>
+          <div id="bookList" class="list" style="margin-top:10px"></div>
+          <div class="row" style="margin-top:10px">
+            <button class="btn ghost" onclick="exportShelf()">Export Shelf</button>
+            <label class="btn ghost" style="margin:0">Import Shelf<input type="file" accept="application/json" style="display:none" onchange="importShelf(event)"></label>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Add Book / Dossier</h2>
+          <label>Book Title</label>
+          <input id="bookTitle" placeholder="Night Wardens Core Rulebook">
+          <label style="margin-top:8px">Upload PDF / TXT / MD / JSON</label>
+          <input id="bookFile" type="file" accept=".pdf,.txt,.md,.json,application/pdf,text/plain,application/json" onchange="loadBookFile(event)">
+          <div class="progress" style="margin:8px 0"><div id="fileProgress"></div></div>
+          <label>Or paste readable text</label>
+          <textarea id="bookPaste" placeholder="Paste chapter/rules text here..."></textarea>
+          <button class="btn full" style="margin-top:8px" onclick="savePastedBook()">Save to Library</button>
+        </section>
+
+        <section class="card">
+          <h2>Ask the Dossier Setup</h2>
+          <p class="small">Optional local LLM. If it fails on a phone, the structured search fallback still answers from the current book excerpts.</p>
+          <label>Model</label>
+          <select id="modelSelect">
+            <option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Qwen2.5 0.5B — fastest / most phones</option>
+            <option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Llama 3.2 1B — balanced</option>
+            <option value="Llama-3.2-3B-Instruct-q4f16_0-MLC">Llama 3.2 3B — heavy</option>
+          </select>
+          <div class="row" style="margin-top:8px"><button class="btn" onclick="loadLLM()">Load Browser LLM</button><button class="btn ghost" onclick="unloadLLM()">Structured Fallback</button></div>
+          <p id="llmStatus" class="small">LLM not loaded. Structured search is active.</p>
+        </section>
+      </aside>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Current Book</h2>
+          <div class="row" style="justify-content:space-between"><div><span class="pill" id="activeBookPill">No book loaded</span><h3 id="activeTitle">Select or upload a book</h3><p id="activeMeta" class="small">The assistant uses only the current book chunks and your question.</p></div><button class="btn bad" onclick="deleteActiveBook()">Delete Book</button></div>
+          <div id="reader" class="reader" style="margin-top:10px">Upload/paste a book, then select it from the shelf.</div>
+        </div>
+
+        <div class="card">
+          <h2>Ask About This Book</h2>
+          <div class="row">
+            <input id="question" placeholder="Example: Explain how investigation attempts work in this book." onkeydown="if(event.key==='Enter')askBook()">
+            <button class="btn" onclick="askBook()">Ask</button>
+          </div>
+          <div class="row" style="margin-top:8px">
+            <button class="btn ghost" onclick="quickAsk('Summarize the section I am reading and list the most important rules.')">Summarize Current Book</button>
+            <button class="btn ghost" onclick="quickAsk('Explain this rule in plain language and give one example in play.')">Explain Rule</button>
+            <button class="btn ghost" onclick="quickAsk('What should a new player know first from this book?')">New Player Guide</button>
+          </div>
+          <div class="answer note" id="answer" style="margin-top:10px">Answers will appear here. The fallback mode cites matching excerpts; WebLLM mode turns those excerpts into a cleaner explanation.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+<script>
+const DB_NAME='nw_digital_library_v1';
+let shelf=[];let activeId=null;let chunks=[];let llmEngine=null;let llmReady=false;let llmModule=null;
+const $=s=>document.querySelector(s);
+function esc(s=''){return String(s||'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function uid(){return 'book_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8)}
+function openDB(){return new Promise((res,rej)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>{r.result.createObjectStore('books',{keyPath:'id'})};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function putBook(book){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('books','readwrite');tx.objectStore('books').put(book);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+async function getBooks(){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('books','readonly');const req=tx.objectStore('books').getAll();req.onsuccess=()=>res(req.result||[]);req.onerror=()=>rej(req.error)})}
+async function getBook(id){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('books','readonly');const req=tx.objectStore('books').get(id);req.onsuccess=()=>res(req.result);req.onerror=()=>rej(req.error)})}
+async function deleteBook(id){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('books','readwrite');tx.objectStore('books').delete(id);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+async function init(){shelf=await getBooks();activeId=localStorage.getItem('nw_active_book')||shelf[0]?.id||null;renderShelf();if(activeId)await selectBook(activeId)}
+function renderShelf(){const el=$('#bookList');el.innerHTML=shelf.length?shelf.map(b=>`<div class="item ${b.id===activeId?'active':''}" onclick="selectBook('${b.id}')"><b>${esc(b.title)}</b><div class="small">${esc(b.type||'book')} · ${Math.round((b.content||'').length/1000)}k chars · ${new Date(b.createdAt).toLocaleDateString()}</div></div>`).join(''):'<div class="small">No books saved yet.</div>'}
+function makeChunks(text){const cleaned=String(text||'').replace(/\r/g,'').replace(/\n{3,}/g,'\n\n');const paras=cleaned.split(/\n\s*\n/g).map(x=>x.trim()).filter(Boolean);let out=[],buf='',i=0;for(const p of paras){if((buf+'\n\n'+p).length>1400&&buf){out.push({id:++i,text:buf});buf=p}else buf=buf?buf+'\n\n'+p:p}if(buf)out.push({id:++i,text:buf});return out.length?out:[{id:1,text:cleaned.slice(0,1800)}]}
+async function selectBook(id){activeId=id;localStorage.setItem('nw_active_book',id);const b=await getBook(id);chunks=makeChunks(b?.content||'');$('#activeTitle').textContent=b?.title||'Untitled';$('#activeBookPill').textContent=b?.type||'Book';$('#activeMeta').textContent=`${chunks.length} searchable sections · ${Math.round((b?.content||'').length/1000)}k characters`;$('#reader').textContent=(b?.content||'').slice(0,80000) || 'No readable text saved.';renderShelf()}
+async function saveBook(title,content,type='book'){if(!content.trim()){alert('No readable text found. For scanned PDFs, use OCR or paste the text.');return}const book={id:uid(),title:title||'Untitled Dossier',type,content,createdAt:new Date().toISOString()};await putBook(book);shelf=await getBooks();await selectBook(book.id);$('#bookPaste').value='';$('#bookTitle').value=''}
+async function savePastedBook(){await saveBook($('#bookTitle').value.trim(),$('#bookPaste').value,'pasted text')}
+async function loadBookFile(e){const f=e.target.files[0];if(!f)return;$('#fileProgress').style.width='12%';const title=$('#bookTitle').value.trim()||f.name.replace(/\.[^.]+$/,'');let text='';try{if(f.type==='application/pdf'||f.name.toLowerCase().endsWith('.pdf')){text=await extractPdfText(f)}else{text=await f.text(); if(f.name.toLowerCase().endsWith('.json')){try{const j=JSON.parse(text);text=typeof j==='string'?j:JSON.stringify(j,null,2)}catch{}}}$('#fileProgress').style.width='100%';await saveBook(title,text,f.name.split('.').pop().toUpperCase())}catch(err){console.error(err);alert('Could not read file: '+(err.message||err))}setTimeout(()=>$('#fileProgress').style.width='0',800)}
+async function extractPdfText(file){if(!window.NW_PDFJS)throw new Error('PDF reader is still loading or unavailable. Try again in a moment, or paste text.');const buf=await file.arrayBuffer();const pdf=await window.NW_PDFJS.getDocument({data:buf}).promise;let text=[];for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p);const content=await page.getTextContent();text.push(`\n\n--- Page ${p} ---\n`+content.items.map(i=>i.str).join(' '));$('#fileProgress').style.width=Math.round((p/pdf.numPages)*100)+'%'}return text.join('\n')}
+function scoreChunk(q,ch){const words=q.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>2);const t=ch.text.toLowerCase();let score=0;for(const w of words){let idx=t.indexOf(w);if(idx>=0)score+=1+(w.length>5?0.5:0)}return score}
+function relevantChunks(q,n=5){return chunks.map(ch=>({...ch,score:scoreChunk(q,ch)})).filter(ch=>ch.score>0).sort((a,b)=>b.score-a.score).slice(0,n)}
+function fallbackAnswer(q,refs){if(!refs.length)return `I could not find a strong match in the current book for: "${q}"\n\nTry using words from the rule, chapter, creature, item, spell, or mechanic you are reading.`;return `Structured dossier answer from the current book:\n\nI found ${refs.length} relevant section(s). The strongest matches are below. Use these as the source text, then ask a narrower follow-up if needed.\n\n`+refs.map(r=>`[Section ${r.id}]\n${r.text.slice(0,900)}${r.text.length>900?'...':''}`).join('\n\n---\n\n')}
+async function loadLLM(){if(llmReady)return;const model=$('#modelSelect').value;$('#llmStatus').textContent='Loading WebLLM runtime and model. First load can take a while...';try{llmModule=await import('https://esm.run/@mlc-ai/web-llm');llmEngine=await llmModule.CreateMLCEngine(model,{initProgressCallback:p=>{$('#llmStatus').textContent=p?.text||p?.message||'Loading model...'}});llmReady=true;$('#llmStatus').textContent='Ask the Dossier is using local browser LLM: '+model}catch(e){console.error(e);llmReady=false;$('#llmStatus').textContent='LLM failed or unsupported. Structured search fallback is active.';alert('Browser LLM could not load on this device/browser. Structured search still works.')}}
+function unloadLLM(){llmEngine=null;llmReady=false;$('#llmStatus').textContent='LLM not loaded. Structured search is active.'}
+function quickAsk(q){$('#question').value=q;askBook()}
+async function askBook(){const q=$('#question').value.trim();if(!q){alert('Ask a question about the current book.');return}if(!activeId){alert('Load a book first.');return}const refs=relevantChunks(q,6);$('#answer').textContent='Searching current book...';if(!llmReady||!llmEngine){$('#answer').textContent=fallbackAnswer(q,refs);return}const context=refs.map(r=>`[Section ${r.id}]\n${r.text}`).join('\n\n');const system=`You are Ask the Dossier, the Night Wardens Field Office Archive assistant. Answer only from the provided book excerpts. Do not invent rules, prices, lore, or hidden facts. If the excerpts do not answer, say so and suggest what terms to search. Explain clearly, with one practical example if useful. Cite sections like [Section 3].`;const user=`QUESTION:\n${q}\n\nBOOK EXCERPTS:\n${context||'No matching excerpts found.'}`;try{const resp=await llmEngine.chat.completions.create({messages:[{role:'system',content:system},{role:'user',content:user}],temperature:.35,max_tokens:520});$('#answer').textContent=resp?.choices?.[0]?.message?.content||fallbackAnswer(q,refs)}catch(e){console.error(e);$('#answer').textContent='LLM failed during answer. Falling back.\n\n'+fallbackAnswer(q,refs)}}
+async function deleteActiveBook(){if(!activeId)return;if(!confirm('Delete this book from this device?'))return;await deleteBook(activeId);shelf=await getBooks();activeId=shelf[0]?.id||null;localStorage.setItem('nw_active_book',activeId||'');renderShelf();if(activeId)await selectBook(activeId);else{$('#activeTitle').textContent='Select or upload a book';$('#activeBookPill').textContent='No book loaded';$('#reader').textContent='Upload/paste a book, then select it from the shelf.';$('#activeMeta').textContent='The assistant uses only the current book chunks and your question.'}}
+async function exportShelf(){const books=await getBooks();const slim=books.map(b=>({title:b.title,type:b.type,content:b.content,createdAt:b.createdAt}));const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({version:1,books:slim},null,2)],{type:'application/json'}));a.download='night_wardens_digital_library_shelf.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+async function importShelf(e){const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text());for(const b of (j.books||[])){await putBook({id:uid(),title:b.title||'Imported Book',type:b.type||'book',content:b.content||'',createdAt:b.createdAt||new Date().toISOString()})}shelf=await getBooks();activeId=shelf[0]?.id||null;if(activeId)await selectBook(activeId);else renderShelf()}catch(err){alert('Invalid shelf file.')}}
+init();
+</script>
+</body>
+</html>

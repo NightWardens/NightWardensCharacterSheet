@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#211c19" />
+  <title>Night Wardens Commercial Website Blueprint</title>
+  <meta name="description" content="Night Wardens commercial website blueprint: store, accounts, digital library, Pilot Edition strategy, and Digital Field Office roadmap." />
+  <link rel="stylesheet" href="assets/nw-commercial-blueprint.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-section="top">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Night Wardens home">
+        <span class="brand-mark">NW</span>
+        <span>
+          <strong>Night Wardens</strong>
+          <small>Digital Field Office</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="site-nav" aria-label="Blueprint navigation">
+        <a href="#overview">Overview</a>
+        <a href="#pages">Pages</a>
+        <a href="#store">Store</a>
+        <a href="#library">Library</a>
+        <a href="#assistant">Assistant</a>
+        <a href="#build-plan">Build Plan</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">CLASSIFIED COMMERCIAL FIELD PLAN</p>
+          <h1>Night Wardens Commercial Website Blueprint</h1>
+          <p class="lede">A production-ready site plan for selling books, cards, boosters, Pilot Edition products, and future digital ownership through the Night Wardens Digital Field Office.</p>
+          <div class="cta-row" aria-label="Primary actions">
+            <a class="btn primary" href="#mvp">Build MVP First</a>
+            <a class="btn secondary" href="#wireframes">View Wireframes</a>
+            <a class="btn ghost" href="#admin">Owner Upload Flow</a>
+          </div>
+          <div class="hero-flags" aria-label="Core goals">
+            <span>Sell books</span>
+            <span>Track ownership</span>
+            <span>Explain Pilot Edition</span>
+            <span>Prepare future app ecosystem</span>
+          </div>
+        </div>
+        <aside class="brief-card" aria-label="Executive summary">
+          <div class="stamp">FIELD OFFICE PRIORITY</div>
+          <h2>Launch with trust, not bloat.</h2>
+          <p>The strongest first release is a focused storefront with a clear buy path, Pilot Edition explanation, free Quickstart capture, customer accounts, and a digital library. Tools and LLM assistant come after ownership and sales are stable.</p>
+          <dl class="brief-list">
+            <div><dt>MVP Stack</dt><dd>Next.js + Supabase + Stripe + Vercel</dd></div>
+            <div><dt>First Product</dt><dd>Core Rulebook — Pilot Edition</dd></div>
+            <div><dt>First Lead Magnet</dt><dd>Free Quickstart Dossier</dd></div>
+            <div><dt>Owner Need</dt><dd>Admin upload for books, files, products, and library grants</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">01 / Product Strategy</p>
+          <h2>What the site needs to do</h2>
+          <p>The site should behave like the official access portal for a supernatural field organization: public storefront, secure archive, digital library, and companion tools hub.</p>
+        </div>
+        <div class="cards four">
+          <article class="card"><h3>Convert New Visitors</h3><p>Explain the premise fast, show what to buy first, and keep the Core Rulebook path visible from every major page.</p></article>
+          <article class="card"><h3>Support Pilot Buyers</h3><p>Present Pilot Edition as a fully playable first field issue with update support and future upgrade eligibility.</p></article>
+          <article class="card"><h3>Build Ownership</h3><p>Give buyers an account, order history, downloadable files, version access, and eventually searchable owned content.</p></article>
+          <article class="card"><h3>Prepare Digital Tools</h3><p>Make room for the character builder, Auto-GM, bestiary, grimoire, rules archive, and Ask the Dossier assistant.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pages" class="section alt">
+      <div class="container">
+        <div class="section-heading compact">
+          <p class="eyebrow">02 / Site Map</p>
+          <h2>Pages to build</h2>
+        </div>
+        <div class="tab-shell" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="Site map categories">
+            <button class="tab is-active" data-tab="public" type="button">Public</button>
+            <button class="tab" data-tab="store-pages" type="button">Store</button>
+            <button class="tab" data-tab="account" type="button">Account</button>
+            <button class="tab" data-tab="tools" type="button">Tools</button>
+            <button class="tab" data-tab="admin" type="button">Admin</button>
+          </div>
+          <div class="tab-panel is-active" data-panel="public">
+            <div class="path-grid">
+              <code>/</code><span>Homepage</span>
+              <code>/what-is-night-wardens</code><span>Game overview</span>
+              <code>/start-here</code><span>Buying guide</span>
+              <code>/pilot-edition</code><span>Pilot Edition explanation</span>
+              <code>/quickstart</code><span>Free Quickstart / email capture</span>
+              <code>/retailers</code><span>Retailer page</span>
+              <code>/support</code><span>Support hub</span>
+              <code>/faq</code><span>FAQ</span>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="store-pages">
+            <div class="path-grid">
+              <code>/store</code><span>Main storefront</span>
+              <code>/store/books</code><span>Books</span>
+              <code>/store/cards</code><span>Card decks</span>
+              <code>/store/boosters</code><span>Booster packs</span>
+              <code>/store/bundles</code><span>Starter / collector bundles</span>
+              <code>/store/product/[slug]</code><span>Product detail page</span>
+              <code>/cart</code><span>Cart</span>
+              <code>/checkout</code><span>Checkout</span>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="account">
+            <div class="path-grid">
+              <code>/account</code><span>Dashboard</span>
+              <code>/account/library</code><span>Owned digital library</span>
+              <code>/account/orders</code><span>Order history</span>
+              <code>/account/downloads</code><span>Downloads</span>
+              <code>/account/redeem</code><span>QR / product code redemption</span>
+              <code>/account/upgrades</code><span>Pilot upgrade eligibility</span>
+              <code>/account/settings</code><span>Login, profile, 2FA later</span>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="tools">
+            <div class="path-grid">
+              <code>/assistant</code><span>Ask the Dossier</span>
+              <code>/tools</code><span>Companion tools hub</span>
+              <code>/tools/character-builder</code><span>Character builder</span>
+              <code>/tools/auto-gm</code><span>Tarot Auto-GM</span>
+              <code>/tools/grimoire</code><span>Spell browser</span>
+              <code>/tools/bestiary</code><span>Creature browser</span>
+              <code>/archive</code><span>Searchable rules archive</span>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="admin">
+            <div class="path-grid">
+              <code>/admin/products</code><span>Create/edit products</span>
+              <code>/admin/books</code><span>Upload and version books</span>
+              <code>/admin/files</code><span>Manage digital files</span>
+              <code>/admin/orders</code><span>Order management</span>
+              <code>/admin/library</code><span>Grant owned items</span>
+              <code>/admin/upgrades</code><span>Pilot eligibility</span>
+              <code>/admin/codes</code><span>Redemption code batches</span>
+              <code>/admin/rules</code><span>Rules archive entries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="store" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">03 / Store Structure</p>
+          <h2>Make the first purchase obvious</h2>
+          <p>Every product should be visually labeled so new buyers know whether it is required, optional, collectible support, or Pilot Edition.</p>
+          <div class="label-wall" aria-label="Product labels">
+            <span class="product-label start">START HERE</span>
+            <span class="product-label core">CORE GAME</span>
+            <span class="product-label pilot">PILOT EDITION</span>
+            <span class="product-label expansion">OPTIONAL EXPANSION</span>
+            <span class="product-label booster">BOOSTER SUPPORT</span>
+            <span class="product-label revised">REVISED EDITION</span>
+          </div>
+        </div>
+        <div class="store-stack">
+          <article class="store-card priority"><strong>Starter Warden Bundle</strong><span>Core Rulebook + Quick Reference + sheets + starter card deck</span><a href="#wireframes">Store wireframe →</a></article>
+          <article class="store-card"><strong>Core Rulebook — Pilot Edition</strong><span>The required core game and first product to sell.</span></article>
+          <article class="store-card"><strong>Bestiary / Grimoire / Tarot Guide</strong><span>Optional expansion books for Game Wardens, solo play, and deeper systems.</span></article>
+          <article class="store-card"><strong>Relic, Affliction, Gear, Spell, Creature Decks</strong><span>Physical card products with future QR-linked digital references.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="library" class="section alt">
+      <div class="container">
+        <div class="section-heading compact">
+          <p class="eyebrow">04 / Accounts + Library</p>
+          <h2>Ownership is the foundation for future tools</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-step"><span>1</span><h3>Create account</h3><p>Email/password or magic link at MVP. Google and 2FA can come later.</p></div>
+          <div class="timeline-step"><span>2</span><h3>Buy product</h3><p>Stripe checkout creates the order and triggers a library entitlement.</p></div>
+          <div class="timeline-step"><span>3</span><h3>Open library</h3><p>Owned books, downloads, version notes, and eligible updates appear in one place.</p></div>
+          <div class="timeline-step"><span>4</span><h3>Upgrade eligibility</h3><p>Pilot owners can see eligibility, proof status, and future discounted upgrade paths.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="assistant" class="section">
+      <div class="container split reverse">
+        <aside class="terminal-card">
+          <div class="terminal-top"><span></span><span></span><span></span></div>
+          <p class="terminal-kicker">ASK THE DOSSIER</p>
+          <p class="terminal-line">Query: “How do I prepare for a ghost case?”</p>
+          <p class="terminal-answer">Archive result: salt, iron, anchor investigation, remains or tether object. Full answer should cite owned rule sections and never invent hidden case facts.</p>
+        </aside>
+        <div>
+          <p class="eyebrow">05 / Rules Assistant</p>
+          <h2>Make it feel like an archive, not a generic chatbot</h2>
+          <p>The assistant should explain rules, find sections, compare roles, and summarize owned content. It should not replace the rulebook or invent official rules.</p>
+          <ul class="check-list">
+            <li>Use “Ask the Dossier” or “Warden Assistant” as the name.</li>
+            <li>Show source filters: Quickstart, owned books, cards, rules archive.</li>
+            <li>Show cited sections and related products beside answers.</li>
+            <li>Launch search first; add LLM after ownership and permissions are stable.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="wireframes" class="section alt">
+      <div class="container">
+        <div class="section-heading compact">
+          <p class="eyebrow">06 / Wireframes</p>
+          <h2>Production page layouts</h2>
+        </div>
+        <div class="accordion" data-accordion>
+          <article class="accordion-item is-open">
+            <button type="button" class="accordion-title">Homepage wireframe</button>
+            <div class="accordion-content">
+              <ol class="ordered-blocks">
+                <li>Hero: Night Wardens, pitch, Buy Core Rulebook, Download Quickstart.</li>
+                <li>Three-step game loop: Investigate, Prepare, Confront.</li>
+                <li>Start Here products: Quickstart, Core Rulebook, Starter Bundle.</li>
+                <li>Pilot Edition trust banner.</li>
+                <li>Featured books/cards.</li>
+                <li>Digital Field Office teaser.</li>
+                <li>Email capture and retailer CTA.</li>
+              </ol>
+            </div>
+          </article>
+          <article class="accordion-item">
+            <button type="button" class="accordion-title">Store page wireframe</button>
+            <div class="accordion-content">
+              <ol class="ordered-blocks">
+                <li>Top explanation: “Build your field kit.”</li>
+                <li>Start Here block above all categories.</li>
+                <li>Filters: format, use, edition, price.</li>
+                <li>Rows for books, cards, boosters, bundles, digital.</li>
+                <li>Buyer help panel explaining what is required vs optional.</li>
+              </ol>
+            </div>
+          </article>
+          <article class="accordion-item">
+            <button type="button" class="accordion-title">Product page wireframe</button>
+            <div class="accordion-content">
+              <ol class="ordered-blocks">
+                <li>Product label stamps: Pilot Edition, Core Game, Digital + Print.</li>
+                <li>Format selector and Add to Cart above the fold.</li>
+                <li>Digital ownership box.</li>
+                <li>Contents list and compatibility notes.</li>
+                <li>Related products and FAQ.</li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="admin" class="section">
+      <div class="container">
+        <div class="section-heading compact">
+          <p class="eyebrow">07 / Owner Workflow</p>
+          <h2>Admin upload and sale flow</h2>
+        </div>
+        <div class="process-grid">
+          <article><span>01</span><h3>New product</h3><p>Choose product type, title, label, price, format, and publish status.</p></article>
+          <article><span>02</span><h3>Upload files</h3><p>Add PDF, EPUB, ZIP, product images, print files, and version labels.</p></article>
+          <article><span>03</span><h3>Stripe price</h3><p>Attach or create Stripe price ID from the admin panel.</p></article>
+          <article><span>04</span><h3>Library entitlement</h3><p>Decide what the buyer owns after checkout: download, archive, tool access, or full.</p></article>
+          <article><span>05</span><h3>Version update</h3><p>Upload Pilot v1.1, mark current, add changelog, notify owners.</p></article>
+          <article><span>06</span><h3>Manual grant</h3><p>Search a customer and grant owned items after support requests or proof approval.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="build-plan" class="section alt">
+      <div class="container">
+        <div class="section-heading compact">
+          <p class="eyebrow">08 / Build Plan</p>
+          <h2>MVP first, ecosystem second</h2>
+        </div>
+        <div class="build-grid" id="mvp">
+          <article class="build-card hot"><h3>MVP</h3><p>Homepage, store, product pages, Pilot page, Quickstart capture, Stripe checkout, account login, digital library, admin upload.</p></article>
+          <article class="build-card"><h3>Phase 2</h3><p>Rules archive, QR/code redemption, Pilot proof upload, retailer page, bundles, version/changelog dashboard.</p></article>
+          <article class="build-card"><h3>Phase 3</h3><p>Ask the Dossier, character builder, campaign manager, Auto-GM integration, card collection tracking, advanced library search.</p></article>
+        </div>
+        <div class="decision-panel">
+          <h3>Recommended MVP stack</h3>
+          <div class="stack-grid">
+            <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase Auth</span><span>Supabase Postgres</span><span>Supabase Storage</span><span>Stripe Checkout</span><span>Vercel</span><span>Plausible</span><span>Resend</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container final-box">
+        <p class="eyebrow">Revenue-first decision</p>
+        <h2>Build this first</h2>
+        <p>Ship the storefront, Pilot Edition explanation, Quickstart lead magnet, account login, digital library, and admin upload workflow before full AI, campaign sync, or advanced companion tools.</p>
+        <div class="cta-row center">
+          <a class="btn primary" href="#admin">Owner upload workflow</a>
+          <a class="btn secondary" href="#store">Store structure</a>
+          <a class="btn ghost" href="#build-plan">Build order</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Night Wardens Digital Field Office — Commercial Website Blueprint</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/nw-commercial-blueprint.js"></script>
+</body>
+</html>

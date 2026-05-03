@@ -1,182 +1,223 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Night Wardens Digital Field Guide — Auto-GM</title>
-<meta name="theme-color" content="#2a1512" />
-<style>
-:root{--ink:#241f1b;--blood:#4b0d0d;--blood2:#7b1717;--paper:#efe8dc;--paper2:#fbf4e8;--line:#9d9385;--muted:#695f56;--dark:#29231f;--good:#1f6b3a;--warn:#a16000;--bad:#8d1b1b;--violet:#3b244b;--shadow:0 18px 45px rgba(26,18,12,.18)}
-*{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh} button,input,select,textarea{font:inherit} button{cursor:pointer}.hidden{display:none!important}
-body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 17% 9%,rgba(95,78,62,.12) 0 5%,transparent 5.4%),radial-gradient(circle at 68% 18%,rgba(125,65,50,.09) 0 7%,transparent 7.3%),radial-gradient(circle at 82% 88%,rgba(80,70,60,.08) 0 6%,transparent 6.3%),linear-gradient(90deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%),linear-gradient(0deg,transparent 3%,rgba(50,45,40,.13) 3.12%,transparent 3.3%,transparent 96.7%,rgba(50,45,40,.13) 96.9%,transparent 97.1%)}
-body:after{content:"✦";position:fixed;left:50%;top:24px;transform:translateX(-50%);font-size:220px;color:rgba(70,64,58,.055);z-index:-1;line-height:1}.wrap{max-width:1480px;margin:auto;padding:18px}.hero{border:1px solid rgba(89,74,60,.35);background:rgba(248,242,232,.9);box-shadow:var(--shadow);border-radius:24px;padding:20px;text-align:center;backdrop-filter:blur(8px)}.kicker{font-size:12px;letter-spacing:.35em;text-transform:uppercase;font-weight:900;color:rgba(75,13,13,.85)} h1{margin:2px 0 0;font-size:clamp(34px,5vw,64px);line-height:.95;text-transform:uppercase;letter-spacing:.04em}.sub{margin:.45rem 0 0;color:var(--muted);font-style:italic}.grid{display:grid;gap:14px}.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}.mainGrid{grid-template-columns:340px 1fr 390px}.caseGrid{grid-template-columns:1fr 1fr}.commandGrid{grid-template-columns:1.2fr .8fr}@media(max-width:1150px){.cols2,.cols3,.mainGrid,.caseGrid,.commandGrid{grid-template-columns:1fr}.wrap{padding:10px}.hero{padding:16px}}
-.card{border:1px solid rgba(89,74,60,.45);background:rgba(248,242,232,.94);box-shadow:0 12px 30px rgba(26,18,12,.12);border-radius:20px;padding:14px;backdrop-filter:blur(6px)}.card h2{margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid rgba(89,74,60,.35);font-size:18px;text-transform:uppercase;letter-spacing:.08em}.card h3{margin:0 0 8px;color:var(--blood);font-size:18px}.small{font-size:12px;color:var(--muted)}.note{background:rgba(75,13,13,.08);border:1px solid rgba(75,13,13,.22);padding:10px;border-radius:14px}.darknote{background:#2d2723;color:#fff;border-radius:14px;padding:12px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.spread{justify-content:space-between}.center{text-align:center}.list{display:grid;gap:8px}.item{border:1px solid rgba(89,74,60,.38);background:rgba(255,255,255,.58);border-radius:14px;padding:10px}.item.active{outline:2px solid var(--blood2);background:rgba(255,255,255,.82)}.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;background:rgba(75,13,13,.12);border:1px solid rgba(75,13,13,.2);font-size:12px;font-weight:800}.pill.good{background:rgba(31,107,58,.12);border-color:rgba(31,107,58,.3)}.pill.warn{background:rgba(161,96,0,.12);border-color:rgba(161,96,0,.3)}.pill.bad{background:rgba(141,27,27,.12);border-color:rgba(141,27,27,.3)}.pill.private{background:rgba(59,36,75,.12);border-color:rgba(59,36,75,.35)}
-label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:#554a42;margin-bottom:4px} input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:rgba(255,255,255,.72);color:var(--ink)} textarea{min-height:90px;resize:vertical}.btn{border:0;border-radius:13px;padding:10px 13px;font-weight:900;background:var(--blood);color:white}.btn.secondary{background:#3b342f}.btn.ghost{background:rgba(255,255,255,.68);color:var(--ink);border:1px solid var(--line)}.btn.good{background:var(--good)}.btn.warn{background:var(--warn)}.btn.bad{background:var(--bad)}.btn.violet{background:var(--violet)}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.full{width:100%}
-.topbar{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tab{background:#342d28;color:#fff;border:0;border-radius:14px;padding:10px 13px;font-weight:800}.tab.active{background:var(--blood2)}.transcript{height:560px;overflow:auto;background:rgba(255,255,255,.45);border:1px solid var(--line);border-radius:16px;padding:10px}.msg{border-radius:14px;background:#fff9;margin:8px 0;padding:9px;border:1px solid rgba(89,74,60,.25)}.msg.private{background:rgba(237,225,246,.85);border-color:rgba(59,36,75,.25)}.msg.system{background:rgba(42,37,33,.92);color:#fff}.msg.roll.success{border-left:6px solid var(--good)}.msg.roll.fail{border-left:6px solid var(--bad)}.msg .meta{font-size:11px;color:var(--muted);font-weight:900}.msg.system .meta{color:#d8cec2}.dangerText{color:var(--bad);font-weight:900}.successText{color:var(--good);font-weight:900}.inlineRoll{font-family:ui-monospace,Menlo,Consolas,monospace;background:#fff8;border:1px solid var(--line);padding:3px 7px;border-radius:8px}.divider{height:1px;background:rgba(89,74,60,.3);margin:12px 0}.meter{height:12px;background:#fff;border:1px solid var(--line);border-radius:999px;overflow:hidden}.meter>span{display:block;height:100%;background:linear-gradient(90deg,var(--good),var(--warn),var(--bad));width:0}.commandBox{min-height:120px;font-family:ui-monospace,Consolas,monospace}.kbd{font-family:ui-monospace,Consolas,monospace;background:#2d2723;color:#fff;border-radius:8px;padding:2px 6px}.mono{font-family:ui-monospace,Consolas,monospace}.thinList{max-height:310px;overflow:auto}.privatePanel{background:rgba(59,36,75,.08);border-color:rgba(59,36,75,.25)}.suggestion{display:inline-block;margin:2px 4px 2px 0;padding:4px 7px;border-radius:999px;background:#fff8;border:1px solid var(--line);font-size:12px;cursor:pointer}.moduleGrid{grid-template-columns:repeat(auto-fit,minmax(245px,1fr))}.jsonBox{height:420px;font-family:ui-monospace,Consolas,monospace;font-size:12px}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Night Wardens Digital Field Guide</title>
+  <style>
+    :root{--ink:#211b17;--paper:#efe8dc;--panel:#f8f1e6;--line:#8b8174;--blood:#4b0d12;--muted:#6b625a;--shadow:rgba(20,12,8,.18);--green:#28533a;--black:#161311}
+    *{box-sizing:border-box} body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(circle at 20% 10%,rgba(80,70,60,.13) 0 5%,transparent 5.2%),radial-gradient(circle at 70% 22%,rgba(140,70,60,.09) 0 7%,transparent 7.3%),linear-gradient(90deg,transparent 3%,rgba(50,40,30,.18) 3.2%,transparent 3.4%,transparent 96.6%,rgba(50,40,30,.18) 96.8%,transparent 97%),linear-gradient(0deg,transparent 3%,rgba(50,40,30,.18) 3.2%,transparent 3.4%,transparent 96.6%,rgba(50,40,30,.18) 96.8%,transparent 97%),var(--paper)}
+    header{max-width:1320px;margin:18px auto 12px;padding:18px 22px;border:1px solid var(--line);background:rgba(248,241,230,.9);box-shadow:0 12px 32px var(--shadow);text-align:center}.eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--blood);font-weight:bold}.title{margin:4px 0 0;font-size:42px;letter-spacing:.08em;text-transform:uppercase}.subtitle{font-size:14px;font-style:italic;color:var(--muted)}
+    main{max-width:1320px;margin:0 auto 40px;padding:0 14px;display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.card{border:1px solid var(--line);background:rgba(248,241,230,.9);box-shadow:0 10px 24px var(--shadow);border-radius:14px;overflow:hidden}.card h2{margin:0;padding:10px 14px;background:#d7d0c4;border-bottom:1px solid var(--line);font-size:17px;text-transform:uppercase;letter-spacing:.06em}.card-body{padding:14px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.grid{display:grid;gap:10px}.two{grid-template-columns:1fr 1fr}.three{grid-template-columns:repeat(3,1fr)}
+    button,.btn{border:1px solid #331015;background:var(--blood);color:white;border-radius:10px;padding:9px 12px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}button.secondary,.btn.secondary{background:#f7f0e5;color:var(--ink);border-color:var(--line)}button.green{background:var(--green)}button.danger{background:#251d1a}button:disabled{opacity:.5;cursor:not-allowed}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.72);padding:10px;color:var(--ink);font-family:inherit}textarea{min-height:86px;resize:vertical}label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:bold;color:var(--muted)}
+    .console{height:395px;overflow:auto;background:var(--black);color:#f4eadc;border-radius:12px;padding:14px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.45}.console .line{margin:0 0 8px}.console .cmd{color:#f0b8b8}.console .sys{color:#d4c1a5}.console .good{color:#bde3bd}.console .bad{color:#ffb0a7}.console .warn{color:#f2d27f}.console .private{color:#add8ff}.console .shared{color:#ffdbad}
+    .prompt{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}.prompt input{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.pill{display:inline-block;padding:4px 8px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.55);font-size:12px;margin:2px}.stat{border:1px solid var(--line);background:rgba(255,255,255,.55);padding:9px;border-radius:10px}.stat b{display:block;color:var(--blood);text-transform:uppercase;font-size:12px}.branch{border:1px solid var(--line);border-radius:12px;padding:10px;background:rgba(255,255,255,.48)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.tab{background:#f7f0e5;color:var(--ink);border-color:var(--line)}.tab.active{background:var(--blood);color:white}.hidden{display:none!important}.small{font-size:12px;color:var(--muted)}.footer-note{text-align:center;max-width:1200px;margin:0 auto 20px;color:var(--muted);font-size:12px;font-style:italic}.toggle{display:flex;gap:6px;align-items:center}.toggle input{width:auto}.cloudline{border-left:4px solid var(--green);padding-left:10px}.localline{border-left:4px solid var(--blood);padding-left:10px}
+    @media(max-width:950px){main{grid-template-columns:1fr}.title{font-size:30px}.console{height:340px}.two,.three{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="hero">
-    <div class="kicker">Night Wardens</div>
-    <h1>Digital Field Guide</h1>
-    <p class="sub">Auto-GM modular case engine • natural voice TTS • LLM-assisted openings • turn-based combat</p>
-    <div class="topbar">
-      <div class="row">
-        <a class="btn ghost" href="index.html">← Field Office</a>
-        <button class="btn" id="newCaseBtn">New Modular Case / Ready-Up</button>
-        <button class="btn secondary" id="saveBtn">Save</button>
-        <button class="btn ghost" id="exportBtn">Export Case JSON</button>
-        <label class="btn ghost" style="margin:0">Import Case JSON<input id="importCaseFile" type="file" accept="application/json" class="hidden"></label>
-      </div>
-      <div class="row small">
-        <span id="campaignTag" class="pill">Local Case</span>
-        <span id="syncTag" class="pill warn">LocalStorage fallback</span>
-        <span id="versionTag" class="pill">Pass 18.0</span>
-      </div>
-    </div>
+  <header>
+    <div class="eyebrow">Night Wardens</div>
+    <h1 class="title">Digital Field Guide</h1>
+    <div class="subtitle">Auto-GM oracle • shared campaign cases • private branch narration • solo interactive fiction mode</div>
   </header>
 
-  <nav class="nav">
-    <button class="tab active" data-tab="play">Play</button>
-    <button class="tab" data-tab="case">Case Graph</button>
-    <button class="tab" data-tab="modules">Modules</button>
-    <button class="tab" data-tab="characters">Characters</button>
-    <button class="tab" data-tab="private">Private Branches</button>
-    <button class="tab" data-tab="combat">Combat / Clock</button>
-    <button class="tab" data-tab="allies">NPCs / Assistant</button>
-    <button class="tab" data-tab="help">Command Help</button>
-    <button class="tab" data-tab="dev">Data / Debug</button>
-  </nav>
-
-  <section id="tab-play" class="tabPage">
-    <div class="grid mainGrid">
-      <aside class="card">
-        <h2>Case Controls</h2>
-        <div class="grid">
-          <label>Case Mode
-            <select id="caseMode"><option value="solo">Solo / Local</option><option value="shared">Shared Campaign</option><option value="private">Private Player View</option></select>
-          </label>
-          <label>Active Player / Branch<select id="activePlayer"></select></label>
-          <label>Dice Mode<select id="diceMode"><option value="3d6">3d6 roll-under</option><option value="2d6">2d6 quick-reference</option></select></label>
-          <label>Story Seed Style<select id="seedStyle"><option value="balanced">Balanced random modules</option><option value="horror">More horror pressure</option><option value="investigation">More witnesses/evidence</option><option value="combat">More threat/action</option><option value="ritual">More occult structure</option></select></label>
-          <label><input type="checkbox" id="autoRoll" checked style="width:auto"> Auto-roll when character data exists</label>
-          <label><input type="checkbox" id="creatureResponse" checked style="width:auto"> Threat reacts after risky actions</label>
-          <div class="note small"><b>Split command:</b> <span class="kbd">Riley: investigate bell; Sam: ask Mrs Harlan about meetings</span></div>
+  <main>
+    <section class="card">
+      <h2>Interactive Field Console</h2>
+      <div class="card-body">
+        <div class="tabs">
+          <button id="soloModeBtn" class="tab active" data-mode="solo">Solo / Local Case</button>
+          <button id="sharedModeBtn" class="tab" data-mode="shared">Shared Campaign Case</button>
+          <button id="privateModeBtn" class="tab" data-mode="private">Private Player View</button>
         </div>
-        <div class="divider"></div>
-        <div id="readyPanel" class="list"></div>
-        <div class="divider"></div>
-        <h3>Pressure Clock</h3>
-        <div class="meter"><span id="pressureMeter"></span></div>
-        <p class="small" id="pressureText"></p>
-        <div class="row"><button class="btn warn" id="addPressureBtn">+ Pressure</button><button class="btn ghost" id="reducePressureBtn">− Pressure</button></div>
-        <div class="divider"></div>
-        <h3>Current Location</h3><div id="currentLocationBox" class="item"></div>
-        <h3 style="margin-top:12px">Next Suggestions</h3><div id="suggestions" class="small"></div>
-      </aside>
-
-      <main class="card">
-        <h2>Party Transcript</h2>
-        <div id="transcript" class="transcript"></div>
-        <div class="divider"></div>
-        <h3>Shared Party Notes</h3>
-        <div class="note small">Shared notes are solid party-facing notes, not casual small talk. In shared campaigns, notes sync to every connected player when sent. Use <span class="kbd">note [text]</span>, <span class="kbd">notes</span>, or <span class="kbd">clear notes confirm</span>.</div>
-        <div id="partyNotesList" class="thinList list" style="margin-top:8px"></div>
-        <div class="divider"></div>
-        <div class="grid commandGrid">
-          <div>
-            <label>Typed Field Command</label>
-            <textarea id="commandInput" class="commandBox" placeholder="look\nask Mrs Harlan about her son\nRiley: investigate bell chain; Sam: research black star symbol\nprivate Alex: sneak into lower room"></textarea>
-            <div class="row" style="margin-top:8px"><button id="runCommandBtn" class="btn">Run Command</button><button id="clearInputBtn" class="btn ghost">Clear</button></div>
-          </div>
-          <div>
-            <label>Quick Commands</label>
-            <div id="quickCommands" class="thinList"></div>
-          </div>
+        <div class="row" style="margin-bottom:10px">
+          <span class="pill" id="modePill">Mode: Solo / Local</span>
+          <span class="pill" id="cloudPill">Cloud: offline/local</span>
+          <label class="toggle"><input id="privateToggle" type="checkbox"> Next command private</label>
+          <label class="toggle"><input id="autoSyncToggle" type="checkbox" checked> Auto-sync shared</label>
         </div>
-      </main>
-
-      <aside class="card">
-        <h2>Known Case Board</h2>
-        <div id="caseSummary" class="list"></div>
-        <div class="divider"></div>
-        <h3>Discovered Clues</h3><div id="clueList" class="thinList list"></div>
-        <div class="divider"></div>
-        <h3>Unlocked Leads</h3><div id="leadList" class="thinList list"></div>
-      </aside>
-    </div>
-  </section>
-
-  <section id="tab-case" class="tabPage hidden">
-    <div class="grid caseGrid"><div class="card"><h2>Locations</h2><div id="locationList" class="list"></div></div><div class="card"><h2>Witnesses / Evidence</h2><div id="nodeList" class="list"></div></div></div>
-  </section>
-
-  <section id="tab-modules" class="tabPage hidden">
-    <div class="card"><h2>Loaded Modular Library</h2><p class="small">These are the swappable blocks used when a case is drawn. Future cases can add more JSON without rewriting the engine.</p><div id="moduleStats" class="grid moduleGrid"></div></div>
-  </section>
-
-  <section id="tab-characters" class="tabPage hidden">
-    <div class="grid cols2"><div class="card"><h2>Import Character JSON</h2><label class="btn ghost" style="display:inline-block;margin-bottom:10px">Import Character<input id="importCharacterFile" type="file" accept="application/json" class="hidden"></label><p class="small">Imported characters let Auto-GM calculate rolls from attributes and skill ranks.</p><div id="characterList" class="list"></div></div><div class="card"><h2>Manual Player Branches</h2><label>Add Player Name<input id="newPlayerName" placeholder="Riley"></label><button id="addPlayerBtn" class="btn">Add Player</button><div id="playerList" class="list" style="margin-top:10px"></div></div></div>
-  </section>
-
-  <section id="tab-private" class="tabPage hidden"><div class="grid cols2"><div class="card privatePanel"><h2>Private Logs</h2><label>View Player<select id="privateViewPlayer"></select></label><div id="privateLog" class="transcript" style="height:500px"></div></div><div class="card"><h2>Reveal Private Discoveries</h2><div id="privateRevealList" class="list"></div></div></div></section>
-
-  <section id="tab-combat" class="tabPage hidden">
-    <div id="combatPanel"></div>
-  </section>
-
-
-  <section id="tab-allies" class="tabPage hidden">
-    <div class="grid cols2">
-      <div class="card"><h2>Recruitable NPC Allies / Warden HQ</h2><div id="allyList" class="list"></div></div>
-      <div class="card"><h2>Warden Field Assistant</h2>
-        <div class="note small">Structured helper mode is always available. Optional browser LLM mode loads <span class="kbd">Qwen2.5-0.5B-Instruct-q4f16_1-MLC</span> by default through WebLLM/WebGPU and uses only the current case graph, clues, gear, NPCs, and pressure clock as context. The LLM may voice NPC dialogue and craft opening transmissions, but hidden truth still comes from the modular case graph.</div>
-        <div class="note small"><b>Setup note:</b> You can still play entirely from the main command box. Use this <b>NPCs / Assistant</b> tab only when you want to set up the optional browser LLM, pick voices, enable NPC speech, test TTS, or adjust voice style. After setup, return to the main text entry and type commands like <span class="kbd">ask Mrs Harlan about her son</span>, <span class="kbd">load llm</span>, <span class="kbd">voice on</span>, or <span class="kbd">opening transmission</span>.</div>
-        <div class="divider"></div>
-        <div class="grid cols2">
-          <label>LLM Model<select id="llmModelSelect"><option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Fastest / Most Phones — Qwen2.5 0.5B</option><option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Balanced / Better Tone — Llama 3.2 1B</option><option value="Llama-3.2-3B-Instruct-q4f16_0-MLC">Heavy / Strong Devices — Llama 3.2 3B</option></select></label>
-          <div><label>LLM Status</label><div id="llmStatus" class="note small">LLM not loaded. Structured assistant is ready.</div></div>
+        <div id="console" class="console" aria-live="polite"></div>
+        <div class="prompt">
+          <input id="command" placeholder="Type: help, new case, look, Riley: investigate altar; Sam: talk witness" autocomplete="off" />
+          <button id="sendBtn">Send</button>
         </div>
-        <div class="row" style="margin-top:8px"><button id="llmLoadBtn" class="btn ghost">Load Browser LLM</button><button id="llmClearBtn" class="btn ghost">Use Structured Fallback</button><button id="openerBtn" class="btn violet">Craft Opening Transmission</button><label class="inline"><input type="checkbox" id="npcVoiceLLM" checked /> Use LLM NPC Voice when loaded</label></div>
-        <div class="divider"></div>
-        <h3>Voice / TTS Agent</h3>
-        <div class="note small" id="ttsSupportStatus">Browser speech status checking...</div><div class="note small" id="ttsBestVoiceHint">Voice ranking will appear after voices load.</div><div class="note small">This uses your device/browser voices. For the least robotic sound: Android usually works best with Google voices; iPhone uses Apple/Siri enhanced voices if installed. Pick a starred voice from the dropdown when available.</div>
-        <div class="grid cols2" style="margin-top:8px">
-          <label>Voice<select id="ttsVoiceSelect"><option value="">Auto Best Natural Voice</option></select></label>
-          <label>Voice Style<select id="ttsVoiceStyle"><option value="auto">Auto / Best Available</option><option value="female">Prefer Female</option><option value="male">Prefer Male</option></select></label>
-          <label>Rate<input id="ttsRate" type="range" min="0.65" max="1.35" step="0.05" value="0.92"></label>
-          <label>Pitch<input id="ttsPitch" type="range" min="0.65" max="1.35" step="0.05" value="0.94"></label>
-          <label>Volume<input id="ttsVolume" type="range" min="0" max="1" step="0.05" value="1"></label>
+        <div class="row" style="margin-top:10px">
+          <button class="secondary" data-cmd="help">Help</button>
+          <button class="secondary" data-cmd="look">Look</button>
+          <button class="secondary" data-cmd="status">Status</button>
+          <button class="secondary" data-cmd="party">Party</button>
+          <button data-cmd="new case">New Case</button>
+          <button class="danger" data-cmd="resolve">Resolve</button>
         </div>
-        <div class="row" style="margin-top:8px">
-          <label class="inline"><input type="checkbox" id="ttsEnabled" /> Enable Voice</label>
-          <label class="inline"><input type="checkbox" id="ttsNpc" checked /> Speak NPCs</label>
-          <label class="inline"><input type="checkbox" id="ttsTransmissions" checked /> Speak Game Warden transmissions</label>
-          <label class="inline"><input type="checkbox" id="autoOpener" checked /> Auto opener on new case</label>
-          <label class="inline"><input type="checkbox" id="llmOpener" checked /> Use LLM for opener when loaded</label>
-          <button id="ttsTestBtn" class="btn ghost">Test Voice</button><button id="ttsStopBtn" class="btn ghost">Stop Voice</button>
-        </div>
-        <div class="divider"></div>
-        <label>Assistant Prompt<textarea id="assistantPrompt" placeholder="summarize case
-suggest next steps
-prep checklist
-what should I ask Mrs Harlan next?"></textarea></label>
-        <div class="row" style="margin-top:8px"><button id="assistantRunBtn" class="btn violet">Ask Field Assistant</button><button class="btn ghost quick" data-cmd="assistant suggest next steps">Command Version</button><button class="btn ghost quick" data-cmd="opening transmission">Opener Command</button></div>
-        <div id="assistantOutput" class="transcript" style="height:300px;margin-top:12px"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="tab-help" class="tabPage hidden">
-    <div class="grid cols2"><div class="card"><h2>Command Patterns</h2><div class="list small" id="helpCommands"></div></div><div class="card"><h2>Interaction Depth</h2><div class="note">Ask follow-up questions by topic. Example: <span class="kbd">ask Mrs Harlan about her son</span> can unlock <span class="kbd">meetings</span>, which can unlock <span class="kbd">lower room</span>, which can unlock new locations or evidence.</div><div class="divider"></div><div class="note small"><b>Shared ready-up:</b> In Shared Campaign mode, when more than one real synced player is connected, pressing New Modular Case creates a pending draw. Each player types <span class="kbd">ready</span>. When all are ready, the new case is generated once and synced to everyone attached to the campaign.</div><div class="divider"></div><div class="darknote small">Useful verbs: look, list, shop, buy, inventory, need, hide, wait, go, move, ask, talk, interview, investigate, examine, search, research, prep, trap, cast, attack, clues, leads, reveal, hq, recruit, dialogue, profile, load llm, voice on/off.</div></div></div>
-  </section>
+    <aside class="grid">
+      <section class="card">
+        <h2>Shared / Private Access</h2>
+        <div class="card-body grid">
+          <div class="row">
+            <button id="googleBtn" class="green">Google Sign-In</button>
+            <button id="signOutBtn" class="secondary">Sign Out</button>
+          </div>
+          <div class="grid two">
+            <label>Campaign ID / Join Code<input id="campaignIdInput" placeholder="paste campaign id"></label>
+            <label>Auto-GM Case ID<input id="caseIdInput" placeholder="auto or custom"></label>
+          </div>
+          <div class="row">
+            <button id="connectCampaignBtn" class="green">Connect Shared Case</button>
+            <button id="pushCloudBtn" class="secondary">Push Shared</button>
+            <button id="pullCloudBtn" class="secondary">Pull Shared</button>
+          </div>
+          <p class="small">Shared mode writes the group case state and public narration to the campaign. Private mode keeps a player's personal branch notes separate. Without Firebase configured, everything still works locally and can export/import JSON.</p>
+        </div>
+      </section>
 
-  <section id="tab-dev" class="tabPage hidden"><div class="card"><h2>Case JSON</h2><textarea id="debugJson" class="jsonBox"></textarea><div class="row" style="margin-top:8px"><button id="loadDebugBtn" class="btn warn">Load JSON From Box</button><button id="refreshDebugBtn" class="btn ghost">Refresh JSON</button></div></div></section>
-</div>
-<script src="firebase-config.js?v=18.1"></script>
-<script src="auto-gm-sync-adapter.js?v=18.1"></script>
-<script src="auto-gm-llm-adapter.js?v=18.1"></script>
-<script src="auto-gm-pass13.js?v=18.1"></script>
+      <section class="card">
+        <h2>Current Case</h2>
+        <div class="card-body grid" id="casePanel"></div>
+      </section>
+
+      <section class="card">
+        <h2>Party Branches</h2>
+        <div class="card-body grid" id="partyPanel"></div>
+      </section>
+
+      <section class="card">
+        <h2>Case Save / Load</h2>
+        <div class="card-body grid">
+          <div class="row">
+            <button id="saveBtn" class="secondary">Save Browser</button>
+            <button id="exportBtn" class="secondary">Export JSON</button>
+            <label class="btn secondary" for="importFile">Import JSON</label><input id="importFile" class="hidden" type="file" accept="application/json" />
+          </div>
+          <textarea id="rawBox" placeholder="Exported case JSON appears here, or paste JSON and press Load Raw."></textarea>
+          <div class="row"><button id="loadRawBtn" class="secondary">Load Raw JSON</button><button id="clearBtn" class="danger">Clear Case</button></div>
+        </div>
+      </section>
+    </aside>
+  </main>
+  <div class="footer-note">Shared log = party-visible. Private log = singular player branch. Solo mode = device-only interactive fiction oracle.</div>
+
+  <script type="module">
+  const firebaseApi = { ready:false, auth:null, db:null, user:null, unsubCase:null, async signIn(){ alert('Firebase is not configured. Add firebase-config.js from the v6 package to enable Google shared campaigns.'); }, async signOut(){}, async push(){}, async pull(){}, listen(){}, stopListen(){} };
+  try {
+    const cfgMod = await import('./firebase-config.js');
+    if (cfgMod.firebaseConfig && cfgMod.firebaseConfig.apiKey && !String(cfgMod.firebaseConfig.apiKey).includes('PASTE_')) {
+      const appMod = await import('https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js');
+      const authMod = await import('https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js');
+      const fsMod = await import('https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js');
+      const app = appMod.initializeApp(cfgMod.firebaseConfig);
+      firebaseApi.auth = authMod.getAuth(app);
+      firebaseApi.db = fsMod.getFirestore(app);
+      firebaseApi.ready = true;
+      firebaseApi.signIn = async () => { const provider = new authMod.GoogleAuthProvider(); if (/Android|iPhone|iPad/i.test(navigator.userAgent)) await authMod.signInWithRedirect(firebaseApi.auth, provider); else await authMod.signInWithPopup(firebaseApi.auth, provider); };
+      firebaseApi.signOut = async () => authMod.signOut(firebaseApi.auth);
+      firebaseApi.caseRef = () => fsMod.doc(firebaseApi.db, 'campaigns', state.cloud.campaignId, 'autoGmCases', state.cloud.caseId);
+      firebaseApi.privateRef = () => fsMod.doc(firebaseApi.db, 'users', firebaseApi.user.uid, 'privateAutoGmCases', `${state.cloud.campaignId}_${state.cloud.caseId}`);
+      firebaseApi.push = async (privacy='shared') => {
+        if (!firebaseApi.user) throw new Error('Sign in first.');
+        if (!state.cloud.campaignId || !state.cloud.caseId) throw new Error('Connect a campaign/case first.');
+        if (privacy === 'private') await fsMod.setDoc(firebaseApi.privateRef(), { ownerUid:firebaseApi.user.uid, campaignId:state.cloud.campaignId, caseId:state.cloud.caseId, privateLog:state.privateTranscript || [], updatedAt:Date.now() }, { merge:true });
+        else await fsMod.setDoc(firebaseApi.caseRef(), { ...stripLocalOnly(state), updatedAt:Date.now(), updatedBy:firebaseApi.user.uid }, { merge:true });
+      };
+      firebaseApi.pull = async () => {
+        if (!firebaseApi.user) throw new Error('Sign in first.');
+        const snap = await fsMod.getDoc(firebaseApi.caseRef());
+        if (snap.exists()) { const cloud = snap.data(); state = mergeState(defaultState(), cloud); saveState(); redrawConsole(); render(); say('good','Pulled shared Auto-GM case from Firestore.'); }
+        const psnap = await fsMod.getDoc(firebaseApi.privateRef());
+        if (psnap.exists()) { state.privateTranscript = psnap.data().privateLog || []; saveState(); render(); }
+      };
+      firebaseApi.listen = () => {
+        firebaseApi.stopListen(); if (!state.cloud.campaignId || !state.cloud.caseId) return;
+        firebaseApi.unsubCase = fsMod.onSnapshot(firebaseApi.caseRef(), snap => { if (snap.exists() && state.mode === 'shared') { state = mergeState(state, snap.data()); saveState(false); redrawConsole(); render(); }});
+      };
+      firebaseApi.stopListen = () => { if (firebaseApi.unsubCase) firebaseApi.unsubCase(); firebaseApi.unsubCase = null; };
+      authMod.onAuthStateChanged(firebaseApi.auth, user => { firebaseApi.user=user; updateCloudPill(); if(user && state.mode==='shared') firebaseApi.listen(); });
+    }
+  } catch(e) { console.warn('Firebase optional layer unavailable:', e); }
+
+  const fallbackData = { suits:{Blades:{domain:'Violence',caseStyle:'Hostile pressure',openingClues:['fresh attack'],prep:['containment'],typicalEntities:['Wraith'],reversedRule:'hidden violence'},Blood:{domain:'Victims',caseStyle:'human ties',openingClues:['survivor testimony'],prep:['interviews'],typicalEntities:['Possessor'],reversedRule:'buried truth'},Relics:{domain:'Tools',caseStyle:'creature hunt',openingClues:['tracks'],prep:['special ammo'],typicalEntities:['Werewolf'],reversedRule:'gear fails'},Sigils:{domain:'Rituals',caseStyle:'occult threat',openingClues:['sigil trace'],prep:['wards'],typicalEntities:['Demon'],reversedRule:'ritual backfires'}},values:{Ace:{tier:1,intensity:'first sign',clock:2},'6':{tier:3,intensity:'dangerous',clock:5},King:{tier:5,intensity:'apex',clock:8}},majorArcana:[{name:'The Moon',theme:'Illusion',upright:'confusion clouds the hunt',reversed:'truth forced into view'}],locations:{Blades:['basement'],Blood:['family house'],Relics:['woods'],Sigils:['church basement']},anchors:['remains','vessel','ritual circle'],killConditions:{Spirit:['destroy tether'],Demon:['exorcise host'],Creature:['use weakness'],Fae:['break bargain'],Ritual:['interrupt catalyst']},commandHints:['help','new case','look','private Riley: research symbol','public Riley: investigate altar; Sam: talk witness']};
+  let DATA = fallbackData;
+  const $ = sel => document.querySelector(sel);
+  const consoleEl = $('#console'); const commandEl = $('#command');
+  const STORAGE_KEY = 'nightWardensAutoGMSharedPrivateV7';
+  const ranks = ['Ace','2','3','4','5','6','7','8','9','10','Page','Knight','Queen','King'];
+  const suitNames = ['Blades','Blood','Relics','Sigils'];
+  let state = loadState() || defaultState();
+  const URL_PARAMS = new URLSearchParams(location.search);
+  if (URL_PARAMS.get('campaignId')) {
+    state.cloud = state.cloud || {campaignId:'',caseId:'',lastSync:0};
+    state.cloud.campaignId = URL_PARAMS.get('campaignId') || state.cloud.campaignId;
+    state.cloud.campaignCode = URL_PARAMS.get('campaignCode') || state.cloud.campaignCode || '';
+    state.cloud.caseId = URL_PARAMS.get('caseId') || state.cloud.caseId || 'main';
+    state.mode = 'shared';
+  }
+
+  function defaultState(){ return { mode:'solo', phase:'seed', season:null, caseSeed:null, location:'unassigned', symptom:'none yet', possibleEntities:[], trueEntity:'unknown', anchor:'unknown', killCondition:'unknown', prepNeeded:[], prepDone:[], clues:[], falseLeads:[], pressure:0, pressureMax:4, party:[{name:'Lead Warden', location:'safehouse', branch:'main', notes:[]}], branches:{main:{location:'safehouse',log:[]}}, transcript:[], privateTranscript:[], cloud:{campaignId:'',caseId:'',lastSync:0} }; }
+  function mergeState(base, incoming){ return { ...base, ...incoming, cloud:{...base.cloud,...(incoming.cloud||{})}, party:incoming.party||base.party, branches:incoming.branches||base.branches, transcript:incoming.transcript||base.transcript, privateTranscript:incoming.privateTranscript||base.privateTranscript }; }
+  function stripLocalOnly(s){ const copy=JSON.parse(JSON.stringify(s)); delete copy.privateTranscript; return copy; }
+  function loadState(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY));}catch{return null;} }
+  function saveState(push=true){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); if(push && state.mode==='shared' && $('#autoSyncToggle')?.checked && firebaseApi.ready && firebaseApi.user && state.cloud.campaignId && state.cloud.caseId){ firebaseApi.push('shared').catch(e=>say('warn','Cloud autosync failed: '+e.message)); } }
+  function rnd(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  function maybeReversed(){ return Math.random() < .22; }
+  function drawMinor(){ const suit=rnd(suitNames); const rank=rnd(ranks); const reversed=maybeReversed(); return {arcana:'minor', suit, rank, reversed, label:`${rank} of ${suit}${reversed?' Reversed':''}`}; }
+  function drawMajor(){ const card=rnd(DATA.majorArcana); const reversed=maybeReversed(); return {arcana:'major', name:card.name, theme:card.theme, reversed, reading:reversed?card.reversed:card.upright, label:`${card.name}${reversed?' Reversed':''}`}; }
+  function entityClassFromSuit(suit){ return suit==='Blades'?'Spirit':suit==='Blood'?'Spirit':suit==='Relics'?'Creature':suit==='Sigils'?'Ritual':'Spirit'; }
+  function generateId(prefix){ return `${prefix}_${Math.random().toString(36).slice(2,8)}_${Date.now().toString(36)}`; }
+  function generateCase(){
+    const keepCloud = state.cloud || {campaignId:'',caseId:'',lastSync:0}; const keepMode = state.mode || 'solo';
+    const season=drawMajor(); const seed=drawMinor(); const suit=DATA.suits[seed.suit]; const val=DATA.values[seed.rank] || DATA.values['6'];
+    const entClass=entityClassFromSuit(seed.suit); const entity=rnd(suit.typicalEntities); const anchor=rnd(DATA.anchors); const kill=rnd(DATA.killConditions[entClass] || DATA.killConditions.Ritual);
+    state = defaultState(); state.mode=keepMode; state.cloud=keepCloud; if(!state.cloud.caseId) state.cloud.caseId = generateId('case');
+    state.phase='investigation'; state.season=season; state.caseSeed=seed; state.location=rnd(DATA.locations[seed.suit]); state.symptom=rnd(suit.openingClues); state.possibleEntities=[entity, ...suit.typicalEntities.filter(x=>x!==entity).slice(0,2)]; state.trueEntity=entity; state.anchor=anchor; state.killCondition=kill; state.prepNeeded=suit.prep.slice(0,3); state.pressureMax=val.clock; state.clues=[`Domain established: ${suit.domain}.`, `Opening clue: ${state.symptom}.`];
+    say('sys', `Season Pressure: ${season.label} — ${season.reading}`); say('sys', `Case Seed: ${seed.label}. Domain: ${suit.domain}. Intensity: ${val.intensity}.`); say('warn', `Visible symptom: ${state.symptom}. Location: ${state.location}.`); saveState(); render();
+  }
+  function say(type,msg,privacy='shared'){ const entry={type,msg,time:new Date().toLocaleTimeString(),privacy}; if(privacy==='private') state.privateTranscript.push(entry); else state.transcript.push(entry); appendLine(entry); }
+  function appendLine(e){ const div=document.createElement('div'); div.className=`line ${e.type||'sys'} ${e.privacy==='private'?'private':'shared'}`; div.textContent=`[${e.time||''}] ${e.privacy==='private'?'PRIVATE':'PARTY'}: ${e.msg}`; consoleEl.appendChild(div); consoleEl.scrollTop=consoleEl.scrollHeight; }
+  function redrawConsole(){ consoleEl.innerHTML=''; const entries=[...(state.transcript||[])]; if(state.mode==='private') entries.push(...(state.privateTranscript||[])); entries.sort((a,b)=>String(a.time).localeCompare(String(b.time))).forEach(appendLine); }
+  function pressure(n,why){ state.pressure+=n; say('warn', `Pressure +${n}: ${why}. Clock ${state.pressure}/${state.pressureMax}.`); if(state.pressure>=state.pressureMax){ const maj=drawMajor(); say('bad', `CRISIS DRAW: ${maj.label}. ${maj.reading}`); state.pressure=0; state.pressureMax+=1; } }
+  function render(){ renderCase(); renderParty(); updateModeButtons(); updateCloudPill(); }
+  function renderCase(){ const c=$('#casePanel'); const seed=state.caseSeed; c.innerHTML = `<div class="stat"><b>Phase</b>${state.phase}</div><div class="stat"><b>Season</b>${state.season?state.season.label:'none'}</div><div class="stat"><b>Case Seed</b>${seed?seed.label:'none'}</div><div class="stat"><b>Location</b>${state.location}</div><div class="stat"><b>Visible Symptom</b>${state.symptom}</div><div class="stat"><b>Pressure</b>${state.pressure}/${state.pressureMax}</div><div class="stat"><b>Possible Entities</b>${state.possibleEntities.join(', ')||'unknown'}</div><div class="stat"><b>Prep Done</b>${state.prepDone.join(', ')||'none'}</div><div class="stat"><b>Clues</b>${state.clues.join('<br>')||'none'}</div>`; }
+  function renderParty(){ const p=$('#partyPanel'); p.innerHTML=(state.party||[]).map(x=>`<div class="branch"><b>${x.name}</b><br><span class="small">${x.location} • ${x.branch}</span><br>${(x.notes||[]).slice(-3).map(n=>`<span class="pill">${n}</span>`).join('')}</div>`).join('') || '<div class="small">No party yet.</div>'; }
+  function updateModeButtons(){ document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.mode===state.mode)); $('#modePill').textContent = state.mode==='solo'?'Mode: Solo / Local':state.mode==='shared'?'Mode: Shared Campaign':'Mode: Private Player View'; }
+  function updateCloudPill(){ const txt = firebaseApi.ready ? (firebaseApi.user ? `Cloud: ${firebaseApi.user.displayName||firebaseApi.user.email}` : 'Cloud: ready, not signed in') : 'Cloud: offline/local'; $('#cloudPill').textContent = txt; $('#campaignIdInput').value = state.cloud.campaignId || ''; $('#caseIdInput').value = state.cloud.caseId || ''; }
+
+  function processCommand(raw){ const input=raw.trim(); if(!input)return; const lower=input.toLowerCase(); const commandPrivacy = $('#privateToggle').checked || lower.startsWith('private ') || state.mode==='private' ? 'private' : 'shared'; const cleaned=input.replace(/^(private|public)\s+/i,''); say('cmd', `> ${input}`, commandPrivacy); if(cleaned.includes(';') || cleaned.includes(':')) return processSimultaneous(cleaned, commandPrivacy);
+    const cmd=cleaned.toLowerCase(); if(cmd==='help') return help(commandPrivacy); if(cmd==='new case') return generateCase(); if(cmd==='look') return look(commandPrivacy); if(cmd==='status') return status(commandPrivacy); if(cmd==='party') return say('sys', `Party: ${state.party.map(p=>`${p.name}@${p.location}`).join(', ')}`, commandPrivacy); if(cmd.startsWith('add ')) return addPlayer(cleaned.slice(4).trim(), commandPrivacy); if(cmd.startsWith('split ')) return splitPlayer(cleaned, commandPrivacy); if(cmd.startsWith('move ')) return moveActive(cleaned.slice(5).trim(), commandPrivacy); routeAction(cleaned,'Lead Warden',commandPrivacy); saveState(); render(); }
+  function help(privacy='shared'){ say('sys', `Commands: ${DATA.commandHints.join(' • ')}`, privacy); say('sys', `Shared examples: public Riley: investigate altar; Sam: talk witness. Private example: private Alex: research symbol. Solo mode keeps everything on this device. Shared mode syncs the party log. Private mode shows private branch narration too.`, privacy); }
+  function look(privacy='shared'){ if(!state.caseSeed) return say('warn','No case yet. Type: new case', privacy); const suit=DATA.suits[state.caseSeed.suit]; say('sys', `You are at ${state.location}. The case feels like ${suit.caseStyle}`, privacy); say('sys', `Visible symptom: ${state.symptom}. Known clues: ${state.clues.join(' | ') || 'none'}.`, privacy); if(state.caseSeed.reversed) say('warn', `Reversal pressure: ${suit.reversedRule}`, privacy); }
+  function status(privacy='shared'){ say('sys', `Phase ${state.phase}. Pressure ${state.pressure}/${state.pressureMax}. Possible entities: ${state.possibleEntities.join(', ') || 'unknown'}. Prep needed: ${state.prepNeeded.join(', ') || 'unknown'}.`, privacy); }
+  function addPlayer(name, privacy='shared'){ if(!name) return say('warn','Add who? Example: add Riley', privacy); if(state.party.some(p=>p.name.toLowerCase()===name.toLowerCase())) return say('warn',`${name} is already in the party.`, privacy); state.party.push({name, location:state.location||'safehouse', branch:'main', notes:[]}); say('good', `${name} added to the case roster.`, privacy); saveState(); render(); }
+  function splitPlayer(input, privacy='shared'){ const m=input.match(/^split\s+(.+?)\s+to\s+(.+)$/i); if(!m) return say('warn','Use: split Riley to church basement', privacy); const name=m[1].trim(), loc=m[2].trim(); const p=state.party.find(x=>x.name.toLowerCase()===name.toLowerCase()); if(!p) return say('warn',`No Warden named ${name}. Use: add ${name}`, privacy); p.location=loc; p.branch=loc.toLowerCase().replace(/\s+/g,'-'); if(!state.branches[p.branch]) state.branches[p.branch]={location:loc,log:[]}; say('sys', `${p.name} splits off to ${loc}.`, privacy); saveState(); render(); }
+  function moveActive(loc, privacy='shared'){ state.location=loc; if(state.party[0]) state.party[0].location=loc; say('sys', `Lead scene moves to ${loc}.`, privacy); if(Math.random()<.25) pressure(1,'Moving through unsafe ground costs time'); saveState(); render(); }
+  function rollOutcome(kind){ const r=Math.ceil(Math.random()*6); const prepared=state.prepDone.length; let score=r + Math.min(2,prepared); if(kind==='reckless') score-=1; return {r,score,level:score>=6?'critical':score>=5?'strong':score>=3?'success':'failure'}; }
+  function addClue(text){ if(!state.clues.includes(text)) state.clues.push(text); }
+  function investigate(input, actor='Lead Warden', privacy='shared'){ const out=rollOutcome('investigate'); if(out.level==='failure'){ const falseLead=`False lead: ${rnd(DATA.suits[state.caseSeed?.suit||'Blades'].openingClues)} points the wrong way`; state.falseLeads.push(falseLead); say('bad', `${actor} finds pressure, not certainty. ${falseLead}.`, privacy); pressure(1,'Investigation stalls'); } else if(out.level==='success'){ const clue=`Possible entities narrowed: ${state.possibleEntities.slice(0,2).join(' or ')}`; addClue(clue); say('sys', `${actor} uncovers a useful clue. ${clue}.`, privacy); } else if(out.level==='strong'){ const clue=`Exact threat indicated: ${state.trueEntity}`; addClue(clue); say('good', `${actor} identifies the threat pattern. ${clue}.`, privacy); } else { const clue=`Weakness path exposed: anchor ${state.anchor}; likely end condition ${state.killCondition}`; addClue(clue); say('good', `${actor} hits a critical break. ${clue}.`, privacy); } state.phase='investigation'; saveState(); render(); }
+  function research(input, actor='Lead Warden', privacy='shared'){ const out=rollOutcome('research'); if(out.level==='failure'){ say('bad', `${actor}'s research finds contradictory records. The archive fights back.`, privacy); pressure(1,'Bad records cost time'); } else { const clue=`Research confirms ${state.anchor} matters to the case`; addClue(clue); say('good', `${actor} extracts an archive truth. ${clue}.`, privacy); } saveState(); render(); }
+  function talk(input, actor='Lead Warden', privacy='shared'){ const out=rollOutcome('talk'); if(out.level==='failure'){ say('bad', `${actor} gets a witness contradiction. Someone is lying, afraid, or not fully themselves.`, privacy); pressure(1,'Witness pressure rises'); } else { const clue=`Witness testimony confirms the first symptom was ${state.symptom}`; addClue(clue); say('sys', `${actor} gets the witness talking. ${clue}.`, privacy); } saveState(); render(); }
+  function prep(input, actor='Lead Warden', privacy='shared'){ const item=input.replace(/^(prep|prepare|set trap)\s*/i,'').trim() || rnd(state.prepNeeded); if(!state.prepDone.includes(item)) state.prepDone.push(item); state.phase='preparation'; say('good', `${actor} prepares ${item}. Prepared hunters reduce setbacks.`, privacy); saveState(); render(); }
+  function cast(input, actor='Lead Warden', privacy='shared'){ const out=rollOutcome('cast'); const spell=input.replace(/^(cast|use rite|ward)\s*/i,'').trim() || 'field rite'; if(out.level==='failure'){ say('bad', `${actor}'s ${spell} misfires. The occult process twists.`, privacy); pressure(1,'Ritual backlash'); } else { const clue=`${spell} stabilizes the scene and points toward ${state.anchor}`; addClue(clue); say('good', `${actor}'s ${spell} works. ${clue}.`, privacy); } saveState(); render(); }
+  function confront(input, actor='Lead Warden', privacy='shared'){ const enoughPrep=state.prepDone.length>=2 || state.clues.some(c=>c.includes('Weakness')||c.includes('Exact threat')); state.phase='confrontation'; if(!enoughPrep){ say('bad', `${actor} confronts too early. The wrong answer is more dangerous than no answer.`, privacy); pressure(2,'Blind rush'); } else { say('good', `${actor} forces confrontation on better terms. Target: ${state.trueEntity}. Anchor: ${state.anchor}. End condition: ${state.killCondition}.`, privacy); } saveState(); render(); }
+  function resolveCase(privacy='shared'){ const full = state.prepDone.length>=2 && state.clues.some(c=>c.includes('Weakness')||c.includes('Exact threat')); const marks = full?3:(state.pressure<state.pressureMax?2:1); const fallout=drawMajor(); state.phase='fallout'; say(full?'good':'warn', `Case resolved for ${marks} Warden Mark${marks===1?'':'s'}. Fallout: ${fallout.label}. ${fallout.reading}`, privacy); saveState(); render(); }
+  function processSimultaneous(input, privacy='shared'){ const parts=input.split(';').map(x=>x.trim()).filter(Boolean); say('sys', `Resolving ${parts.length} simultaneous branch action${parts.length===1?'':'s'}...`, privacy); for(const part of parts){ const m=part.match(/^([^:]+):\s*(.+)$/); if(m){ const actor=m[1].trim(); const action=m[2].trim(); if(!state.party.some(p=>p.name.toLowerCase()===actor.toLowerCase())) state.party.push({name:actor,location:state.location,branch:'main',notes:[]}); routeAction(action, actor, privacy); const p=state.party.find(x=>x.name.toLowerCase()===actor.toLowerCase()); if(p) p.notes.push(action); } else routeAction(part,'Lead Warden',privacy); } saveState(); render(); }
+  function routeAction(action, actor, privacy='shared'){ const a=action.toLowerCase(); if(a.startsWith('investigate')||a.startsWith('search')||a.startsWith('inspect')) return investigate(action,actor,privacy); if(a.startsWith('research')) return research(action,actor,privacy); if(a.startsWith('talk')||a.startsWith('interview')||a.startsWith('question')) return talk(action,actor,privacy); if(a.startsWith('prep')||a.startsWith('prepare')||a.startsWith('set trap')) return prep(action,actor,privacy); if(a.startsWith('cast')||a.startsWith('ward')||a.startsWith('use rite')) return cast(action,actor,privacy); if(a.startsWith('confront')||a.startsWith('attack')||a.startsWith('banish')||a.startsWith('exorcise')) return confront(action,actor,privacy); if(a.startsWith('resolve')) return resolveCase(privacy); if(a.startsWith('move')){ const p=state.party.find(x=>x.name.toLowerCase()===actor.toLowerCase()); if(p){p.location=action.replace(/^move\s*/i,'').trim(); say('sys', `${actor} moves to ${p.location}.`, privacy); } return; } say('warn', `${actor}'s action is unclear: ${action}. Try investigate, talk, research, prep, cast, or confront.`, privacy); }
+
+  async function init(){ try{ const res=await fetch('auto_gm_data.json?v=7'); if(res.ok) DATA=await res.json(); }catch(e){} redrawConsole(); if(!state.transcript?.length && !state.privateTranscript?.length){ say('sys','Night Wardens Digital Field Guide online. Type help or new case.'); } render(); }
+  document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{ state.mode=b.dataset.mode; if(state.mode==='shared' && firebaseApi.ready && firebaseApi.user) firebaseApi.listen(); else firebaseApi.stopListen(); saveState(false); redrawConsole(); render(); }));
+  $('#sendBtn').addEventListener('click',()=>{ const v=commandEl.value; commandEl.value=''; processCommand(v); }); commandEl.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); $('#sendBtn').click(); }});
+  document.querySelectorAll('[data-cmd]').forEach(b=>b.addEventListener('click',()=>processCommand(b.dataset.cmd)));
+  $('#googleBtn').addEventListener('click',()=>firebaseApi.signIn()); $('#signOutBtn').addEventListener('click',()=>firebaseApi.signOut());
+  $('#connectCampaignBtn').addEventListener('click',()=>{ state.cloud.campaignId=$('#campaignIdInput').value.trim(); state.cloud.caseId=$('#caseIdInput').value.trim() || generateId('case'); saveState(false); if(state.mode!=='shared') state.mode='shared'; if(firebaseApi.ready && firebaseApi.user) firebaseApi.listen(); say('good',`Connected shared case ${state.cloud.caseId} in campaign ${state.cloud.campaignId}.`); render(); });
+  $('#pushCloudBtn').addEventListener('click',()=>firebaseApi.push($('#privateToggle').checked?'private':'shared').then(()=>say('good','Pushed to cloud.')).catch(e=>say('bad',e.message)));
+  $('#pullCloudBtn').addEventListener('click',()=>firebaseApi.pull().catch(e=>say('bad',e.message)));
+  $('#saveBtn').addEventListener('click',()=>{saveState(false); say('good','Saved to this browser.');});
+  $('#exportBtn').addEventListener('click',()=>{ const json=JSON.stringify(state,null,2); $('#rawBox').value=json; const blob=new Blob([json],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='night_wardens_auto_gm_case.json'; a.click(); URL.revokeObjectURL(a.href); });
+  $('#loadRawBtn').addEventListener('click',()=>{ try{ state=mergeState(defaultState(), JSON.parse($('#rawBox').value)); saveState(false); redrawConsole(); render(); say('good','Loaded raw JSON.'); }catch(e){ say('bad','Invalid JSON.'); }});
+  $('#clearBtn').addEventListener('click',()=>{ if(confirm('Clear Auto-GM case from this browser?')){ state=defaultState(); localStorage.removeItem(STORAGE_KEY); consoleEl.innerHTML=''; say('sys','Case cleared. Type new case.'); render(); }});
+  $('#importFile').addEventListener('change',async e=>{ const f=e.target.files[0]; if(!f)return; try{ state=mergeState(defaultState(), JSON.parse(await f.text())); saveState(false); redrawConsole(); render(); say('good','Imported case JSON.'); }catch(err){ say('bad','Import failed.'); }});
+  init();
+  </script>
 </body>
 </html>
