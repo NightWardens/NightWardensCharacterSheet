@@ -24,7 +24,7 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
     <div class="topbar">
       <div class="row">
         <a class="btn ghost" href="index.html">← Field Office</a>
-        <button class="btn" id="newCaseBtn">New Modular Case</button>
+        <button class="btn" id="newCaseBtn">New Modular Case / Ready-Up</button>
         <button class="btn secondary" id="saveBtn">Save</button>
         <button class="btn ghost" id="exportBtn">Export Case JSON</button>
         <label class="btn ghost" style="margin:0">Import Case JSON<input id="importCaseFile" type="file" accept="application/json" class="hidden"></label>
@@ -32,7 +32,7 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
       <div class="row small">
         <span id="campaignTag" class="pill">Local Case</span>
         <span id="syncTag" class="pill warn">LocalStorage fallback</span>
-        <span id="versionTag" class="pill">Pass 15.0</span>
+        <span id="versionTag" class="pill">Pass 18.0</span>
       </div>
     </div>
   </header>
@@ -65,6 +65,8 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
           <div class="note small"><b>Split command:</b> <span class="kbd">Riley: investigate bell; Sam: ask Mrs Harlan about meetings</span></div>
         </div>
         <div class="divider"></div>
+        <div id="readyPanel" class="list"></div>
+        <div class="divider"></div>
         <h3>Pressure Clock</h3>
         <div class="meter"><span id="pressureMeter"></span></div>
         <p class="small" id="pressureText"></p>
@@ -77,6 +79,10 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
       <main class="card">
         <h2>Party Transcript</h2>
         <div id="transcript" class="transcript"></div>
+        <div class="divider"></div>
+        <h3>Shared Party Notes</h3>
+        <div class="note small">Shared notes are solid party-facing notes, not casual small talk. In shared campaigns, notes sync to every connected player when sent. Use <span class="kbd">note [text]</span>, <span class="kbd">notes</span>, or <span class="kbd">clear notes confirm</span>.</div>
+        <div id="partyNotesList" class="thinList list" style="margin-top:8px"></div>
         <div class="divider"></div>
         <div class="grid commandGrid">
           <div>
@@ -126,6 +132,7 @@ label,.fieldLabel{display:block;font-size:11px;text-transform:uppercase;letter-s
       <div class="card"><h2>Recruitable NPC Allies / Warden HQ</h2><div id="allyList" class="list"></div></div>
       <div class="card"><h2>Warden Field Assistant</h2>
         <div class="note small">Structured helper mode is always available. Optional browser LLM mode loads <span class="kbd">Qwen2.5-0.5B-Instruct-q4f16_1-MLC</span> by default through WebLLM/WebGPU and uses only the current case graph, clues, gear, NPCs, and pressure clock as context. The LLM may voice NPC dialogue and craft opening transmissions, but hidden truth still comes from the modular case graph.</div>
+        <div class="note small"><b>Setup note:</b> You can still play entirely from the main command box. Use this <b>NPCs / Assistant</b> tab only when you want to set up the optional browser LLM, pick voices, enable NPC speech, test TTS, or adjust voice style. After setup, return to the main text entry and type commands like <span class="kbd">ask Mrs Harlan about her son</span>, <span class="kbd">load llm</span>, <span class="kbd">voice on</span>, or <span class="kbd">opening transmission</span>.</div>
         <div class="divider"></div>
         <div class="grid cols2">
           <label>LLM Model<select id="llmModelSelect"><option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Fastest / Most Phones — Qwen2.5 0.5B</option><option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Balanced / Better Tone — Llama 3.2 1B</option><option value="Llama-3.2-3B-Instruct-q4f16_0-MLC">Heavy / Strong Devices — Llama 3.2 3B</option></select></label>
@@ -162,12 +169,14 @@ what should I ask Mrs Harlan next?"></textarea></label>
   </section>
 
   <section id="tab-help" class="tabPage hidden">
-    <div class="grid cols2"><div class="card"><h2>Command Patterns</h2><div class="list small" id="helpCommands"></div></div><div class="card"><h2>Interaction Depth</h2><div class="note">Ask follow-up questions by topic. Example: <span class="kbd">ask Mrs Harlan about her son</span> can unlock <span class="kbd">meetings</span>, which can unlock <span class="kbd">lower room</span>, which can unlock new locations or evidence.</div><div class="divider"></div><div class="darknote small">Useful verbs: look, list, shop, buy, inventory, need, hide, wait, go, move, ask, talk, interview, investigate, examine, search, research, prep, trap, cast, attack, clues, leads, reveal.</div></div></div>
+    <div class="grid cols2"><div class="card"><h2>Command Patterns</h2><div class="list small" id="helpCommands"></div></div><div class="card"><h2>Interaction Depth</h2><div class="note">Ask follow-up questions by topic. Example: <span class="kbd">ask Mrs Harlan about her son</span> can unlock <span class="kbd">meetings</span>, which can unlock <span class="kbd">lower room</span>, which can unlock new locations or evidence.</div><div class="divider"></div><div class="note small"><b>Shared ready-up:</b> In Shared Campaign mode, when more than one real synced player is connected, pressing New Modular Case creates a pending draw. Each player types <span class="kbd">ready</span>. When all are ready, the new case is generated once and synced to everyone attached to the campaign.</div><div class="divider"></div><div class="darknote small">Useful verbs: look, list, shop, buy, inventory, need, hide, wait, go, move, ask, talk, interview, investigate, examine, search, research, prep, trap, cast, attack, clues, leads, reveal, hq, recruit, dialogue, profile, load llm, voice on/off.</div></div></div>
   </section>
 
   <section id="tab-dev" class="tabPage hidden"><div class="card"><h2>Case JSON</h2><textarea id="debugJson" class="jsonBox"></textarea><div class="row" style="margin-top:8px"><button id="loadDebugBtn" class="btn warn">Load JSON From Box</button><button id="refreshDebugBtn" class="btn ghost">Refresh JSON</button></div></div></section>
 </div>
-<script src="auto-gm-llm-adapter.js?v=16.0"></script>
-<script src="auto-gm-pass13.js?v=16.0"></script>
+<script src="firebase-config.js?v=18.1"></script>
+<script src="auto-gm-sync-adapter.js?v=18.1"></script>
+<script src="auto-gm-llm-adapter.js?v=18.1"></script>
+<script src="auto-gm-pass13.js?v=18.1"></script>
 </body>
 </html>

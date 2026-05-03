@@ -1,7 +1,7 @@
 /* Night Wardens Auto-GM Pass 15 — TTS Agent + Game Warden Opener Narration. */
 (function(){
 'use strict';
-const VERSION = 'pass16-npc-voices-hq-dialogue-v16.0';
+const VERSION = 'pass18-1-shared-party-notes-v18.1';
 const qs = new URLSearchParams(location.search);
 const campaignId = qs.get('campaignId') || qs.get('campaign') || 'local';
 const campaignCode = qs.get('campaignCode') || qs.get('code') || '';
@@ -29,7 +29,7 @@ function newState(){
     version: VERSION, campaignId, campaignCode, caseId,
     mode: 'solo', diceMode: '3d6', seedStyle: 'balanced', phase: 'seed', pressure: 0,
     players, activePlayer: 'Riley', characters: [], credits: 120,
-    allies: [], relationshipMemory: {}, discoveredNPCs: [], assistantHistory: [], npcDialogueMemory: {}, partyActionCounter: 0, allyActionLog: [], voiceSettings: {enabled:false, npc:true, transmissions:true, rate:1, pitch:1, volume:1, voiceURI:'', voiceQuality:'natural', voiceStyle:'auto', autoOpener:true, llmOpener:true},
+    allies: [], relationshipMemory: {}, discoveredNPCs: [], assistantHistory: [], npcDialogueMemory: {}, partyActionCounter: 0, allyActionLog: [], partyNotes: [], noteDrafts: {}, connectedRoster: {selfId:null, online:[], lastSeen:{}}, readySettings: {simulateLocalReady:false}, caseDrawVote: null, syncInfo: {enabled:false,status:'local'}, voiceSettings: {enabled:false, npc:true, transmissions:true, rate:1, pitch:1, volume:1, voiceURI:'', voiceQuality:'natural', voiceStyle:'auto', autoOpener:true, llmOpener:true},
     inventory: {}, craftedTraps: [], hiddenActors: {}, suspects: [], preps: [],
     publicLog: [], privateLogs: {Riley:[],Sam:[],Alex:[]}, privateClues: {Riley:[],Sam:[],Alex:[]}, privateReveals: [],
     clues: [], leads: [], flags: {}, unlockedLocations: [], unlockedTopics: {}, currentLocation: null,
@@ -56,7 +56,7 @@ function drawMinorPressure(reason='pressure draw'){
   if(state.pressure>=10 && !state.combat.active && state.graph.entity){ log(`Crisis threshold reached. ${state.graph.entity.name} is close enough to force confrontation unless the Wardens retreat, hide, or complete the right preparation.`, 'system'); }
 }
 function recordActionPressure(action, rr){
-  const passive=['look','list','inventory','shop','clues','leads','reveal','combat','status','commands'];
+  const passive=['look','list','inventory','shop','clues','leads','reveal','combat','status','commands','hq','dialogue','profile','allies','assistant','llm','voice'];
   if(passive.includes(action.intent)) return;
   state.actionClock = state.actionClock || {location:null,actionsHere:0,totalActions:0,minorDraws:[]};
   state.actionClock.totalActions++;
@@ -67,13 +67,14 @@ function recordActionPressure(action, rr){
   if(!isSafeLocation() && state.actionClock.actionsHere>0 && state.actionClock.actionsHere%4===0) drawMinorPressure(`too many actions at the hunting ground without relocating (${state.actionClock.actionsHere})`);
 }
 
-function save(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e){} }
+function save(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e){} try{ window.NWAutoGMSync?.publishState?.(state); }catch(e){} }
 function load(){
   try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || newState(); } catch(e){ state = newState(); }
   state.inventory = state.inventory || {}; state.craftedTraps = state.craftedTraps || []; state.hiddenActors = state.hiddenActors || {};
   state.suspects = state.suspects || []; state.credits = state.credits == null ? 120 : state.credits; state.allies = state.allies || []; state.relationshipMemory = state.relationshipMemory || {}; state.discoveredNPCs = state.discoveredNPCs || []; state.assistantHistory = state.assistantHistory || [];
   state.voiceSettings = Object.assign({enabled:false, npc:true, transmissions:true, rate:1, pitch:1, volume:1, voiceURI:'', voiceQuality:'natural', voiceStyle:'auto', autoOpener:true, llmOpener:true}, state.voiceSettings||{});
   state.actionClock = state.actionClock || {location:null, actionsHere:0, totalActions:0, minorDraws:[]};
+  state.connectedRoster = state.connectedRoster || {selfId:null, online:[], lastSeen:{}}; state.readySettings = Object.assign({simulateLocalReady:false}, state.readySettings||{}); state.caseDrawVote = state.caseDrawVote || null; state.partyNotes = state.partyNotes || []; state.noteDrafts = state.noteDrafts || {}; state.syncInfo = Object.assign({enabled:false,status:'local'}, state.syncInfo||{});
   state.combat = state.combat || defaultCombat(); state.combat.playerStates = state.combat.playerStates || {}; state.combat.log = state.combat.log || []; state.npcDialogueMemory = state.npcDialogueMemory || {}; state.partyActionCounter = state.partyActionCounter || 0; state.allyActionLog = state.allyActionLog || []; state.combat.playerActionsRemaining = state.combat.playerActionsRemaining == null ? 2 : state.combat.playerActionsRemaining; state.combat.allyActionsRemaining = state.combat.allyActionsRemaining == null ? 0 : state.combat.allyActionsRemaining; state.combat.allyActedThisRound = state.combat.allyActedThisRound || [];
   state.players = state.players || ['Riley','Sam','Alex']; state.privateLogs = state.privateLogs || {}; state.privateClues = state.privateClues || {};
   state.players.forEach(p => { state.privateLogs[p] = state.privateLogs[p] || []; state.privateClues[p] = state.privateClues[p] || []; });
@@ -311,7 +312,81 @@ function assignCaseProfiles(){
     ent.dialogue_options.warning=ent.dialogue_options.warning||'The Auto-GM may answer as atmosphere or threat, but hidden weaknesses stay locked until discovered.';
   }
 }
-function buildCase(){
+
+
+function currentSyncOnlinePlayers(){
+  try { return window.NWAutoGMSync?.getOnlinePlayers?.() || []; } catch(e){ return []; }
+}
+function playerDisplayName(p){ return p?.name || p?.displayName || p?.playerName || p?.id || String(p||'Unknown'); }
+function requiredReadyPlayers(){
+  const online = currentSyncOnlinePlayers().map(playerDisplayName).filter(Boolean);
+  const uniqueOnline = [...new Set(online)];
+  if(state.mode==='shared' && uniqueOnline.length > 1) return uniqueOnline;
+  if(state.mode==='shared' && state.readySettings?.simulateLocalReady) return [...new Set(state.players||[])];
+  return [];
+}
+function shouldRequireReady(){ return requiredReadyPlayers().length > 1; }
+function readyVoteActive(){ return !!(state.caseDrawVote && state.caseDrawVote.status === 'pending'); }
+function readyVoteReadyList(){ return state.caseDrawVote?.ready || {}; }
+function readyVoteMissing(){
+  const req = requiredReadyPlayers(); const ready = readyVoteReadyList();
+  return req.filter(p => !ready[p]);
+}
+function renderReadyPanel(){
+  const panel = $('readyPanel'); if(!panel) return;
+  const req = requiredReadyPlayers(); const vote = state.caseDrawVote;
+  const online = currentSyncOnlinePlayers();
+  const sync = window.NWAutoGMSync?.status?.() || {enabled:false,status:'Local only'};
+  const rows = req.length ? req.map(p=>`<div class="item small"><b>${escapeHtml(p)}</b> ${vote?.ready?.[p]?'<span class="pill good">ready</span>':'<span class="pill warn">waiting</span>'}</div>`).join('') : '<div class="item small">Ready-up activates when Shared Campaign mode has more than one synced/connected real player. Use the local simulation checkbox to test it with the manual player list.</div>';
+  panel.innerHTML = `<h3>Shared Case Draw Ready-Up</h3><div class="note small">When multiple real players are connected to this Auto-GM campaign, drawing a new case starts a ready check. Once everyone readies, the same generated case is saved and pushed to all attached players.</div><div class="item small"><b>Sync:</b> ${escapeHtml(sync.status||'local')} · <b>Online detected:</b> ${online.length||0}</div><label class="small" style="display:block;margin:8px 0"><input id="simulateReadyToggle" type="checkbox" style="width:auto" ${state.readySettings?.simulateLocalReady?'checked':''}> Test ready-up using local player list</label>${vote?`<div class="item"><b>Pending Draw:</b> ${escapeHtml(vote.id)}<br><span class="small">Requested by ${escapeHtml(vote.requestedBy||'unknown')} at ${escapeHtml(vote.createdAt||'')}</span></div>`:''}<div class="list">${rows}</div><div class="row" style="margin-top:8px"><button class="btn good quick" data-cmd="ready">Ready</button><button class="btn ghost quick" data-cmd="unready">Unready</button><button class="btn ghost quick" data-cmd="ready status">Ready Status</button><button class="btn warn quick" data-cmd="cancel draw">Cancel Draw</button><button class="btn bad quick" data-cmd="force draw">Force Draw</button></div>`;
+  const chk = $('simulateReadyToggle'); if(chk) chk.onchange = e => { state.readySettings=state.readySettings||{}; state.readySettings.simulateLocalReady=!!e.target.checked; save(); renderReadyPanel(); };
+}
+function requestNewCaseDraw(actor){
+  if(!shouldRequireReady()){
+    log('Starting new modular case immediately. Ready-up was not required because only one real/synced player is connected.', 'system', 'public', actor||state.activePlayer, 'Ready');
+    return buildCaseFromApprovedDraw('single-player');
+  }
+  const req = requiredReadyPlayers();
+  state.caseDrawVote = { id: uid('draw'), status:'pending', requestedBy: actor||state.activePlayer||'party', createdAt: now(), requiredPlayers:req, ready:{}, syncedAt: Date.now() };
+  const requester = state.caseDrawVote.requestedBy;
+  if(req.includes(requester)) state.caseDrawVote.ready[requester] = true;
+  log(`New case draw requested by ${requester}. Ready-up required from: ${req.join(', ')}. Type “ready” when prepared.`, 'system', 'public', requester, 'Ready');
+  save(); render();
+}
+function setReadyForActor(actor, isReady=true){
+  actor = actor || state.activePlayer || 'Player';
+  if(!readyVoteActive()) return log('No case draw ready-up is pending. Press New Modular Case first.', 'system', 'public', actor, 'Ready');
+  const req = requiredReadyPlayers();
+  if(req.length && !req.includes(actor)) req.push(actor);
+  state.caseDrawVote.requiredPlayers = req;
+  if(isReady) state.caseDrawVote.ready[actor] = true; else delete state.caseDrawVote.ready[actor];
+  const missing = readyVoteMissing();
+  log(`${actor} is ${isReady?'READY':'not ready'}. ${missing.length?`Waiting on: ${missing.join(', ')}`:'Everyone is ready. Drawing the new case now.'}`, 'system', 'public', actor, 'Ready');
+  if(!missing.length) buildCaseFromApprovedDraw(state.caseDrawVote.id);
+  else { save(); render(); }
+}
+function cancelReadyDraw(actor){
+  if(!state.caseDrawVote) return log('There is no pending ready-up to cancel.', 'system', 'public', actor||state.activePlayer, 'Ready');
+  log(`Case draw ready-up cancelled by ${actor||state.activePlayer||'party'}.`, 'system', 'public', actor||state.activePlayer, 'Ready');
+  state.caseDrawVote = null; save(); render();
+}
+function readyStatus(actor){
+  const req = requiredReadyPlayers(); const vote = state.caseDrawVote;
+  if(!vote) return log(`No pending draw. Connected/required players: ${req.length?req.join(', '):'single-player/local only'}.`, 'system', 'public', actor||state.activePlayer, 'Ready');
+  const missing = readyVoteMissing();
+  log(`Ready status for ${vote.id}:\n${req.map(p=>`• ${p}: ${vote.ready?.[p]?'READY':'waiting'}`).join('\n')}\n${missing.length?`Waiting on: ${missing.join(', ')}`:'All ready.'}`, 'system', 'public', actor||state.activePlayer, 'Ready');
+}
+function buildCaseFromApprovedDraw(source){
+  const oldVote = state.caseDrawVote;
+  if(oldVote) oldVote.status = 'drawing';
+  buildCase({source, previousVote: oldVote});
+  state.caseDrawVote = null;
+  state.syncInfo = Object.assign({}, state.syncInfo||{}, {lastCaseDrawAt: Date.now(), lastCaseDrawSource: source});
+  save(); render();
+  try{ window.NWAutoGMSync?.publishState?.(state, {force:true}); }catch(e){}
+}
+
+function buildCase(drawMeta={}){
   const theme = pick(LIB.campaign_themes);
   const suitId = pick(Object.keys(LIB.tarot.minor_suits));
   const suit = LIB.tarot.minor_suits[suitId];
@@ -599,7 +674,7 @@ function parseCommands(raw){
     const n=norm(text);
     const intentMap=[
       ['look',['look','observe']], ['list',['list','show']], ['inventory',['inventory','gear','items']], ['shop',['shop','store','quartermaster']],
-      ['commands',['commands','help','command list']], ['combat',['combat status','combat','status']], ['profile',['profile','inspect profile','character profile']], ['dialogue',['dialogue','dialogue options','topics']], ['hq',['hq','warden hq','visit hq','search wardens','available wardens']], ['allies',['allies','list allies','npc allies']], ['assistant',['assistant','field assistant','warden assistant']], ['opener',['opener','opening transmission','transmission','game warden']], ['recruit',['recruit','hire','ally','ask to join']], ['endturn',['end turn','end round','skip turn','take hit']], ['reaction',['dodge','brace','counter','protect']],
+      ['notes',['notes','party notes','shared notes','case notes','note','add note','send note','post note']], ['commands',['commands','help','command list']], ['combat',['combat status','combat','status']], ['profile',['profile','inspect profile','character profile','who is']], ['dialogue',['dialogue','dialogue options','topics','talk options']], ['hq',['hq','warden hq','visit hq','search wardens','available wardens','go to hq','call hq','contact hq','radio hq','check hq','who is available','find wardens']], ['allies',['allies','list allies','npc allies','party allies']], ['assistant',['assistant','field assistant','warden assistant','ask assistant']], ['llm',['load llm','load browser llm','start llm','enable llm','use llm','structured fallback','disable llm']], ['voice',['voice on','voice off','tts on','tts off','npc voice on','npc voice off','test voice','stop voice','speak on','speak off']], ['opener',['opener','opening transmission','transmission','game warden']], ['recruit',['recruit','hire','ally','ask to join']], ['endturn',['end turn','end round','skip turn','take hit']], ['reaction',['dodge','brace','counter','protect']],
       ['buy',['buy','purchase','requisition']], ['needs',['need','needs','requirements','components']], ['hide',['hide','conceal','stakeout']],
       ['clues',['clues','case board']], ['leads',['leads','suggestions']], ['move',['go','move','travel','enter']],
       ['ask',['ask','talk','interview','question']], ['research',['research','study','decode','lookup','cross reference']],
@@ -614,6 +689,18 @@ function parseCommands(raw){
     const about=rest.match(/^(.+?)\s+(?:about|regarding|on)\s+(.+)$/);
     if(about){ target=about[1].replace(/^(to|with)\s+/,'').trim(); topic=about[2].trim(); }
     target=target.replace(/^(to|at|in|into|with|the|a|an)\s+/,'').trim();
+    // Pass 17 unifies the side-panel tools with the main IF input.
+    // Natural language aliases are intentionally resolved here so players can stay in the typed command box.
+    if(intent==='ask'){
+      const npcCandidate = findNPC(target) || findNode(target,['witness','ally','stranger','warden','entity']);
+      if(npcCandidate && !topic && /^(talk|interview|question)$/.test(verb)) intent='dialogue';
+      if(npcCandidate && !topic && /^(ask)$/.test(verb)) intent='dialogue';
+    }
+    if(intent==='move' && /(hq|warden hq|field office|safehouse|safe house)/.test(n)) intent='hq';
+    if(intent==='profile' && /^who is available/.test(n)) intent='hq';
+    if(intent==='unknown' && /^(available wardens|who is available|check hq|call hq|contact hq|radio hq|find wardens)/.test(n)) intent='hq';
+    if(intent==='unknown' && /^(load|enable|start)\s+(browser\s+)?llm/.test(n)) intent='llm';
+    if(intent==='unknown' && /^(voice|tts|speak|npc voice)/.test(n)) intent='voice';
     return {raw:part, privacy, actor, intent, verb, target, topic, text};
   });
 }
@@ -655,16 +742,57 @@ function resolveRoll(action, prof){
 }
 
 function handleAction(action){
-  if(norm(action.text)==='stop voice' || norm(action.text)==='stop speech'){ stopSpeech(); return log('Voice stopped.', 'system', action.privacy, action.actor, 'TTS'); }
+  const clean = norm(action.text);
+  if(clean==='stop voice' || clean==='stop speech'){ stopSpeech(); return log('Voice stopped.', 'system', action.privacy, action.actor, 'TTS'); }
+  if(clean==='ready' || clean==='ready up' || clean==='i am ready') return setReadyForActor(action.actor||state.activePlayer, true);
+  if(clean==='unready' || clean==='not ready') return setReadyForActor(action.actor||state.activePlayer, false);
+  if(clean==='ready status' || clean==='status ready' || clean==='who is ready') return readyStatus(action.actor||state.activePlayer);
+  if(clean==='cancel draw' || clean==='cancel ready' || clean==='cancel ready up') return cancelReadyDraw(action.actor||state.activePlayer);
+  if(clean==='force draw' || clean==='draw anyway' || clean==='override draw') return buildCaseFromApprovedDraw('forced-by-'+(action.actor||state.activePlayer||'party'));
   if(action.privacy==='private') addPlayer(action.actor);
-  const map={look:doLook,list:doList,inventory:doInventory,shop:doShop,buy:doBuy,needs:doNeeds,hide:doHide,clues:doClues,leads:doLeads,move:doMove,ask:doAsk,research:doResearch,investigate:doInvestigate,prep:doPrep,trap:doTrap,cast:doCast,attack:doAttack,wait:doWait,reveal:doReveal,combat:doCombatStatus,commands:doCommands,profile:doProfile,dialogue:doDialogue,hq:doHQ,allies:doAllies,assistant:doAssistant,opener:doOpener,recruit:doRecruit,endturn:doEndTurn,reaction:doReaction};
+  const map={notes:doNotes,look:doLook,list:doList,inventory:doInventory,shop:doShop,buy:doBuy,needs:doNeeds,hide:doHide,clues:doClues,leads:doLeads,move:doMove,ask:doAsk,research:doResearch,investigate:doInvestigate,prep:doPrep,trap:doTrap,cast:doCast,attack:doAttack,wait:doWait,reveal:doReveal,combat:doCombatStatus,commands:doCommands,profile:doProfile,dialogue:doDialogue,hq:doHQ,allies:doAllies,assistant:doAssistant,llm:doLLM,voice:doVoice,opener:doOpener,recruit:doRecruit,endturn:doEndTurn,reaction:doReaction};
   const fn=map[action.intent];
   if(!fn) return log(`I do not understand “${action.text}”. Try: look, list witnesses, shop, buy holy water, need Devil Trap, set trap Devil Trap, hide and wait, attack with rock salt shells, dodge, brace, counter.`, 'system', action.privacy, action.actor);
   const result=fn(action);
-  const passive=['look','list','inventory','shop','clues','leads','commands','combat','reveal','allies','assistant','opener','profile','dialogue','hq'];
+  const passive=['look','list','inventory','shop','clues','leads','commands','combat','reveal','allies','assistant','llm','voice','opener','profile','dialogue','hq','notes'];
   if(!passive.includes(action.intent)) recordActionPressure(action, result && result.rollResult ? result.rollResult : result);
   if(!passive.includes(action.intent) && !state.combat?.active && action.privacy!=='private') npcAllyFieldAction(action);
   return result;
+}
+
+
+function addPartyNote(text, actor='party', tags=[]){
+  text = String(text||'').trim();
+  if(!text) return log('No note text provided. Try: note check the bell chain before entering the lower room.', 'system', 'public', actor, 'Party Notes');
+  const entry = { id: uid('note'), time: now(), actor, text, tags: tags||[], pinned:false, updatedAt: Date.now() };
+  state.partyNotes = state.partyNotes || [];
+  state.partyNotes.push(entry);
+  // Notes are shared case state. save() publishes through NWAutoGMSync when cloud sync is enabled.
+  log(`${actor} adds shared party note: ${text}`, 'note', 'public', 'party', 'Party Notes');
+  save(); render();
+  return entry;
+}
+function listPartyNotes(action){
+  const notes = state.partyNotes || [];
+  if(!notes.length) return log('No shared party notes yet. Add one with: note [text].', 'system', action?.privacy||'public', action?.actor||state.activePlayer, 'Party Notes');
+  const rows = notes.slice(-30).map((n,i)=>`${i+1}. [${n.time}] ${n.actor}: ${n.text}${n.pinned?' [PINNED]':''}`).join('\n');
+  return log(`Shared party notes:\n${rows}`, 'system', action?.privacy||'public', action?.actor||state.activePlayer, 'Party Notes');
+}
+function clearPartyNotes(action){
+  if(!/confirm/i.test(action.raw||action.text||'')) return log('To clear shared party notes, type: clear notes confirm', 'system', action.privacy, action.actor, 'Party Notes');
+  state.partyNotes = [];
+  log(`${action.actor} cleared the shared party notes.`, 'system', 'public', 'party', 'Party Notes');
+  save(); render();
+}
+function doNotes(action){
+  const raw = String(action.raw||action.text||'').trim();
+  const q = norm(raw);
+  if(q.includes('clear notes')) return clearPartyNotes(action);
+  if(q==='notes' || q==='party notes' || q==='shared notes' || q==='case notes' || q==='list notes') return listPartyNotes(action);
+  let text = raw.replace(/^(public\s+|private\s+)?(party\s+)?(add\s+|send\s+|post\s+|write\s+)?(shared\s+)?(case\s+)?note(s)?\s*:?\s*/i,'').trim();
+  if(!text && action.target) text=action.target;
+  if(!text) return listPartyNotes(action);
+  return addPartyNote(text, action.actor||state.activePlayer||'party');
 }
 
 function doLook(action){
@@ -908,7 +1036,7 @@ function doDialogue(action){
   log(`Dialogue options for ${obj.name}:\n${topics||'• no clue topics yet'}\n${opts?`\nProfile/role options:\n${opts}`:''}`, 'system', action.privacy, action.actor, 'Dialogue', obj.id);
 }
 function doHQ(action){
-  if(norm(action.target).includes('refresh')||norm(action.target).includes('reroll')){ state.graph.wardenAvailable = rollAvailableWardens([...(state.graph.theme?.tags||[]), state.graph.tarot?.suitId], state.graph.wardenHqs||[]); assignCaseProfiles(); }
+  if(norm(action.target+' '+(action.raw||'')).includes('refresh')||norm(action.target+' '+(action.raw||'')).includes('reroll')){ state.graph.wardenAvailable = rollAvailableWardens([...(state.graph.theme?.tags||[]), state.graph.tarot?.suitId], state.graph.wardenHqs||[]); assignCaseProfiles(); }
   const hqs=(state.graph.wardenHqs||[]).map(h=>`• ${h.name} — ${h.description} Services: ${(h.services||[]).join(', ')}`).join('\n') || '• no Warden HQ modules active';
   const wardens=(state.graph.wardenAvailable||[]).map(w=>`• ${w.name} — ${w.role||w.type}; ${w.opening||''} Availability: ${Math.round((w.availabilityChance||0.45)*100)}%. Try: profile ${w.name}; dialogue ${w.name}; recruit ${w.name}`).join('\n') || '• no Wardens currently available. Try: hq refresh';
   log(`WARDEN HQS\n${hqs}\n\nAVAILABLE WARDENS\n${wardens}\n\nCommands: hq refresh, profile [warden], dialogue [warden], recruit [warden].`, 'system', action.privacy, action.actor, 'Warden HQ');
@@ -951,6 +1079,56 @@ function doAssistant(action){
   runAssistant(prompt, action.privacy, action.actor);
 }
 
+
+function doLLM(action){
+  const q=norm(action.raw||action.text||action.target||'');
+  if(q.includes('disable')||q.includes('fallback')||q.includes('structured')){
+    if(window.NWLLMAdapter) window.NWLLMAdapter.enabled=false;
+    if($('llmStatus')) $('llmStatus').textContent='Structured assistant fallback is active.';
+    return log('Browser LLM disabled. The structured Warden Field Assistant is active and all Auto-GM truth still works normally.', 'system', action.privacy, action.actor, 'LLM');
+  }
+  if(window.NWLLMAdapter && window.NWLLMAdapter.init){
+    log('Loading browser LLM from the main command input. This may take a while on first load.', 'system', action.privacy, action.actor, 'LLM');
+    const model=$('llmModelSelect') ? $('llmModelSelect').value : undefined;
+    window.NWLLMAdapter.enabled=true;
+    window.NWLLMAdapter.init({model}).then(()=>{
+      if($('llmStatus')) $('llmStatus').textContent='Browser LLM ready.';
+      log('Browser LLM is ready. You can type: assistant summarize case, assistant prep checklist, or ask assistant what should I ask next.', 'system', action.privacy, action.actor, 'LLM');
+      render();
+    }).catch(err=>{
+      if($('llmStatus')) $('llmStatus').textContent='LLM load failed. Structured fallback remains active.';
+      log('Browser LLM could not load on this device/browser. Structured Auto-GM remains fully usable.', 'system', action.privacy, action.actor, 'LLM');
+      console.warn(err);
+      render();
+    });
+    return;
+  }
+  log('No browser LLM adapter was found. Structured assistant fallback is active.', 'system', action.privacy, action.actor, 'LLM');
+}
+
+function doVoice(action){
+  const q=norm(action.raw||action.text||action.target||'');
+  state.voiceSettings=state.voiceSettings||{};
+  if(q.includes('off')||q.includes('stop voice')){
+    if(q.includes('stop')){ try{ speechSynthesis.cancel(); }catch(e){} }
+    if(q.includes('npc')) state.voiceSettings.ttsNpc=false; else state.voiceSettings.ttsEnabled=false;
+    if($('ttsEnabled')) $('ttsEnabled').checked=!!state.voiceSettings.ttsEnabled;
+    if($('ttsNpc')) $('ttsNpc').checked=!!state.voiceSettings.ttsNpc;
+    save();
+    return log(q.includes('npc')?'NPC speech disabled.':'Voice/TTS disabled.', 'system', action.privacy, action.actor, 'Voice');
+  }
+  if(q.includes('test')){
+    speakText('Night Wardens voice test. This is the Auto Game Warden transmission channel.', 'transmission');
+    return log('Voice test sent through the current selected voice.', 'system', action.privacy, action.actor, 'Voice');
+  }
+  state.voiceSettings.ttsEnabled=true;
+  if(q.includes('npc')) state.voiceSettings.ttsNpc=true;
+  if($('ttsEnabled')) $('ttsEnabled').checked=true;
+  if($('ttsNpc')) $('ttsNpc').checked=!!state.voiceSettings.ttsNpc;
+  save();
+  log('Voice/TTS enabled from the main command input. NPCs and Game Warden transmissions will use the selected natural voice when available.', 'system', action.privacy, action.actor, 'Voice');
+}
+
 function doReveal(action){ const arr=state.privateClues[action.actor]||[]; if(!arr.length) return log(`${action.actor} has no private clues to reveal.`, 'system', action.privacy, action.actor); const c=arr.shift(); state.clues.push({...c,revealed:true}); log(`${action.actor} reveals: ${c.text}`, 'clue', 'public', 'party', 'Reveal'); }
 function maybeCreature(action, rr, forced=false){
   if(!$('creatureResponse')?.checked && !forced) return; if(!forced && rr?.success && Math.random()>.25) return;
@@ -966,23 +1144,24 @@ function suggestions(){
   if(loc){ s=s.concat(loc.suggestions||[]); state.graph.witnesses.filter(w=>w.location_hint===loc.id).forEach(w=>Object.keys(w.topics||{}).slice(0,4).forEach(k=>s.push(`ask ${w.name} about ${k}`))); state.graph.evidence.filter(e=>e.location_hint===loc.id).forEach(e=>s.push(`investigate ${e.name}`)); }
   state.leads.slice(-5).forEach(l=>{ const loc=byId(LIB.location_modules,l.text); s.push(loc?`move ${loc.name}`:`research ${l.text}`); });
   (LIB.trap_recipes||[]).slice(0,3).forEach(t=>s.push(`need ${t.name}`,`set trap ${t.name}`));
-  s.push('list allies','recruit Father Crowe','assistant suggest next steps','hide and wait','wait','attack with rock salt shells','dodge','brace','counter','combat status','commands combat','cast veil snap'); return [...new Set(s)].slice(0,26);
+  s.push('list hq','who is available','list allies','dialogue Father Crowe','recruit Father Crowe','load llm','voice on','assistant suggest next steps','hide and wait','wait','attack with rock salt shells','dodge','brace','counter','combat status','commands combat','cast veil snap'); return [...new Set(s)].slice(0,26);
 }
 
 function render(){ if(!state || !LIB) return;
-  $('campaignTag').textContent = campaignId==='local' ? 'Local Case' : `Campaign ${campaignId}`; $('versionTag').textContent='Pass 15';
+  $('campaignTag').textContent = campaignId==='local' ? 'Local Case' : `Campaign ${campaignId}`; $('versionTag').textContent='Pass 18';
   $('pressureMeter').style.width = `${Math.min(100,state.pressure/12*100)}%`; $('pressureText').textContent = `${state.pressure}/12 — ${pressureLevel().toUpperCase()}`;
   $('caseMode').value=state.mode||'solo'; $('diceMode').value=state.diceMode||'3d6'; $('seedStyle').value=state.seedStyle||'balanced';
-  renderPlayers(); renderTranscript(); renderCaseBoard(); renderGraph(); renderModules(); renderCharacters(); renderPrivate(); renderCombat(); renderAllies(); renderVoiceSettings(); renderHelp(); renderDebug(); save();
+  renderPlayers(); renderTranscript(); renderCaseBoard(); renderReadyPanel(); renderGraph(); renderModules(); renderCharacters(); renderPrivate(); renderCombat(); renderAllies(); renderVoiceSettings(); renderHelp(); renderDebug(); save();
 }
 function renderPlayers(){ const opts=state.players.map(p=>`<option value="${escapeAttr(p)}">${escapeHtml(p)}</option>`).join(''); $('activePlayer').innerHTML=opts; $('activePlayer').value=state.activePlayer||state.players[0]; $('privateViewPlayer').innerHTML=opts; if(!$('privateViewPlayer').value) $('privateViewPlayer').value=state.activePlayer||state.players[0]; $('playerList').innerHTML=state.players.map(p=>`<div class="item row spread"><b>${escapeHtml(p)}</b><span class="small">Private clues: ${(state.privateClues[p]||[]).length}</span></div>`).join(''); }
-function renderTranscript(){ const box=$('transcript'); const combined=[...(state.publicLog||[]), ...ephemeralLog]; box.innerHTML=combined.map(m=>`<div class="msg ${m.type||''}"><div class="meta">${m.time} · ${escapeHtml(m.meta||'')}</div><div>${escapeHtml(m.text).replace(/\n/g,'<br>')}</div></div>`).join(''); box.scrollTop=box.scrollHeight; }
+function renderTranscript(){ const box=$('transcript'); const combined=[...(state.publicLog||[]), ...ephemeralLog]; box.innerHTML=combined.map(m=>`<div class="msg ${m.type||''}"><div class="meta">${m.time} · ${escapeHtml(m.meta||'')}</div><div>${escapeHtml(m.text).replace(/\n/g,'<br>')}</div></div>`).join(''); box.scrollTop=box.scrollHeight; renderPartyNotes(); }
+function renderPartyNotes(){ const el=$('partyNotesList'); if(!el) return; const notes=state.partyNotes||[]; el.innerHTML = notes.length ? notes.slice(-12).reverse().map(n=>`<div class="item small"><b>${escapeHtml(n.actor||'party')}</b> <span class="small">${escapeHtml(n.time||'')}</span><br>${escapeHtml(n.text||'')}</div>`).join('') : '<div class="item small">No shared party notes yet. Type <span class="kbd">note [text]</span> in the main command box.</div>'; }
 function renderCaseBoard(){ const ent=state.graph.entity; $('caseSummary').innerHTML=[`<div class="item"><b>${escapeHtml(state.caseTitle)}</b><br><span class="small">Phase: ${state.phase} · Pressure: ${pressureLevel()} · Credits: ${state.credits} · Actions here: ${(state.actionClock&&state.actionClock.actionsHere)||0}</span></div>`, state.graph.theme?`<div class="item"><b>${escapeHtml(state.graph.theme.name)}</b><br><span class="small">${escapeHtml(state.graph.theme.season_pressure)}</span></div>`:'', state.graph.tarot?`<div class="item"><b>${state.graph.tarot.value} of ${state.graph.tarot.suit.name}</b><br><span class="small">${state.graph.tarot.major.name} · ${state.graph.tarot.orientation}</span></div>`:'', ent?`<div class="item"><b>Known Entity Theory</b><br><span class="small">${state.flags.weaknessRevealed?`${escapeHtml(ent.name)}: ${escapeHtml(ent.weakness)}`:'Entity not fully confirmed.'}</span></div>`:''].join(''); $('clueList').innerHTML=state.clues.length?state.clues.map(c=>`<div class="item small">${escapeHtml(c.text)}<br><em>${escapeHtml(c.source||'')}</em></div>`).join(''):'<div class="item small">No clues yet.</div>'; $('leadList').innerHTML=state.leads.length?state.leads.slice(-20).map(l=>`<div class="item small">${escapeHtml(l.text)}<br><em>${escapeHtml(l.source||'')}</em></div>`).join(''):'<div class="item small">No leads yet.</div>'; const loc=byId(state.graph.locations,state.currentLocation); $('currentLocationBox').innerHTML=loc?`<b>${escapeHtml(loc.name)}</b><br><span class="small">${escapeHtml(loc.description)}</span>`:'No location selected.'; $('suggestions').innerHTML=suggestions().map(s=>`<span class="suggestion" data-cmd="${escapeAttr(s)}">${escapeHtml(s)}</span>`).join(''); $('quickCommands').innerHTML=suggestions().map(s=>`<button class="btn ghost full quick" data-cmd="${escapeAttr(s)}">${escapeHtml(s)}</button>`).join(''); }
 function renderGraph(){ $('locationList').innerHTML=state.graph.locations.map(l=>`<div class="item ${state.currentLocation===l.id?'active':''}"><b>${escapeHtml(l.name)}</b> ${state.unlockedLocations.includes(l.id)?'<span class="pill good">unlocked</span>':'<span class="pill">locked</span>'}<br><span class="small">${escapeHtml(l.description)}</span><div class="row" style="margin-top:6px"><button class="btn ghost quick" data-cmd="move ${escapeAttr(l.name)}">Move</button><button class="btn ghost quick" data-cmd="look ${escapeAttr(l.name)}">Look</button></div></div>`).join(''); const wardenCards=(state.graph.wardenAvailable||[]).map(a=>`<div class="item"><b>${escapeHtml(a.name)}</b> <span class="pill good">available Warden</span><br><span class="small">${escapeHtml(a.opening||'')}</span><br><span class="small">Role: ${escapeHtml(a.role||a.type||'Warden')}</span></div>`).join(''); const allyCards=(state.graph.allies||[]).map(a=>`<div class="item"><b>${escapeHtml(a.name)}</b> <span class="pill good">ally option</span><br><span class="small">${escapeHtml(a.opening||'')}</span><br><span class="small">Services: ${escapeHtml((a.services||[]).join(', '))}</span></div>`).join(''); const strangerCards=(state.graph.strangers||[]).map(s=>`<div class="item"><b>${escapeHtml(s.name)}</b> <span class="pill">stranger</span><br><span class="small">${escapeHtml((s.smalltalk||[])[0]||'small talk until a topic matters')}</span><br><span class="small">Topics: ${escapeHtml(Object.keys(s.topics||{}).join(', '))}</span></div>`).join(''); const ws=state.graph.witnesses.map(w=>`<div class="item"><b>${escapeHtml(w.name)}</b> <span class="pill">${escapeHtml(w.location_hint||'')}</span><br><span class="small">${escapeHtml(w.opening)}</span><br><span class="small">Topics: ${escapeHtml(Object.keys(w.topics||{}).join(', '))}</span></div>`).join(''); const ev=state.graph.evidence.map(e=>`<div class="item"><b>${escapeHtml(e.name)}</b> <span class="pill">${escapeHtml(e.location_hint||'')}</span><br><span class="small">${escapeHtml(e.surface)}</span></div>`).join(''); $('nodeList').innerHTML=ws+allyCards+wardenCards+strangerCards+ev; }
 function renderModules(){ const stats=[['Locations',LIB.location_modules.length],['Witnesses',LIB.witness_modules.length],['Evidence',LIB.evidence_modules.length],['Entities',LIB.entity_modules.length],['Signs',LIB.sign_modules.length],['Prep',LIB.prep_modules.length],['Complications',LIB.complication_modules.length],['Campaign Themes',LIB.campaign_themes.length],['Items',(LIB.item_catalog||[]).length],['Materials',(LIB.material_catalog||[]).length],['Trap Recipes',(LIB.trap_recipes||[]).length],['Spells/Rites',(LIB.spell_catalog||[]).length],['Attack Options',(LIB.attack_options||[]).length],['NPC Ally Modules',(LIB.npc_ally_modules||[]).length],['Stranger Modules',(LIB.stranger_modules||[]).length],['Warden HQs',(LIB.warden_hq_modules||[]).length],['Warden Recruit Pool',(LIB.warden_recruit_pool||[]).length]]; $('moduleStats').innerHTML=stats.map(([k,v])=>`<div class="item center"><div class="kicker" style="letter-spacing:.12em">${k}</div><h1 style="font-size:42px">${v}</h1></div>`).join(''); }
 function renderCharacters(){ $('characterList').innerHTML=state.characters.length?state.characters.map(c=>`<div class="item"><b>${escapeHtml(c.name||c.identity?.name||'Unnamed')}</b><br><span class="small">Skills: ${Array.isArray(c.skills)?c.skills.length:Object.keys(c.skills||{}).length}</span></div>`).join(''):'<div class="item small">No characters imported.</div>'; }
 function renderPrivate(){ const p=$('privateViewPlayer').value||state.activePlayer||state.players[0]; const logs=state.privateLogs[p]||[]; $('privateLog').innerHTML=logs.map(m=>`<div class="msg private"><div class="meta">${m.time} · ${escapeHtml(m.meta||'')}</div><div>${escapeHtml(m.text).replace(/\n/g,'<br>')}</div></div>`).join('')||'<div class="msg private">No private branch logs yet.</div>'; const rows=[]; for(const pl of state.players){ for(const c of state.privateClues[pl]||[]) rows.push(`<div class="item"><b>${escapeHtml(pl)}</b>: ${escapeHtml(c.text)}<br><button class="btn ghost revealBtn" data-player="${escapeAttr(pl)}" data-clue="${escapeAttr(c.id)}">Reveal to Party</button></div>`); } $('privateRevealList').innerHTML=rows.join('')||'<div class="item small">No private clues to reveal.</div>'; }
-function generalCommands(){ return ['GENERAL COMMANDS','look','look [location/evidence]','list witnesses','list strangers','list allies','list wardens','list hq','profile [NPC/creature]','dialogue [NPC/creature]','recruit [NPC/Warden]','talk [stranger]','ask [stranger] about [topic]','assistant suggest next steps','assistant prep checklist','opening transmission','stop voice','TTS controls are in NPCs / Assistant tab','npc voice on/off is in NPCs tab','allies act automatically after every 2 public player actions','list suspects','list locations','list traps','shop','buy [item/material]','inventory','need [trap/spell/attack]','move [location]','hide and wait','wait','clues','leads','reveal','commands','commands combat','SPLIT/PUBLIC: Riley: investigate altar; Sam: ask witness about bell','PRIVATE: private Alex: research black star symbol']; }
+function generalCommands(){ return ['GENERAL COMMANDS — all of these work from the main typed command box','ready','unready','ready status','cancel draw','force draw','look','look [location/evidence]','list witnesses','list strangers','list allies','list wardens','list hq','hq','hq refresh','call hq','who is available','profile [NPC/creature/Warden]','dialogue [NPC/creature/Warden]','talk [NPC]','ask [NPC] about [topic]','recruit [NPC/Warden]','load llm','structured fallback','voice on','voice off','npc voice on','test voice','stop voice','assistant suggest next steps','assistant prep checklist','opening transmission','allies act automatically after every 2 public non-combat player actions','list suspects','list locations','list traps','shop','buy [item/material]','inventory','need [trap/spell/attack]','move [location]','hide and wait','wait','clues','leads','reveal','commands','commands combat','SPLIT/PUBLIC: Riley: investigate altar; Sam: ask witness about bell','PRIVATE: private Alex: research black star symbol']; }
 function combatCommands(){ return ['COMBAT COMMANDS','attack with [weapon/ammo]','shoot [entity] with rock salt shells','attack with silver rounds','cast [spell/rite]','set trap [trap name]','trigger trap [trap name]','combat status','dodge','brace','counter','protect [ally]','end turn','take hit','disengage / move [location]','NPC allies act once per round after the creature threat resolves','observe entity','taunt entity','parley entity','TACTIC: prep/position first or blind attacks increase pressure']; }
 function renderHelp(){
   $('helpCommands').innerHTML = `<h3>General / Investigation</h3>` + generalCommands().slice(1).map(c=>`<div class="item"><span class="kbd">${escapeHtml(c)}</span></div>`).join('') + `<div class="divider"></div><h3>Combat</h3>` + combatCommands().slice(1).map(c=>`<div class="item"><span class="kbd">${escapeHtml(c)}</span></div>`).join('');
@@ -1025,7 +1204,7 @@ function renderDebug(){ $('debugJson').value=JSON.stringify(state,null,2); }
 
 function bindUI(){
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.tabPage').forEach(p=>p.classList.add('hidden')); $(`tab-${b.dataset.tab}`).classList.remove('hidden'); render(); }));
-  $('newCaseBtn').onclick=()=>buildCase(); $('saveBtn').onclick=()=>{save(); log('Case saved to this device.','system');};
+  $('newCaseBtn').onclick=()=>requestNewCaseDraw(state.activePlayer||'party'); $('saveBtn').onclick=()=>{save(); log('Case saved to this device.','system');};
   $('addPressureBtn').onclick=()=>drawMinorPressure('manual pressure draw'); $('reducePressureBtn').onclick=()=>adjustPressure(-1,'manual adjustment');
   $('runCommandBtn').onclick=()=>{ const raw=$('commandInput').value.trim(); if(!raw)return; for(const a of parseCommands(raw)) handleAction(a); $('commandInput').value=''; render(); };
   $('clearInputBtn').onclick=()=>$('commandInput').value='';
@@ -1056,6 +1235,6 @@ function bindUI(){
 }
 function readFile(file,cb){ if(!file)return; const r=new FileReader(); r.onload=()=>cb(r.result); r.readAsText(file); }
 function download(name,text){ const blob=new Blob([text],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),500); }
-async function init(){ try{ const r=await fetch('auto_gm_modular_library.json?v=15.1'); if(r.ok) LIB=await r.json(); }catch(e){} if(!LIB){ document.body.innerHTML='<div class="wrap"><div class="card"><h1>Missing auto_gm_modular_library.json</h1></div></div>'; return; } load(); bindUI(); render(); if(!state.publicLog.length) log('Auto-GM voice/opener layer online. TTS is optional; LLM can craft Game Warden transmissions from modular assets. Type “look”, “list witnesses”, “shop”, “need Devil Trap”, or press New Modular Case.', 'system'); }
+async function init(){ try{ const r=await fetch('auto_gm_modular_library.json?v=18.0'); if(r.ok) LIB=await r.json(); }catch(e){} if(!LIB){ document.body.innerHTML='<div class="wrap"><div class="card"><h1>Missing auto_gm_modular_library.json</h1></div></div>'; return; } load(); bindUI(); render(); try{ await window.NWAutoGMSync?.init?.({campaignId, campaignCode, caseId, getState:()=>state, setState:(remote)=>{ if(remote && remote.version){ state = remote; save(); render(); } }, onReadyUpdate:()=>renderReadyPanel(), onStatus:(msg)=>{ state.syncInfo=Object.assign({},state.syncInfo||{},{enabled:true,status:msg}); if($('syncTag')) $('syncTag').textContent=msg; renderReadyPanel(); }}); }catch(e){ console.warn('Auto-GM sync unavailable', e); } if(!state.publicLog.length) log('Auto-GM ready-up/sync layer online. In shared campaigns, New Modular Case starts a ready check when multiple real players are connected. Type “ready”, “ready status”, or “force draw”.', 'system'); }
 init();
 })();
