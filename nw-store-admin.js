@@ -1,6 +1,6 @@
 /* Night Wardens static store/admin layer with Firebase-ready upgrade. */
 const NW_ADMIN_EMAIL = "geeklitgames@gmail.com";
-const PRODUCT_JSON_URL = "products.json?v=placeholder-1";
+const PRODUCT_JSON_URL = "products.json?v=firebase-config-1";
 const LS_PRODUCT_KEY = "nw_admin_products_local";
 const LS_LIBRARY_KEY = "nw_user_library_local";
 const LS_CLAIMS_KEY = "nw_purchase_claims_local";
@@ -23,6 +23,30 @@ function getLibrary(){ try{return JSON.parse(localStorage.getItem(LS_LIBRARY_KEY
 function setLibrary(list){ localStorage.setItem(LS_LIBRARY_KEY, JSON.stringify(list)); }
 function getClaims(){ try{return JSON.parse(localStorage.getItem(LS_CLAIMS_KEY)||"[]");}catch{return [];} }
 function setClaims(list){ localStorage.setItem(LS_CLAIMS_KEY, JSON.stringify(list)); }
+
+function normalizeProduct(p){
+  const title = p.title || p.name || p.shortTitle || 'Night Wardens Product';
+  const id = p.id || p.slug || title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const category = p.category || p.type || 'book';
+  const price = (typeof p.price === 'number') ? `$${p.price.toFixed(2)}` : (p.price || '');
+  return {
+    ...p,
+    id,
+    slug: p.slug || id,
+    title,
+    shortTitle: p.shortTitle || title.split('—')[0].trim(),
+    category,
+    price,
+    squareUrl: p.squareUrl || p.squareLink || '',
+    squareLink: p.squareLink || p.squareUrl || '',
+    coverUrl: p.coverUrl || p.coverImageUrl || '',
+    downloadUrl: p.downloadUrl || p.digitalFileUrl || '',
+    included: Array.isArray(p.included) ? p.included : [],
+    label: p.label || (p.edition ? String(p.edition).toUpperCase() : 'NIGHT WARDENS')
+  };
+}
+function normalizeProducts(list){ return (list||[]).map(normalizeProduct); }
+
 
 async function initFirebaseOptional(){
   try{
@@ -49,21 +73,23 @@ async function loadProducts(){
   if(firebaseReady){
     try{
       const snap = await fb.getDocs(fb.collection(fb.db,'products'));
-      if(!snap.empty){ products = snap.docs.map(d => ({ id:d.id, ...d.data() })).sort((a,b)=>(a.sortOrder||0)-(b.sortOrder||0)); return products; }
+      if(!snap.empty){ products = normalizeProducts(snap.docs.map(d => ({ id:d.id, ...d.data() }))).sort((a,b)=>(a.sortOrder||0)-(b.sortOrder||0)); return products; }
     }catch(e){ console.warn('Firestore products failed, falling back:', e); }
   }
   const local = getLocalProducts();
-  if(local?.length){ products = local; return products; }
+  if(local?.length){ products = normalizeProducts(local); return products; }
   const res = await fetch(PRODUCT_JSON_URL, {cache:'no-store'});
   const json = await res.json();
-  products = (json.products||[]).sort((a,b)=>(a.sortOrder||0)-(b.sortOrder||0));
+  products = normalizeProducts(json.products||[]).sort((a,b)=>(a.sortOrder||0)-(b.sortOrder||0));
   return products;
 }
 
 function productCard(p){
+  p = normalizeProduct(p);
   const live = !!p.available;
   const cover = p.coverUrl ? `<img class="cover" src="${escapeHtml(p.coverUrl)}" alt="${escapeHtml(p.title)} cover">` : `<div class="cover"><div><b>${escapeHtml(p.shortTitle||p.title)}</b><br><span class="small" style="color:#f5ecdd">Digital Field Office Product File</span></div></div>`;
-  const buy = live ? `<a class="btn" href="${escapeHtml(p.squareUrl)}" target="_blank" rel="noopener">Buy Now</a>` : `<button class="btn" disabled>Not Available Yet</button>`;
+  const payUrl = p.squareUrl || p.squareLink || "";
+  const buy = live && payUrl ? `<a class="btn" href="${escapeHtml(payUrl)}" target="_blank" rel="noopener">Buy Now</a>` : `<button class="btn" disabled>${live ? 'Payment Link Missing' : 'Not Available Yet'}</button>`;
   const claim = live ? `<a class="btn ghost" href="digital-library.html#claim">Claim Digital Access</a>` : `<span class="small">Purchase unlock will appear once the file is uploaded and availability is toggled on.</span>`;
   return `<article class="card product">
     ${cover}
@@ -81,7 +107,7 @@ async function renderStore(){
   const grid = byId('productGrid'); if(!grid) return;
   const q = (byId('searchProducts')?.value||'').toLowerCase();
   const filter = byId('filterProducts')?.value || 'all';
-  const list = products.filter(p => (filter==='all'||p.category===filter||p.label?.toLowerCase().includes(filter)) && JSON.stringify(p).toLowerCase().includes(q));
+  const list = products.filter(p => (filter==='all'||p.category===filter||p.label?.toLowerCase().includes(filter)||String(p.edition||'').toLowerCase().includes(filter)) && JSON.stringify(p).toLowerCase().includes(q));
   grid.innerHTML = list.map(productCard).join('') || `<div class="card">No products match.</div>`;
 }
 
@@ -142,7 +168,7 @@ async function renderAdmin(){
 }
 window.editProduct = function(id){
   const p = products.find(x=>x.id===id); if(!p) return;
-  byId('productId').value=p.id; byId('productTitle').value=p.title||''; byId('productPrice').value=p.price||''; byId('productSquare').value=p.squareUrl||''; byId('productLabel').value=p.label||''; byId('productCategory').value=p.category||'book'; byId('productAvailable').checked=!!p.available; byId('productCover').value=p.coverUrl||''; byId('productDownload').value=p.downloadUrl||''; byId('productDescription').value=p.description||''; byId('productIncluded').value=(p.included||[]).join('\n');
+  byId('productId').value=p.id; byId('productTitle').value=p.title||''; byId('productPrice').value=p.price||''; byId('productSquare').value=p.squareUrl||p.squareLink||''; byId('productLabel').value=p.label||''; byId('productCategory').value=p.category||'book'; byId('productAvailable').checked=!!p.available; byId('productCover').value=p.coverUrl||''; byId('productDownload').value=p.downloadUrl||''; byId('productDescription').value=p.description||''; byId('productIncluded').value=(p.included||[]).join('\n');
   location.hash='#editor';
 };
 window.toggleProduct = async function(id){ const p=products.find(x=>x.id===id); if(!p)return; p.available=!p.available; await saveProduct(p); toast(`${p.title} ${p.available?'available':'locked'}.`); renderAdmin(); };
@@ -154,7 +180,7 @@ async function saveProduct(p){
 async function saveProductFromForm(){
   const id = byId('productId').value.trim() || uid();
   const existing = products.find(x=>x.id===id)||{};
-  const p = {...existing, id, slug:id, title:byId('productTitle').value.trim(), shortTitle:byId('productTitle').value.trim().split('—')[0].trim(), price:byId('productPrice').value.trim(), squareUrl:byId('productSquare').value.trim(), label:byId('productLabel').value.trim(), category:byId('productCategory').value, available:byId('productAvailable').checked, coverUrl:byId('productCover').value.trim(), downloadUrl:byId('productDownload').value.trim(), description:byId('productDescription').value.trim(), included:byId('productIncluded').value.split('\n').map(x=>x.trim()).filter(Boolean), libraryEnabled:true, sortOrder: existing.sortOrder || (products.length+1)*10};
+  const p = {...existing, id, slug:id, title:byId('productTitle').value.trim(), shortTitle:byId('productTitle').value.trim().split('—')[0].trim(), price:byId('productPrice').value.trim(), squareUrl:byId('productSquare').value.trim(), squareLink:byId('productSquare').value.trim(), label:byId('productLabel').value.trim(), category:byId('productCategory').value, available:byId('productAvailable').checked, coverUrl:byId('productCover').value.trim(), downloadUrl:byId('productDownload').value.trim(), description:byId('productDescription').value.trim(), included:byId('productIncluded').value.split('\n').map(x=>x.trim()).filter(Boolean), libraryEnabled:true, sortOrder: existing.sortOrder || (products.length+1)*10};
   await saveProduct(p); toast('Product saved.'); renderAdmin();
 }
 async function uploadProductFile(){
@@ -178,9 +204,10 @@ window.approveClaim = function(id){ const claims=getClaims(); const c=claims.fin
 function bindTabs(){ $$('.tab').forEach(btn=>btn.addEventListener('click',()=>{ $$('.tab').forEach(b=>b.classList.remove('active')); $$('.panel').forEach(p=>p.classList.remove('active')); btn.classList.add('active'); byId(btn.dataset.panel)?.classList.add('active'); })); }
 
 async function init(){
-  bindTabs();
+  try{ bindTabs();
   if(byId('productGrid')){ await renderStore(); byId('searchProducts')?.addEventListener('input',renderStore); byId('filterProducts')?.addEventListener('change',renderStore); }
   if(byId('libraryGrid')||byId('claimProduct')){ await renderLibrary(); byId('claimSubmit')?.addEventListener('click',submitClaim); }
   if(byId('adminSignIn')){ await initFirebaseOptional(); if(firebaseReady){ fb.onAuthStateChanged(fb.auth, user=>{ fb.user=user; if(user?.email===NW_ADMIN_EMAIL) showAdminAuthed(); }); } byId('adminSignIn').addEventListener('click',adminSignIn); byId('adminLocal').addEventListener('click',showAdminLocal); byId('adminSignOut')?.addEventListener('click',adminSignOut); byId('saveProduct')?.addEventListener('click',saveProductFromForm); byId('uploadProductFile')?.addEventListener('click',uploadProductFile); byId('exportProducts')?.addEventListener('click',exportProducts); byId('importProducts')?.addEventListener('change',importProductsFile); byId('grantLibrary')?.addEventListener('click',grantLibrary); }
+  }catch(e){ console.error('Night Wardens UI init failed', e); toast('Store script error. Static products are still visible.'); }
 }
 document.addEventListener('DOMContentLoaded', init);

@@ -1,5 +1,8 @@
-const CACHE_NAME='night-wardens-digital-field-office-v19-store-library';
-const APP_SHELL=['./','./index.html','./app.js','./night_wardens_data.json','./manifest.webmanifest','./firebase-config.js','./auto-gm.html','./auto_gm_data.json','./storefront.html','./digital-library.html','./commercial-blueprint.html','./assets/nw-commercial-blueprint.css','./assets/nw-commercial-blueprint.js'];
-self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(APP_SHELL)).then(()=>self.skipWaiting()))});
-self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
-self.addEventListener('fetch',event=>{event.respondWith(fetch(event.request).then(resp=>{const copy=resp.clone();caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy)).catch(()=>{});return resp}).catch(()=>caches.match(event.request).then(resp=>resp||caches.match('./index.html'))))});
+// Night Wardens hotfix service worker: clear older caches and stay out of the way.
+self.addEventListener('install', event => self.skipWaiting());
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k)))).then(() => self.clients.claim()));
+});
+self.addEventListener('fetch', event => {
+  event.respondWith(fetch(event.request, { cache: 'no-store' }).catch(() => fetch(event.request)));
+});

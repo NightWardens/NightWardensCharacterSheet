@@ -65,3 +65,22 @@ If Firebase is not configured:
 ## Important limitation
 
 Square payment links do not automatically grant library access unless you add a backend/webhook later. For now, use the claim form + manual admin grant.
+
+
+## Firebase config included
+
+This package includes `firebase-config.js` already filled with the Night Wardens Firebase web app config. Upload it to your GitHub repo root.
+
+Do not upload any `serviceAccountKey.json` or `firebase-admin` code to GitHub Pages. That is server-only and belongs only in Firebase Cloud Functions or another secure backend later.
+
+Current live URL to test after upload:
+
+```text
+https://nightwardens.github.io/NightWardensCharacterSheet/admin.html?v=firebase-config-1
+```
+
+Authorized domain needed in Firebase Authentication:
+
+```text
+nightwardens.github.io
+```
