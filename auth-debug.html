@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Night Wardens Firebase Auth Debug</title>
+  <link rel="stylesheet" href="assets/nw-store-admin.css">
+  <link rel="stylesheet" href="assets/night-wardens-theme.css">
+  <script src="firebase-config.js?v=auth-mobile-fix-3"></script>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Restricted Diagnostic</div>
+      <h1>Auth Debug</h1>
+      <p class="sub">Use this page only to confirm Firebase Google sign-in is working on your device.</p>
+      <nav class="nav"><a href="admin.html?v=auth-mobile-fix-3">Back to Admin</a><a class="secondary" href="index.html">Field Office</a></nav>
+    </section>
+    <section class="card">
+      <h2>Firebase Status</h2>
+      <div id="status" class="list"></div>
+      <div class="row" style="margin-top:14px">
+        <button id="redirectLogin" class="btn">Sign in with Redirect</button>
+        <button id="popupLogin" class="btn ghost">Try Popup</button>
+        <button id="signOut" class="btn secondary">Sign Out</button>
+      </div>
+    </section>
+  </main>
+  <script type="module">
+    const status = document.getElementById('status');
+    const line = (label, value) => `<div class="item"><b>${label}</b><br><span class="small">${String(value ?? '')}</span></div>`;
+    const render = (rows) => { status.innerHTML = rows.map(([a,b])=>line(a,b)).join(''); };
+    try {
+      const cfg = window.firebaseConfig || window.NW_FIREBASE_CONFIG;
+      render([
+        ['Config loaded', !!cfg],
+        ['Project ID', cfg?.projectId],
+        ['Auth domain', cfg?.authDomain],
+        ['Current URL', location.href]
+      ]);
+      const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js');
+      const { getAuth, GoogleAuthProvider, signInWithRedirect, signInWithPopup, getRedirectResult, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence } = await import('https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js');
+      const app = initializeApp(cfg);
+      const auth = getAuth(app);
+      await setPersistence(auth, browserLocalPersistence).catch(()=>{});
+      const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: 'select_account' });
+      try { await getRedirectResult(auth); } catch(e) { render([['Redirect result error', e.code || e.message]]); }
+      onAuthStateChanged(auth, user => {
+        render([
+          ['Config loaded', !!cfg],
+          ['Project ID', cfg?.projectId],
+          ['Auth domain', cfg?.authDomain],
+          ['Signed in', !!user],
+          ['Email', user?.email || 'not signed in'],
+          ['UID', user?.uid || 'not signed in'],
+          ['Current URL', location.href]
+        ]);
+      });
+      document.getElementById('redirectLogin').onclick = () => signInWithRedirect(auth, provider);
+      document.getElementById('popupLogin').onclick = async () => {
+        try { await signInWithPopup(auth, provider); } catch(e) { alert('Popup failed: ' + (e.code || e.message)); }
+      };
+      document.getElementById('signOut').onclick = () => signOut(auth);
+    } catch (e) {
+      render([['Fatal error', e.code || e.message || e]]);
+    }
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /* Night Wardens static store/admin layer with Firebase-ready upgrade. */
 const NW_ADMIN_EMAIL = "geeklitgames@gmail.com";
-const PRODUCT_JSON_URL = "products.json?v=firebase-config-1";
+const PRODUCT_JSON_URL = "products.json?v=auth-mobile-fix-3";
 const LS_PRODUCT_KEY = "nw_admin_products_local";
 const LS_LIBRARY_KEY = "nw_user_library_local";
 const LS_CLAIMS_KEY = "nw_purchase_claims_local";
@@ -50,23 +50,47 @@ function normalizeProducts(list){ return (list||[]).map(normalizeProduct); }
 
 async function initFirebaseOptional(){
   try{
-    if(!window.firebaseConfig || !window.firebaseConfig.apiKey) return false;
-    const [{ initializeApp }, { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }, { getFirestore, collection, doc, getDocs, setDoc, deleteDoc, onSnapshot, serverTimestamp }, { getStorage, ref, uploadBytes, getDownloadURL }] = await Promise.all([
+    const cfg = window.firebaseConfig || window.NW_FIREBASE_CONFIG;
+    if(!cfg || !cfg.apiKey){ console.warn('Firebase config missing.'); return false; }
+    if(firebaseReady) return true;
+    const [{ initializeApp }, authMod, firestoreMod] = await Promise.all([
       import('https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js'),
       import('https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js'),
-      import('https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js'),
-      import('https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js')
+      import('https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js')
     ]);
-    fb.app = initializeApp(window.firebaseConfig);
+    const { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } = authMod;
+    const { getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, onSnapshot, serverTimestamp } = firestoreMod;
+    fb.app = initializeApp(cfg);
     fb.auth = getAuth(fb.app);
     fb.db = getFirestore(fb.app);
-    fb.storage = getStorage(fb.app);
-    fb.GoogleAuthProvider = GoogleAuthProvider; fb.signInWithPopup = signInWithPopup; fb.signOut = signOut; fb.onAuthStateChanged = onAuthStateChanged;
-    fb.collection = collection; fb.doc = doc; fb.getDocs = getDocs; fb.setDoc = setDoc; fb.deleteDoc = deleteDoc; fb.onSnapshot = onSnapshot; fb.serverTimestamp = serverTimestamp;
-    fb.ref = ref; fb.uploadBytes = uploadBytes; fb.getDownloadURL = getDownloadURL;
-    firebaseReady = true; return true;
-  }catch(e){ console.warn('Firebase not ready:', e); return false; }
+    fb.GoogleAuthProvider = GoogleAuthProvider;
+    fb.signInWithPopup = signInWithPopup;
+    fb.signInWithRedirect = signInWithRedirect;
+    fb.getRedirectResult = getRedirectResult;
+    fb.signOut = signOut;
+    fb.onAuthStateChanged = onAuthStateChanged;
+    fb.setPersistence = setPersistence;
+    fb.browserLocalPersistence = browserLocalPersistence;
+    fb.collection = collection; fb.doc = doc; fb.getDoc = getDoc; fb.getDocs = getDocs; fb.setDoc = setDoc; fb.deleteDoc = deleteDoc; fb.onSnapshot = onSnapshot; fb.serverTimestamp = serverTimestamp;
+    await fb.setPersistence(fb.auth, fb.browserLocalPersistence).catch(()=>{});
+    firebaseReady = true;
+    return true;
+  }catch(e){ console.error('Firebase not ready:', e); toast('Firebase failed to initialize: ' + (e?.code || e?.message || e)); return false; }
 }
+
+async function isAdminUser(user){
+  if(!user) return false;
+  // Fast owner fallback for current launch account. Firestore rules still protect writes.
+  if(String(user.email||'').toLowerCase() === NW_ADMIN_EMAIL.toLowerCase()) return true;
+  try{
+    const snap = await fb.getDoc(fb.doc(fb.db, 'admins', user.uid));
+    return snap.exists() && snap.data()?.active === true;
+  }catch(e){
+    console.warn('Admin check failed:', e);
+    return false;
+  }
+}
+
 
 async function loadProducts(){
   await initFirebaseOptional();
@@ -143,17 +167,37 @@ function submitClaim(){
 }
 
 async function adminSignIn(){
-  if(!firebaseReady){ await initFirebaseOptional(); }
-  if(!firebaseReady){ toast('Firebase is not configured. Admin changes will be local/export only.'); showAdminLocal(); return; }
-  const provider = new fb.GoogleAuthProvider();
-  const cred = await fb.signInWithPopup(fb.auth, provider);
-  fb.user = cred.user;
-  if(fb.user.email !== NW_ADMIN_EMAIL){ await fb.signOut(fb.auth); toast('Not authorized for Night Wardens admin.'); return; }
-  showAdminAuthed();
+  try{
+    toast('Preparing Google sign-in...');
+    if(!firebaseReady){ await initFirebaseOptional(); }
+    if(!firebaseReady){ toast('Firebase is not configured. Use Local Export Mode for now.'); showAdminLocal(); return; }
+    const provider = new fb.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 900;
+    if(isMobile){
+      toast('Opening Google sign-in redirect...');
+      await fb.signInWithRedirect(fb.auth, provider);
+      return;
+    }
+    try{
+      const cred = await fb.signInWithPopup(fb.auth, provider);
+      fb.user = cred.user;
+      if(!(await isAdminUser(fb.user))){ await fb.signOut(fb.auth); toast('Signed in, but this account is not authorized for admin.'); return; }
+      showAdminAuthed();
+    }catch(popupErr){
+      console.warn('Popup sign-in failed, using redirect:', popupErr);
+      toast('Popup blocked or failed. Redirecting to Google sign-in...');
+      await fb.signInWithRedirect(fb.auth, provider);
+    }
+  }catch(e){
+    console.error('Admin sign-in failed:', e);
+    toast('Sign-in failed: ' + (e?.code || e?.message || e));
+  }
 }
 async function adminSignOut(){ if(firebaseReady) await fb.signOut(fb.auth); location.reload(); }
-function showAdminLocal(){ byId('adminGate')?.classList.add('hidden'); byId('adminApp')?.classList.remove('hidden'); byId('adminMode').textContent='LOCAL EXPORT MODE — Firebase not configured'; renderAdmin(); }
-function showAdminAuthed(){ byId('adminGate')?.classList.add('hidden'); byId('adminApp')?.classList.remove('hidden'); byId('adminMode').textContent=`SIGNED IN: ${fb.user.email}`; renderAdmin(); }
+function showAdminLocal(){ byId('adminGate')?.classList.add('hidden'); byId('adminApp')?.classList.remove('hidden'); if(byId('adminMode')) byId('adminMode').textContent='LOCAL EXPORT MODE — Firebase not configured'; renderAdmin(); }
+function showAdminAuthed(){ byId('adminGate')?.classList.add('hidden'); byId('adminApp')?.classList.remove('hidden'); if(byId('adminMode')) byId('adminMode').textContent=`SIGNED IN: ${fb.user.email}`; renderAdmin(); }
+
 
 async function renderAdmin(){
   await loadProducts();
@@ -184,18 +228,9 @@ async function saveProductFromForm(){
   await saveProduct(p); toast('Product saved.'); renderAdmin();
 }
 async function uploadProductFile(){
-  const fileInput = byId('productFile'); const id = byId('productId').value.trim();
-  if(!fileInput.files?.[0]){toast('Choose a file first.'); return;}
-  if(!id){toast('Set or save product ID first.'); return;}
-  if(!firebaseReady || !fb.user){toast('Firebase Storage is not configured/signed in. Upload the file elsewhere and paste the URL.'); return;}
-  const file = fileInput.files[0];
-  const path = `product-files/${id}/${Date.now()}-${file.name}`;
-  const storageRef = fb.ref(fb.storage, path);
-  await fb.uploadBytes(storageRef, file);
-  const url = await fb.getDownloadURL(storageRef);
-  byId('productDownload').value = url;
-  toast('File uploaded and download URL filled. Save product to attach it.');
+  toast('Firebase Storage is not enabled on Spark. Upload the file to your chosen delivery location and paste the secure URL into Download URL / Library File URL.');
 }
+
 function exportProducts(){ const data = JSON.stringify({version:new Date().toISOString(), products}, null, 2); const blob = new Blob([data],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='products.json'; a.click(); }
 function importProductsFile(ev){ const f=ev.target.files?.[0]; if(!f)return; const r=new FileReader(); r.onload=()=>{ try{ const json=JSON.parse(r.result); products=json.products||json; setLocalProducts(products); toast('Products imported locally.'); renderAdmin(); }catch(e){toast('Could not import JSON.');} }; r.readAsText(f); }
 function grantLibrary(){ const email=byId('grantEmail').value.trim(); const productId=byId('grantProduct').value; if(!email||!productId){toast('Email and product required.');return;} const lib=getLibrary(); lib.unshift({id:uid(), email, productId, source:'admin_local_grant', grantedAt:new Date().toISOString()}); setLibrary(lib); toast('Local library grant saved on this device. Firebase grant can be added in next backend pass.'); }
@@ -207,7 +242,27 @@ async function init(){
   try{ bindTabs();
   if(byId('productGrid')){ await renderStore(); byId('searchProducts')?.addEventListener('input',renderStore); byId('filterProducts')?.addEventListener('change',renderStore); }
   if(byId('libraryGrid')||byId('claimProduct')){ await renderLibrary(); byId('claimSubmit')?.addEventListener('click',submitClaim); }
-  if(byId('adminSignIn')){ await initFirebaseOptional(); if(firebaseReady){ fb.onAuthStateChanged(fb.auth, user=>{ fb.user=user; if(user?.email===NW_ADMIN_EMAIL) showAdminAuthed(); }); } byId('adminSignIn').addEventListener('click',adminSignIn); byId('adminLocal').addEventListener('click',showAdminLocal); byId('adminSignOut')?.addEventListener('click',adminSignOut); byId('saveProduct')?.addEventListener('click',saveProductFromForm); byId('uploadProductFile')?.addEventListener('click',uploadProductFile); byId('exportProducts')?.addEventListener('click',exportProducts); byId('importProducts')?.addEventListener('change',importProductsFile); byId('grantLibrary')?.addEventListener('click',grantLibrary); }
+  if(byId('adminSignIn')){
+    await initFirebaseOptional();
+    if(firebaseReady){
+      try{ const redirectCred = await fb.getRedirectResult(fb.auth); if(redirectCred?.user){ fb.user = redirectCred.user; } }catch(e){ console.warn('Redirect result error:', e); toast('Google redirect result error: ' + (e?.code || e?.message || e)); }
+      fb.onAuthStateChanged(fb.auth, async user=>{
+        fb.user=user;
+        if(user){
+          if(await isAdminUser(user)) showAdminAuthed();
+          else { toast('Signed in, but this account is not authorized for admin.'); }
+        }
+      });
+    }
+    byId('adminSignIn').addEventListener('click',adminSignIn);
+    byId('adminLocal')?.addEventListener('click',showAdminLocal);
+    byId('adminSignOut')?.addEventListener('click',adminSignOut);
+    byId('saveProduct')?.addEventListener('click',saveProductFromForm);
+    byId('uploadProductFile')?.addEventListener('click',uploadProductFile);
+    byId('exportProducts')?.addEventListener('click',exportProducts);
+    byId('importProducts')?.addEventListener('change',importProductsFile);
+    byId('grantLibrary')?.addEventListener('click',grantLibrary);
+  }
   }catch(e){ console.error('Night Wardens UI init failed', e); toast('Store script error. Static products are still visible.'); }
 }
 document.addEventListener('DOMContentLoaded', init);
